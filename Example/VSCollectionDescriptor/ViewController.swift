@@ -6,19 +6,47 @@
 //  Copyright (c) 2017 myrddinus. All rights reserved.
 //
 
+import VSCollectionDescriptor
 import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var demoDatas = DemoDatas()
+    
+    fileprivate(set) lazy var collectionViewDelegate: VSCollectionDelegate = VSCollectionDelegate(delegate: self)
+    fileprivate(set) lazy var collectionViewDatasource: VSCollectionDataSource = VSCollectionDataSource(delegate: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        title = "Demo App"
+        
+        setupCollectionView();
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setupCollectionView() {
+        
+        collectionViewDelegate.collectionDatas = demoDatas
+        collectionViewDatasource.collectionDatas = demoDatas
+        
+        collectionView.delegate = collectionViewDelegate
+        collectionView.dataSource = collectionViewDatasource
+        
+        collectionView.backgroundColor = UIColor.clear
+        
+        demoDatas.collectionView = collectionView
+        demoDatas.reloadData()
     }
-
 }
 
+extension ViewController : VSCollectionDidSelectCellDelegate {
+    func didSelectCell(_ cellDescriptor: VSCollectionCellDescriptor, sectionDescriptor: VSCollectionSectionDescriptor, indexPath: IndexPath) {
+        demoDatas.green(titleDescriptor: cellDescriptor)
+    }
+}
+
+extension ViewController : VSCollectionUserEventDelegate {
+    
+}

@@ -1,0 +1,6 @@
+framework module Pods_VSCollectionDescriptor_Example {
+  umbrella header "Pods-VSCollectionDescriptor_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

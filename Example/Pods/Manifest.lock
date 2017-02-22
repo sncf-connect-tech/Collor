@@ -1,0 +1,16 @@
+PODS:
+  - VSCollectionDescriptor (0.1.0)
+
+DEPENDENCIES:
+  - VSCollectionDescriptor (from `../`)
+
+EXTERNAL SOURCES:
+  VSCollectionDescriptor:
+    :path: ../
+
+SPEC CHECKSUMS:
+  VSCollectionDescriptor: ae86fcfe5305ea8c1bc8e3d218685a1403cbe389
+
+PODFILE CHECKSUM: f6aa9cbee59295b151dfad31aed3392d5ca96b7d
+
+COCOAPODS: 1.1.1
