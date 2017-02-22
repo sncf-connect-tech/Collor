@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'VSCollectionDescriptor_Example' do
+  pod 'VSCollectionDescriptor', :path => '../'
+
+  target 'VSCollectionDescriptor_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
