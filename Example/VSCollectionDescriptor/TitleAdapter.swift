@@ -10,10 +10,21 @@ import Foundation
 
 struct TitleAdapter: VSCollectionAdapter {
 
+    let color:DemoDatas.Color
     let title:String
     
-    init(title:String) {
-        self.title = title
+    init(color:DemoDatas.Color) {
+        
+        self.color = color
+        
+        switch color {
+        case .blue:
+            title = "Blue"
+        case .green:
+            title = "Green"
+        case .yellow:
+            title = "Yellow"
+        }
     }
 
 }

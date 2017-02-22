@@ -43,7 +43,17 @@ class ViewController: UIViewController {
 
 extension ViewController : VSCollectionDidSelectCellDelegate {
     func didSelectCell(_ cellDescriptor: VSCollectionCellDescriptor, sectionDescriptor: VSCollectionSectionDescriptor, indexPath: IndexPath) {
-        demoDatas.green(titleDescriptor: cellDescriptor)
+        switch cellDescriptor.adapter {
+        case let adapter as TitleAdapter:
+            
+            let result = demoDatas.expand(titleDescriptor: cellDescriptor, color: adapter.color)
+            
+            collectionView?.performBatchUpdates({
+                self.collectionView?.insertItems(at: result.appendedIndexPaths)
+            }, completion: nil)
+        default:
+            break
+        }
     }
 }
 

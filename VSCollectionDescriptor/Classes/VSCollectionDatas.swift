@@ -58,9 +58,10 @@ open class VSCollectionDatas {
     public func append(cells:[VSCollectionCellDescriptor], after cell:VSCollectionCellDescriptor) {
         if let section = sections.first(where: { $0.cells.contains(where: { $0 === cell })}), var index = section.cells.index(where: { $0 === cell }) {
             section.cells.insert(contentsOf: cells, at: index + 1)
+            compute()
+            appendedCells.append(contentsOf:  cells.map{ $0.indexPath } )
         }
-        compute()
-        appendedCells.append(contentsOf:  cells.map{ $0.indexPath } )
+        
     }
     
     public func remove(cells:[VSCollectionCellDescriptor]) {

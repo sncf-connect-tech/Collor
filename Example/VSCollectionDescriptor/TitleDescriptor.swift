@@ -20,8 +20,8 @@ class TitleDescriptor: VSCollectionCellDescriptor {
     }
     let _adapter: TitleAdapter
     
-    init(title:String) {
-        _adapter = TitleAdapter(title:title)
+    init(color:DemoDatas.Color) {
+        _adapter = TitleAdapter(color: color)
     }
     
     func size(_ collectionView: UICollectionView, sectionDescriptor: VSCollectionSectionDescriptor) -> CGSize {
