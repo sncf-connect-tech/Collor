@@ -8,6 +8,7 @@
 
 import VSCollectionDescriptor
 import UIKit
+import Foundation
 
 class DemoDatas: VSCollectionDatas {
     
@@ -15,6 +16,11 @@ class DemoDatas: VSCollectionDatas {
         case yellow
         case green
         case blue
+    }
+    
+    enum Action {
+        case addSection
+        case removeSection
     }
     
     let yellowColors = [0xF3ED86,0xF5EC62,0xFAE600,0xCAAD00]
@@ -25,6 +31,13 @@ class DemoDatas: VSCollectionDatas {
         super.reloadData()
         
         sections.removeAll()
+        
+        let actionSection = MainColorSectionDescriptor()
+        let addSection = ActionDescriptor(action: .addSection)
+        actionSection.cells.append(addSection)
+        let removeSection = ActionDescriptor(action: .removeSection)
+        actionSection.cells.append(removeSection)
+        sections.append(actionSection)
         
         let yellowSection = MainColorSectionDescriptor()
         let yellowTitle = TitleDescriptor(color: .yellow)
@@ -40,6 +53,12 @@ class DemoDatas: VSCollectionDatas {
         let blueTitle = TitleDescriptor(color: .blue)
         blueSection.cells.append(blueTitle)
         sections.append(blueSection)
+        
+        for (index,section) in sections.enumerated() {
+            if section === blueSection {
+                print(index)
+            }
+        }
     }
     
     func expand(titleDescriptor:VSCollectionCellDescriptor, color:Color) -> UpdateCollectionResult {
@@ -58,10 +77,47 @@ class DemoDatas: VSCollectionDatas {
             ColorDescriptor(hexaColor: $0)
         }
         
-        beginUpdate()
-        append(cells: newCells, after: titleDescriptor)
-        let result = endUpdate()
+        let result = update {
+            append(cells: newCells, after: titleDescriptor)
+        }
+        return result
+    }
+    
+    func collapse(cells:[VSCollectionCellDescriptor]) -> UpdateCollectionResult {
+        let result = update {
+            remove(cells: cells)
+        }
+        return result
+    }
+    
+    func addSection() -> UpdateCollectionResult {
+        
+        let blueSection = MainColorSectionDescriptor()
+        let blueTitle = TitleDescriptor(color: .blue)
+        blueSection.cells.append(blueTitle)
+        
+        let result = update {
+            let last = sections.last
+            print(last!)
+            append(sections: [blueSection], after: last!)
+        }
         
         return result
+    }
+    
+    func removeRandomSection() -> UpdateCollectionResult? {
+        
+        if sections.count <= 1 {
+            return nil
+        }
+        
+        let randomIndex = 1 + Int(arc4random_uniform( UInt32(sections.count) - 1))
+        let sectionToRemove = sections[randomIndex]
+        let result = update {
+            remove(sections: [sectionToRemove])
+        }
+        
+        return result
+        
     }
 }

@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     fileprivate(set) lazy var collectionViewDelegate: VSCollectionDelegate = VSCollectionDelegate(delegate: self)
     fileprivate(set) lazy var collectionViewDatasource: VSCollectionDataSource = VSCollectionDataSource(delegate: self)
     
+    var expanded = [IndexPath:[VSCollectionCellDescriptor]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,14 +45,51 @@ class ViewController: UIViewController {
 
 extension ViewController : VSCollectionDidSelectCellDelegate {
     func didSelectCell(_ cellDescriptor: VSCollectionCellDescriptor, sectionDescriptor: VSCollectionSectionDescriptor, indexPath: IndexPath) {
-        switch cellDescriptor.adapter {
-        case let adapter as TitleAdapter:
+        switch (cellDescriptor, cellDescriptor.adapter) {
             
-            let result = demoDatas.expand(titleDescriptor: cellDescriptor, color: adapter.color)
+        case (is ColorDescriptor, _):
+            let result = demoDatas.update {
+                demoDatas.remove(cells: [cellDescriptor])
+            }
             
             collectionView?.performBatchUpdates({
+                self.collectionView?.deleteItems(at: result.removedIndexPaths)
+            }, completion: nil)
+        
+        case (_, let adapter as TitleAdapter):
+            
+            var result:UpdateCollectionResult!
+            
+            if let expandedCells = expanded[cellDescriptor.indexPath] {
+                result = demoDatas.collapse(cells: expandedCells)
+                expanded[cellDescriptor.indexPath] = nil
+            } else {
+                result = demoDatas.expand(titleDescriptor: cellDescriptor, color: adapter.color)
+                expanded[cellDescriptor.indexPath] = result.appendedCellDescriptors
+            }
+            
+            collectionView?.performBatchUpdates({
+                self.collectionView?.deleteItems(at: result.removedIndexPaths)
                 self.collectionView?.insertItems(at: result.appendedIndexPaths)
             }, completion: nil)
+            
+        case (_, let adapter as ActionAdapter):
+            switch adapter.action {
+            case .addSection:
+                
+                let result = demoDatas.addSection()
+                
+                collectionView?.performBatchUpdates({
+                    self.collectionView.insertSections(result.appenedSectionsIndexSet)
+                }, completion: nil)
+            case .removeSection:
+                if let result = demoDatas.removeRandomSection() {
+                    collectionView?.performBatchUpdates({
+                        self.collectionView.deleteSections(result.removedSectionsIndexSet)
+                    }, completion: nil)
+                }
+            }
+            
         default:
             break
         }

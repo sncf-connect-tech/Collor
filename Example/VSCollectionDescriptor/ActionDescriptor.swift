@@ -1,32 +1,32 @@
 //
-//  ColorDescriptor.swift
+//  ActionDescriptor.swift
 //  VSCollectionDescriptor
 //
-//  Created by Guihal Gwenn on 22/02/17.
+//  Created by Guihal Gwenn on 23/02/17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 import VSCollectionDescriptor
 import Foundation
 
-class ColorDescriptor: VSCollectionCellDescriptor {
+class ActionDescriptor: VSCollectionCellDescriptor {
     
-    let identifier: String = "ColorCollectionViewCell"
-    let className: String = "ColorCollectionViewCell"
+    let identifier: String = "ActionCollectionViewCell"
+    let className: String = "ActionCollectionViewCell"
     var selectable:Bool = true
     var indexPath: IndexPath!
     
     var adapter: VSCollectionAdapter {
         return _adapter
     }
-    let _adapter: ColorAdapter
+    let _adapter: ActionAdapter
     
-    init(hexaColor:Int) {
-        _adapter = ColorAdapter(hexaColor:hexaColor)
+    init(action:DemoDatas.Action) {
+        _adapter = ActionAdapter(action:action)
     }
     
     func size(_ collectionView: UICollectionView, sectionDescriptor: VSCollectionSectionDescriptor) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
-        return CGSize(width:width, height:50)
+        return CGSize(width:width, height:44)
     }
 }

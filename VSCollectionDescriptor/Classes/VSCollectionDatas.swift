@@ -47,37 +47,80 @@ open class VSCollectionDatas {
         }
     }
     
-    private(set) var appendedCells = [IndexPath]()
-    private(set) var removedCells = [IndexPath]()
+    fileprivate var lock:Bool = false // alow or disallow updating datas
+    fileprivate var result:UpdateCollectionResult!
     
-    public func beginUpdate() {
-        appendedCells.removeAll()
-        removedCells.removeAll()
+    public func update(_ updates: () -> Void) -> UpdateCollectionResult {
+        result = UpdateCollectionResult()
+        lock = true
+        updates()
+        lock = false
+        return result
     }
     
     public func append(cells:[VSCollectionCellDescriptor], after cell:VSCollectionCellDescriptor) {
-        if let section = sections.first(where: { $0.cells.contains(where: { $0 === cell })}), var index = section.cells.index(where: { $0 === cell }) {
-            section.cells.insert(contentsOf: cells, at: index + 1)
+        checkLock()
+        if let section = sections[safe: cell.indexPath.section] {
+            section.cells.insert(contentsOf: cells, at: cell.indexPath.item + 1)
             compute()
-            appendedCells.append(contentsOf:  cells.map{ $0.indexPath } )
+            
+            result.appendedCellDescriptors.append(contentsOf: cells)
+            result.appendedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
         }
-        
     }
     
     public func remove(cells:[VSCollectionCellDescriptor]) {
-        
+        checkLock()
+        var needToCompute = false
+        cells.forEach { (cellToDelete) in
+            if let section = sections[safe: cellToDelete.indexPath.section] {
+                if let index = section.cells.index(where: {$0 === cellToDelete} ) {
+                    section.cells.remove(at: index)
+                    result.removedIndexPaths.append( cellToDelete.indexPath )
+                    result.removedCellDescriptors.append(cellToDelete )
+                    needToCompute = true
+                }
+            }
+        }
+        if needToCompute {
+            compute()
+        }
     }
     
-    public func endUpdate() -> UpdateCollectionResult {
-        return UpdateCollectionResult(appendedIndexPaths: appendedCells,
-                                      removedIndexPaths: removedCells)
+    public func append(sections:[VSCollectionSectionDescriptor], after section:VSCollectionSectionDescriptor) {
+        checkLock()
+        if let sectionIndex = self.sections.index(where: { $0 === section }) {
+            self.sections.insert(contentsOf: sections, at: sectionIndex + 1)
+            
+            result.appenedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: sectionIndex + 1, upper: sectionIndex + 1 + sections.count)))
+        }
     }
-
+    
+    public func remove(sections:[VSCollectionSectionDescriptor]) {
+        checkLock()
+        sections.forEach { (sectionToDelete) in
+            if let index = self.sections.index(where: {$0 === sectionToDelete} ) {
+                self.sections.remove(at: index)
+                result.removedSectionsIndexSet.insert(index)
+            }
+        }
+    }
+    
+    fileprivate func checkLock() {
+        assert(lock == true, "Updading datas can only be done in an update closure")
+    }
 }
 
 public struct UpdateCollectionResult {
-    public let appendedIndexPaths:[IndexPath]
-    public let removedIndexPaths:[IndexPath]
+    
+    public var appendedIndexPaths = [IndexPath]()
+    public var appendedCellDescriptors = [VSCollectionCellDescriptor]()
+    
+    public var removedIndexPaths = [IndexPath]()
+    public var removedCellDescriptors = [VSCollectionCellDescriptor]()
+   
+    public var appenedSectionsIndexSet = IndexSet()
+    public var removedSectionsIndexSet = IndexSet()
 }
 
 fileprivate struct CellData: Hashable {
@@ -99,5 +142,12 @@ fileprivate struct CellData: Hashable {
         
     }
     
+}
+
+extension Collection where Indices.Iterator.Element == Index {
+    
+    subscript (safe index: Index) -> Generator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
 }
 
