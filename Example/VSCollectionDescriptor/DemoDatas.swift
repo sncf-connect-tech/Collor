@@ -53,12 +53,6 @@ class DemoDatas: VSCollectionDatas {
         let blueTitle = TitleDescriptor(color: .blue)
         blueSection.cells.append(blueTitle)
         sections.append(blueSection)
-        
-        for (index,section) in sections.enumerated() {
-            if section === blueSection {
-                print(index)
-            }
-        }
     }
     
     func expand(titleDescriptor:VSCollectionCellDescriptor, color:Color) -> UpdateCollectionResult {
@@ -98,7 +92,6 @@ class DemoDatas: VSCollectionDatas {
         
         let result = update {
             let last = sections.last
-            print(last!)
             append(sections: [blueSection], after: last!)
         }
         
