@@ -24,7 +24,7 @@ open class VSCollectionDatas {
         }
     }
     
-    public func sectionsCount() -> Int {
+    open func sectionsCount() -> Int {
         return sections.count
     }
     
@@ -46,6 +46,8 @@ open class VSCollectionDatas {
             collectionView?.register(nib, forCellWithReuseIdentifier: cellData.identifier)
         }
     }
+    
+    //MARK: Updates
     
     fileprivate var lock:Bool = false // alow or disallow updating datas
     fileprivate var result:UpdateCollectionResult!
@@ -106,6 +108,8 @@ open class VSCollectionDatas {
         }
     }
     
+    //TODO: add a reverse operation based on a result
+    
     fileprivate func checkLock() {
         assert(lock == true, "Updading datas can only be done in an update closure")
     }
@@ -120,7 +124,9 @@ public struct UpdateCollectionResult {
     public var removedCellDescriptors = [VSCollectionCellDescriptor]()
    
     public var appenedSectionsIndexSet = IndexSet()
+    //TODO: add appenedSectionsDescriptor
     public var removedSectionsIndexSet = IndexSet()
+    //TODO: add removedSectionsDescriptor
 }
 
 fileprivate struct CellData: Hashable {
