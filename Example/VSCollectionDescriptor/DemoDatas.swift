@@ -27,32 +27,39 @@ class DemoDatas: VSCollectionDatas {
     let greenColors = [0xBCE18D,0xA4D867,0x62BD19,0x4FA600]
     let blueColors = [0x94A1E2,0xA1BDEA,0x547ED9,0x7973C2]
     
+    override init() {
+        super.init()
+        reloadData()
+    }
+    
     override func reloadData() {
         super.reloadData()
         
-        sections.removeAll()
+        var tempSections = [VSCollectionSectionDescriptor]()
         
         let actionSection = MainColorSectionDescriptor()
         let addSection = ActionDescriptor(action: .addSection)
         actionSection.cells.append(addSection)
         let removeSection = ActionDescriptor(action: .removeSection)
         actionSection.cells.append(removeSection)
-        sections.append(actionSection)
+        tempSections.append(actionSection)
         
         let yellowSection = MainColorSectionDescriptor()
         let yellowTitle = TitleDescriptor(color: .yellow)
         yellowSection.cells.append(yellowTitle)
-        sections.append(yellowSection)
+        tempSections.append(yellowSection)
         
         let greenSection = MainColorSectionDescriptor()
         let greenTitle = TitleDescriptor(color: .green)
         greenSection.cells.append(greenTitle)
-        sections.append(greenSection)
+        tempSections.append(greenSection)
         
         let blueSection = MainColorSectionDescriptor()
         let blueTitle = TitleDescriptor(color: .blue)
         blueSection.cells.append(blueTitle)
-        sections.append(blueSection)
+        tempSections.append(blueSection)
+        
+        sections = tempSections
     }
     
     func expand(titleDescriptor:VSCollectionCellDescriptor, color:Color) -> UpdateCollectionResult {
