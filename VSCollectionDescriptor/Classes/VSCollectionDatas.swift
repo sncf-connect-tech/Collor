@@ -10,11 +10,7 @@ import Foundation
 
 open class VSCollectionDatas {
     
-    public weak var collectionView:UICollectionView? {
-        didSet {
-            compute()
-        }
-    }
+    var registeredCells = Set<String>()
     
     public init() {}
     
@@ -39,11 +35,6 @@ open class VSCollectionDatas {
                 registrationsSet.insert( CellData(identifier:cell.identifier, className:cell.className) )
                 cell.indexPath = IndexPath(item: itemIndex, section: sectionIndex)
             }
-        }
-        
-        registrationsSet.forEach { (cellData) in
-            let nib = UINib(nibName: cellData.className, bundle: nil)
-            collectionView?.register(nib, forCellWithReuseIdentifier: cellData.identifier)
         }
     }
     

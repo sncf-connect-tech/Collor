@@ -32,6 +32,12 @@ public class VSCollectionDataSource: NSObject, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        if let collectionDatas = collectionDatas, collectionDatas.registeredCells.contains(cellDescriptor.identifier) == false {
+            let nib = UINib(nibName: cellDescriptor.className, bundle: nil)
+            collectionView.register(nib, forCellWithReuseIdentifier: cellDescriptor.identifier)
+            collectionDatas.registeredCells.insert(cellDescriptor.identifier)
+        }
+ 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellDescriptor.identifier, for: indexPath) as? VSCollectionCellProtocol else {
             return UICollectionViewCell()
         }

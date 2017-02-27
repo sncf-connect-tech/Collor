@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         
         collectionView.backgroundColor = UIColor.clear
         
-        demoDatas.collectionView = collectionView
         demoDatas.reloadData()
     }
 }
