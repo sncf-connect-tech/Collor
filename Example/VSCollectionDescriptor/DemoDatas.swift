@@ -10,7 +10,7 @@ import VSCollectionDescriptor
 import UIKit
 import Foundation
 
-class DemoDatas: VSCollectionDatas {
+class DemoDatas: CollectionDatas {
     
     enum Color {
         case yellow
@@ -55,7 +55,7 @@ class DemoDatas: VSCollectionDatas {
         sections.append(blueSection)
     }
     
-    func expand(titleDescriptor:VSCollectionCellDescriptor, color:Color) -> UpdateCollectionResult {
+    func expand(titleDescriptor:CollectionCellDescriptable, color:Color) -> UpdateCollectionResult {
         
         var newColors:[Int]!
         switch color {
@@ -67,7 +67,7 @@ class DemoDatas: VSCollectionDatas {
             newColors = blueColors
         }
         
-        let newCells:[VSCollectionCellDescriptor] = newColors.map {
+        let newCells:[CollectionCellDescriptable] = newColors.map {
             ColorDescriptor(hexaColor: $0)
         }
         
@@ -77,7 +77,7 @@ class DemoDatas: VSCollectionDatas {
         return result
     }
     
-    func collapse(cells:[VSCollectionCellDescriptor]) -> UpdateCollectionResult {
+    func collapse(cells:[CollectionCellDescriptable]) -> UpdateCollectionResult {
         let result = update {
             remove(cells: cells)
         }

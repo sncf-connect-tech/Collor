@@ -15,10 +15,10 @@ class ViewController: UIViewController {
     
     var demoDatas = DemoDatas()
     
-    fileprivate(set) lazy var collectionViewDelegate: VSCollectionDelegate = VSCollectionDelegate(delegate: self)
-    fileprivate(set) lazy var collectionViewDatasource: VSCollectionDataSource = VSCollectionDataSource(delegate: self)
+    fileprivate(set) lazy var collectionViewDelegate: CollectionDelegate = CollectionDelegate(delegate: self)
+    fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: self)
     
-    var expanded = [IndexPath:[VSCollectionCellDescriptor]]()
+    var expanded = [IndexPath:[CollectionCellDescriptable]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +42,9 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController : VSCollectionDidSelectCellDelegate {
-    func didSelectCell(_ cellDescriptor: VSCollectionCellDescriptor, sectionDescriptor: VSCollectionSectionDescriptor, indexPath: IndexPath) {
+extension ViewController : CollectionDidSelectCellDelegate {
+
+    func didSelect(_ cellDescriptor: CollectionCellDescriptable, sectionDescriptor: CollectionSectionDescriptable, indexPath: IndexPath) {
         switch (cellDescriptor, cellDescriptor.adapter) {
             
         case (is ColorDescriptor, _):
@@ -95,6 +96,6 @@ extension ViewController : VSCollectionDidSelectCellDelegate {
     }
 }
 
-extension ViewController : VSCollectionUserEventDelegate {
+extension ViewController : CollectionUserEventDelegate {
     
 }

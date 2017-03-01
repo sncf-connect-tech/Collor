@@ -8,14 +8,14 @@
 import VSCollectionDescriptor
 import Foundation
 
-class TitleDescriptor: VSCollectionCellDescriptor {
+class TitleDescriptor: CollectionCellDescriptable {
     
     let identifier: String = "TitleCollectionViewCell"
     let className: String = "TitleCollectionViewCell"
     var selectable:Bool = true
     var indexPath: IndexPath!
     
-    var adapter: VSCollectionAdapter {
+    var adapter: CollectionAdapter {
         return _adapter
     }
     let _adapter: TitleAdapter
@@ -24,7 +24,7 @@ class TitleDescriptor: VSCollectionCellDescriptor {
         _adapter = TitleAdapter(color: color)
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: VSCollectionSectionDescriptor) -> CGSize {
+    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescriptable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:50)

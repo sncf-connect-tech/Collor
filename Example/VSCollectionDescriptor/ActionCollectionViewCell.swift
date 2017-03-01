@@ -8,7 +8,7 @@
 import VSCollectionDescriptor
 import UIKit
 
-class ActionCollectionViewCell: UICollectionViewCell, VSCollectionCellProtocol {
+class ActionCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     @IBOutlet weak var actionLabel: UILabel!
     
@@ -17,8 +17,8 @@ class ActionCollectionViewCell: UICollectionViewCell, VSCollectionCellProtocol {
         // Initialization code
     }
     
-    func updateWithAdapter(adapter aAdapter: VSCollectionAdapter) -> Void {
-        guard let adapter = aAdapter as? ActionAdapter else {
+    func update(with adapter: CollectionAdapter) {
+        guard let adapter = adapter as? ActionAdapter else {
             fatalError("ActionAdapter required")
         }
         actionLabel.text = adapter.actionName

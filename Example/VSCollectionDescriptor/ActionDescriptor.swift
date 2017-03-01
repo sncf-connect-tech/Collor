@@ -8,14 +8,14 @@
 import VSCollectionDescriptor
 import Foundation
 
-class ActionDescriptor: VSCollectionCellDescriptor {
+class ActionDescriptor: CollectionCellDescriptable {
     
     let identifier: String = "ActionCollectionViewCell"
     let className: String = "ActionCollectionViewCell"
     var selectable:Bool = true
     var indexPath: IndexPath!
     
-    var adapter: VSCollectionAdapter {
+    var adapter: CollectionAdapter {
         return _adapter
     }
     let _adapter: ActionAdapter
@@ -24,7 +24,7 @@ class ActionDescriptor: VSCollectionCellDescriptor {
         _adapter = ActionAdapter(action:action)
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: VSCollectionSectionDescriptor) -> CGSize {
+    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescriptable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:44)

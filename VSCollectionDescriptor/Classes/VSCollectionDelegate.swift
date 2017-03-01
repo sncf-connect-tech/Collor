@@ -1,5 +1,5 @@
 //
-//  VSCollectionDelegate.swift
+//  CollectionDelegate.swift
 //  VSC
 //
 //  Created by Guihal Gwenn on 29/06/16.
@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-public class VSCollectionDelegate: NSObject, UICollectionViewDelegate {
+public class CollectionDelegate: NSObject, UICollectionViewDelegate {
     
-    public var collectionDatas: VSCollectionDatas?
-    public weak var delegate: VSCollectionDidSelectCellDelegate?
+    public var collectionDatas: CollectionDatas?
+    public weak var delegate: CollectionDidSelectCellDelegate?
     
-    public init(delegate: VSCollectionDidSelectCellDelegate) {
+    public init(delegate: CollectionDidSelectCellDelegate) {
         self.delegate = delegate
         super.init()
     }
@@ -31,13 +31,13 @@ public class VSCollectionDelegate: NSObject, UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let sectionDescriptor = collectionDatas?.sections[indexPath.section] {
             let cellDescriptor = sectionDescriptor.cells[indexPath.item]
-            delegate?.didSelectCell(cellDescriptor, sectionDescriptor: sectionDescriptor, indexPath: indexPath)
+            delegate?.didSelect(cellDescriptor, sectionDescriptor: sectionDescriptor, indexPath: indexPath)
         }
     }
     
 }
 
-extension VSCollectionDelegate : UICollectionViewDelegateFlowLayout {
+extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let sectionDescriptor = collectionDatas?.sections[indexPath.section] {

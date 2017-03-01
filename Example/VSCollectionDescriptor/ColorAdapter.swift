@@ -9,7 +9,7 @@ import VSCollectionDescriptor
 import Foundation
 import UIKit
 
-struct ColorAdapter: VSCollectionAdapter {
+struct ColorAdapter: CollectionAdapter {
 
     let color:UIColor
     

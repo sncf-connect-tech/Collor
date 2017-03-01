@@ -8,7 +8,7 @@
 import VSCollectionDescriptor
 import UIKit
 
-class TitleCollectionViewCell: UICollectionViewCell, VSCollectionCellProtocol {
+class TitleCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -17,8 +17,8 @@ class TitleCollectionViewCell: UICollectionViewCell, VSCollectionCellProtocol {
         // Initialization code
     }
     
-    func updateWithAdapter(adapter aAdapter: VSCollectionAdapter) -> Void {
-        guard let adapter = aAdapter as? TitleAdapter else {
+    func update(with adapter: CollectionAdapter) {
+        guard let adapter = adapter as? TitleAdapter else {
             fatalError("TitleAdapter required")
         }
 

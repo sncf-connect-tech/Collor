@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class VSCollectionDataSource: NSObject, UICollectionViewDataSource {
+public class CollectionDataSource: NSObject, UICollectionViewDataSource {
     
-    public var collectionDatas: VSCollectionDatas?
-    public unowned var delegate:VSCollectionUserEventDelegate
+    public var collectionDatas: CollectionDatas?
+    public unowned var delegate:CollectionUserEventDelegate
     
-    public init(delegate:VSCollectionUserEventDelegate) {
+    public init(delegate:CollectionUserEventDelegate) {
         self.delegate = delegate
         super.init()
     }
@@ -38,12 +38,13 @@ public class VSCollectionDataSource: NSObject, UICollectionViewDataSource {
             collectionDatas.registeredCells.insert(cellDescriptor.identifier)
         }
  
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellDescriptor.identifier, for: indexPath) as? VSCollectionCellProtocol else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellDescriptor.identifier, for: indexPath) as? CollectionCellAdaptable else {
             return UICollectionViewCell()
         }
         
-        cell.updateWithAdapter(adapter: cellDescriptor.adapter)
-        cell.setDelegate(delegate)
+        
+        cell.update(with: cellDescriptor.adapter)
+        cell.set(delegate: delegate)
         return cell as? UICollectionViewCell ?? UICollectionViewCell()
     }
     

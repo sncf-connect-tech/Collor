@@ -8,15 +8,15 @@
 import VSCollectionDescriptor
 import UIKit
 
-class ColorCollectionViewCell: UICollectionViewCell, VSCollectionCellProtocol {
+class ColorCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func updateWithAdapter(adapter aAdapter: VSCollectionAdapter) -> Void {
-        guard let adapter = aAdapter as? ColorAdapter else {
+    func update(with adapter: CollectionAdapter) {
+        guard let adapter = adapter as? ColorAdapter else {
             fatalError("ColorAdapter required")
         }
         

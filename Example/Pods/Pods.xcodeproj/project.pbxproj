@@ -12,7 +12,7 @@
 		39CEA1DBE5FC59A62C7FB457753B6A43 /* VSCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E80FB0461EE4157068B0E429F009317 /* VSCollectionDelegate.swift */; };
 		3E570A8103B8700E25469E405DB64E16 /* Pods-VSCollectionDescriptor_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F309E4CECCCAE1C9D1106CB5975C12E1 /* Pods-VSCollectionDescriptor_Tests-dummy.m */; };
 		4EF8A04686DECF90AB5DBFFA810E6A97 /* VSCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9486828C1C992F35F3EF889748B76987 /* VSCollectionDataSource.swift */; };
-		8C09EFB6418722BEA2C580528BCEA816 /* VSCollectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A878DFB4938A0C1A1332E1839FA9833 /* VSCollectionDescriptor.swift */; };
+		8C09EFB6418722BEA2C580528BCEA816 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A878DFB4938A0C1A1332E1839FA9833 /* Protocols.swift */; };
 		8CCFD45F5A2EA34C9CBCF485F50A2C6E /* Pods-VSCollectionDescriptor_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 52CA176108F010F10671800BC91BA5B8 /* Pods-VSCollectionDescriptor_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CBA5FBF5A22AAAC31A15A4BCAF3C308 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		AC3454ADB1FB9EAD848DC8F07EBA057E /* VSCollectionDescriptor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244CB12B55BF47C83F7CC435FEAFB2 /* VSCollectionDescriptor-dummy.m */; };
@@ -35,26 +35,26 @@
 /* Begin PBXFileReference section */
 		02244CB12B55BF47C83F7CC435FEAFB2 /* VSCollectionDescriptor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VSCollectionDescriptor-dummy.m"; sourceTree = "<group>"; };
 		076DC6F32E572DD154BE158208BA05DA /* Pods-VSCollectionDescriptor_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VSCollectionDescriptor_Tests-resources.sh"; sourceTree = "<group>"; };
-		07B7DA0A02CD846CC4D8F27C965A3CB6 /* Pods_VSCollectionDescriptor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VSCollectionDescriptor_Example.framework; path = "Pods-VSCollectionDescriptor_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07B7DA0A02CD846CC4D8F27C965A3CB6 /* Pods_VSCollectionDescriptor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VSCollectionDescriptor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B4744C57E28F7BE8D0E3A5A65149E2C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C06DA90EBB48D66EE7948A0D85A0E21 /* Pods-VSCollectionDescriptor_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VSCollectionDescriptor_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		1237077EA96D4601F8FBE0F91D13016E /* Pods-VSCollectionDescriptor_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VSCollectionDescriptor_Example-resources.sh"; sourceTree = "<group>"; };
-		148290CEEA9FE96F734847DE60EB2EF1 /* Pods-VSCollectionDescriptor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-VSCollectionDescriptor_Example.modulemap"; sourceTree = "<group>"; };
-		1A878DFB4938A0C1A1332E1839FA9833 /* VSCollectionDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VSCollectionDescriptor.swift; sourceTree = "<group>"; };
+		148290CEEA9FE96F734847DE60EB2EF1 /* Pods-VSCollectionDescriptor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-VSCollectionDescriptor_Example.modulemap"; sourceTree = "<group>"; };
+		1A878DFB4938A0C1A1332E1839FA9833 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		2957871B4D72FB53EFAFCE434D7B3E17 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		295AC8FC93EE716D7115D519B6DB83A4 /* VSCollectionDatas.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VSCollectionDatas.swift; sourceTree = "<group>"; };
 		2DC3026F2D5036C63A324CBF6218D497 /* Pods-VSCollectionDescriptor_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VSCollectionDescriptor_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3EF4DB8F086926D4AFB0F70E1F692B04 /* Pods_VSCollectionDescriptor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VSCollectionDescriptor_Tests.framework; path = "Pods-VSCollectionDescriptor_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4160340D56B80B6C051561286230DB60 /* VSCollectionDescriptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = VSCollectionDescriptor.framework; path = VSCollectionDescriptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EF4DB8F086926D4AFB0F70E1F692B04 /* Pods_VSCollectionDescriptor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VSCollectionDescriptor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4160340D56B80B6C051561286230DB60 /* VSCollectionDescriptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VSCollectionDescriptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		517193FA0C89B026488C00C6C0298CE0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52CA176108F010F10671800BC91BA5B8 /* Pods-VSCollectionDescriptor_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VSCollectionDescriptor_Tests-umbrella.h"; sourceTree = "<group>"; };
 		60FADD642E54C1F72DCF2931B32B086C /* VSCollectionDescriptor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VSCollectionDescriptor-prefix.pch"; sourceTree = "<group>"; };
 		68EC4FDB19A85684E50D874E2FE11360 /* Pods-VSCollectionDescriptor_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VSCollectionDescriptor_Example-dummy.m"; sourceTree = "<group>"; };
-		7B9807412FC53A8702ED91F8D96A4140 /* Pods-VSCollectionDescriptor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-VSCollectionDescriptor_Tests.modulemap"; sourceTree = "<group>"; };
+		7B9807412FC53A8702ED91F8D96A4140 /* Pods-VSCollectionDescriptor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-VSCollectionDescriptor_Tests.modulemap"; sourceTree = "<group>"; };
 		7C459EA2B62037DE9EB697ECAD7177AD /* Pods-VSCollectionDescriptor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VSCollectionDescriptor_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		898E2DBFBF63312AD5B5AAFF458E77B8 /* VSCollectionDescriptor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = VSCollectionDescriptor.modulemap; sourceTree = "<group>"; };
+		898E2DBFBF63312AD5B5AAFF458E77B8 /* VSCollectionDescriptor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = VSCollectionDescriptor.modulemap; sourceTree = "<group>"; };
 		8E80FB0461EE4157068B0E429F009317 /* VSCollectionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VSCollectionDelegate.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9486828C1C992F35F3EF889748B76987 /* VSCollectionDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VSCollectionDataSource.swift; sourceTree = "<group>"; };
 		A07D36F08C293EB1EED67E6D925D8D17 /* Pods-VSCollectionDescriptor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VSCollectionDescriptor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A3A7497DF942534C12656672BC8A6FE1 /* Pods-VSCollectionDescriptor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VSCollectionDescriptor_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,7 +193,6 @@
 			children = (
 				CB8F5611BAA0CB170F4559311130E950 /* Classes */,
 			);
-			name = VSCollectionDescriptor;
 			path = VSCollectionDescriptor;
 			sourceTree = "<group>";
 		};
@@ -203,9 +202,8 @@
 				295AC8FC93EE716D7115D519B6DB83A4 /* VSCollectionDatas.swift */,
 				9486828C1C992F35F3EF889748B76987 /* VSCollectionDataSource.swift */,
 				8E80FB0461EE4157068B0E429F009317 /* VSCollectionDelegate.swift */,
-				1A878DFB4938A0C1A1332E1839FA9833 /* VSCollectionDescriptor.swift */,
+				1A878DFB4938A0C1A1332E1839FA9833 /* Protocols.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -360,7 +358,7 @@
 				4EF8A04686DECF90AB5DBFFA810E6A97 /* VSCollectionDataSource.swift in Sources */,
 				39CEA1DBE5FC59A62C7FB457753B6A43 /* VSCollectionDelegate.swift in Sources */,
 				AC3454ADB1FB9EAD848DC8F07EBA057E /* VSCollectionDescriptor-dummy.m in Sources */,
-				8C09EFB6418722BEA2C580528BCEA816 /* VSCollectionDescriptor.swift in Sources */,
+				8C09EFB6418722BEA2C580528BCEA816 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

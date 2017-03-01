@@ -1,5 +1,5 @@
 //
-//  VSCollectionDatas.swift
+//  CollectionDatas.swift
 //  VSC
 //
 //  Created by Guihal Gwenn on 20/02/17.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-open class VSCollectionDatas {
+open class CollectionDatas {
     
     var registeredCells = Set<String>()
     
     public init() {}
     
-    public var sections = [VSCollectionSectionDescriptor]() {
+    public var sections = [CollectionSectionDescriptable]() {
         didSet {
             compute()
         }
@@ -28,11 +28,8 @@ open class VSCollectionDatas {
     
     fileprivate func compute() {
         
-        var registrationsSet = Set<CellData>()
-        
         for (sectionIndex, section) in sections.enumerated() {
             for (itemIndex, cell) in section.cells.enumerated() {
-                registrationsSet.insert( CellData(identifier:cell.identifier, className:cell.className) )
                 cell.indexPath = IndexPath(item: itemIndex, section: sectionIndex)
             }
         }
@@ -40,37 +37,32 @@ open class VSCollectionDatas {
     
     //MARK: Updates
     
-    fileprivate var lock:Bool = false // alow or disallow updating datas
-    fileprivate var result:UpdateCollectionResult!
+    fileprivate var result:UpdateCollectionResult?
     
     public func update(_ updates: () -> Void) -> UpdateCollectionResult {
         result = UpdateCollectionResult()
-        lock = true
         updates()
-        lock = false
-        return result
+        return result!
     }
     
-    public func append(cells:[VSCollectionCellDescriptor], after cell:VSCollectionCellDescriptor) {
-        checkLock()
+    public func append(cells:[CollectionCellDescriptable], after cell:CollectionCellDescriptable) {
         if let section = sections[safe: cell.indexPath.section] {
             section.cells.insert(contentsOf: cells, at: cell.indexPath.item + 1)
             compute()
             
-            result.appendedCellDescriptors.append(contentsOf: cells)
-            result.appendedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
+            result?.appendedCellDescriptors.append(contentsOf: cells)
+            result?.appendedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
         }
     }
     
-    public func remove(cells:[VSCollectionCellDescriptor]) {
-        checkLock()
+    public func remove(cells:[CollectionCellDescriptable]) {
         var needToCompute = false
         cells.forEach { (cellToDelete) in
             if let section = sections[safe: cellToDelete.indexPath.section] {
                 if let index = section.cells.index(where: {$0 === cellToDelete} ) {
                     section.cells.remove(at: index)
-                    result.removedIndexPaths.append( cellToDelete.indexPath )
-                    result.removedCellDescriptors.append(cellToDelete )
+                    result?.removedIndexPaths.append( cellToDelete.indexPath )
+                    result?.removedCellDescriptors.append(cellToDelete )
                     needToCompute = true
                 }
             }
@@ -80,65 +72,39 @@ open class VSCollectionDatas {
         }
     }
     
-    public func append(sections:[VSCollectionSectionDescriptor], after section:VSCollectionSectionDescriptor) {
-        checkLock()
+    public func append(sections:[CollectionSectionDescriptable], after section:CollectionSectionDescriptable) {
         if let sectionIndex = self.sections.index(where: { $0 === section }) {
             self.sections.insert(contentsOf: sections, at: sectionIndex + 1)
             
-            result.appenedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: sectionIndex + 1, upper: sectionIndex + 1 + sections.count)))
+            result?.appenedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: sectionIndex + 1, upper: sectionIndex + 1 + sections.count)))
         }
     }
     
-    public func remove(sections:[VSCollectionSectionDescriptor]) {
-        checkLock()
+    public func remove(sections:[CollectionSectionDescriptable]) {
         sections.forEach { (sectionToDelete) in
             if let index = self.sections.index(where: {$0 === sectionToDelete} ) {
                 self.sections.remove(at: index)
-                result.removedSectionsIndexSet.insert(index)
+                result?.removedSectionsIndexSet.insert(index)
             }
         }
     }
     
     //TODO: add a reverse operation based on a result
     
-    fileprivate func checkLock() {
-        assert(lock == true, "Updading datas can only be done in an update closure")
-    }
 }
 
 public struct UpdateCollectionResult {
     
     public var appendedIndexPaths = [IndexPath]()
-    public var appendedCellDescriptors = [VSCollectionCellDescriptor]()
+    public var appendedCellDescriptors = [CollectionCellDescriptable]()
     
     public var removedIndexPaths = [IndexPath]()
-    public var removedCellDescriptors = [VSCollectionCellDescriptor]()
+    public var removedCellDescriptors = [CollectionCellDescriptable]()
    
     public var appenedSectionsIndexSet = IndexSet()
-    //TODO: add appenedSectionsDescriptor
+    //TODO: add appenedSectionsDescriptors
     public var removedSectionsIndexSet = IndexSet()
-    //TODO: add removedSectionsDescriptor
-}
-
-fileprivate struct CellData: Hashable {
-    
-    let identifier: String
-    let className: String
-    
-    init(identifier: String, className: String) {
-        self.identifier = identifier
-        self.className = className
-    }
-    
-    static func == (data1: CellData, data2: CellData) -> Bool {
-        return data1.identifier == data2.identifier && data1.className == data2.className
-    }
-    
-    var hashValue: Int {
-        return identifier.hashValue ^ className.hashValue
-        
-    }
-    
+    //TODO: add removedSectionsDescriptors
 }
 
 extension Collection where Indices.Iterator.Element == Index {

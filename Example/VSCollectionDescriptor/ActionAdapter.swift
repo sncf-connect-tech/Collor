@@ -8,7 +8,7 @@
 import VSCollectionDescriptor
 import Foundation
 
-struct ActionAdapter: VSCollectionAdapter {
+struct ActionAdapter: CollectionAdapter {
 
     let actionName:String
     let action:DemoDatas.Action

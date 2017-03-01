@@ -8,7 +8,7 @@
 import VSCollectionDescriptor
 import Foundation
 
-struct TitleAdapter: VSCollectionAdapter {
+struct TitleAdapter: CollectionAdapter {
 
     let color:DemoDatas.Color
     let title:String
