@@ -37,6 +37,8 @@ class DemoDatas: CollectionDatas {
         actionSection.cells.append(addSection)
         let removeSection = ActionDescriptor(action: .removeSection)
         actionSection.cells.append(removeSection)
+        let button = UserEventDescriptor()
+        actionSection.cells.append(button)
         sections.append(actionSection)
         
         let yellowSection = MainColorSectionDescriptor()
@@ -53,6 +55,7 @@ class DemoDatas: CollectionDatas {
         let blueTitle = TitleDescriptor(color: .blue)
         blueSection.cells.append(blueTitle)
         sections.append(blueSection)
+
     }
     
     func expand(titleDescriptor:CollectionCellDescriptable, color:Color) -> UpdateCollectionResult {

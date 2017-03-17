@@ -13,7 +13,6 @@ class ActionDescriptor: CollectionCellDescriptable {
     let identifier: String = "ActionCollectionViewCell"
     let className: String = "ActionCollectionViewCell"
     var selectable:Bool = true
-    var indexPath: IndexPath!
     
     var adapter: CollectionAdapter {
         return _adapter

@@ -14,6 +14,16 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		8471BA655E27D19C245277AF /* Pods_VSCollectionDescriptor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B612887E94B23328D297373F /* Pods_VSCollectionDescriptor_Example.framework */; };
+		F06A12BB1E7845DD00152F71 /* UserEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12BA1E7845DD00152F71 /* UserEventDelegate.swift */; };
+		F06A12BC1E7845DD00152F71 /* UserEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12BA1E7845DD00152F71 /* UserEventDelegate.swift */; };
+		F06A12C21E78494700152F71 /* UserEventAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12BE1E78494700152F71 /* UserEventAdapter.swift */; };
+		F06A12C31E78494700152F71 /* UserEventAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12BE1E78494700152F71 /* UserEventAdapter.swift */; };
+		F06A12C41E78494700152F71 /* UserEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12BF1E78494700152F71 /* UserEventCollectionViewCell.swift */; };
+		F06A12C51E78494700152F71 /* UserEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12BF1E78494700152F71 /* UserEventCollectionViewCell.swift */; };
+		F06A12C61E78494700152F71 /* UserEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06A12C01E78494700152F71 /* UserEventCollectionViewCell.xib */; };
+		F06A12C71E78494700152F71 /* UserEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F06A12C01E78494700152F71 /* UserEventCollectionViewCell.xib */; };
+		F06A12C81E78494700152F71 /* UserEventDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12C11E78494700152F71 /* UserEventDescriptor.swift */; };
+		F06A12C91E78494700152F71 /* UserEventDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12C11E78494700152F71 /* UserEventDescriptor.swift */; };
 		F0DC83C51E5DC6BB000E84CB /* DemoDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DC83C41E5DC6BB000E84CB /* DemoDatas.swift */; };
 		F0DC83C61E5DC6BB000E84CB /* DemoDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DC83C41E5DC6BB000E84CB /* DemoDatas.swift */; };
 		F0FABC3D1E5DD01D00B745C9 /* MainColorSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FABC3C1E5DD01D00B745C9 /* MainColorSectionDescriptor.swift */; };
@@ -75,6 +85,11 @@
 		DDBFDA8239DA281C9CEC4368 /* Pods-VSCollectionDescriptor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VSCollectionDescriptor_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VSCollectionDescriptor_Example/Pods-VSCollectionDescriptor_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EB8EE345944BE756AC5C43C7 /* Pods-VSCollectionDescriptor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VSCollectionDescriptor_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-VSCollectionDescriptor_Example/Pods-VSCollectionDescriptor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EE2BCC5F8FCC01F168B220C4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F06A12BA1E7845DD00152F71 /* UserEventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDelegate.swift; sourceTree = "<group>"; };
+		F06A12BE1E78494700152F71 /* UserEventAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventAdapter.swift; sourceTree = "<group>"; };
+		F06A12BF1E78494700152F71 /* UserEventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventCollectionViewCell.swift; sourceTree = "<group>"; };
+		F06A12C01E78494700152F71 /* UserEventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserEventCollectionViewCell.xib; sourceTree = "<group>"; };
+		F06A12C11E78494700152F71 /* UserEventDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDescriptor.swift; sourceTree = "<group>"; };
 		F0DC83C41E5DC6BB000E84CB /* DemoDatas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDatas.swift; sourceTree = "<group>"; };
 		F0FABC3C1E5DD01D00B745C9 /* MainColorSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainColorSectionDescriptor.swift; sourceTree = "<group>"; };
 		F0FABC4C1E5DD04900B745C9 /* ColorAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAdapter.swift; sourceTree = "<group>"; };
@@ -140,6 +155,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				F0DC83C41E5DC6BB000E84CB /* DemoDatas.swift */,
+				F06A12BA1E7845DD00152F71 /* UserEventDelegate.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -204,6 +220,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F06A12BD1E78493100152F71 /* userEvent */ = {
+			isa = PBXGroup;
+			children = (
+				F06A12BE1E78494700152F71 /* UserEventAdapter.swift */,
+				F06A12BF1E78494700152F71 /* UserEventCollectionViewCell.swift */,
+				F06A12C01E78494700152F71 /* UserEventCollectionViewCell.xib */,
+				F06A12C11E78494700152F71 /* UserEventDescriptor.swift */,
+			);
+			name = userEvent;
+			sourceTree = "<group>";
+		};
 		F0FABC3B1E5DCFFC00B745C9 /* section */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +242,7 @@
 		F0FABC3F1E5DD02400B745C9 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				F06A12BD1E78493100152F71 /* userEvent */,
 				F0FABC591E5DD10100B745C9 /* title */,
 				F0FABC581E5DD0F800B745C9 /* color */,
 				F0FABC731E5F2A5600B745C9 /* action */,
@@ -311,10 +339,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 796F6JZZQJ;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 796F6JZZQJ;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -347,6 +377,7 @@
 				F0FABC621E5DD11000B745C9 /* TitleCollectionViewCell.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				F0FABC6F1E5F2A5200B745C9 /* ActionCollectionViewCell.xib in Resources */,
+				F06A12C61E78494700152F71 /* UserEventCollectionViewCell.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				F0FABC541E5DD04900B745C9 /* ColorCollectionViewCell.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -357,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06A12C71E78494700152F71 /* UserEventCollectionViewCell.xib in Resources */,
 				F0FABC551E5DD04900B745C9 /* ColorCollectionViewCell.xib in Resources */,
 				F0FABC631E5DD11000B745C9 /* TitleCollectionViewCell.xib in Resources */,
 				F0FABC701E5F2A5200B745C9 /* ActionCollectionViewCell.xib in Resources */,
@@ -466,13 +498,17 @@
 				F0FABC5E1E5DD11000B745C9 /* TitleAdapter.swift in Sources */,
 				F0FABC521E5DD04900B745C9 /* ColorCollectionViewCell.swift in Sources */,
 				F0DC83C51E5DC6BB000E84CB /* DemoDatas.swift in Sources */,
+				F06A12C21E78494700152F71 /* UserEventAdapter.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				F06A12BB1E7845DD00152F71 /* UserEventDelegate.swift in Sources */,
 				F0FABC3D1E5DD01D00B745C9 /* MainColorSectionDescriptor.swift in Sources */,
 				F0FABC561E5DD04900B745C9 /* ColorDescriptor.swift in Sources */,
 				F0FABC601E5DD11000B745C9 /* TitleCollectionViewCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F0FABC501E5DD04900B745C9 /* ColorAdapter.swift in Sources */,
 				F0FABC711E5F2A5200B745C9 /* ActionDescriptor.swift in Sources */,
+				F06A12C41E78494700152F71 /* UserEventCollectionViewCell.swift in Sources */,
+				F06A12C81E78494700152F71 /* UserEventDescriptor.swift in Sources */,
 				F0FABC641E5DD11000B745C9 /* TitleDescriptor.swift in Sources */,
 				F0FABC6D1E5F2A5200B745C9 /* ActionCollectionViewCell.swift in Sources */,
 				F0FABC6B1E5F2A5200B745C9 /* ActionAdapter.swift in Sources */,
@@ -483,14 +519,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06A12BC1E7845DD00152F71 /* UserEventDelegate.swift in Sources */,
 				F0FABC531E5DD04900B745C9 /* ColorCollectionViewCell.swift in Sources */,
 				F0FABC611E5DD11000B745C9 /* TitleCollectionViewCell.swift in Sources */,
 				F0FABC3E1E5DD01D00B745C9 /* MainColorSectionDescriptor.swift in Sources */,
+				F06A12C91E78494700152F71 /* UserEventDescriptor.swift in Sources */,
 				F0FABC571E5DD04900B745C9 /* ColorDescriptor.swift in Sources */,
+				F06A12C51E78494700152F71 /* UserEventCollectionViewCell.swift in Sources */,
 				F0FABC511E5DD04900B745C9 /* ColorAdapter.swift in Sources */,
 				F0FABC6C1E5F2A5200B745C9 /* ActionAdapter.swift in Sources */,
 				F0FABC721E5F2A5200B745C9 /* ActionDescriptor.swift in Sources */,
 				F0DC83C61E5DC6BB000E84CB /* DemoDatas.swift in Sources */,
+				F06A12C31E78494700152F71 /* UserEventAdapter.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 				F0FABC651E5DD11000B745C9 /* TitleDescriptor.swift in Sources */,
 				F0FABC5F1E5DD11000B745C9 /* TitleAdapter.swift in Sources */,
@@ -621,6 +661,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 796F6JZZQJ;
 				INFOPLIST_FILE = VSCollectionDescriptor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -636,6 +677,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 796F6JZZQJ;
 				INFOPLIST_FILE = VSCollectionDescriptor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -649,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E38D668F36CD4EC669A16EE /* Pods-VSCollectionDescriptor_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 796F6JZZQJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -669,6 +712,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 86187F90932CBED9BCAAE407 /* Pods-VSCollectionDescriptor_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 796F6JZZQJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

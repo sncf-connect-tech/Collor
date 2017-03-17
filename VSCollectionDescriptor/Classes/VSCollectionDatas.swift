@@ -28,8 +28,9 @@ open class CollectionDatas {
     
     fileprivate func compute() {
         
-        for (sectionIndex, section) in sections.enumerated() {
-            for (itemIndex, cell) in section.cells.enumerated() {
+        for (sectionIndex, var section) in sections.enumerated() {
+            section.index = sectionIndex
+            for (itemIndex, var cell) in section.cells.enumerated() {
                 cell.indexPath = IndexPath(item: itemIndex, section: sectionIndex)
             }
         }
@@ -50,8 +51,8 @@ open class CollectionDatas {
             section.cells.insert(contentsOf: cells, at: cell.indexPath.item + 1)
             compute()
             
-            result?.appendedCellDescriptors.append(contentsOf: cells)
-            result?.appendedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
+            result?.insertedCellDescriptors.append(contentsOf: cells)
+            result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
         }
     }
     
@@ -61,8 +62,8 @@ open class CollectionDatas {
             if let section = sections[safe: cellToDelete.indexPath.section] {
                 if let index = section.cells.index(where: {$0 === cellToDelete} ) {
                     section.cells.remove(at: index)
-                    result?.removedIndexPaths.append( cellToDelete.indexPath )
-                    result?.removedCellDescriptors.append(cellToDelete )
+                    result?.deletedIndexPaths.append( cellToDelete.indexPath )
+                    result?.deletedCellDescriptors.append(cellToDelete )
                     needToCompute = true
                 }
             }
@@ -72,11 +73,17 @@ open class CollectionDatas {
         }
     }
     
+    public func reload(cells:[CollectionCellDescriptable]) {
+        result?.reloadedIndexPaths.append(contentsOf: cells.map { $0.indexPath } )
+        result?.reloadedCellDescriptors.append(contentsOf: cells)
+    }
+    
     public func append(sections:[CollectionSectionDescriptable], after section:CollectionSectionDescriptable) {
         if let sectionIndex = self.sections.index(where: { $0 === section }) {
             self.sections.insert(contentsOf: sections, at: sectionIndex + 1)
             
-            result?.appenedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: sectionIndex + 1, upper: sectionIndex + 1 + sections.count)))
+            result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: sectionIndex + 1, upper: sectionIndex + 1 + sections.count)))
+            result?.insertedSectionDescriptors.append(contentsOf: sections)
         }
     }
     
@@ -84,27 +91,42 @@ open class CollectionDatas {
         sections.forEach { (sectionToDelete) in
             if let index = self.sections.index(where: {$0 === sectionToDelete} ) {
                 self.sections.remove(at: index)
-                result?.removedSectionsIndexSet.insert(index)
+                result?.deletedSectionsIndexSet.insert(index)
+                result?.deletedSectionDescriptors.append(sectionToDelete)
             }
         }
     }
     
-    //TODO: add a reverse operation based on a result
-    
+    public func reload(sections:[CollectionSectionDescriptable]) {
+        sections.forEach { (sectionToReload) in
+            if let index = self.sections.index(where: {$0 === sectionToReload} ) {
+                result?.reloadedSectionsIndexSet.insert(index)
+                result?.reloadedSectionDescriptors.append(sectionToReload)
+            }
+        }
+    }
 }
 
 public struct UpdateCollectionResult {
     
-    public var appendedIndexPaths = [IndexPath]()
-    public var appendedCellDescriptors = [CollectionCellDescriptable]()
+    public var insertedIndexPaths = [IndexPath]()
+    public var insertedCellDescriptors = [CollectionCellDescriptable]()
     
-    public var removedIndexPaths = [IndexPath]()
-    public var removedCellDescriptors = [CollectionCellDescriptable]()
+    public var deletedIndexPaths = [IndexPath]()
+    public var deletedCellDescriptors = [CollectionCellDescriptable]()
+    
+    public var reloadedIndexPaths = [IndexPath]()
+    public var reloadedCellDescriptors = [CollectionCellDescriptable]()
+    
    
-    public var appenedSectionsIndexSet = IndexSet()
-    //TODO: add appenedSectionsDescriptors
-    public var removedSectionsIndexSet = IndexSet()
-    //TODO: add removedSectionsDescriptors
+    public var insertedSectionsIndexSet = IndexSet()
+    public var insertedSectionDescriptors = [CollectionSectionDescriptable]()
+
+    public var deletedSectionsIndexSet = IndexSet()
+    public var deletedSectionDescriptors = [CollectionSectionDescriptable]()
+    
+    public var reloadedSectionsIndexSet = IndexSet()
+    public var reloadedSectionDescriptors = [CollectionSectionDescriptable]()
 }
 
 extension Collection where Indices.Iterator.Element == Index {

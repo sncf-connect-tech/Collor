@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var demoDatas = DemoDatas()
-    
     fileprivate(set) lazy var collectionViewDelegate: CollectionDelegate = CollectionDelegate(delegate: self)
     fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: self)
     
@@ -30,15 +29,9 @@ class ViewController: UIViewController {
     
     func setupCollectionView() {
         
-        collectionViewDelegate.collectionDatas = demoDatas
-        collectionViewDatasource.collectionDatas = demoDatas
-        
-        collectionView.delegate = collectionViewDelegate
-        collectionView.dataSource = collectionViewDatasource
+        bind(collectionView: collectionView, with: demoDatas, and: collectionViewDelegate, and: collectionViewDatasource)
         
         collectionView.backgroundColor = UIColor.clear
-        
-        demoDatas.reloadData()
     }
 }
 
@@ -51,10 +44,7 @@ extension ViewController : CollectionDidSelectCellDelegate {
             let result = demoDatas.update {
                 demoDatas.remove(cells: [cellDescriptor])
             }
-            
-            collectionView?.performBatchUpdates({
-                self.collectionView?.deleteItems(at: result.removedIndexPaths)
-            }, completion: nil)
+            collectionView.performUpdates(with: result)
         
         case (_, let adapter as TitleAdapter):
             
@@ -65,28 +55,24 @@ extension ViewController : CollectionDidSelectCellDelegate {
                 expanded[cellDescriptor.indexPath] = nil
             } else {
                 result = demoDatas.expand(titleDescriptor: cellDescriptor, color: adapter.color)
-                expanded[cellDescriptor.indexPath] = result.appendedCellDescriptors
+                expanded[cellDescriptor.indexPath] = result.insertedCellDescriptors
             }
             
-            collectionView?.performBatchUpdates({
-                self.collectionView?.deleteItems(at: result.removedIndexPaths)
-                self.collectionView?.insertItems(at: result.appendedIndexPaths)
-            }, completion: nil)
+            collectionView.performUpdates(with: result)
+            // same as :
+//            collectionView?.performBatchUpdates {
+//                self.collectionView?.deleteItems(at: result.deletedIndexPaths)
+//                self.collectionView?.insertItems(at: result.insertedIndexPaths)
+//            }
             
         case (_, let adapter as ActionAdapter):
             switch adapter.action {
             case .addSection:
-                
                 let result = demoDatas.addSection()
-                
-                collectionView?.performBatchUpdates({
-                    self.collectionView.insertSections(result.appenedSectionsIndexSet)
-                }, completion: nil)
+                collectionView.performUpdates(with: result)
             case .removeSection:
                 if let result = demoDatas.removeRandomSection() {
-                    collectionView?.performBatchUpdates({
-                        self.collectionView.deleteSections(result.removedSectionsIndexSet)
-                    }, completion: nil)
+                    collectionView.performUpdates(with: result)
                 }
             }
             
@@ -96,6 +82,29 @@ extension ViewController : CollectionDidSelectCellDelegate {
     }
 }
 
-extension ViewController : CollectionUserEventDelegate {
-    
+extension ViewController : UserEventDelegate {
+    func onUserEvent(_ event: UserEvent, cell: UICollectionViewCell) {
+        
+        if demoDatas.sections.count <= 1 {
+            return
+        }
+        
+        let cellElseSection = arc4random_uniform(100) > 50
+        let randomSectionIndex = 1 + Int(arc4random_uniform( UInt32(demoDatas.sections.count) - 1))
+        let section = demoDatas.sections[randomSectionIndex]
+        if cellElseSection {
+            let randomCellIndex = Int(arc4random_uniform( UInt32(section.cells.count) - 1))
+            let cell = section.cells[randomCellIndex]
+            let result = demoDatas.update {
+                demoDatas.reload(cells: [cell])
+            }
+            collectionView.performUpdates(with: result)
+            
+        } else {
+            let result = demoDatas.update {
+                demoDatas.reload(sections: [section])
+            }
+            collectionView.performUpdates(with: result)
+        }
+    }
 }

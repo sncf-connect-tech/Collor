@@ -1,31 +1,31 @@
 //
-//  ColorDescriptor.swift
+//  UserEventDescriptor.swift
 //  VSCollectionDescriptor
 //
-//  Created by Guihal Gwenn on 22/02/17.
+//  Created by Guihal Gwenn on 14/03/17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 import VSCollectionDescriptor
 import Foundation
 
-class ColorDescriptor: CollectionCellDescriptable {
+class UserEventDescriptor: CollectionCellDescriptable {
     
-    let identifier: String = "ColorCollectionViewCell"
-    let className: String = "ColorCollectionViewCell"
-    var selectable:Bool = true
+    let identifier: String = "UserEventCollectionViewCell"
+    let className: String = "UserEventCollectionViewCell"
+    var selectable:Bool = false
     
     var adapter: CollectionAdapter {
         return _adapter
     }
-    let _adapter: ColorAdapter
+    let _adapter: UserEventAdapter
     
-    init(hexaColor:Int) {
-        _adapter = ColorAdapter(hexaColor:hexaColor)
+    init() {
+        _adapter = UserEventAdapter()
     }
     
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescriptable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
-        return CGSize(width:width, height:50)
+        return CGSize(width:width, height:44)
     }
 }

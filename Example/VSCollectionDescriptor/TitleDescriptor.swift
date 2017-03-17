@@ -13,7 +13,6 @@ class TitleDescriptor: CollectionCellDescriptable {
     let identifier: String = "TitleCollectionViewCell"
     let className: String = "TitleCollectionViewCell"
     var selectable:Bool = true
-    var indexPath: IndexPath!
     
     var adapter: CollectionAdapter {
         return _adapter
