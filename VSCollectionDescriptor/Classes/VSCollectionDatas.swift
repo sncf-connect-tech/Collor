@@ -59,7 +59,7 @@ open class CollectionDatas {
     public func remove(cells:[CollectionCellDescriptable]) {
         var needToCompute = false
         cells.forEach { (cellToDelete) in
-            if let section = sections[safe: cellToDelete.indexPath.section] {
+            if let section = sectionDescriptable(for: cellToDelete) {
                 if let index = section.cells.index(where: {$0 === cellToDelete} ) {
                     section.cells.remove(at: index)
                     result?.deletedIndexPaths.append( cellToDelete.indexPath )
@@ -79,12 +79,9 @@ open class CollectionDatas {
     }
     
     public func append(sections:[CollectionSectionDescriptable], after section:CollectionSectionDescriptable) {
-        if let sectionIndex = self.sections.index(where: { $0 === section }) {
-            self.sections.insert(contentsOf: sections, at: sectionIndex + 1)
-            
-            result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: sectionIndex + 1, upper: sectionIndex + 1 + sections.count)))
-            result?.insertedSectionDescriptors.append(contentsOf: sections)
-        }
+        self.sections.insert(contentsOf: sections, at: section.index + 1)
+        result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: section.index + 1, upper: section.index + 1 + sections.count)))
+        result?.insertedSectionDescriptors.append(contentsOf: sections)
     }
     
     public func remove(sections:[CollectionSectionDescriptable]) {
@@ -104,6 +101,30 @@ open class CollectionDatas {
                 result?.reloadedSectionDescriptors.append(sectionToReload)
             }
         }
+    }
+}
+
+public extension CollectionDatas {
+    
+    public func sectionDescriptable<T:CollectionSectionDescriptable>(at indexPath: IndexPath) -> T? {
+        return sections[safe: indexPath.section] as? T
+    }
+    public func sectionDescriptable(at indexPath: IndexPath) -> CollectionSectionDescriptable? {
+        return sections[safe: indexPath.section]
+    }
+    
+    public func sectionDescriptable<T:CollectionSectionDescriptable>(for cellDescriptable: CollectionCellDescriptable) -> T? {
+        return sections[safe: cellDescriptable.indexPath.section] as? T
+    }
+    public func sectionDescriptable(for cellDescriptable: CollectionCellDescriptable) -> CollectionSectionDescriptable? {
+        return sections[safe: cellDescriptable.indexPath.section]
+    }
+    
+    public func cellDescriptable<T:CollectionCellDescriptable>(at indexPath: IndexPath) -> T? {
+        return sections[safe: indexPath.section]?.cells[indexPath.item] as? T
+    }
+    public func cellDescriptable(at indexPath: IndexPath) -> CollectionCellDescriptable? {
+        return sections[safe: indexPath.section]?.cells[indexPath.item]
     }
 }
 
