@@ -16,7 +16,7 @@ open class CollectionDatas {
     
     public var sections = [CollectionSectionDescriptable]() {
         didSet {
-            compute()
+            computeIndices()
         }
     }
     
@@ -26,7 +26,7 @@ open class CollectionDatas {
     
     open func reloadData() { }
     
-    fileprivate func compute() {
+    fileprivate func computeIndices() {
         
         for (sectionIndex, var section) in sections.enumerated() {
             section.index = sectionIndex
@@ -49,7 +49,7 @@ open class CollectionDatas {
     public func append(cells:[CollectionCellDescriptable], after cell:CollectionCellDescriptable) {
         if let section = sections[safe: cell.indexPath.section] {
             section.cells.insert(contentsOf: cells, at: cell.indexPath.item + 1)
-            compute()
+            computeIndices()
             
             result?.insertedCellDescriptors.append(contentsOf: cells)
             result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
@@ -58,26 +58,26 @@ open class CollectionDatas {
     
     public func append(cells:[CollectionCellDescriptable], in section:CollectionSectionDescriptable) {
         section.cells.append(contentsOf: cells)
-        compute()
+        computeIndices()
         
         result?.insertedCellDescriptors.append(contentsOf: cells)
         result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
     }
     
     public func remove(cells:[CollectionCellDescriptable]) {
-        var needToCompute = false
+        var needTocomputeIndices = false
         cells.forEach { (cellToDelete) in
             if let section = sectionDescriptable(for: cellToDelete) {
                 if let index = section.cells.index(where: {$0 === cellToDelete} ) {
                     section.cells.remove(at: index)
                     result?.deletedIndexPaths.append( cellToDelete.indexPath )
                     result?.deletedCellDescriptors.append(cellToDelete )
-                    needToCompute = true
+                    needTocomputeIndices = true
                 }
             }
         }
-        if needToCompute {
-            compute()
+        if needTocomputeIndices {
+            computeIndices()
         }
     }
     
