@@ -1,9 +1,9 @@
 use_frameworks!
 
-target 'VSCollectionDescriptor_Example' do
-  pod 'VSCollectionDescriptor', :path => '../'
+target 'Collor_Example' do
+  pod 'Collor', :path => '../'
 
-  target 'VSCollectionDescriptor_Tests' do
+  target 'Collor_Tests' do
     inherit! :search_paths
 
     

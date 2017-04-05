@@ -1,0 +1,6 @@
+framework module Collor {
+  umbrella header "Collor-umbrella.h"
+
+  export *
+  module * { export * }
+}

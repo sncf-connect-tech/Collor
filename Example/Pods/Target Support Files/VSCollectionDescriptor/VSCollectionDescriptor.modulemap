@@ -1,6 +1,0 @@
-framework module VSCollectionDescriptor {
-  umbrella header "VSCollectionDescriptor-umbrella.h"
-
-  export *
-  module * { export * }
-}

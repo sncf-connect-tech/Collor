@@ -1,16 +1,16 @@
 PODS:
-  - VSCollectionDescriptor (0.1.0)
+  - Collor (0.1.0)
 
 DEPENDENCIES:
-  - VSCollectionDescriptor (from `../`)
+  - Collor (from `../`)
 
 EXTERNAL SOURCES:
-  VSCollectionDescriptor:
+  Collor:
     :path: ../
 
 SPEC CHECKSUMS:
-  VSCollectionDescriptor: ae86fcfe5305ea8c1bc8e3d218685a1403cbe389
+  Collor: 4b29525a26f248361fe1bdb3b3bc87b7a357baed
 
-PODFILE CHECKSUM: f6aa9cbee59295b151dfad31aed3392d5ca96b7d
+PODFILE CHECKSUM: ddeda36f226606d0371e5dc8c76e8fe19826ec64
 
 COCOAPODS: 1.1.1
