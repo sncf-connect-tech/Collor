@@ -11,17 +11,18 @@ import Foundation
 open class CollectionDatas {
     
     public lazy var updater:CollectionUpdater = CollectionUpdater(collectionDatas: self)
-    var registeredCells = Set<String>()
     
     public init() {}
     
     public var sections = [CollectionSectionDescriptable]()
     
-    open func sectionsCount() -> Int {
+    open func reloadData() { }
+    
+    internal var registeredCells = Set<String>()
+    
+    internal func sectionsCount() -> Int {
         return sections.count
     }
-    
-    open func reloadData() { }
     
     internal func computeIndices() {
         
