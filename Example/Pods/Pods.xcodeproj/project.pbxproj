@@ -9,16 +9,17 @@
 /* Begin PBXBuildFile section */
 		1C49AEE164F9C39B31E4A6B73FB58137 /* Pods-VSCollectionDescriptor_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADBE68B1517B5DE03D3E0104E8E3D84C /* Pods-VSCollectionDescriptor_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E969A88A969E4A6075E6B0EEE0A5E5C /* VSCollectionDescriptor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D6C9E5245E26510A3D724A71FF30902B /* VSCollectionDescriptor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		39CEA1DBE5FC59A62C7FB457753B6A43 /* VSCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E80FB0461EE4157068B0E429F009317 /* VSCollectionDelegate.swift */; };
+		39CEA1DBE5FC59A62C7FB457753B6A43 /* CollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E80FB0461EE4157068B0E429F009317 /* CollectionDelegate.swift */; };
 		3E570A8103B8700E25469E405DB64E16 /* Pods-VSCollectionDescriptor_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F309E4CECCCAE1C9D1106CB5975C12E1 /* Pods-VSCollectionDescriptor_Tests-dummy.m */; };
-		4EF8A04686DECF90AB5DBFFA810E6A97 /* VSCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9486828C1C992F35F3EF889748B76987 /* VSCollectionDataSource.swift */; };
+		4EF8A04686DECF90AB5DBFFA810E6A97 /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9486828C1C992F35F3EF889748B76987 /* CollectionDataSource.swift */; };
 		8C09EFB6418722BEA2C580528BCEA816 /* CollectionDidSelectCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A878DFB4938A0C1A1332E1839FA9833 /* CollectionDidSelectCellDelegate.swift */; };
 		8CCFD45F5A2EA34C9CBCF485F50A2C6E /* Pods-VSCollectionDescriptor_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 52CA176108F010F10671800BC91BA5B8 /* Pods-VSCollectionDescriptor_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CBA5FBF5A22AAAC31A15A4BCAF3C308 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		AC3454ADB1FB9EAD848DC8F07EBA057E /* VSCollectionDescriptor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 02244CB12B55BF47C83F7CC435FEAFB2 /* VSCollectionDescriptor-dummy.m */; };
-		B3B884C64F4DFE9D2457188D9B913353 /* VSCollectionDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AC8FC93EE716D7115D519B6DB83A4 /* VSCollectionDatas.swift */; };
+		B3B884C64F4DFE9D2457188D9B913353 /* CollectionDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295AC8FC93EE716D7115D519B6DB83A4 /* CollectionDatas.swift */; };
 		B714CE4A3BF8DE902ED6F0577B75D74B /* Pods-VSCollectionDescriptor_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EC4FDB19A85684E50D874E2FE11360 /* Pods-VSCollectionDescriptor_Example-dummy.m */; };
 		E896E5A5E080A3D4295ECEEDE87762BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		F0571D1E1E9510990060D5AA /* CollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D1D1E9510990060D5AA /* CollectionUpdater.swift */; };
 		F06A12CB1E784C7C00152F71 /* UICollectionView+CollectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06A12CA1E784C7C00152F71 /* UICollectionView+CollectionDescriptor.swift */; };
 		F086AF5C1E7B0A9A00811A27 /* CollectionCellAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F086AF5B1E7B0A9A00811A27 /* CollectionCellAdaptable.swift */; };
 		F086AF5E1E7B0AD200811A27 /* CollectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F086AF5D1E7B0AD200811A27 /* CollectionAdapter.swift */; };
@@ -49,7 +50,7 @@
 		148290CEEA9FE96F734847DE60EB2EF1 /* Pods-VSCollectionDescriptor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-VSCollectionDescriptor_Example.modulemap"; sourceTree = "<group>"; };
 		1A878DFB4938A0C1A1332E1839FA9833 /* CollectionDidSelectCellDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionDidSelectCellDelegate.swift; sourceTree = "<group>"; };
 		2957871B4D72FB53EFAFCE434D7B3E17 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		295AC8FC93EE716D7115D519B6DB83A4 /* VSCollectionDatas.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VSCollectionDatas.swift; sourceTree = "<group>"; };
+		295AC8FC93EE716D7115D519B6DB83A4 /* CollectionDatas.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionDatas.swift; sourceTree = "<group>"; };
 		2DC3026F2D5036C63A324CBF6218D497 /* Pods-VSCollectionDescriptor_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VSCollectionDescriptor_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3EF4DB8F086926D4AFB0F70E1F692B04 /* Pods_VSCollectionDescriptor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VSCollectionDescriptor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4160340D56B80B6C051561286230DB60 /* VSCollectionDescriptor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VSCollectionDescriptor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,9 +61,9 @@
 		7B9807412FC53A8702ED91F8D96A4140 /* Pods-VSCollectionDescriptor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-VSCollectionDescriptor_Tests.modulemap"; sourceTree = "<group>"; };
 		7C459EA2B62037DE9EB697ECAD7177AD /* Pods-VSCollectionDescriptor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VSCollectionDescriptor_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		898E2DBFBF63312AD5B5AAFF458E77B8 /* VSCollectionDescriptor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = VSCollectionDescriptor.modulemap; sourceTree = "<group>"; };
-		8E80FB0461EE4157068B0E429F009317 /* VSCollectionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VSCollectionDelegate.swift; sourceTree = "<group>"; };
+		8E80FB0461EE4157068B0E429F009317 /* CollectionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionDelegate.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9486828C1C992F35F3EF889748B76987 /* VSCollectionDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VSCollectionDataSource.swift; sourceTree = "<group>"; };
+		9486828C1C992F35F3EF889748B76987 /* CollectionDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
 		A07D36F08C293EB1EED67E6D925D8D17 /* Pods-VSCollectionDescriptor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VSCollectionDescriptor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A3A7497DF942534C12656672BC8A6FE1 /* Pods-VSCollectionDescriptor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VSCollectionDescriptor_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		ADBE68B1517B5DE03D3E0104E8E3D84C /* Pods-VSCollectionDescriptor_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VSCollectionDescriptor_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		D6C9E5245E26510A3D724A71FF30902B /* VSCollectionDescriptor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VSCollectionDescriptor-umbrella.h"; sourceTree = "<group>"; };
 		DD6F42783AFAEBBC911085685C66F5A1 /* Pods-VSCollectionDescriptor_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VSCollectionDescriptor_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EF17CC0346E669DF502B9DE2A3D8DE05 /* VSCollectionDescriptor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VSCollectionDescriptor.xcconfig; sourceTree = "<group>"; };
+		F0571D1D1E9510990060D5AA /* CollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdater.swift; sourceTree = "<group>"; };
 		F06A12CA1E784C7C00152F71 /* UICollectionView+CollectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CollectionDescriptor.swift"; sourceTree = "<group>"; };
 		F086AF5B1E7B0A9A00811A27 /* CollectionCellAdaptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellAdaptable.swift; sourceTree = "<group>"; };
 		F086AF5D1E7B0AD200811A27 /* CollectionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionAdapter.swift; sourceTree = "<group>"; };
@@ -213,9 +215,10 @@
 		CB8F5611BAA0CB170F4559311130E950 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				295AC8FC93EE716D7115D519B6DB83A4 /* VSCollectionDatas.swift */,
-				9486828C1C992F35F3EF889748B76987 /* VSCollectionDataSource.swift */,
-				8E80FB0461EE4157068B0E429F009317 /* VSCollectionDelegate.swift */,
+				295AC8FC93EE716D7115D519B6DB83A4 /* CollectionDatas.swift */,
+				F0571D1D1E9510990060D5AA /* CollectionUpdater.swift */,
+				9486828C1C992F35F3EF889748B76987 /* CollectionDataSource.swift */,
+				8E80FB0461EE4157068B0E429F009317 /* CollectionDelegate.swift */,
 				1A878DFB4938A0C1A1332E1839FA9833 /* CollectionDidSelectCellDelegate.swift */,
 				F086AF5F1E7B0B1000811A27 /* CollectionUserEventDelegate.swift */,
 				F0F1C86D1E7AA45D00F4B4B5 /* CollectionSectionDescriptable.swift */,
@@ -375,15 +378,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3B884C64F4DFE9D2457188D9B913353 /* VSCollectionDatas.swift in Sources */,
+				B3B884C64F4DFE9D2457188D9B913353 /* CollectionDatas.swift in Sources */,
 				F0F1C86E1E7AA45D00F4B4B5 /* CollectionSectionDescriptable.swift in Sources */,
 				F0F1C8701E7AA4D200F4B4B5 /* CollectionCellDescriptable.swift in Sources */,
-				4EF8A04686DECF90AB5DBFFA810E6A97 /* VSCollectionDataSource.swift in Sources */,
+				4EF8A04686DECF90AB5DBFFA810E6A97 /* CollectionDataSource.swift in Sources */,
 				F086AF5C1E7B0A9A00811A27 /* CollectionCellAdaptable.swift in Sources */,
 				F086AF5E1E7B0AD200811A27 /* CollectionAdapter.swift in Sources */,
 				F086AF601E7B0B1000811A27 /* CollectionUserEventDelegate.swift in Sources */,
 				F086AF621E7BD72700811A27 /* Helpers.swift in Sources */,
-				39CEA1DBE5FC59A62C7FB457753B6A43 /* VSCollectionDelegate.swift in Sources */,
+				39CEA1DBE5FC59A62C7FB457753B6A43 /* CollectionDelegate.swift in Sources */,
+				F0571D1E1E9510990060D5AA /* CollectionUpdater.swift in Sources */,
 				AC3454ADB1FB9EAD848DC8F07EBA057E /* VSCollectionDescriptor-dummy.m in Sources */,
 				8C09EFB6418722BEA2C580528BCEA816 /* CollectionDidSelectCellDelegate.swift in Sources */,
 				F06A12CB1E784C7C00152F71 /* UICollectionView+CollectionDescriptor.swift in Sources */,

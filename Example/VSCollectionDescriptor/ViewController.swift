@@ -41,8 +41,8 @@ extension ViewController : CollectionDidSelectCellDelegate {
         switch (cellDescriptor, cellDescriptor.adapter) {
             
         case (is ColorDescriptor, _):
-            let result = demoDatas.update {
-                demoDatas.remove(cells: [cellDescriptor])
+            let result = demoDatas.update { updater in
+                updater.remove(cells: [cellDescriptor])
             }
             collectionView.performUpdates(with: result)
         
@@ -95,14 +95,14 @@ extension ViewController : UserEventDelegate {
         if cellElseSection {
             let randomCellIndex = Int(arc4random_uniform( UInt32(section.cells.count) - 1))
             let cell = section.cells[randomCellIndex]
-            let result = demoDatas.update {
-                demoDatas.reload(cells: [cell])
+            let result = demoDatas.update { updater in
+                updater.reload(cells: [cell])
             }
             collectionView.performUpdates(with: result)
             
         } else {
-            let result = demoDatas.update {
-                demoDatas.reload(sections: [section])
+            let result = demoDatas.update { updater in
+                updater.reload(sections: [section])
             }
             collectionView.performUpdates(with: result)
         }

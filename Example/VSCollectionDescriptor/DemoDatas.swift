@@ -74,15 +74,15 @@ class DemoDatas: CollectionDatas {
             ColorDescriptor(hexaColor: $0)
         }
         
-        let result = update {
-            append(cells: newCells, after: titleDescriptor)
+        let result = update { updater in
+            updater.append(cells: newCells, after: titleDescriptor)
         }
         return result
     }
     
     func collapse(cells:[CollectionCellDescriptable]) -> UpdateCollectionResult {
-        let result = update {
-            remove(cells: cells)
+        let result = update { updater in
+            updater.remove(cells: cells)
         }
         return result
     }
@@ -93,9 +93,9 @@ class DemoDatas: CollectionDatas {
         let blueTitle = TitleDescriptor(color: .blue)
         blueSection.cells.append(blueTitle)
         
-        let result = update {
+        let result = update { updater in
             let last = sections.last
-            append(sections: [blueSection], after: last!)
+            updater.append(sections: [blueSection], after: last!)
         }
         
         return result
@@ -109,8 +109,8 @@ class DemoDatas: CollectionDatas {
         
         let randomIndex = 1 + Int(arc4random_uniform( UInt32(sections.count) - 1))
         let sectionToRemove = sections[randomIndex]
-        let result = update {
-            remove(sections: [sectionToRemove])
+        let result = update { updater in
+            updater.remove(sections: [sectionToRemove])
         }
         
         return result
