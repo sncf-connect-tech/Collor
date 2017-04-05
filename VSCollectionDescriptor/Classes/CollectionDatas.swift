@@ -15,11 +15,7 @@ open class CollectionDatas {
     
     public init() {}
     
-    public var sections = [CollectionSectionDescriptable]() {
-        didSet {
-            computeIndices()
-        }
-    }
+    public var sections = [CollectionSectionDescriptable]()
     
     open func sectionsCount() -> Int {
         return sections.count
@@ -57,28 +53,6 @@ public extension CollectionDatas {
     public func cellDescriptable(at indexPath: IndexPath) -> CollectionCellDescriptable? {
         return sections[safe: indexPath.section]?.cells[indexPath.item]
     }
-}
-
-public struct UpdateCollectionResult {
-    
-    public var insertedIndexPaths = [IndexPath]()
-    public var insertedCellDescriptors = [CollectionCellDescriptable]()
-    
-    public var deletedIndexPaths = [IndexPath]()
-    public var deletedCellDescriptors = [CollectionCellDescriptable]()
-    
-    public var reloadedIndexPaths = [IndexPath]()
-    public var reloadedCellDescriptors = [CollectionCellDescriptable]()
-    
-   
-    public var insertedSectionsIndexSet = IndexSet()
-    public var insertedSectionDescriptors = [CollectionSectionDescriptable]()
-
-    public var deletedSectionsIndexSet = IndexSet()
-    public var deletedSectionDescriptors = [CollectionSectionDescriptable]()
-    
-    public var reloadedSectionsIndexSet = IndexSet()
-    public var reloadedSectionDescriptors = [CollectionSectionDescriptable]()
 }
 
 extension Collection where Indices.Iterator.Element == Index {

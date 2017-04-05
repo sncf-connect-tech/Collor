@@ -20,6 +20,7 @@ public class CollectionDataSource: NSObject, UICollectionViewDataSource {
     
     // MARK: UICollectionViewDataSource
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        collectionDatas?.computeIndices()
         return collectionDatas?.sectionsCount() ?? 0
     }
     

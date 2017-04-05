@@ -90,3 +90,25 @@ final public class CollectionUpdater {
         }
     }
 }
+
+public struct UpdateCollectionResult {
+    
+    public var insertedIndexPaths = [IndexPath]()
+    public var insertedCellDescriptors = [CollectionCellDescriptable]()
+    
+    public var deletedIndexPaths = [IndexPath]()
+    public var deletedCellDescriptors = [CollectionCellDescriptable]()
+    
+    public var reloadedIndexPaths = [IndexPath]()
+    public var reloadedCellDescriptors = [CollectionCellDescriptable]()
+    
+    
+    public var insertedSectionsIndexSet = IndexSet()
+    public var insertedSectionDescriptors = [CollectionSectionDescriptable]()
+    
+    public var deletedSectionsIndexSet = IndexSet()
+    public var deletedSectionDescriptors = [CollectionSectionDescriptable]()
+    
+    public var reloadedSectionsIndexSet = IndexSet()
+    public var reloadedSectionDescriptors = [CollectionSectionDescriptable]()
+}

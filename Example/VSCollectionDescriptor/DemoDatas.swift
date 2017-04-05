@@ -55,7 +55,6 @@ class DemoDatas: CollectionDatas {
         let blueTitle = TitleDescriptor(color: .blue)
         blueSection.cells.append(blueTitle)
         sections.append(blueSection)
-
     }
     
     func expand(titleDescriptor:CollectionCellDescriptable, color:Color) -> UpdateCollectionResult {
