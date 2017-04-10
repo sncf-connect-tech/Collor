@@ -1,5 +1,5 @@
 //
-//  CollectionSectionDescriptable.swift
+//  CollectionSectionDescribable.swift
 //  Pods
 //
 //  Created by Guihal Gwenn on 16/03/17.
@@ -14,20 +14,20 @@ private struct AssociatedKeys {
     static var SectionIndex = "vs_SectionIndex"
 }
 
-public protocol CollectionSectionDescriptable : class {
-    var cells: [CollectionCellDescriptable] { get set}
+public protocol CollectionSectionDescribable : class {
+    var cells: [CollectionCellDescribable] { get set}
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets
     func minimumInteritemSpacing(_ collectionView: UICollectionView) -> Int
 }
 
-// default implementation CollectionSectionDescriptable
-public extension CollectionSectionDescriptable {
+// default implementation CollectionSectionDescribable
+public extension CollectionSectionDescribable {
     func minimumInteritemSpacing(_ collectionView:UICollectionView) -> Int {
         return 10
     }
 }
 
-extension CollectionSectionDescriptable {
+extension CollectionSectionDescribable {
     public var index: Int {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.SectionIndex) as! Int
@@ -38,10 +38,10 @@ extension CollectionSectionDescriptable {
     }
 }
 
-func ==(lhs: CollectionSectionDescriptable, rhs: CollectionSectionDescriptable) -> Bool {
+func ==(lhs: CollectionSectionDescribable, rhs: CollectionSectionDescribable) -> Bool {
     return lhs.index == rhs.index
 }
 
-func !=(lhs: CollectionSectionDescriptable, rhs: CollectionSectionDescriptable) -> Bool {
+func !=(lhs: CollectionSectionDescribable, rhs: CollectionSectionDescribable) -> Bool {
     return lhs.index != rhs.index
 }

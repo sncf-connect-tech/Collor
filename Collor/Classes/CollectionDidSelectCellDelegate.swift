@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol CollectionDidSelectCellDelegate : NSObjectProtocol {
-    func didSelect(_ cellDescriptor: CollectionCellDescriptable, sectionDescriptor: CollectionSectionDescriptable, indexPath: IndexPath)
+    func didSelect(_ cellDescriptor: CollectionCellDescribable, sectionDescriptor: CollectionSectionDescribable, indexPath: IndexPath)
 }

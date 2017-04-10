@@ -8,7 +8,7 @@
 import Collor
 import Foundation
 
-class UserEventDescriptor: CollectionCellDescriptable {
+class UserEventDescriptor: CollectionCellDescribable {
     
     let identifier: String = "UserEventCollectionViewCell"
     let className: String = "UserEventCollectionViewCell"
@@ -23,7 +23,7 @@ class UserEventDescriptor: CollectionCellDescriptable {
         _adapter = UserEventAdapter()
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescriptable) -> CGSize {
+    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:44)

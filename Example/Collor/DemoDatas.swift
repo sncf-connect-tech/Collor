@@ -57,7 +57,7 @@ class DemoDatas: CollectionDatas {
         sections.append(blueSection)
     }
     
-    func expand(titleDescriptor:CollectionCellDescriptable, color:Color) -> UpdateCollectionResult {
+    func expand(titleDescriptor:CollectionCellDescribable, color:Color) -> UpdateCollectionResult {
         
         var newColors:[Int]!
         switch color {
@@ -69,7 +69,7 @@ class DemoDatas: CollectionDatas {
             newColors = blueColors
         }
         
-        let newCells:[CollectionCellDescriptable] = newColors.map {
+        let newCells:[CollectionCellDescribable] = newColors.map {
             ColorDescriptor(hexaColor: $0)
         }
         
@@ -79,7 +79,7 @@ class DemoDatas: CollectionDatas {
         return result
     }
     
-    func collapse(cells:[CollectionCellDescriptable]) -> UpdateCollectionResult {
+    func collapse(cells:[CollectionCellDescribable]) -> UpdateCollectionResult {
         let result = update { updater in
             updater.remove(cells: cells)
         }

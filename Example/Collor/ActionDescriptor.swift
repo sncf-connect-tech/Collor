@@ -8,7 +8,7 @@
 import Collor
 import Foundation
 
-class ActionDescriptor: CollectionCellDescriptable {
+class ActionDescriptor: CollectionCellDescribable {
     
     let identifier: String = "ActionCollectionViewCell"
     let className: String = "ActionCollectionViewCell"
@@ -23,7 +23,7 @@ class ActionDescriptor: CollectionCellDescriptable {
         _adapter = ActionAdapter(action:action)
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescriptable) -> CGSize {
+    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:44)

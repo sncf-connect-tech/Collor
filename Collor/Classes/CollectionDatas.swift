@@ -8,15 +8,23 @@
 
 import Foundation
 
-open class CollectionDatas {
+public protocol CollectionDatasProtocol {
+    var updater:CollectionUpdater { get set }
+    var sections:[CollectionSectionDescribable] { get set }
+    func reloadData()
+}
+
+open class CollectionDatas : CollectionDatasProtocol {
     
     public lazy var updater:CollectionUpdater = CollectionUpdater(collectionDatas: self)
     
     public init() {}
     
-    public var sections = [CollectionSectionDescriptable]()
+    public var sections = [CollectionSectionDescribable]()
     
     open func reloadData() { }
+    
+    //MARK: Internal
     
     internal var registeredCells = Set<String>()
     
@@ -25,10 +33,9 @@ open class CollectionDatas {
     }
     
     internal func computeIndices() {
-        
-        for (sectionIndex, var section) in sections.enumerated() {
+        for (sectionIndex, section) in sections.enumerated() {
             section.index = sectionIndex
-            for (itemIndex, var cell) in section.cells.enumerated() {
+            for (itemIndex, cell) in section.cells.enumerated() {
                 cell.indexPath = IndexPath(item: itemIndex, section: sectionIndex)
             }
         }
@@ -45,13 +52,13 @@ open class CollectionDatas {
 
 public extension CollectionDatas {
     
-    public func sectionDescriptable(at indexPath: IndexPath) -> CollectionSectionDescriptable? {
+    public func sectionDescribable(at indexPath: IndexPath) -> CollectionSectionDescribable? {
         return sections[safe: indexPath.section]
     }
-    public func sectionDescriptable(for cellDescriptable: CollectionCellDescriptable) -> CollectionSectionDescriptable? {
-        return sections[safe: cellDescriptable.indexPath.section]
+    public func sectionDescribable(for cellDescribable: CollectionCellDescribable) -> CollectionSectionDescribable? {
+        return sections[safe: cellDescribable.indexPath.section]
     }
-    public func cellDescriptable(at indexPath: IndexPath) -> CollectionCellDescriptable? {
+    public func cellDescribable(at indexPath: IndexPath) -> CollectionCellDescribable? {
         return sections[safe: indexPath.section]?.cells[indexPath.item]
     }
 }

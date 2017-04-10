@@ -8,7 +8,7 @@
 import Collor
 import Foundation
 
-class TitleDescriptor: CollectionCellDescriptable {
+class TitleDescriptor: CollectionCellDescribable {
     
     let identifier: String = "TitleCollectionViewCell"
     let className: String = "TitleCollectionViewCell"
@@ -23,7 +23,7 @@ class TitleDescriptor: CollectionCellDescriptable {
         _adapter = TitleAdapter(color: color)
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescriptable) -> CGSize {
+    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:50)
