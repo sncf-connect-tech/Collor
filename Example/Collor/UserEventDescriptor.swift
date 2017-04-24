@@ -8,24 +8,25 @@
 import Collor
 import Foundation
 
-class UserEventDescriptor: CollectionCellDescribable {
+final class UserEventDescriptor: CollectionCellDescribable {
     
     let identifier: String = "UserEventCollectionViewCell"
     let className: String = "UserEventCollectionViewCell"
     var selectable:Bool = false
     
-    var adapter: CollectionAdapter {
-        return _adapter
-    }
-    let _adapter: UserEventAdapter
+    let adapter: UserEventAdapter
     
     init() {
-        _adapter = UserEventAdapter()
+        adapter = UserEventAdapter()
     }
     
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:44)
+    }
+    
+    public func getAdapter() -> CollectionAdapter {
+        return adapter
     }
 }

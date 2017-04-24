@@ -9,14 +9,14 @@
 import Foundation
 
 public protocol CollectionDatasProtocol {
-    var updater:CollectionUpdater { get set }
+    var updater:CollectionUpdater { get }
     var sections:[CollectionSectionDescribable] { get set }
     func reloadData()
 }
 
 open class CollectionDatas : CollectionDatasProtocol {
     
-    public lazy var updater:CollectionUpdater = CollectionUpdater(collectionDatas: self)
+    public private(set) lazy var updater:CollectionUpdater = CollectionUpdater(collectionDatas: self)
     
     public init() {}
     
@@ -26,13 +26,22 @@ open class CollectionDatas : CollectionDatasProtocol {
     
     //MARK: Internal
     
-    internal var registeredCells = Set<String>()
+    var registeredCells = Set<String>()
     
-    internal func sectionsCount() -> Int {
+    func sectionsCount() -> Int {
         return sections.count
     }
     
-    internal func computeIndices() {
+    //MARK: Update
+    
+    /**
+     Computes indexPath for each CollectionCellDescribable and section index for each CollectionSectionDescribable.
+     
+     This method is called every time the collectionView calls 'numberOfSections' or during a data update (insertion or deletion) if needed.
+     
+     In most of cases, **this method doesn't have to be called manually**, call it only if you need to access to an indexPath before reloading the collectionView.
+     */
+    public func computeIndices() {
         for (sectionIndex, section) in sections.enumerated() {
             section.index = sectionIndex
             for (itemIndex, cell) in section.cells.enumerated() {
@@ -40,8 +49,7 @@ open class CollectionDatas : CollectionDatasProtocol {
             }
         }
     }
-    
-    //MARK: Update
+
     
     public func update(_ updates: (_ updater:CollectionUpdater) -> Void) -> UpdateCollectionResult {
         updater.result = UpdateCollectionResult()

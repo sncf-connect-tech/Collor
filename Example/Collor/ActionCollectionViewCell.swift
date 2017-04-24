@@ -8,7 +8,7 @@
 import Collor
 import UIKit
 
-class ActionCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
+final class ActionCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     @IBOutlet weak var actionLabel: UILabel!
     

@@ -10,7 +10,7 @@ import Foundation
 
 final public class CollectionUpdater {
     
-    internal var result:UpdateCollectionResult?
+    var result:UpdateCollectionResult?
     
     unowned let collectionDatas:CollectionDatas
     

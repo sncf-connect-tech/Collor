@@ -8,7 +8,7 @@
 import Collor
 import UIKit
 
-class TitleCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
+final class TitleCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     @IBOutlet weak var titleLabel: UILabel!
     

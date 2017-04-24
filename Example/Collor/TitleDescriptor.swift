@@ -8,24 +8,25 @@
 import Collor
 import Foundation
 
-class TitleDescriptor: CollectionCellDescribable {
+final class TitleDescriptor: CollectionCellDescribable {
     
     let identifier: String = "TitleCollectionViewCell"
     let className: String = "TitleCollectionViewCell"
     var selectable:Bool = true
     
-    var adapter: CollectionAdapter {
-        return _adapter
-    }
-    let _adapter: TitleAdapter
+    let adapter: TitleAdapter
     
-    init(color:DemoDatas.Color) {
-        _adapter = TitleAdapter(color: color)
+    init(adapter:TitleAdapter) {
+        self.adapter = adapter
     }
     
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:50)
+    }
+    
+    public func getAdapter() -> CollectionAdapter {
+        return adapter
     }
 }

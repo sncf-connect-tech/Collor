@@ -8,7 +8,7 @@
 import Collor
 import UIKit
 
-class ColorCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
+final class ColorCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     override func awakeFromNib() {
         super.awakeFromNib()

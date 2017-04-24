@@ -9,7 +9,7 @@
 import Collor
 import UIKit
 
-class UserEventCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
+final class UserEventCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     weak var delegate:UserEventDelegate?
     

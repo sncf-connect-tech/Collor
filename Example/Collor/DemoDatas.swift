@@ -10,7 +10,7 @@ import Collor
 import UIKit
 import Foundation
 
-class DemoDatas: CollectionDatas {
+final class DemoDatas: CollectionDatas {
     
     enum Color {
         case yellow
@@ -33,26 +33,26 @@ class DemoDatas: CollectionDatas {
         sections.removeAll()
         
         let actionSection = MainColorSectionDescriptor()
-        let addSection = ActionDescriptor(action: .addSection)
+        let addSection = ActionDescriptor(adapter: ActionAdapter(action: .addSection) )
         actionSection.cells.append(addSection)
-        let removeSection = ActionDescriptor(action: .removeSection)
+        let removeSection = ActionDescriptor(adapter: ActionAdapter(action: .removeSection))
         actionSection.cells.append(removeSection)
         let button = UserEventDescriptor()
         actionSection.cells.append(button)
         sections.append(actionSection)
         
         let yellowSection = MainColorSectionDescriptor()
-        let yellowTitle = TitleDescriptor(color: .yellow)
+        let yellowTitle = TitleDescriptor(adapter: TitleAdapter(color: .yellow))
         yellowSection.cells.append(yellowTitle)
         sections.append(yellowSection)
         
         let greenSection = MainColorSectionDescriptor()
-        let greenTitle = TitleDescriptor(color: .green)
+        let greenTitle = TitleDescriptor(adapter: TitleAdapter(color: .green))
         greenSection.cells.append(greenTitle)
         sections.append(greenSection)
         
         let blueSection = MainColorSectionDescriptor()
-        let blueTitle = TitleDescriptor(color: .blue)
+        let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue))
         blueSection.cells.append(blueTitle)
         sections.append(blueSection)
     }
@@ -70,7 +70,7 @@ class DemoDatas: CollectionDatas {
         }
         
         let newCells:[CollectionCellDescribable] = newColors.map {
-            ColorDescriptor(hexaColor: $0)
+            ColorDescriptor(adapter: ColorAdapter(hexaColor: $0))
         }
         
         let result = update { updater in
@@ -89,7 +89,7 @@ class DemoDatas: CollectionDatas {
     func addSection() -> UpdateCollectionResult {
         
         let blueSection = MainColorSectionDescriptor()
-        let blueTitle = TitleDescriptor(color: .blue)
+        let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue))
         blueSection.cells.append(blueTitle)
         
         let result = update { updater in

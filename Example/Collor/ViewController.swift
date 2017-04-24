@@ -9,7 +9,7 @@
 import Collor
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 extension ViewController : CollectionDidSelectCellDelegate {
 
     func didSelect(_ cellDescriptor: CollectionCellDescribable, sectionDescriptor: CollectionSectionDescribable, indexPath: IndexPath) {
-        switch (cellDescriptor, cellDescriptor.adapter) {
+        switch (cellDescriptor, cellDescriptor.getAdapter()) {
             
         case (is ColorDescriptor, _):
             let result = demoDatas.update { updater in

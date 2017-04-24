@@ -8,19 +8,16 @@
 import Collor
 import Foundation
 
-class ActionDescriptor: CollectionCellDescribable {
+final class ActionDescriptor: CollectionCellDescribable {
     
     let identifier: String = "ActionCollectionViewCell"
     let className: String = "ActionCollectionViewCell"
     var selectable:Bool = true
     
-    var adapter: CollectionAdapter {
-        return _adapter
-    }
-    let _adapter: ActionAdapter
+    let adapter: ActionAdapter
     
-    init(action:DemoDatas.Action) {
-        _adapter = ActionAdapter(action:action)
+    init(adapter:ActionAdapter) {
+        self.adapter = adapter
     }
     
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
@@ -28,4 +25,9 @@ class ActionDescriptor: CollectionCellDescribable {
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:44)
     }
+    
+    public func getAdapter() -> CollectionAdapter {
+        return adapter
+    }
+
 }

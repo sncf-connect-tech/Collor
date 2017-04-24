@@ -18,7 +18,7 @@ public protocol CollectionCellDescribable : class {
     var identifier: String { get }
     var className: String { get }
     var selectable: Bool { get }
-    var adapter:CollectionAdapter { get }
+    func getAdapter() -> CollectionAdapter
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize
 }
 
@@ -31,12 +31,5 @@ extension CollectionCellDescribable {
             objc_setAssociatedObject( self, &AssociatedKeys.IndexPath, newValue as IndexPath, .OBJC_ASSOCIATION_COPY)
         }
     }
-}
-
-func ==(lhs: CollectionCellDescribable, rhs: CollectionCellDescribable) -> Bool {
-    return lhs.indexPath == rhs.indexPath
-}
-
-func !=(lhs: CollectionCellDescribable, rhs: CollectionCellDescribable) -> Bool {
-    return lhs.indexPath != rhs.indexPath
+    
 }
