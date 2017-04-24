@@ -37,11 +37,3 @@ extension CollectionSectionDescribable {
         }
     }
 }
-
-func ==(lhs: CollectionSectionDescribable, rhs: CollectionSectionDescribable) -> Bool {
-    return lhs.index == rhs.index
-}
-
-func !=(lhs: CollectionSectionDescribable, rhs: CollectionSectionDescribable) -> Bool {
-    return lhs.index != rhs.index
-}
