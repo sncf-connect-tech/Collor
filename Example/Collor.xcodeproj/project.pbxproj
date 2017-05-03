@@ -53,6 +53,7 @@
 		F0571D721E952DDC0060D5AA /* DemoDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D701E952DDC0060D5AA /* DemoDatas.swift */; };
 		F0571D741E952E110060D5AA /* UserEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D731E952E110060D5AA /* UserEventDelegate.swift */; };
 		F0571D751E952E110060D5AA /* UserEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D731E952E110060D5AA /* UserEventDelegate.swift */; };
+		F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		F0571D6D1E952D900060D5AA /* MainColorSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainColorSectionDescriptor.swift; sourceTree = "<group>"; };
 		F0571D701E952DDC0060D5AA /* DemoDatas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDatas.swift; sourceTree = "<group>"; };
 		F0571D731E952E110060D5AA /* UserEventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDelegate.swift; sourceTree = "<group>"; };
+		F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			children = (
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 			files = (
 				F0571D6C1E952D7D0060D5AA /* UserEventDescriptor.swift in Sources */,
 				F0571D5A1E952D6C0060D5AA /* TitleAdapter.swift in Sources */,
+				F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */,
 				F0571D501E952D620060D5AA /* ColorCollectionViewCell.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 				F0571D441E952D580060D5AA /* ActionCollectionViewCell.swift in Sources */,
@@ -698,6 +702,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Collor_Example.app/Collor_Example";
 			};
 			name = Debug;
 		};
@@ -714,6 +719,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Collor_Example.app/Collor_Example";
 			};
 			name = Release;
 		};
