@@ -17,13 +17,17 @@ private struct AssociatedKeys {
 public protocol CollectionSectionDescribable : class {
     var cells: [CollectionCellDescribable] { get set}
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets
-    func minimumInteritemSpacing(_ collectionView: UICollectionView) -> Int
+    func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat
+    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat
 }
 
 // default implementation CollectionSectionDescribable
 public extension CollectionSectionDescribable {
-    func minimumInteritemSpacing(_ collectionView:UICollectionView) -> Int {
-        return 10
+    func minimumInteritemSpacing(_ collectionView:UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+        return layout.minimumInteritemSpacing
+    }
+    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+        return layout.minimumLineSpacing
     }
 }
 

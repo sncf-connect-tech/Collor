@@ -24,7 +24,7 @@ final class ViewController: UIViewController {
         
         title = "Demo App"
         
-        setupCollectionView();
+        setupCollectionView()
     }
     
     func setupCollectionView() {

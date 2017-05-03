@@ -18,6 +18,8 @@ profile
 DerivedData
 *.hmap
 *.ipa
+Example/.idea/
+Example/Pods/
 
 # Bundler
 .bundle

@@ -53,4 +53,26 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
         }
         return UIEdgeInsets()
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            return 0
+        }
+        
+        if let sectionDescriptor = collectionDatas?.sections[section] {
+            return sectionDescriptor.minimumInteritemSpacing(collectionView, layout: layout)
+        }
+        return layout.minimumInteritemSpacing
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            return 0
+        }
+        
+        if let sectionDescriptor = collectionDatas?.sections[section] {
+            return sectionDescriptor.minimumLineSpacing(collectionView, layout: layout)
+        }
+        return layout.minimumLineSpacing
+    }
 }

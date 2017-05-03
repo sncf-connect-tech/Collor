@@ -28,6 +28,16 @@ final public class CollectionUpdater {
         }
     }
     
+    public func append(cells:[CollectionCellDescribable], before cell:CollectionCellDescribable) {
+        if let section = collectionDatas.sections[safe: cell.indexPath.section] {
+            section.cells.insert(contentsOf: cells, at: cell.indexPath.item)
+            collectionDatas.computeIndices()
+            
+            result?.insertedCellDescriptors.append(contentsOf: cells)
+            result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
+        }
+    }
+    
     public func append(cells:[CollectionCellDescribable], in section:CollectionSectionDescribable) {
         section.cells.append(contentsOf: cells)
         collectionDatas.computeIndices()
@@ -62,6 +72,14 @@ final public class CollectionUpdater {
         collectionDatas.sections.insert(contentsOf: sections, at: section.index + 1)
         result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: section.index + 1, upper: section.index + 1 + sections.count)))
         result?.insertedSectionDescriptors.append(contentsOf: sections)
+        collectionDatas.computeIndices()
+    }
+    
+    public func append(sections:[CollectionSectionDescribable], before section:CollectionSectionDescribable) {
+        collectionDatas.sections.insert(contentsOf: sections, at: section.index)
+        result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: section.index, upper: section.index + sections.count)))
+        result?.insertedSectionDescriptors.append(contentsOf: sections)
+        collectionDatas.computeIndices()
     }
     
     public func append(sections:[CollectionSectionDescribable]) {
@@ -69,15 +87,21 @@ final public class CollectionUpdater {
         collectionDatas.sections.append(contentsOf: sections)
         result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: oldSectionsCount, upper: oldSectionsCount + sections.count)))
         result?.insertedSectionDescriptors.append(contentsOf: sections)
+        collectionDatas.computeIndices()
     }
     
     public func remove(sections:[CollectionSectionDescribable]) {
+        var needTocomputeIndices = false
         sections.forEach { (sectionToDelete) in
             if let index = collectionDatas.sections.index(where: {$0 === sectionToDelete} ) {
                 collectionDatas.sections.remove(at: index)
                 result?.deletedSectionsIndexSet.insert(index)
                 result?.deletedSectionDescriptors.append(sectionToDelete)
+                needTocomputeIndices = true
             }
+        }
+        if needTocomputeIndices {
+            collectionDatas.computeIndices()
         }
     }
     
@@ -101,7 +125,6 @@ public struct UpdateCollectionResult {
     
     public var reloadedIndexPaths = [IndexPath]()
     public var reloadedCellDescriptors = [CollectionCellDescribable]()
-    
     
     public var insertedSectionsIndexSet = IndexSet()
     public var insertedSectionDescriptors = [CollectionSectionDescribable]()

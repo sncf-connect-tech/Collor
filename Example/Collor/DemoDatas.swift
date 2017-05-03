@@ -16,16 +16,34 @@ final class DemoDatas: CollectionDatas {
         case yellow
         case green
         case blue
+        
+        func getColors() -> [Int] {
+            switch self {
+            case .yellow:
+                return [0xF3ED86,0xF5EC62,0xFAE600,0xCAAD00]
+            case .green:
+                return [0xBCE18D,0xA4D867,0x62BD19,0x4FA600]
+            case .blue:
+                return [0x94A1E2,0xA1BDEA,0x547ED9,0x7973C2]
+            }
+        }
+        
+        func getTitle() -> String {
+            switch self {
+            case .blue:
+                return "Blue"
+            case .green:
+                return  "Green"
+            case .yellow:
+                return  "Yellow"
+            }
+        }
     }
     
     enum Action {
         case addSection
         case removeSection
     }
-    
-    let yellowColors = [0xF3ED86,0xF5EC62,0xFAE600,0xCAAD00]
-    let greenColors = [0xBCE18D,0xA4D867,0x62BD19,0x4FA600]
-    let blueColors = [0x94A1E2,0xA1BDEA,0x547ED9,0x7973C2]
     
     override func reloadData() {
         super.reloadData()
@@ -59,17 +77,7 @@ final class DemoDatas: CollectionDatas {
     
     func expand(titleDescriptor:CollectionCellDescribable, color:Color) -> UpdateCollectionResult {
         
-        var newColors:[Int]!
-        switch color {
-        case .green:
-            newColors = greenColors
-        case .yellow:
-            newColors = yellowColors
-        case .blue:
-            newColors = blueColors
-        }
-        
-        let newCells:[CollectionCellDescribable] = newColors.map {
+        let newCells:[CollectionCellDescribable] = color.getColors().map {
             ColorDescriptor(adapter: ColorAdapter(hexaColor: $0))
         }
         

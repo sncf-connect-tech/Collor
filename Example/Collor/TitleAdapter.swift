@@ -16,15 +16,7 @@ struct TitleAdapter: CollectionAdapter {
     init(color:DemoDatas.Color) {
         
         self.color = color
-        
-        switch color {
-        case .blue:
-            title = "Blue"
-        case .green:
-            title = "Green"
-        case .yellow:
-            title = "Yellow"
-        }
+        self.title = color.getTitle()
     }
 
 }
