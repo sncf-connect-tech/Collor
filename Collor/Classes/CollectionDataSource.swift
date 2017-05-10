@@ -11,9 +11,9 @@ import Foundation
 public class CollectionDataSource: NSObject, UICollectionViewDataSource {
     
     public var collectionDatas: CollectionDatas?
-    public unowned var delegate:CollectionUserEventDelegate
+    public weak var delegate:CollectionUserEventDelegate?
     
-    public init(delegate:CollectionUserEventDelegate) {
+    public init(delegate:CollectionUserEventDelegate?) {
         self.delegate = delegate
         super.init()
     }

@@ -12,9 +12,10 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7315FCB25EF828F0929A4641 /* Pods_Collor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F1AEC9685F40C56AAB6AE /* Pods_Collor_Example.framework */; };
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
+		F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */; };
+		F049ED601EBA259A000AF6C2 /* CollorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5F1EBA259A000AF6C2 /* CollorTest.swift */; };
 		F0571D411E952D580060D5AA /* ActionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D3D1E952D580060D5AA /* ActionAdapter.swift */; };
 		F0571D421E952D580060D5AA /* ActionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D3D1E952D580060D5AA /* ActionAdapter.swift */; };
 		F0571D431E952D580060D5AA /* ActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D3E1E952D580060D5AA /* ActionCollectionViewCell.swift */; };
@@ -80,12 +81,13 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Collor_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Collor_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		80291F331F216AFB3E9F44D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		868E220BA7623E5F0E3E373A /* Pods-Collor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collor_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1B91C5B37455C72DDFFCCC9 /* Pods-Collor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collor_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C28F175CBC84A17630BED1A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDatasTest.swift; sourceTree = "<group>"; };
+		F049ED5F1EBA259A000AF6C2 /* CollorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollorTest.swift; sourceTree = "<group>"; };
 		F0571D3D1E952D580060D5AA /* ActionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionAdapter.swift; sourceTree = "<group>"; };
 		F0571D3E1E952D580060D5AA /* ActionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0571D3F1E952D580060D5AA /* ActionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -189,9 +191,10 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */,
+				F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */,
+				F049ED5F1EBA259A000AF6C2 /* CollorTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -521,10 +524,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0571D6C1E952D7D0060D5AA /* UserEventDescriptor.swift in Sources */,
+				F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */,
 				F0571D5A1E952D6C0060D5AA /* TitleAdapter.swift in Sources */,
 				F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */,
 				F0571D501E952D620060D5AA /* ColorCollectionViewCell.swift in Sources */,
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 				F0571D441E952D580060D5AA /* ActionCollectionViewCell.swift in Sources */,
 				F0571D481E952D580060D5AA /* ActionDescriptor.swift in Sources */,
 				F0571D541E952D620060D5AA /* ColorDescriptor.swift in Sources */,
@@ -536,6 +539,7 @@
 				F0571D421E952D580060D5AA /* ActionAdapter.swift in Sources */,
 				F0571D4E1E952D620060D5AA /* ColorAdapter.swift in Sources */,
 				F0571D751E952E110060D5AA /* UserEventDelegate.swift in Sources */,
+				F049ED601EBA259A000AF6C2 /* CollorTest.swift in Sources */,
 				F0571D601E952D6C0060D5AA /* TitleDescriptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

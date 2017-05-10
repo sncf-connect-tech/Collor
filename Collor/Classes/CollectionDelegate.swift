@@ -14,7 +14,7 @@ public class CollectionDelegate: NSObject, UICollectionViewDelegate {
     public var collectionDatas: CollectionDatas?
     public weak var delegate: CollectionDidSelectCellDelegate?
     
-    public init(delegate: CollectionDidSelectCellDelegate) {
+    public init(delegate: CollectionDidSelectCellDelegate?) {
         self.delegate = delegate
         super.init()
     }
