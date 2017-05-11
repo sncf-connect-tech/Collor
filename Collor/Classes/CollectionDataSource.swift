@@ -29,11 +29,14 @@ public class CollectionDataSource: NSObject, UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cellDescriptor = collectionDatas?.sections[indexPath.section].cells[indexPath.item] else {
+        
+        guard let collectionDatas = collectionDatas else {
             return UICollectionViewCell()
         }
         
-        if let collectionDatas = collectionDatas, collectionDatas.registeredCells.contains(cellDescriptor.identifier) == false {
+        let cellDescriptor = collectionDatas.sections[indexPath.section].cells[indexPath.item]
+        
+        if collectionDatas.registeredCells.contains(cellDescriptor.identifier) == false {
             let nib = UINib(nibName: cellDescriptor.className, bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: cellDescriptor.identifier)
             collectionDatas.registeredCells.insert(cellDescriptor.identifier)
@@ -46,7 +49,7 @@ public class CollectionDataSource: NSObject, UICollectionViewDataSource {
         
         cell.update(with: cellDescriptor.getAdapter() )
         cell.set(delegate: delegate)
-        return cell as? UICollectionViewCell ?? UICollectionViewCell()
+        return cell as! UICollectionViewCell
     }
     
 }

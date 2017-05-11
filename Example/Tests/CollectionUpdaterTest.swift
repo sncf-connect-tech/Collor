@@ -17,13 +17,29 @@ struct TestAdapter:CollectionAdapter {
 final class TestSectionDescriptor:CollectionSectionDescribable {
     var cells = [CollectionCellDescribable]()
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
-        return UIEdgeInsets.zero
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
+    func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+        return 5
+    }
+    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+        return 5
     }
 }
 
+final class SimpleTestSectionDescriptor:CollectionSectionDescribable {
+    var cells = [CollectionCellDescribable]()
+    
+    func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+
+}
+
+
 final class TestCellDescriptor:CollectionCellDescribable {
-    var identifier: String = "UICollectionViewCell"
-    var className: String = "UICollectionViewCell"
+    var identifier: String = "TestCollectionViewCell"
+    var className: String = "TestCollectionViewCell"
     var selectable: Bool = false
     
     let adapter:TestAdapter
@@ -52,7 +68,7 @@ final class TestData:CollectionDatas {
         sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
         sections.append(sectionOne)
         
-        let sectionTwo = TestSectionDescriptor()
+        let sectionTwo = SimpleTestSectionDescriptor()
         sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
         sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
         sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
@@ -339,6 +355,5 @@ class CollectionUpdaterTest: XCTestCase {
         
         XCTAssertEqual(data.sections[1].cells[0].indexPath, IndexPath(item: 0, section: 1))
     }
-    
     
 }
