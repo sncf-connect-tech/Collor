@@ -42,6 +42,10 @@ open class CollectionDatas : CollectionDatasProtocol {
      In most of cases, **this method doesn't have to be called manually**, call it only if you need to access to an indexPath before reloading the collectionView.
      */
     public func computeIndices() {
+        computeIndices(sections:sections)
+    }
+    
+    public func computeIndices(sections:[CollectionSectionDescribable]) {
         for (sectionIndex, section) in sections.enumerated() {
             section.index = sectionIndex
             for (itemIndex, cell) in section.cells.enumerated() {

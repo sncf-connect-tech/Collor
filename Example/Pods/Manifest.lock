@@ -1,5 +1,7 @@
 PODS:
-  - Collor (0.1.0)
+  - Collor (0.1.0):
+    - Dwifft (~> 0.6)
+  - Dwifft (0.6.2)
 
 DEPENDENCIES:
   - Collor (from `../`)
@@ -9,7 +11,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Collor: 4b29525a26f248361fe1bdb3b3bc87b7a357baed
+  Collor: 85bc728824b821b9b28eb0c61e508dbb82fa82ba
+  Dwifft: ee21f0fe857852c4f0b7b5070f1493aff82fc512
 
 PODFILE CHECKSUM: ddeda36f226606d0371e5dc8c76e8fe19826ec64
 

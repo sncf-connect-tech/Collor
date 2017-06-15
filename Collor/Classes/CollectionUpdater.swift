@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Dwifft
 
 final public class CollectionUpdater {
     
@@ -16,6 +17,39 @@ final public class CollectionUpdater {
     
     init(collectionDatas:CollectionDatas) {
         self.collectionDatas = collectionDatas
+    }
+    
+    public func reloadData() {
+        let oldSections = collectionDatas.sections
+        collectionDatas.computeIndices(sections: oldSections)
+        collectionDatas.reloadData()
+        collectionDatas.computeIndices()
+        
+        let old = oldSections.map{ section -> (String, [String]) in
+            let cellUids = section.cells.flatMap{ return $0._uid }
+            return (section._uid!, cellUids)
+        }
+        
+        let new = collectionDatas.sections.map{ section -> (String, [String]) in
+            let cellUids = section.cells.flatMap{ return $0._uid }
+            return (section._uid!, cellUids)
+        }
+        
+        let o = SectionedValues(old)
+        let n = SectionedValues(new)
+        
+        Dwifft.diff(lhs: o, rhs: n).forEach {
+            switch $0 {
+            case let .delete(section, item, _):
+                result?.deletedIndexPaths.append( IndexPath(item: item, section: section ) )
+            case let .insert(section, item, _):
+                result?.insertedIndexPaths.append( IndexPath(item: item, section: section ) )
+            default:
+                break
+            }
+        }
+        
+        
     }
     
     public func append(cells:[CollectionCellDescribable], after cell:CollectionCellDescribable) {

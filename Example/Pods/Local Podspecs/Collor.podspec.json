@@ -18,5 +18,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "Collor/Classes/**/*"
+  "source_files": "Collor/Classes/**/*",
+  "dependencies": {
+    "Dwifft": [
+      "~> 0.6"
+    ]
+  }
 }

@@ -14,7 +14,7 @@ private struct AssociatedKeys {
     static var IndexPath = "vs_IndexPath"
 }
 
-public protocol CollectionCellDescribable : class {
+public protocol CollectionCellDescribable : class, Identifiable {
     var identifier: String { get }
     var className: String { get }
     var selectable: Bool { get }

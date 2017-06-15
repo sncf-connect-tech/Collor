@@ -11,10 +11,10 @@ import UIKit
 import ObjectiveC
 
 private struct AssociatedKeys {
-    static var SectionIndex = "vs_SectionIndex"
+    static var SectionIndex = "collor_SectionIndex"
 }
 
-public protocol CollectionSectionDescribable : class {
+public protocol CollectionSectionDescribable : class, Identifiable {
     var cells: [CollectionCellDescribable] { get set}
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets
     func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat

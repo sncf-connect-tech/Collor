@@ -10,10 +10,10 @@ import Foundation
 
 public protocol CollectionCellAdaptable : NSObjectProtocol {
     func update(with adapter: CollectionAdapter) -> Void
-    func set(delegate delegate:CollectionUserEventDelegate?) -> Void
+    func set(delegate:CollectionUserEventDelegate?) -> Void
 }
 
 // default implementation of CollectionCellAdaptable
 public extension CollectionCellAdaptable {
-    func set(delegate delegate:CollectionUserEventDelegate?) {}
+    func set(delegate:CollectionUserEventDelegate?) {}
 }

@@ -48,15 +48,21 @@ extension ViewController : CollectionDidSelectCellDelegate {
         
         case (_, let adapter as TitleAdapter):
             
-            var result:UpdateCollectionResult!
-            
-            if let expandedCells = expanded[cellDescriptor.indexPath] {
-                result = demoDatas.collapse(cells: expandedCells)
-                expanded[cellDescriptor.indexPath] = nil
-            } else {
-                result = demoDatas.expand(titleDescriptor: cellDescriptor, color: adapter.color)
-                expanded[cellDescriptor.indexPath] = result.insertedCellDescriptors
+//            var result:UpdateCollectionResult!
+//            
+//            if let expandedCells = expanded[cellDescriptor.indexPath] {
+//                result = demoDatas.collapse(cells: expandedCells)
+//                expanded[cellDescriptor.indexPath] = nil
+//            } else {
+                //result = demoDatas.expand(titleDescriptor: cellDescriptor, color: adapter.color)
+                //expanded[cellDescriptor.indexPath] = result.insertedCellDescriptors
+                demoDatas.expanded = !demoDatas.expanded
+            let result = demoDatas.update{ updater in
+                updater.reloadData()
             }
+//                demoDatas.reloadData()
+//                collectionView.reloadData()
+//            }
             
             collectionView.performUpdates(with: result)
             // same as :
