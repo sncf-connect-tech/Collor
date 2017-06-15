@@ -21,31 +21,31 @@ final public class CollectionUpdater {
     
     public func reloadData() {
         let oldSections = collectionDatas.sections
-        collectionDatas.computeIndices(sections: oldSections)
         collectionDatas.reloadData()
-        collectionDatas.computeIndices()
         
-        let old = oldSections.map{ section -> (String, [String]) in
+        let oldEquatable = oldSections.map{ section -> (String, [String]) in
             let cellUids = section.cells.flatMap{ return $0._uid }
             return (section._uid!, cellUids)
         }
         
-        let new = collectionDatas.sections.map{ section -> (String, [String]) in
+        let newEquatable = collectionDatas.sections.map{ section -> (String, [String]) in
             let cellUids = section.cells.flatMap{ return $0._uid }
             return (section._uid!, cellUids)
         }
         
-        let o = SectionedValues(old)
-        let n = SectionedValues(new)
+        let old = SectionedValues(oldEquatable)
+        let new = SectionedValues(newEquatable)
         
-        Dwifft.diff(lhs: o, rhs: n).forEach {
+        Dwifft.diff(lhs: old, rhs: new).forEach {
             switch $0 {
             case let .delete(section, item, _):
                 result?.deletedIndexPaths.append( IndexPath(item: item, section: section ) )
             case let .insert(section, item, _):
                 result?.insertedIndexPaths.append( IndexPath(item: item, section: section ) )
-            default:
-                break
+            case let .sectionDelete(section, _):
+                result?.deletedSectionsIndexSet.insert(section)
+            case let .sectionInsert(section, _):
+                result?.insertedSectionsIndexSet.insert(section)
             }
         }
         
