@@ -51,12 +51,17 @@ final public class CollectionUpdater {
             let sectionsInError = sections.reduce("") { result, section in
                 return result + "- section:\(section.0), description:\(section.1)\n"
             }
-            assertionFailure("No UID given for sections:\n \(sectionsInError)")
+            preconditionFailure("No UID given for sections:\n \(sectionsInError)")
         } catch UIDError.itemsWithoutUIDError(let items) {
             let itemsInError = items.reduce("") { result, item in
                 return result + "- section: \(item.0), item:\(item.1), description:\(item.2)\n"
             }
-            assertionFailure("No UID given for items:\n \(itemsInError)")
+            preconditionFailure("No UID given for items:\n \(itemsInError)")
+        } catch UIDError.itemsDoublonError(let items) {
+            let itemsInError = items.reduce("") { result, item in
+                return result + "- section: \(item.0), uid:\(item.1)\n"
+            }
+            preconditionFailure("Doublon for items:\n \(itemsInError)")
         } catch {}
     }
     
@@ -70,16 +75,18 @@ final public class CollectionUpdater {
     private enum UIDError : Error {
         case sectionsWithoutUIDError(sections:[(Int,CollectionSectionDescribable)])
         case itemsWithoutUIDError(items:[(Int,Int,CollectionCellDescribable)])
+        case itemsDoublonError(items:[(Int,String)])
     }
     
     private func verifyUID(sections:[CollectionSectionDescribable]) throws {
         var sectionsWithoutUID = [(Int,CollectionSectionDescribable)]()
         var itemsWithoutUID = [(Int,Int,CollectionCellDescribable)]()
+        var itemsDoublonUID = [(Int,String)]()
         
         for (sectionIndex, section) in sections.enumerated() {
             guard let _ = section._uid else {
                 sectionsWithoutUID.append( (sectionIndex,section) )
-                return
+                continue
             }
             
             let cells = section.cells.enumerated().filter {
@@ -88,6 +95,15 @@ final public class CollectionUpdater {
                 return (sectionIndex, $0.offset, $0.element)
             }
             itemsWithoutUID.append(contentsOf: cells)
+            
+            // doublons
+            var setCells = Set<String>()
+            section.cells.flatMap{ $0._uid }.forEach {
+                let insertResult = setCells.insert($0)
+                if insertResult.inserted == false {
+                    itemsDoublonUID.append( (sectionIndex, insertResult.memberAfterInsert) )
+                }
+            }
         }
         
         if !sectionsWithoutUID.isEmpty {
@@ -95,6 +111,8 @@ final public class CollectionUpdater {
         }
         else if !itemsWithoutUID.isEmpty {
             throw UIDError.itemsWithoutUIDError(items: itemsWithoutUID)
+        } else if !itemsDoublonUID.isEmpty {
+            throw UIDError.itemsDoublonError(items: itemsDoublonUID)
         }
     }
     
