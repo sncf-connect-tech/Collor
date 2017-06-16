@@ -20,36 +20,82 @@ final public class CollectionUpdater {
     }
     
     public func reloadData() {
-        let oldSections = collectionDatas.sections
-        collectionDatas.reloadData()
+        let oldSections = collectionDatas.sections // store old model
+        collectionDatas.reloadData() // compute new model
         
-        let oldEquatable = oldSections.map{ section -> (String, [String]) in
-            let cellUids = section.cells.flatMap{ return $0._uid }
-            return (section._uid!, cellUids)
-        }
-        
-        let newEquatable = collectionDatas.sections.map{ section -> (String, [String]) in
-            let cellUids = section.cells.flatMap{ return $0._uid }
-            return (section._uid!, cellUids)
-        }
-        
-        let old = SectionedValues(oldEquatable)
-        let new = SectionedValues(newEquatable)
-        
-        Dwifft.diff(lhs: old, rhs: new).forEach {
-            switch $0 {
-            case let .delete(section, item, _):
-                result?.deletedIndexPaths.append( IndexPath(item: item, section: section ) )
-            case let .insert(section, item, _):
-                result?.insertedIndexPaths.append( IndexPath(item: item, section: section ) )
-            case let .sectionDelete(section, _):
-                result?.deletedSectionsIndexSet.insert(section)
-            case let .sectionInsert(section, _):
-                result?.insertedSectionsIndexSet.insert(section)
+        do {
+            try verifyUID(sections: oldSections)
+            try verifyUID(sections: collectionDatas.sections)
+            
+            let old = mapToSectionedValues(oldSections)
+            let new = mapToSectionedValues(collectionDatas.sections)
+            
+            Dwifft.diff(lhs: old, rhs: new).forEach {
+                switch $0 {
+                case let .delete(section, item, _):
+                    result?.deletedIndexPaths.append( IndexPath(item: item, section: section ) )
+                    result?.deletedCellDescriptors.append( oldSections[section].cells[item] )
+                case let .insert(section, item, _):
+                    result?.insertedIndexPaths.append( IndexPath(item: item, section: section ) )
+                    result?.deletedCellDescriptors.append( collectionDatas.sections[section].cells[item] )
+                case let .sectionDelete(section, _):
+                    result?.deletedSectionsIndexSet.insert(section)
+                    result?.deletedSectionDescriptors.append( oldSections[section] )
+                case let .sectionInsert(section, _):
+                    result?.insertedSectionsIndexSet.insert(section)
+                    result?.insertedSectionDescriptors.append( collectionDatas.sections[section] )
+                }
             }
+            
+        } catch UIDError.sectionsWithoutUIDError(let sections) {
+            let sectionsInError = sections.reduce("") { result, section in
+                return result + "- section:\(section.0), description:\(section.1)\n"
+            }
+            assertionFailure("No UID given for sections:\n \(sectionsInError)")
+        } catch UIDError.itemsWithoutUIDError(let items) {
+            let itemsInError = items.reduce("") { result, item in
+                return result + "- section: \(item.0), item:\(item.1), description:\(item.2)\n"
+            }
+            assertionFailure("No UID given for items:\n \(itemsInError)")
+        } catch {}
+    }
+    
+    private func mapToSectionedValues(_ sections:[CollectionSectionDescribable]) -> SectionedValues<String, String> {
+        return SectionedValues( sections.map{ section -> (String, [String]) in
+            let cellUids = section.cells.map{ return section._uid! + "/" + $0._uid! }
+            return (section._uid!, cellUids)
+        })
+    }
+    
+    private enum UIDError : Error {
+        case sectionsWithoutUIDError(sections:[(Int,CollectionSectionDescribable)])
+        case itemsWithoutUIDError(items:[(Int,Int,CollectionCellDescribable)])
+    }
+    
+    private func verifyUID(sections:[CollectionSectionDescribable]) throws {
+        var sectionsWithoutUID = [(Int,CollectionSectionDescribable)]()
+        var itemsWithoutUID = [(Int,Int,CollectionCellDescribable)]()
+        
+        for (sectionIndex, section) in sections.enumerated() {
+            guard let _ = section._uid else {
+                sectionsWithoutUID.append( (sectionIndex,section) )
+                return
+            }
+            
+            let cells = section.cells.enumerated().filter {
+                return $0.element._uid == nil
+            }.map {
+                return (sectionIndex, $0.offset, $0.element)
+            }
+            itemsWithoutUID.append(contentsOf: cells)
         }
         
-        
+        if !sectionsWithoutUID.isEmpty {
+            throw UIDError.sectionsWithoutUIDError(sections: sectionsWithoutUID)
+        }
+        else if !itemsWithoutUID.isEmpty {
+            throw UIDError.itemsWithoutUIDError(items: itemsWithoutUID)
+        }
     }
     
     public func append(cells:[CollectionCellDescribable], after cell:CollectionCellDescribable) {

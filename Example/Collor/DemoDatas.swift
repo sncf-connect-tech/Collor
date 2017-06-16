@@ -58,7 +58,7 @@ final class DemoDatas: CollectionDatas {
         actionSection.cells.append(addSectionCell)
         let removeSectionCell = ActionDescriptor(adapter: ActionAdapter(action: .removeSection)).uid("removeSectionCell")
         actionSection.cells.append(removeSectionCell)
-        let buttonCell = UserEventDescriptor().uid("buttonCell")
+        let buttonCell = UserEventDescriptor()//.uid("buttonCell")
         actionSection.cells.append(buttonCell)
         sections.append(actionSection)
         
