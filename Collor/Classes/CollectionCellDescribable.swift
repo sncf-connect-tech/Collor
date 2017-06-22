@@ -11,7 +11,7 @@ import UIKit
 import ObjectiveC
 
 private struct AssociatedKeys {
-    static var IndexPath = "vs_IndexPath"
+    static var IndexPath = "collor_IndexPath"
 }
 
 public protocol CollectionCellDescribable : class, Identifiable {

@@ -12,9 +12,33 @@ import XCTest
 
 class TestViewController: UIViewController {
     
+    enum State {
+        case simple
+        case reload
+    }
+    
+    let state:State
+    
+    init(state:State) {
+        self.state = state
+        
+        switch state {
+        case .simple:
+            data = TestData()
+        case .reload:
+            data = ReloadTestData()
+        }
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let data = TestData()
+    let data:CollectionDatas
     fileprivate(set) lazy var collectionViewDelegate: CollectionDelegate = CollectionDelegate(delegate: nil)
     fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: nil)
     
@@ -29,7 +53,12 @@ class TestViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        testPerformUpdates()
+        switch state {
+        case .simple:
+            testPerformUpdates()
+        case .reload:
+            testPerformUpdatesReloadData()
+        }
     }
     
     func testPerformUpdates() {
@@ -54,4 +83,21 @@ class TestViewController: UIViewController {
             self.expectation?.fulfill()
         }
     }
+    
+    func testPerformUpdatesReloadData() {
+        // given
+        (data as! ReloadTestData).insert = true
+        (data as! ReloadTestData).insertSection = true
+        (data as! ReloadTestData).deleted = true
+        
+        // when
+        let result = data.update { (updater) in
+            updater.reloadData()
+        }
+        
+        self.collectionView.performUpdates(with: result) { ok in
+            self.expectation?.fulfill()
+        }
+    }
+
 }

@@ -9,6 +9,13 @@
 import Foundation
 import Dwifft
 
+public extension NSExceptionName {
+    static let collorMissingSectionUID = NSExceptionName("collor.missingSectionUID")
+    static let collorMissingItemUID = NSExceptionName("collor.missingItemUID")
+    static let collorDuplicateItemUID = NSExceptionName("collor.duplicateItemUID")
+    static let collorDuplicateSectionUID = NSExceptionName("collor.duplicateSectionUID")
+}
+
 final public class CollectionUpdater {
     
     var result:UpdateCollectionResult?
@@ -37,7 +44,7 @@ final public class CollectionUpdater {
                     result?.deletedCellDescriptors.append( oldSections[section].cells[item] )
                 case let .insert(section, item, _):
                     result?.insertedIndexPaths.append( IndexPath(item: item, section: section ) )
-                    result?.deletedCellDescriptors.append( collectionDatas.sections[section].cells[item] )
+                    result?.insertedCellDescriptors.append( collectionDatas.sections[section].cells[item] )
                 case let .sectionDelete(section, _):
                     result?.deletedSectionsIndexSet.insert(section)
                     result?.deletedSectionDescriptors.append( oldSections[section] )
@@ -47,21 +54,28 @@ final public class CollectionUpdater {
                 }
             }
             
+            collectionDatas.computeIndices()
+            
         } catch UIDError.sectionsWithoutUIDError(let sections) {
             let sectionsInError = sections.reduce("") { result, section in
                 return result + "- section:\(section.0), description:\(section.1)\n"
             }
-            preconditionFailure("No UID given for sections:\n \(sectionsInError)")
+            NSException(name: .collorMissingSectionUID, reason: "No UID given for sections:\n \(sectionsInError)", userInfo: nil).raise()
+        } catch UIDError.sectionsDuplicateError(let sections) {
+            let sectionsInError = sections.reduce("") { result, section in
+                return result + "- section:\(section.0), description:\(section.1)\n"
+            }
+            NSException(name: .collorDuplicateSectionUID, reason: "Duplicate for sections:\n \(sectionsInError)", userInfo: nil).raise()
         } catch UIDError.itemsWithoutUIDError(let items) {
             let itemsInError = items.reduce("") { result, item in
                 return result + "- section: \(item.0), item:\(item.1), description:\(item.2)\n"
             }
-            preconditionFailure("No UID given for items:\n \(itemsInError)")
-        } catch UIDError.itemsDoublonError(let items) {
+            NSException(name: .collorMissingItemUID, reason: "No UID given for items:\n \(itemsInError)", userInfo: nil).raise()
+        } catch UIDError.itemsDuplicateError(let items) {
             let itemsInError = items.reduce("") { result, item in
                 return result + "- section: \(item.0), uid:\(item.1)\n"
             }
-            preconditionFailure("Doublon for items:\n \(itemsInError)")
+            NSException(name: .collorDuplicateItemUID, reason: "Duplicate for items:\n \(itemsInError)", userInfo: nil).raise()
         } catch {}
     }
     
@@ -75,18 +89,28 @@ final public class CollectionUpdater {
     private enum UIDError : Error {
         case sectionsWithoutUIDError(sections:[(Int,CollectionSectionDescribable)])
         case itemsWithoutUIDError(items:[(Int,Int,CollectionCellDescribable)])
-        case itemsDoublonError(items:[(Int,String)])
+        case itemsDuplicateError(items:[(Int,String)])
+        case sectionsDuplicateError(items:[(Int,String)])
     }
     
     private func verifyUID(sections:[CollectionSectionDescribable]) throws {
         var sectionsWithoutUID = [(Int,CollectionSectionDescribable)]()
         var itemsWithoutUID = [(Int,Int,CollectionCellDescribable)]()
-        var itemsDoublonUID = [(Int,String)]()
+        var itemsDuplicateUID = [(Int,String)]()
+        var sectionsDuplicateUID = [(Int,String)]()
+        
+        var setSections = Set<String>()
         
         for (sectionIndex, section) in sections.enumerated() {
-            guard let _ = section._uid else {
+            guard let sectionUID = section._uid else {
                 sectionsWithoutUID.append( (sectionIndex,section) )
                 continue
+            }
+            
+            // duplicate sections
+            let insertResult = setSections.insert(sectionUID)
+            if insertResult.inserted == false {
+                sectionsDuplicateUID.append( (sectionIndex, insertResult.memberAfterInsert) )
             }
             
             let cells = section.cells.enumerated().filter {
@@ -96,23 +120,24 @@ final public class CollectionUpdater {
             }
             itemsWithoutUID.append(contentsOf: cells)
             
-            // doublons
+            // duplicate items
             var setCells = Set<String>()
             section.cells.flatMap{ $0._uid }.forEach {
                 let insertResult = setCells.insert($0)
                 if insertResult.inserted == false {
-                    itemsDoublonUID.append( (sectionIndex, insertResult.memberAfterInsert) )
+                    itemsDuplicateUID.append( (sectionIndex, insertResult.memberAfterInsert) )
                 }
             }
         }
         
         if !sectionsWithoutUID.isEmpty {
             throw UIDError.sectionsWithoutUIDError(sections: sectionsWithoutUID)
-        }
-        else if !itemsWithoutUID.isEmpty {
+        } else if !sectionsDuplicateUID.isEmpty {
+            throw UIDError.sectionsDuplicateError(items: sectionsDuplicateUID)
+        } else if !itemsWithoutUID.isEmpty {
             throw UIDError.itemsWithoutUIDError(items: itemsWithoutUID)
-        } else if !itemsDoublonUID.isEmpty {
-            throw UIDError.itemsDoublonError(items: itemsDoublonUID)
+        } else if !itemsDuplicateUID.isEmpty {
+            throw UIDError.itemsDuplicateError(items: itemsDuplicateUID)
         }
     }
     

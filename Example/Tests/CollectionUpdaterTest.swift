@@ -355,5 +355,4 @@ class CollectionUpdaterTest: XCTestCase {
         
         XCTAssertEqual(data.sections[1].cells[0].indexPath, IndexPath(item: 0, section: 1))
     }
-    
 }

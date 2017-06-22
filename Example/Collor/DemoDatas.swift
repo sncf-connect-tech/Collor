@@ -45,7 +45,7 @@ final class DemoDatas: CollectionDatas {
         case removeSection
     }
     
-    var expanded:Bool = false
+    var expanded:Color?
     
     override func reloadData() {
         super.reloadData()
@@ -65,7 +65,7 @@ final class DemoDatas: CollectionDatas {
         let yellowSection = MainColorSectionDescriptor().uid("yellowSection")
         let yellowTitle = TitleDescriptor(adapter: TitleAdapter(color: .yellow)).uid("yellowTitle")
         yellowSection.cells.append(yellowTitle)
-        if expanded {
+        if expanded == .yellow {
             
             let cells:[CollectionCellDescribable] = Color.yellow.getColors().map {
                 ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("yellow\($0)")
@@ -73,16 +73,33 @@ final class DemoDatas: CollectionDatas {
             yellowSection.cells.append(contentsOf: cells)
             
         }
+        yellowSection.cells.append( ColorDescriptor(adapter: ColorAdapter(hexaColor: 0xFF0000)).uid("red") )
         sections.append(yellowSection)
         
         let greenSection = MainColorSectionDescriptor().uid("greenSection")
         let greenTitle = TitleDescriptor(adapter: TitleAdapter(color: .green)).uid("greenTitle")
         greenSection.cells.append(greenTitle)
+        if expanded == .green {
+            
+            let cells:[CollectionCellDescribable] = Color.green.getColors().map {
+                ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("green\($0)")
+            }
+            greenSection.cells.append(contentsOf: cells)
+            
+        }
         sections.append(greenSection)
         
         let blueSection = MainColorSectionDescriptor().uid("blueSection")
         let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTitle")
         blueSection.cells.append(blueTitle)
+        if expanded == .blue {
+            
+            let cells:[CollectionCellDescribable] = Color.blue.getColors().map {
+                ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("blue\($0)")
+            }
+            blueSection.cells.append(contentsOf: cells)
+            
+        }
         sections.append(blueSection)
     }
     
