@@ -1,6 +1,6 @@
 # Collor
 
-[![CI Status](http://img.shields.io/travis/myrddinus/Collor.svg?style=flat)](https://travis-ci.org/myrddinus/Collor)
+[![CI Status](https://travis-ci.org/voyages-sncf-technologies/Collor.svg?branch=master)](https://travis-ci.org/myrddinus/Collor)
 [![Version](https://img.shields.io/cocoapods/v/Collor.svg?style=flat)](http://cocoapods.org/pods/Collor)
 [![License](https://img.shields.io/cocoapods/l/Collor.svg?style=flat)](http://cocoapods.org/pods/Collor)
 [![Platform](https://img.shields.io/cocoapods/p/Collor.svg?style=flat)](http://cocoapods.org/pods/Collor)
