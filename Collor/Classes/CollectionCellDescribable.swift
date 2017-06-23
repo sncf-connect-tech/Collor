@@ -23,7 +23,7 @@ public protocol CollectionCellDescribable : class, Identifiable {
 }
 
 extension CollectionCellDescribable {
-    public var indexPath: IndexPath {
+    public internal(set) var indexPath: IndexPath {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.IndexPath) as! IndexPath
         }
