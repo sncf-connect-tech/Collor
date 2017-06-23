@@ -4,11 +4,11 @@
 
 osx_image: xcode8.3
 language: swift
-# cache: cocoapods
- podfile: Example/Podfile
-# before_install:
- - gem install cocoapods # Since Travis is not always on latest version
- - pod install --project-directory=Example
+cache: cocoapods
+podfile: Example/Podfile
+before_install:
+- gem install cocoapods # Since Travis is not always on latest version
+- pod install --project-directory=Example
 script:
 - set -o pipefail && xcodebuild test -workspace Example/Example.xcworkspace -scheme Collor-Example -destination "platform=iOS Simulator,name=iPhone 6" | xcpretty
 - pod lib lint
