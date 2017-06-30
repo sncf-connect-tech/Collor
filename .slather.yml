@@ -1,0 +1,5 @@
+coverage_service: coveralls
+xcodeproj: Example/Collor.xcodeproj
+source_directory: Tests
+ignore:
+  - "*/Pods/*"
