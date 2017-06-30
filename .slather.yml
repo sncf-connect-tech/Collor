@@ -3,6 +3,4 @@ coverage_service: coveralls
 scheme: Collor-Example
 xcodeproj: Example/Collor.xcodeproj
 workspace: Example/Collor.xcworkspace
-binary-basename: Collor_Example.app/Frameworks/Collor.framework/Collor
-build-directory: ./
-verbose: true
+binary_basename: Collor_Example.app/Frameworks/Collor.framework/Collor
