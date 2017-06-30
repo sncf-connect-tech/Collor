@@ -1,5 +1,8 @@
+ci_service: travis_ci
 coverage_service: coveralls
 scheme: Collor-Example
 xcodeproj: Example/Collor.xcodeproj
 workspace: Example/Collor.xcworkspace
 binary-basename: Collor_Example.app/Frameworks/Collor.framework/Collor
+build-directory: ./
+verbose: true
