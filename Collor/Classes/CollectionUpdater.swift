@@ -142,23 +142,31 @@ final public class CollectionUpdater {
     }
     
     public func append(cells:[CollectionCellDescribable], after cell:CollectionCellDescribable) {
-        if let section = collectionDatas.sections[safe: cell.indexPath.section] {
-            section.cells.insert(contentsOf: cells, at: cell.indexPath.item + 1)
-            collectionDatas.computeIndices()
-            
-            result?.insertedCellDescriptors.append(contentsOf: cells)
-            result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
+        guard let indexPath = cell.indexPath else {
+            return
         }
+        guard let section = collectionDatas.sections[safe: indexPath.section] else {
+            return
+        }
+        section.cells.insert(contentsOf: cells, at: indexPath.item + 1)
+        collectionDatas.computeIndices()
+        
+        result?.insertedCellDescriptors.append(contentsOf: cells)
+        result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath! } ) // unwrapped because computeIndices() called before
     }
     
     public func append(cells:[CollectionCellDescribable], before cell:CollectionCellDescribable) {
-        if let section = collectionDatas.sections[safe: cell.indexPath.section] {
-            section.cells.insert(contentsOf: cells, at: cell.indexPath.item)
-            collectionDatas.computeIndices()
-            
-            result?.insertedCellDescriptors.append(contentsOf: cells)
-            result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
+        guard let indexPath = cell.indexPath else {
+            return
         }
+        guard let section = collectionDatas.sections[safe: indexPath.section] else {
+            return
+        }
+        section.cells.insert(contentsOf: cells, at: indexPath.item)
+        collectionDatas.computeIndices()
+        
+        result?.insertedCellDescriptors.append(contentsOf: cells)
+        result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath! } ) // unwrapped because computeIndices() called before
     }
     
     public func append(cells:[CollectionCellDescribable], in section:CollectionSectionDescribable) {
@@ -166,20 +174,25 @@ final public class CollectionUpdater {
         collectionDatas.computeIndices()
         
         result?.insertedCellDescriptors.append(contentsOf: cells)
-        result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath } )
+        result?.insertedIndexPaths.append(contentsOf: cells.map{ $0.indexPath! } ) // unwrapped because computeIndices() called before
     }
     
     public func remove(cells:[CollectionCellDescribable]) {
         var needTocomputeIndices = false
-        cells.forEach { (cellToDelete) in
-            if let section = collectionDatas.sectionDescribable(for: cellToDelete) {
-                if let index = section.cells.index(where: {$0 === cellToDelete} ) {
-                    section.cells.remove(at: index)
-                    result?.deletedIndexPaths.append( cellToDelete.indexPath )
-                    result?.deletedCellDescriptors.append(cellToDelete )
-                    needTocomputeIndices = true
-                }
+        cells.forEach { cellToDelete in
+            guard let section = collectionDatas.sectionDescribable(for: cellToDelete) else {
+                return
             }
+            guard let indexPath = cellToDelete.indexPath else {
+                return
+            }
+            guard let index = section.cells.index(where: {$0 === cellToDelete}) else {
+                return
+            }
+            section.cells.remove(at: index)
+            result?.deletedIndexPaths.append( indexPath )
+            result?.deletedCellDescriptors.append(cellToDelete )
+            needTocomputeIndices = true
         }
         if needTocomputeIndices {
             collectionDatas.computeIndices()
@@ -187,20 +200,27 @@ final public class CollectionUpdater {
     }
     
     public func reload(cells:[CollectionCellDescribable]) {
-        result?.reloadedIndexPaths.append(contentsOf: cells.map { $0.indexPath } )
-        result?.reloadedCellDescriptors.append(contentsOf: cells)
+        let cellsToReload = cells.filter{ $0.indexPath != nil }
+        result?.reloadedIndexPaths.append(contentsOf: cellsToReload.map { $0.indexPath! } )
+        result?.reloadedCellDescriptors.append(contentsOf: cellsToReload)
     }
     
     public func append(sections:[CollectionSectionDescribable], after section:CollectionSectionDescribable) {
-        collectionDatas.sections.insert(contentsOf: sections, at: section.index + 1)
-        result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: section.index + 1, upper: section.index + 1 + sections.count)))
+        guard let sectionIndex = section.index else {
+            return
+        }
+        collectionDatas.sections.insert(contentsOf: sections, at: sectionIndex + 1)
+        result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: sectionIndex + 1, upper: sectionIndex + 1 + sections.count)))
         result?.insertedSectionDescriptors.append(contentsOf: sections)
         collectionDatas.computeIndices()
     }
     
     public func append(sections:[CollectionSectionDescribable], before section:CollectionSectionDescribable) {
-        collectionDatas.sections.insert(contentsOf: sections, at: section.index)
-        result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: section.index, upper: section.index + sections.count)))
+        guard let sectionIndex = section.index else {
+            return
+        }
+        collectionDatas.sections.insert(contentsOf: sections, at: sectionIndex)
+        result?.insertedSectionsIndexSet.insert(integersIn: Range(uncheckedBounds: (lower: sectionIndex, upper: sectionIndex + sections.count)))
         result?.insertedSectionDescriptors.append(contentsOf: sections)
         collectionDatas.computeIndices()
     }
@@ -216,12 +236,13 @@ final public class CollectionUpdater {
     public func remove(sections:[CollectionSectionDescribable]) {
         var needTocomputeIndices = false
         sections.forEach { (sectionToDelete) in
-            if let index = collectionDatas.sections.index(where: {$0 === sectionToDelete} ) {
-                collectionDatas.sections.remove(at: index)
-                result?.deletedSectionsIndexSet.insert(index)
-                result?.deletedSectionDescriptors.append(sectionToDelete)
-                needTocomputeIndices = true
+            guard let index = collectionDatas.sections.index(where: {$0 === sectionToDelete} ) else  {
+                return
             }
+            collectionDatas.sections.remove(at: index)
+            result?.deletedSectionsIndexSet.insert(index)
+            result?.deletedSectionDescriptors.append(sectionToDelete)
+            needTocomputeIndices = true
         }
         if needTocomputeIndices {
             collectionDatas.computeIndices()
@@ -230,10 +251,11 @@ final public class CollectionUpdater {
     
     public func reload(sections:[CollectionSectionDescribable]) {
         sections.forEach { (sectionToReload) in
-            if let index = collectionDatas.sections.index(where: {$0 === sectionToReload} ) {
-                result?.reloadedSectionsIndexSet.insert(index)
-                result?.reloadedSectionDescriptors.append(sectionToReload)
+            guard let index = collectionDatas.sections.index(where: {$0 === sectionToReload} ) else {
+                return
             }
+            result?.reloadedSectionsIndexSet.insert(index)
+            result?.reloadedSectionDescriptors.append(sectionToReload)
         }
     }
 }

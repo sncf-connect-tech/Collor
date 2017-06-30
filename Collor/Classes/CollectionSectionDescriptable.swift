@@ -32,12 +32,12 @@ public extension CollectionSectionDescribable {
 }
 
 extension CollectionSectionDescribable {
-    public var index: Int {
+    public var index: Int? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.SectionIndex) as! Int
+            return objc_getAssociatedObject(self, &AssociatedKeys.SectionIndex) as? Int
         }
         set {
-            objc_setAssociatedObject( self, &AssociatedKeys.SectionIndex, newValue as Int, .OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject( self, &AssociatedKeys.SectionIndex, newValue as Int?, .OBJC_ASSOCIATION_COPY)
         }
     }
 }

@@ -23,12 +23,12 @@ public protocol CollectionCellDescribable : class, Identifiable {
 }
 
 extension CollectionCellDescribable {
-    public internal(set) var indexPath: IndexPath {
+    public internal(set) var indexPath: IndexPath? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.IndexPath) as! IndexPath
+            return objc_getAssociatedObject(self, &AssociatedKeys.IndexPath) as? IndexPath
         }
         set {
-            objc_setAssociatedObject( self, &AssociatedKeys.IndexPath, newValue as IndexPath, .OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject( self, &AssociatedKeys.IndexPath, newValue as IndexPath?, .OBJC_ASSOCIATION_COPY)
         }
     }
     

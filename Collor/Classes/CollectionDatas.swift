@@ -68,7 +68,7 @@ public extension CollectionDatas {
         return sections[safe: indexPath.section]
     }
     public func sectionDescribable(for cellDescribable: CollectionCellDescribable) -> CollectionSectionDescribable? {
-        return sections[safe: cellDescribable.indexPath.section]
+        return sections[safe: cellDescribable.indexPath?.section]
     }
     public func cellDescribable(at indexPath: IndexPath) -> CollectionCellDescribable? {
         return sections[safe: indexPath.section]?.cells[indexPath.item]
@@ -77,7 +77,10 @@ public extension CollectionDatas {
 
 extension Collection where Indices.Iterator.Element == Index {
     
-    subscript (safe index: Index) -> Generator.Element? {
+    subscript (safe index: Index?) -> Generator.Element? {
+        guard let index = index else {
+            return nil
+        }
         return indices.contains(index) ? self[index] : nil
     }
 }
