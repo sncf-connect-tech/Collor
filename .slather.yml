@@ -1,5 +1,5 @@
 coverage_service: coveralls
+scheme: Collor-Example
 xcodeproj: Example/Collor.xcodeproj
-source_directory: Tests
-ignore:
-  - "*/Pods/*"
+workspace: Example/Collor.xcworkspace
+binary-basename: Collor_Example.app/Frameworks/Collor.framework/Collor
