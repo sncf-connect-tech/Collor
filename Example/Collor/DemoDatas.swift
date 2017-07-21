@@ -73,7 +73,6 @@ final class DemoDatas: CollectionDatas {
             yellowSection.cells.append(contentsOf: cells)
             
         }
-        yellowSection.cells.append( ColorDescriptor(adapter: ColorAdapter(hexaColor: 0xFF0000)).uid("red") )
         sections.append(yellowSection)
         
         let greenSection = MainColorSectionDescriptor().uid("greenSection")
@@ -103,7 +102,7 @@ final class DemoDatas: CollectionDatas {
         sections.append(blueSection)
     }
     
-    func expand(titleDescriptor:CollectionCellDescribable, color:Color) -> UpdateCollectionResult {
+    /*func expand(titleDescriptor:CollectionCellDescribable, color:Color) -> UpdateCollectionResult {
         
         let newCells:[CollectionCellDescribable] = color.getColors().map {
             ColorDescriptor(adapter: ColorAdapter(hexaColor: $0))
@@ -120,12 +119,13 @@ final class DemoDatas: CollectionDatas {
             updater.remove(cells: cells)
         }
         return result
-    }
+    }*/
     
     func addSection() -> UpdateCollectionResult {
         
-        let blueSection = MainColorSectionDescriptor()
-        let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue))
+        let sectionsCount = sections.count
+        let blueSection = MainColorSectionDescriptor().uid("blueSection\(sectionsCount)")
+        let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTiTle")
         blueSection.cells.append(blueTitle)
         
         let result = update { updater in

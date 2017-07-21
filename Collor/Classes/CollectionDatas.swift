@@ -19,7 +19,7 @@ open class CollectionDatas : CollectionDatasProtocol {
     public private(set) lazy var updater:CollectionUpdater = CollectionUpdater(collectionDatas: self)
     
     public init() {}
-    
+        
     public var sections = [CollectionSectionDescribable]()
     
     open func reloadData() { }
