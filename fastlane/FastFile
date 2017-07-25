@@ -1,0 +1,31 @@
+lane :pods do
+  cocoapods(podfile: "Example/")
+end
+
+lane :tests do
+  scan(workspace: "Example/Collor.xcworkspace", scheme: "Collor-Example", clean: true)
+end
+
+lane :travis do
+  pods
+  tests
+  pod_lib_lint(allow_warnings: true, verbose: false)
+end
+
+lane :deploy do
+  ensure_git_branch
+  version = version_bump_podspec(path: "Collor.podspec")
+  git_commit(path: ["./Collor.podspec", "./Example/Podfile.lock"], message: "Bumped to version #{version}")
+  push_to_git_remote(remote_branch: 'master', force: false, tags: true)
+  changelog = changelog_from_git_commits
+  github_release = set_github_release(
+    repository_name: "voyages-sncf-technologies/Collor",
+    api_token: ENV['GITHUB_TOKEN'],
+    name: version,
+    tag_name: version,
+    description: changelog,
+    commitish: "master"
+  )
+  sh("git fetch --tags")
+  pod_push(allow_warnings: true, verbose: true)
+end
