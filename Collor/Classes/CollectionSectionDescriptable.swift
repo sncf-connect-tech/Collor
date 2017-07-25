@@ -19,6 +19,8 @@ public protocol CollectionSectionDescribable : class, Identifiable {
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets
     func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat
     func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat
+    
+    func reloadData()
 }
 
 // default implementation CollectionSectionDescribable
@@ -29,6 +31,8 @@ public extension CollectionSectionDescribable {
     func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
         return layout.minimumLineSpacing
     }
+    
+    func reloadData() { }
 }
 
 extension CollectionSectionDescribable {

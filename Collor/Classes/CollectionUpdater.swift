@@ -26,6 +26,31 @@ final public class CollectionUpdater {
         self.collectionDatas = collectionDatas
     }
     
+    public func diffSection(sectionDescriptor:CollectionSectionDescribable) {
+        let oldItems = sectionDescriptor.cells
+        sectionDescriptor.reloadData()
+        
+        guard let sectionIndex = sectionDescriptor.index else {
+            return
+        }
+        
+        let old = oldItems.map{ $0._uid! }
+        let new = sectionDescriptor.cells.map{ $0._uid! }
+        
+        Dwifft.diff(old, new).forEach {
+            switch $0 {
+            case let .delete(item, _):
+                result?.deletedIndexPaths.append( IndexPath(item: item, section: sectionIndex ) )
+                result?.deletedCellDescriptors.append( oldItems[item] )
+            case let .insert(item, _):
+                result?.insertedIndexPaths.append( IndexPath(item: item, section: sectionIndex ) )
+                result?.insertedCellDescriptors.append( sectionDescriptor.cells[item] )
+            }
+        }
+            
+        collectionDatas.computeIndices()
+    }
+    
     public func reloadData() {
         let oldSections = collectionDatas.sections // store old model
         collectionDatas.reloadData() // compute new model
