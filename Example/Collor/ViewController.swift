@@ -56,16 +56,15 @@ extension ViewController : CollectionDidSelectCellDelegate {
 //            } else {
                 //result = demoDatas.expand(titleDescriptor: cellDescriptor, color: adapter.color)
                 //expanded[cellDescriptor.indexPath] = result.insertedCellDescriptors
-            if demoDatas.expanded == adapter.color {
-                demoDatas.expanded = nil
+            if let index = demoDatas.expanded.index(of: adapter.color) {
+                demoDatas.expanded.remove(at: index)
             } else {
-                demoDatas.expanded = adapter.color
+                demoDatas.expanded.append(adapter.color)
             }
-                let result = demoDatas.update{ updater in
-                    updater.reloadData()
-                }
-            
-                collectionView.performUpdates(with: result)
+            let result = demoDatas.update{ updater in
+                updater.reloadData()
+            }
+            collectionView.performUpdates(with: result)
 //                demoDatas.reloadData()
 //                collectionView.reloadData()
 //            }

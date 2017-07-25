@@ -45,14 +45,14 @@ final class DemoDatas: CollectionDatas {
         case removeSection
     }
     
-    var expanded:Color?
+    var expanded = [Color]()
     
     override func reloadData() {
         super.reloadData()
         
         sections.removeAll()
         
-        let actionSection = MainColorSectionDescriptor().uid("actionSection")
+        /*let actionSection = MainColorSectionDescriptor().uid("actionSection")
         
         let addSectionCell = ActionDescriptor(adapter: ActionAdapter(action: .addSection) ).uid("addSectionCell")
         actionSection.cells.append(addSectionCell)
@@ -60,12 +60,12 @@ final class DemoDatas: CollectionDatas {
         actionSection.cells.append(removeSectionCell)
         let buttonCell = UserEventDescriptor().uid("buttonCell")
         actionSection.cells.append(buttonCell)
-        sections.append(actionSection)
+        sections.append(actionSection)*/
         
         let yellowSection = MainColorSectionDescriptor().uid("yellowSection")
         let yellowTitle = TitleDescriptor(adapter: TitleAdapter(color: .yellow)).uid("yellowTitle")
         yellowSection.cells.append(yellowTitle)
-        if expanded == .yellow {
+        if expanded.contains(.yellow) {
             
             let cells:[CollectionCellDescribable] = Color.yellow.getColors().map {
                 ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("yellow\($0)")
@@ -78,7 +78,7 @@ final class DemoDatas: CollectionDatas {
         let greenSection = MainColorSectionDescriptor().uid("greenSection")
         let greenTitle = TitleDescriptor(adapter: TitleAdapter(color: .green)).uid("greenTitle")
         greenSection.cells.append(greenTitle)
-        if expanded == .green {
+        if expanded.contains(.green) {
             
             let cells:[CollectionCellDescribable] = Color.green.getColors().map {
                 ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("green\($0)")
@@ -91,7 +91,7 @@ final class DemoDatas: CollectionDatas {
         let blueSection = MainColorSectionDescriptor().uid("blueSection")
         let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTitle")
         blueSection.cells.append(blueTitle)
-        if expanded == .blue {
+        if expanded.contains(.blue) {
             
             let cells:[CollectionCellDescribable] = Color.blue.getColors().map {
                 ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("blue\($0)")
