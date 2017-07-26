@@ -46,7 +46,7 @@ final class WeatherTitleDescriptor: CollectionCellDescribable {
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
-        return CGSize(width:width, height:100)
+        return CGSize(width:width, height:adapter.cellHeight)
     }
     
     public func getAdapter() -> CollectionAdapter {
@@ -57,4 +57,5 @@ final class WeatherTitleDescriptor: CollectionCellDescribable {
 protocol WeatherTitleAdapterProtocol : CollectionAdapter {
     var title:NSAttributedString { get }
     var lineColor:UIColor { get }
+    var cellHeight:CGFloat { get }
 }

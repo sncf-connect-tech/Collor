@@ -30,6 +30,20 @@ final class WeatherCollectionData : CollectionDatas {
         titleSection.cells.append(header)
         sections.append(titleSection)
         
-        
+        let daySections = weatherModel.weatherDays.map { day -> CollectionSectionDescribable in
+            let section = WeatherSectionDescriptor()
+            
+            let dayCellDescriptor = WeatherDayDescriptor(adapter: WeatherDayAdapter(day: day) )
+            section.cells.append( dayCellDescriptor )
+            
+            let temperatureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherTemperatureAdapter(day: day) )
+            section.cells.append( temperatureCellDescriptor )
+            
+            let pressureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherPressureAdapter(day: day) )
+            section.cells.append( pressureCellDescriptor )
+            
+            return section
+        }
+        sections.append(contentsOf: daySections)
     }
 }

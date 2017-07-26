@@ -11,6 +11,8 @@ import UIKit
 struct WeatherDay {
     let date:Date
     let temperature:Float
+    let pressure:Float
+    let humidity:Float
     let weatherIcon:String
 }
 
@@ -38,12 +40,14 @@ class WeatherModel: NSObject {
             guard let timeStamp = dayData["dt"] as? Double,
                 let tempData = dayData["temp"] as? [String:Any],
                 let temp = tempData["day"] as? Float,
+                let pressure = dayData["pressure"] as? Float,
+                let humidity = dayData["humidity"] as? Float,
                 let weatherData = dayData["weather"] as? [[String:Any]],
                 let icon = weatherData.first?["icon"] as? String else {
                     return nil
             }
             return WeatherDay(date: Date(timeIntervalSince1970: TimeInterval(timeStamp)),
-                              temperature: temp,
+                              temperature: temp, pressure: pressure, humidity: humidity,
                               weatherIcon: icon)
         }
     }
