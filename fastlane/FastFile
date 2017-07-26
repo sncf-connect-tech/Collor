@@ -1,18 +1,3 @@
-lane :pods do
-  cocoapods(podfile: "Example/")
-end
-
-lane :tests do
-  scan(workspace: "Example/Collor.xcworkspace", scheme: "Collor-Example", clean: true)
-end
-
-lane :travis do
-  pods
-  tests
-  pod_lib_lint(allow_warnings: true, verbose: false)
-end
-
-	puts changelog
 lane :deploy do
   ensure_git_branch
   version = version_bump_podspec(path: "Collor.podspec")
@@ -21,7 +6,7 @@ lane :deploy do
   changelog = changelog_from_git_commits
   github_release = set_github_release(
     repository_name: "voyages-sncf-technologies/Collor",
-    api_token: ENV['GITHUB_TOKEN'],
+    api_token: ENV["GITHUB_TOKEN"],
     name: version,
     tag_name: version,
     description: changelog,

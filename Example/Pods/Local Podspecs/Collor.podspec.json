@@ -1,20 +1,21 @@
 {
   "name": "Collor",
-  "version": "0.1.0",
-  "summary": "A short description of Collor.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/myrddinus/Collor",
+  "version": "0.1.15",
+  "summary": "A MVVM data-oriented framework for UICollectionView.",
+  "description": "A MVVM data-oriented framework for UICollectionView.",
+  "homepage": "https://github.com/voyages-sncf-technologies/Collor",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "myrddinus": "GGuihal@voyages-sncf.com"
+    "gwennguihal": "gguihal@voyages-sncf.com"
   },
   "source": {
-    "git": "https://github.com/myrddinus/Collor.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/voyages-sncf-technologies/Collor.git",
+    "tag": "0.1.15"
   },
+  "social_media_url": "https://twitter.com/_myrddin_",
   "platforms": {
     "ios": "8.0"
   },

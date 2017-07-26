@@ -1,5 +1,5 @@
 PODS:
-  - Collor (0.1.0):
+  - Collor (0.1.15):
     - Dwifft (~> 0.6)
   - CwlCatchException (1.0.2)
   - CwlPreconditionTesting (1.1.0):
@@ -13,7 +13,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   Collor:
-    :path: ../
+    :path: "../"
   CwlCatchException:
     :git: https://github.com/mattgallagher/CwlCatchException.git
   CwlPreconditionTesting:
@@ -28,7 +28,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/mattgallagher/CwlPreconditionTesting.git
 
 SPEC CHECKSUMS:
-  Collor: 85bc728824b821b9b28eb0c61e508dbb82fa82ba
+  Collor: 9ace9cb94b592231d564bb00b71a135e54501934
   CwlCatchException: 70a52ae44ea5d46db7bd385f801a94942420cd8c
   CwlPreconditionTesting: d9b35890c80b34668cd90da5bef077fd817a99fc
   Dwifft: ee21f0fe857852c4f0b7b5070f1493aff82fc512
