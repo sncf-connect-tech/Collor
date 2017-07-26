@@ -15,6 +15,7 @@ final class WeatherCollectionData : CollectionDatas {
     
     func reload(model:WeatherModel) {
         weatherModel = model
+        reloadData()
     }
     
     override func reloadData() {
@@ -23,6 +24,11 @@ final class WeatherCollectionData : CollectionDatas {
         guard let weatherModel = self.weatherModel else {
             return
         }
+        
+        let titleSection = WeatherSectionDescriptor()
+        let header = WeatherTitleDescriptor(adapter:  WeatherHeaderAdapter(cityName: weatherModel.cityName ))
+        titleSection.cells.append(header)
+        sections.append(titleSection)
         
         
     }
