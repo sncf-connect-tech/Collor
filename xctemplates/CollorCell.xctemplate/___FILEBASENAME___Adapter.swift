@@ -9,7 +9,7 @@
 import Foundation
 import Collor
 
-class ___FILEBASENAMEASIDENTIFIER___Adapter: CollectionAdapter {
+struct ___FILEBASENAMEASIDENTIFIER___Adapter: CollectionAdapter {
 
     init() {
         
