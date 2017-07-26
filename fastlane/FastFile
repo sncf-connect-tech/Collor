@@ -12,6 +12,7 @@ lane :travis do
   pod_lib_lint(allow_warnings: true, verbose: false)
 end
 
+	puts changelog
 lane :deploy do
   ensure_git_branch
   version = version_bump_podspec(path: "Collor.podspec")
