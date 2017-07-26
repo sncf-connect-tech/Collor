@@ -2,6 +2,8 @@ use_frameworks!
 
 target 'Collor_Example' do
   pod 'Collor', :path => '../'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
 
   target 'Collor_Tests' do
     inherit! :search_paths

@@ -14,6 +14,12 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7315FCB25EF828F0929A4641 /* Pods_Collor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F1AEC9685F40C56AAB6AE /* Pods_Collor_Example.framework */; };
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
+		F005E1F81F28BD9400EB8327 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005E1F61F28BD9400EB8327 /* WeatherViewController.swift */; };
+		F005E1F91F28BD9400EB8327 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F005E1F71F28BD9400EB8327 /* WeatherViewController.xib */; };
+		F005E1FE1F28BE1000EB8327 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005E1FC1F28BE1000EB8327 /* WeatherModel.swift */; };
+		F005E1FF1F28BE1000EB8327 /* WheatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005E1FD1F28BE1000EB8327 /* WheatherService.swift */; };
+		F005E2011F28C05600EB8327 /* WeatherCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005E2001F28C05600EB8327 /* WeatherCollectionData.swift */; };
+		F005E2051F28C67300EB8327 /* WeatherSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005E2041F28C67300EB8327 /* WeatherSectionDescriptor.swift */; };
 		F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */; };
 		F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */; };
 		F0571D411E952D580060D5AA /* ActionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D3D1E952D580060D5AA /* ActionAdapter.swift */; };
@@ -79,6 +85,13 @@
 		A1B91C5B37455C72DDFFCCC9 /* Pods-Collor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collor_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C28F175CBC84A17630BED1A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F005E1F61F28BD9400EB8327 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		F005E1F71F28BD9400EB8327 /* WeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		F005E1FC1F28BE1000EB8327 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		F005E1FD1F28BE1000EB8327 /* WheatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheatherService.swift; sourceTree = "<group>"; };
+		F005E2001F28C05600EB8327 /* WeatherCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCollectionData.swift; sourceTree = "<group>"; };
+		F005E2021F28C3BE00EB8327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Collor/Info.plist; sourceTree = "<group>"; };
+		F005E2041F28C67300EB8327 /* WeatherSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherSectionDescriptor.swift; sourceTree = "<group>"; };
 		F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDatasTest.swift; sourceTree = "<group>"; };
 		F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDataSourceTest.swift; sourceTree = "<group>"; };
 		F0571D3D1E952D580060D5AA /* ActionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionAdapter.swift; sourceTree = "<group>"; };
@@ -146,6 +159,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				F005E2021F28C3BE00EB8327 /* Info.plist */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Collor */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -167,6 +181,7 @@
 		607FACD21AFB9204008FA782 /* Example for Collor */ = {
 			isa = PBXGroup;
 			children = (
+				F005E1F51F28BD6600EB8327 /* Wheather */,
 				F0571D381E952D280060D5AA /* section */,
 				F0571D371E952D230060D5AA /* cell */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -231,6 +246,51 @@
 				EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F005E1F51F28BD6600EB8327 /* Wheather */ = {
+			isa = PBXGroup;
+			children = (
+				F005E2061F28C6ED00EB8327 /* cell */,
+				F005E2031F28C65D00EB8327 /* section */,
+				F005E1FB1F28BDDF00EB8327 /* model */,
+				F005E1FA1F28BDDB00EB8327 /* service */,
+				F005E1F61F28BD9400EB8327 /* WeatherViewController.swift */,
+				F005E1F71F28BD9400EB8327 /* WeatherViewController.xib */,
+				F005E2001F28C05600EB8327 /* WeatherCollectionData.swift */,
+			);
+			name = Wheather;
+			sourceTree = "<group>";
+		};
+		F005E1FA1F28BDDB00EB8327 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				F005E1FD1F28BE1000EB8327 /* WheatherService.swift */,
+			);
+			name = service;
+			sourceTree = "<group>";
+		};
+		F005E1FB1F28BDDF00EB8327 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F005E1FC1F28BE1000EB8327 /* WeatherModel.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		F005E2031F28C65D00EB8327 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F005E2041F28C67300EB8327 /* WeatherSectionDescriptor.swift */,
+			);
+			name = section;
+			sourceTree = "<group>";
+		};
+		F005E2061F28C6ED00EB8327 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 		F0571D371E952D230060D5AA /* cell */ = {
@@ -419,6 +479,7 @@
 				F0D318D61EC3386700A9CBEA /* TestCollectionViewCell.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				F0571D691E952D7D0060D5AA /* UserEventCollectionViewCell.xib in Resources */,
+				F005E1F91F28BD9400EB8327 /* WeatherViewController.xib in Resources */,
 				F0D318EC1EC49EA700A9CBEA /* TestViewController.xib in Resources */,
 				F0571D511E952D620060D5AA /* ColorCollectionViewCell.xib in Resources */,
 				F0571D451E952D580060D5AA /* ActionCollectionViewCell.xib in Resources */,
@@ -540,18 +601,23 @@
 				F0571D4F1E952D620060D5AA /* ColorCollectionViewCell.swift in Sources */,
 				F0571D5F1E952D6C0060D5AA /* TitleDescriptor.swift in Sources */,
 				F0571D651E952D7D0060D5AA /* UserEventAdapter.swift in Sources */,
+				F005E1FF1F28BE1000EB8327 /* WheatherService.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				F0571D591E952D6C0060D5AA /* TitleAdapter.swift in Sources */,
 				F0571D6B1E952D7D0060D5AA /* UserEventDescriptor.swift in Sources */,
 				F0571D741E952E110060D5AA /* UserEventDelegate.swift in Sources */,
 				F0571D411E952D580060D5AA /* ActionAdapter.swift in Sources */,
+				F005E1FE1F28BE1000EB8327 /* WeatherModel.swift in Sources */,
 				F0571D4D1E952D620060D5AA /* ColorAdapter.swift in Sources */,
+				F005E1F81F28BD9400EB8327 /* WeatherViewController.swift in Sources */,
 				F0571D6E1E952D900060D5AA /* MainColorSectionDescriptor.swift in Sources */,
 				F0571D431E952D580060D5AA /* ActionCollectionViewCell.swift in Sources */,
 				F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */,
+				F005E2011F28C05600EB8327 /* WeatherCollectionData.swift in Sources */,
 				F0571D5B1E952D6C0060D5AA /* TitleCollectionViewCell.swift in Sources */,
 				F0571D711E952DDC0060D5AA /* DemoDatas.swift in Sources */,
 				F0571D531E952D620060D5AA /* ColorDescriptor.swift in Sources */,
+				F005E2051F28C67300EB8327 /* WeatherSectionDescriptor.swift in Sources */,
 				F0571D671E952D7D0060D5AA /* UserEventCollectionViewCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
