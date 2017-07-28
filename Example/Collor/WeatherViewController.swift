@@ -17,7 +17,7 @@ final class WeatherViewController: UIViewController {
     fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: self)
     
     private let weatherService = WeatherService()
-    private let collectionDatas = WeatherCollectionData()
+    let collectionDatas = WeatherCollectionData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,20 @@ final class WeatherViewController: UIViewController {
 
 extension WeatherViewController : CollectionDidSelectCellDelegate {
     func didSelect(_ cellDescriptor: CollectionCellDescribable, sectionDescriptor: CollectionSectionDescribable, indexPath: IndexPath) {
-        
+        switch (cellDescriptor, cellDescriptor.getAdapter()) {
+        case (is WeatherDayDescriptor, let adapter as WeatherDayAdapter):
+            if let index = collectionDatas.expandedSections.index(of: adapter.day) {
+                collectionDatas.expandedSections.remove(at: index)
+            } else {
+                collectionDatas.expandedSections.append(adapter.day)
+            }
+            let result = collectionDatas.update{ updater in
+                updater.reloadData()
+            }
+            collectionView.performUpdates(with: result)
+        default:
+            break
+        }
     }
 }
 

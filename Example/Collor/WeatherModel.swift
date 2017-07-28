@@ -8,12 +8,16 @@
 
 import UIKit
 
-struct WeatherDay {
+struct WeatherDay : Equatable {
     let date:Date
     let temperature:Float
     let pressure:Float
     let humidity:Float
     let weatherIcon:String
+    
+    public static func ==(lhs: WeatherDay, rhs: WeatherDay) -> Bool {
+        return lhs.date == rhs.date
+    }
 }
 
 class WeatherModel: NSObject {

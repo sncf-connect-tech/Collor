@@ -35,7 +35,7 @@ final class WeatherDayDescriptor: CollectionCellDescribable {
     
     let identifier: String = "WeatherDayCollectionViewCell"
     let className: String = "WeatherDayCollectionViewCell"
-    var selectable:Bool = false
+    var selectable:Bool = true
     
     let adapter: WeatherDayAdapter
     

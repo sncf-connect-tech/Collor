@@ -13,6 +13,7 @@ struct WeatherDayAdapter: CollectionAdapter {
 
     let iconURL:URL
     let date:NSAttributedString
+    let day:WeatherDay
     
     static let dateFormatter:DateFormatter = {
         let df = DateFormatter()
@@ -21,6 +22,8 @@ struct WeatherDayAdapter: CollectionAdapter {
     }()
     
     init(day:WeatherDay) {
+        
+        self.day = day
         
         iconURL = URL(string: "https://openweathermap.org/img/w/" + day.weatherIcon + ".png")!
         let dateString = WeatherDayAdapter.dateFormatter.string(from: day.date)

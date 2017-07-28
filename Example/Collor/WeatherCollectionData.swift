@@ -18,6 +18,8 @@ final class WeatherCollectionData : CollectionDatas {
         reloadData()
     }
     
+    var expandedSections = [WeatherDay]()
+    
     override func reloadData() {
         super.reloadData()
         
@@ -33,14 +35,18 @@ final class WeatherCollectionData : CollectionDatas {
         let daySections = weatherModel.weatherDays.map { day -> CollectionSectionDescribable in
             let section = WeatherSectionDescriptor()
             
-            let dayCellDescriptor = WeatherDayDescriptor(adapter: WeatherDayAdapter(day: day) )
-            section.cells.append( dayCellDescriptor )
+            if expandedSections.contains(day) {
             
-            let temperatureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherTemperatureAdapter(day: day) )
-            section.cells.append( temperatureCellDescriptor )
-            
-            let pressureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherPressureAdapter(day: day) )
-            section.cells.append( pressureCellDescriptor )
+                let dayCellDescriptor = WeatherDayDescriptor(adapter: WeatherDayAdapter(day: day) )
+                section.cells.append( dayCellDescriptor )
+                
+                let temperatureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherTemperatureAdapter(day: day) )
+                section.cells.append( temperatureCellDescriptor )
+                
+                let pressureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherPressureAdapter(day: day) )
+                section.cells.append( pressureCellDescriptor )
+                
+            }
             
             return section
         }
