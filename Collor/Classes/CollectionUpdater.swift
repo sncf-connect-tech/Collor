@@ -27,12 +27,18 @@ final public class CollectionUpdater {
     }
     
     public func diffSection(sectionDescriptor:CollectionSectionDescribable) {
-        let oldItems = sectionDescriptor.cells
-        sectionDescriptor.reloadData()
-        
         guard let sectionIndex = sectionDescriptor.index else {
             return
         }
+        
+        guard let sectionBuilder = sectionDescriptor.builder else {
+            print("prout")
+            return
+        }
+        
+        let oldItems = sectionDescriptor.cells
+        sectionDescriptor.cells.removeAll()
+        sectionBuilder(&sectionDescriptor.cells)
         
         let old = oldItems.map{ $0._uid! }
         let new = sectionDescriptor.cells.map{ $0._uid! }

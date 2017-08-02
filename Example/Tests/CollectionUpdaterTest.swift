@@ -15,7 +15,6 @@ struct TestAdapter:CollectionAdapter {
 }
 
 final class TestSectionDescriptor:CollectionSectionDescribable {
-    var cells = [CollectionCellDescribable]()
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
@@ -28,8 +27,6 @@ final class TestSectionDescriptor:CollectionSectionDescribable {
 }
 
 final class SimpleTestSectionDescriptor:CollectionSectionDescribable {
-    var cells = [CollectionCellDescribable]()
-    
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsets.zero
     }

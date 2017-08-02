@@ -248,7 +248,9 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
             
             // when
             let cellOne = TestCellDescriptor(adapter: TestAdapter() )
-            data.sections[0].cells.append( cellOne )
+            data.sections[0].build{ cells in
+                cells.append( cellOne )
+            }
             
             // then
             let exception = NSException.catchException {
@@ -267,7 +269,9 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
             
             // when
             let cellOne = TestCellDescriptor(adapter: TestAdapter() ).uid("cell0")
-            data.sections[0].cells.append( cellOne )
+            data.sections[0].build { cells in
+                cells.append( cellOne )
+            }
             
             // then
             let exception = NSException.catchException {
