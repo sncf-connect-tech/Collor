@@ -52,6 +52,8 @@
 		F0571D741E952E110060D5AA /* UserEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D731E952E110060D5AA /* UserEventDelegate.swift */; };
 		F05946121EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */; };
 		F089D98B1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */; };
+		F089D98D1F34CC5F00395056 /* WheaterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D98C1F34CC5F00395056 /* WheaterLayout.swift */; };
+		F089D9911F34CCF200395056 /* WeatherDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D98F1F34CCF200395056 /* WeatherDecorationView.swift */; };
 		F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */; };
 		F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */; };
 		F0D318D61EC3386700A9CBEA /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */; };
@@ -134,6 +136,8 @@
 		F0571D731E952E110060D5AA /* UserEventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDelegate.swift; sourceTree = "<group>"; };
 		F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterDiffDataTest.swift; sourceTree = "<group>"; };
 		F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterDiffSectionTest.swift; sourceTree = "<group>"; };
+		F089D98C1F34CC5F00395056 /* WheaterLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WheaterLayout.swift; sourceTree = "<group>"; };
+		F089D98F1F34CCF200395056 /* WeatherDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDecorationView.swift; sourceTree = "<group>"; };
 		F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterTest.swift; sourceTree = "<group>"; };
 		F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		F005E1F51F28BD6600EB8327 /* Wheather */ = {
 			isa = PBXGroup;
 			children = (
+				F089D98E1F34CCEA00395056 /* decoration */,
 				F005E2061F28C6ED00EB8327 /* cell */,
 				F005E2031F28C65D00EB8327 /* section */,
 				F005E1FB1F28BDDF00EB8327 /* model */,
@@ -281,6 +286,7 @@
 				F005E2001F28C05600EB8327 /* WeatherCollectionData.swift */,
 				F005E21B1F28CD8100EB8327 /* WheaterAdapters.swift */,
 				F005E22B1F28E28B00EB8327 /* WeatherStyle.swift */,
+				F089D98C1F34CC5F00395056 /* WheaterLayout.swift */,
 			);
 			name = Wheather;
 			sourceTree = "<group>";
@@ -408,6 +414,14 @@
 				F0571D401E952D580060D5AA /* ActionDescriptor.swift */,
 			);
 			name = action;
+			sourceTree = "<group>";
+		};
+		F089D98E1F34CCEA00395056 /* decoration */ = {
+			isa = PBXGroup;
+			children = (
+				F089D98F1F34CCF200395056 /* WeatherDecorationView.swift */,
+			);
+			name = decoration;
 			sourceTree = "<group>";
 		};
 		F0D318D01EC3360700A9CBEA /* cell */ = {
@@ -668,6 +682,8 @@
 				F0571D741E952E110060D5AA /* UserEventDelegate.swift in Sources */,
 				F0571D411E952D580060D5AA /* ActionAdapter.swift in Sources */,
 				F005E1FE1F28BE1000EB8327 /* WeatherModel.swift in Sources */,
+				F089D9911F34CCF200395056 /* WeatherDecorationView.swift in Sources */,
+				F089D98D1F34CC5F00395056 /* WheaterLayout.swift in Sources */,
 				F0571D4D1E952D620060D5AA /* ColorAdapter.swift in Sources */,
 				F005E1F81F28BD9400EB8327 /* WeatherViewController.swift in Sources */,
 				F0571D6E1E952D900060D5AA /* MainColorSectionDescriptor.swift in Sources */,

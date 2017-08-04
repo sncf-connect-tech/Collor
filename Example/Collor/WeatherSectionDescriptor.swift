@@ -10,7 +10,8 @@ import Foundation
 import Collor
 
 final class WeatherSectionDescriptor : CollectionSectionDescribable {
-    var cells = [CollectionCellDescribable]()
+    
+    var isExpanded:Bool = false
     
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)

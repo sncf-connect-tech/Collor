@@ -18,8 +18,6 @@ final class WeatherCollectionData : CollectionDatas {
         reloadData()
     }
     
-    var expandedSections = [WeatherDay]()
-    
     override func reloadData() {
         super.reloadData()
         
@@ -27,27 +25,28 @@ final class WeatherCollectionData : CollectionDatas {
             return
         }
         
-        let titleSection = WeatherSectionDescriptor()
-        let header = WeatherTitleDescriptor(adapter:  WeatherHeaderAdapter(cityName: weatherModel.cityName ))
-        titleSection.cells.append(header)
+        let titleSection = WeatherSectionDescriptor().reloadSection { cells in
+            let header = WeatherTitleDescriptor(adapter:  WeatherHeaderAdapter(cityName: weatherModel.cityName ))
+            cells.append(header)
+        }
         sections.append(titleSection)
         
         let daySections = weatherModel.weatherDays.map { day -> CollectionSectionDescribable in
             let section = WeatherSectionDescriptor()
-            
-            if expandedSections.contains(day) {
-            
-                let dayCellDescriptor = WeatherDayDescriptor(adapter: WeatherDayAdapter(day: day) )
-                section.cells.append( dayCellDescriptor )
+            section.reloadSection { cells in
                 
-                let temperatureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherTemperatureAdapter(day: day) )
-                section.cells.append( temperatureCellDescriptor )
+                let dayCellDescriptor = WeatherDayDescriptor(adapter: WeatherDayAdapter(day: day) ).uid("day")
+                cells.append( dayCellDescriptor )
                 
-                let pressureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherPressureAdapter(day: day) )
-                section.cells.append( pressureCellDescriptor )
-                
+                if section.isExpanded {
+                    
+                    let temperatureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherTemperatureAdapter(day: day) ).uid("temp")
+                    cells.append( temperatureCellDescriptor )
+                    
+                    let pressureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherPressureAdapter(day: day) ).uid("pressure")
+                    cells.append( pressureCellDescriptor )
+                }
             }
-            
             return section
         }
         sections.append(contentsOf: daySections)

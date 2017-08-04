@@ -23,6 +23,7 @@ final class WeatherViewController: UIViewController {
         super.viewDidLoad()
         
         bind(collectionView: collectionView, with: collectionDatas, and: collectionViewDelegate, and: collectionViewDatasource)
+        collectionView.collectionViewLayout = WheaterLayout(datas: collectionDatas)
         
         weatherService.get16DaysWeather { [weak self] response in
             switch response {
@@ -38,15 +39,11 @@ final class WeatherViewController: UIViewController {
 
 extension WeatherViewController : CollectionDidSelectCellDelegate {
     func didSelect(_ cellDescriptor: CollectionCellDescribable, sectionDescriptor: CollectionSectionDescribable, indexPath: IndexPath) {
-        switch (cellDescriptor, cellDescriptor.getAdapter()) {
-        case (is WeatherDayDescriptor, let adapter as WeatherDayAdapter):
-            if let index = collectionDatas.expandedSections.index(of: adapter.day) {
-                collectionDatas.expandedSections.remove(at: index)
-            } else {
-                collectionDatas.expandedSections.append(adapter.day)
-            }
+        switch (sectionDescriptor) {
+        case (let sectionDescriptor as WeatherSectionDescriptor):
+            sectionDescriptor.isExpanded = !sectionDescriptor.isExpanded
             let result = collectionDatas.update{ updater in
-                updater.reloadData()
+                updater.diff(sections: [sectionDescriptor])
             }
             collectionView.performUpdates(with: result)
         default:

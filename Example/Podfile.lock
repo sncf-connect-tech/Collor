@@ -26,10 +26,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CwlCatchException:
-    :commit: 0da6219c5cd4d26e535720ec3de7f7714b4f21a8
+    :commit: 2a86ba784624a5edd93f1a0a1a4572d48e26d1c4
     :git: https://github.com/mattgallagher/CwlCatchException.git
   CwlPreconditionTesting:
-    :commit: 724525ff64dad0a0b77c150a678a04dc56f99de8
+    :commit: 32255872eef5131f7844cbe0d0e82fc337489319
     :git: https://github.com/mattgallagher/CwlPreconditionTesting.git
 
 SPEC CHECKSUMS:
