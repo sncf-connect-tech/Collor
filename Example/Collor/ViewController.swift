@@ -62,7 +62,7 @@ extension ViewController : CollectionDidSelectCellDelegate {
                 demoDatas.expanded.append(adapter.color)
             }
             let result = demoDatas.update{ updater in
-                updater.reloadData()
+                updater.diff(sections: [sectionDescriptor])
             }
             collectionView.performUpdates(with: result)
 //                demoDatas.reloadData()

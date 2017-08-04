@@ -15,7 +15,6 @@ struct TestAdapter:CollectionAdapter {
 }
 
 final class TestSectionDescriptor:CollectionSectionDescribable {
-    var cells = [CollectionCellDescribable]()
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
@@ -28,8 +27,6 @@ final class TestSectionDescriptor:CollectionSectionDescribable {
 }
 
 final class SimpleTestSectionDescriptor:CollectionSectionDescribable {
-    var cells = [CollectionCellDescribable]()
-    
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsets.zero
     }
@@ -63,15 +60,20 @@ final class TestData:CollectionDatas {
         super.reloadData()
         
         let sectionOne = TestSectionDescriptor()
-        sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
-        sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
-        sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+        sectionOne.reloadSection { cells in
+            cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+            cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+            cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+
+        }
         sections.append(sectionOne)
         
         let sectionTwo = SimpleTestSectionDescriptor()
-        sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
-        sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
-        sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+        sectionTwo.reloadSection { cells in
+            cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+            cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+            cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+        }
         
         sections.append(sectionTwo)
     }
@@ -234,7 +236,9 @@ class CollectionUpdaterTest: XCTestCase {
     func testAppendSection() {
         // given
         let section = TestSectionDescriptor()
-        section.cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        section.reloadSection { (cells) in
+            cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        }
 
         // when
         let result = data.update { updater in
@@ -256,10 +260,14 @@ class CollectionUpdaterTest: XCTestCase {
     func testAppendSectionAfterSection() {
         // given
         let sectionOne = TestSectionDescriptor()
-        sectionOne.cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        sectionOne.reloadSection { (cells) in
+            cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        }
 
         let sectionTwo = TestSectionDescriptor()
-        sectionTwo.cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        sectionTwo.reloadSection { (cells) in
+            cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        }
 
         // when
         let result = data.update { updater in
@@ -285,10 +293,14 @@ class CollectionUpdaterTest: XCTestCase {
     func testAppendSectionBeforeSection() {
         // given
         let sectionOne = TestSectionDescriptor()
-        sectionOne.cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        sectionOne.reloadSection { (cells) in
+            cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        }
         
         let sectionTwo = TestSectionDescriptor()
-        sectionTwo.cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        sectionTwo.reloadSection { (cells) in
+            cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        }
         
         // when
         let result = data.update { updater in

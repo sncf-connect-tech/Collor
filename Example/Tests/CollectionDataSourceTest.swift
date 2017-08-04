@@ -63,7 +63,6 @@ class CollectionDataSourceTest: XCTestCase {
         let descriptor = data.cellDescribable(at: indexPath) as! TestCellDescriptor
         descriptor.className = "NoAdaptableCollectionViewCell"
         descriptor.identifier = "NoAdaptableCollectionViewCell"
-        data.reloadData()
         type = type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), "UICollectionViewCell")
         

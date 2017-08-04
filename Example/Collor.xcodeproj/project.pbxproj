@@ -50,7 +50,8 @@
 		F0571D6E1E952D900060D5AA /* MainColorSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D6D1E952D900060D5AA /* MainColorSectionDescriptor.swift */; };
 		F0571D711E952DDC0060D5AA /* DemoDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D701E952DDC0060D5AA /* DemoDatas.swift */; };
 		F0571D741E952E110060D5AA /* UserEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0571D731E952E110060D5AA /* UserEventDelegate.swift */; };
-		F05946121EFAB4540004E930 /* CollectionUpdaterReloadDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05946111EFAB4540004E930 /* CollectionUpdaterReloadDataTest.swift */; };
+		F05946121EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */; };
+		F089D98B1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */; };
 		F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */; };
 		F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */; };
 		F0D318D61EC3386700A9CBEA /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */; };
@@ -131,7 +132,8 @@
 		F0571D6D1E952D900060D5AA /* MainColorSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainColorSectionDescriptor.swift; sourceTree = "<group>"; };
 		F0571D701E952DDC0060D5AA /* DemoDatas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDatas.swift; sourceTree = "<group>"; };
 		F0571D731E952E110060D5AA /* UserEventDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDelegate.swift; sourceTree = "<group>"; };
-		F05946111EFAB4540004E930 /* CollectionUpdaterReloadDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterReloadDataTest.swift; sourceTree = "<group>"; };
+		F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterDiffDataTest.swift; sourceTree = "<group>"; };
+		F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterDiffSectionTest.swift; sourceTree = "<group>"; };
 		F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterTest.swift; sourceTree = "<group>"; };
 		F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -230,7 +232,8 @@
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 				F0D318D01EC3360700A9CBEA /* cell */,
 				F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */,
-				F05946111EFAB4540004E930 /* CollectionUpdaterReloadDataTest.swift */,
+				F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */,
+				F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */,
 				F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */,
 				F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */,
 				F0D318DE1EC3422000A9CBEA /* CollectionDelegateTest.swift */,
@@ -689,8 +692,9 @@
 			files = (
 				F0D318E71EC48E4E00A9CBEA /* TestViewController.swift in Sources */,
 				F0D318DA1EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.swift in Sources */,
-				F05946121EFAB4540004E930 /* CollectionUpdaterReloadDataTest.swift in Sources */,
+				F05946121EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift in Sources */,
 				F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */,
+				F089D98B1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift in Sources */,
 				F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */,
 				F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */,
 				F0D318E31EC46AA300A9CBEA /* CollectionViewTest.swift in Sources */,
