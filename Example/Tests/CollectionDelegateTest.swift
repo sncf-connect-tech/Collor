@@ -41,7 +41,6 @@ class CollectionDelegateTest: XCTestCase {
         // selectable true
         let descriptor = data.cellDescribable(at: indexPath) as! TestCellDescriptor
         descriptor.selectable = true
-        data.reloadData()
         XCTAssertTrue(collectionDelegate.collectionView(collectionView, shouldSelectItemAt: indexPath))
         
         collectionDelegate.collectionDatas = nil

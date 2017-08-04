@@ -19,12 +19,10 @@ private struct AssociatedKeys {
 public protocol CollectionSectionDescribable : class, Identifiable {
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets
     func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat
-    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat
-    
-    //func reloadSection(updates: ()->Void )
+    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat    
 }
 
-public typealias BuilderClosure = (inout [CollectionCellDescribable]) -> Void
+public typealias SectionBuilderClosure = (inout [CollectionCellDescribable]) -> Void
 
 // default implementation CollectionSectionDescribable
 public extension CollectionSectionDescribable {
@@ -35,10 +33,11 @@ public extension CollectionSectionDescribable {
         return layout.minimumLineSpacing
     }
     
-    func build(_ builder:@escaping BuilderClosure) {
+    @discardableResult func reloadSection(_ builder:@escaping SectionBuilderClosure) -> Self {
         self.builder = builder
         cells.removeAll()
         builder(&cells)
+        return self
     }
 }
 
@@ -51,12 +50,12 @@ extension CollectionSectionDescribable {
             objc_setAssociatedObject( self, &AssociatedKeys.SectionIndex, newValue as Int?, .OBJC_ASSOCIATION_COPY)
         }
     }
-    var builder: BuilderClosure? {
+    var builder: SectionBuilderClosure? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.SectionBuilder) as? BuilderClosure
+            return objc_getAssociatedObject(self, &AssociatedKeys.SectionBuilder) as? SectionBuilderClosure
         }
         set {
-            objc_setAssociatedObject( self, &AssociatedKeys.SectionBuilder, newValue as BuilderClosure?, .OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject( self, &AssociatedKeys.SectionBuilder, newValue as SectionBuilderClosure?, .OBJC_ASSOCIATION_COPY)
         }
     }
     

@@ -60,8 +60,7 @@ final class DemoDatas: CollectionDatas {
         actionSection.cells.append(buttonCell)
         sections.append(actionSection)*/
         
-        let yellowSection = MainColorSectionDescriptor().uid("yellowSection")
-        yellowSection.build { cells in
+        let yellowSection = MainColorSectionDescriptor().uid("yellowSection").reloadSection { cells in
             let yellowTitle = TitleDescriptor(adapter: TitleAdapter(color: .yellow)).uid("yellowTitle")
             cells.append(yellowTitle)
             if self.expanded.contains(.yellow) {
@@ -75,7 +74,7 @@ final class DemoDatas: CollectionDatas {
         sections.append(yellowSection)
         
         let greenSection = MainColorSectionDescriptor().uid("greenSection")
-        greenSection.build { cells in
+        greenSection.reloadSection { cells in
             let greenTitle = TitleDescriptor(adapter: TitleAdapter(color: .green)).uid("greenTitle")
             cells.append(greenTitle)
             if self.expanded.contains(.green) {
@@ -90,7 +89,7 @@ final class DemoDatas: CollectionDatas {
         sections.append(greenSection)
         
         let blueSection = MainColorSectionDescriptor().uid("blueSection")
-        blueSection.build { cells in
+        blueSection.reloadSection { cells in
             let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTitle")
             cells.append(blueTitle)
             if self.expanded.contains(.blue) {
@@ -128,7 +127,7 @@ final class DemoDatas: CollectionDatas {
         
         let sectionsCount = sections.count
         let blueSection = MainColorSectionDescriptor().uid("blueSection\(sectionsCount)")
-        blueSection.build { cells in
+        blueSection.reloadSection { cells in
             let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTiTle")
             cells.append(blueTitle)
         }

@@ -14,7 +14,8 @@ class TestViewController: UIViewController {
     
     enum State {
         case simple
-        case reload
+        case diff
+        case diffSection
     }
     
     let state:State
@@ -25,8 +26,10 @@ class TestViewController: UIViewController {
         switch state {
         case .simple:
             data = TestData()
-        case .reload:
-            data = ReloadTestData()
+        case .diff:
+            data = DiffTestData()
+        case .diffSection:
+            data = DiffSectionTestData()
         }
         
         super.init(nibName: nil, bundle: nil)
@@ -56,8 +59,10 @@ class TestViewController: UIViewController {
         switch state {
         case .simple:
             testPerformUpdates()
-        case .reload:
-            testPerformUpdatesReloadData()
+        case .diff:
+            testPerformUpdatesDiff()
+        case .diffSection:
+            testPerformUpdatesDiffSection()
         }
     }
     
@@ -70,7 +75,9 @@ class TestViewController: UIViewController {
         let cellToRemove = data.sections[1].cells[0]
         
         let sectionToAppend = TestSectionDescriptor()
-        sectionToAppend.cells.append(TestCellDescriptor(adapter: TestAdapter()))
+        sectionToAppend.reloadSection { cells in
+            cells.append( TestCellDescriptor(adapter: TestAdapter()) )
+        }
         
         // when
         let result = data.update { (updater) in
@@ -84,15 +91,30 @@ class TestViewController: UIViewController {
         }
     }
     
-    func testPerformUpdatesReloadData() {
+    func testPerformUpdatesDiff() {
         // given
-        (data as! ReloadTestData).insert = true
-        (data as! ReloadTestData).insertSection = true
-        (data as! ReloadTestData).deleted = true
+        (data as! DiffTestData).insert = true
+        (data as! DiffTestData).insertSection = true
+        (data as! DiffTestData).deleted = true
         
         // when
         let result = data.update { (updater) in
-            updater.reloadData()
+            updater.diff()
+        }
+        
+        self.collectionView.performUpdates(with: result) { ok in
+            self.expectation?.fulfill()
+        }
+    }
+    
+    func testPerformUpdatesDiffSection() {
+        // given
+        (data as! DiffSectionTestData).insert = true
+        (data as! DiffSectionTestData).deleted = true
+        
+        // when
+        let result = data.update { (updater) in
+            updater.diff(sections: data.sections)
         }
         
         self.collectionView.performUpdates(with: result) { ok in
