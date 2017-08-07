@@ -11,7 +11,7 @@ import Collor
 import CwlPreconditionTesting
 import CwlCatchException
 
-final class ReloadTestData:CollectionDatas {
+final class DiffTestData:CollectionDatas {
     
     var deleted:Bool = false
     var deletedSection:Bool = false
@@ -26,41 +26,49 @@ final class ReloadTestData:CollectionDatas {
         
         if !deletedSection {
             let sectionOne = TestSectionDescriptor().uid("section0")
-            sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell0") )
-            sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell1") )
-            sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell2") )
-            if insert {
-                sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell3") )
-                sectionOne.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell4") )
+            sectionOne.reloadSection { cells in
+                cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell0") )
+                cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell1") )
+                cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell2") )
+                
+                if self.insert {
+                    cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell3") )
+                    cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell4") )
+                }
             }
+            
             sections.append(sectionOne)
         }
         
         if insertSection {
             let sectionPlus = TestSectionDescriptor().uid("sectionPlus")
-            sectionPlus.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell0") )
+            sectionPlus.reloadSection { cells in
+                cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell0") )
+            }
             sections.append(sectionPlus)
         }
         
         let sectionTwo = SimpleTestSectionDescriptor().uid("section1")
-        if !deleted {
-            sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell0") )
-            sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell1") )
-        }
-        sectionTwo.cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell2") )
         
+        sectionTwo.reloadSection { cells in
+            if !self.deleted {
+                cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell0") )
+                cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell1") )
+            }
+            cells.append( TestCellDescriptor(adapter: TestAdapter() ).uid("cell2") )
+        }
         sections.append(sectionTwo)
     }
 }
 
 class CollectionUpdaterReloadDataTest: XCTestCase {
     
-    var data:ReloadTestData!
+    var data:DiffTestData!
     
     override func setUp() {
         super.setUp()
         
-        data = ReloadTestData()
+        data = DiffTestData()
         data.reloadData()
         data.computeIndices() // not linked with collectionView
     }
@@ -69,7 +77,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         super.tearDown()
     }
     
-    func testReloadData_deleteCells() {
+    func testDiffData_deleteCells() {
         // given
         let sectionIndex = 1
         let cellOne = data.sections[sectionIndex].cells[0]
@@ -78,7 +86,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         // when
         data.deleted = true
         let result = data.update { (updater) in
-            updater.reloadData()
+            updater.diff()
         }
         
         // then
@@ -96,14 +104,14 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         XCTAssertEqual(data.sections[sectionIndex].cells[0].indexPath, IndexPath(item: 0, section: sectionIndex) )
     }
     
-    func testReloadData_deleteSection() {
+    func testDiffData_deleteSection() {
         // given
         let section = data.sections[0]
         
         // when
         data.deletedSection = true
         let result = data.update { (updater) in
-            updater.reloadData()
+            updater.diff()
         }
         
         // then
@@ -120,14 +128,14 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         XCTAssertEqual(data.sections[0].cells[0].indexPath, IndexPath(item: 0, section: 0))
     }
     
-    func testReloadData_insertCells() {
+    func testDiffData_insertCells() {
         // given
         let sectionIndex = 0
         
         // when
         data.insert = true
         let result = data.update { (updater) in
-            updater.reloadData()
+            updater.diff()
         }
         
         // then
@@ -146,13 +154,13 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         XCTAssertEqual(data.sections[sectionIndex].cells[1].indexPath, IndexPath(item: 1, section: sectionIndex) )
     }
     
-    func testReloadData_insertSection() {
+    func testDiffData_insertSection() {
         // given
         
         // when
         data.insertSection = true
         let result = data.update { (updater) in
-            updater.reloadData()
+            updater.diff()
         }
         
         // then
@@ -168,7 +176,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         XCTAssertEqual(data.sections[2].cells[2].indexPath, IndexPath(item: 2, section: 2))
     }
     
-    func testReloadData_multiple() {
+    func testDiffData_multiple() {
         // given
         
         // when
@@ -176,7 +184,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         data.deleted = true
         data.insert = true
         let result = data.update { (updater) in
-            updater.reloadData()
+            updater.diff()
         }
         
         // then
@@ -205,7 +213,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         XCTAssertEqual(data.sections[2].cells[0].indexPath, IndexPath(item: 0, section: 2))
     }
     
-    func testReloadData_missingSectionUID() {
+    func testDiffData_missingSectionUID() {
         #if arch(x86_64) || arch(i386)
         // given
         
@@ -215,7 +223,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         // then
             let exception = NSException.catchException {
             let _ = data.update { (updater) in
-                updater.reloadData()
+                updater.diff()
             }
         }
         XCTAssertNotNil(exception)
@@ -223,7 +231,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         #endif
     }
     
-    func testReloadData_duplicatesSectionsUID() {
+    func testDiffData_duplicatesSectionsUID() {
         #if arch(x86_64) || arch(i386)
             // given
             
@@ -234,7 +242,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
             // then
             let exception = NSException.catchException {
                 let _ = data.update { (updater) in
-                    updater.reloadData()
+                    updater.diff()
                 }
             }
             XCTAssertNotNil(exception)
@@ -242,18 +250,20 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         #endif
     }
     
-    func testReloadData_missingItemUID() {
+    func testDiffData_missingItemUID() {
         #if arch(x86_64) || arch(i386)
             // given
+            let cellOne = TestCellDescriptor(adapter: TestAdapter() )
             
             // when
-            let cellOne = TestCellDescriptor(adapter: TestAdapter() )
-            data.sections[0].cells.append( cellOne )
+            data.sections[0].reloadSection { cells in
+                cells.append( cellOne )
+            }
             
             // then
             let exception = NSException.catchException {
                 let _ = data.update { (updater) in
-                    updater.reloadData()
+                    updater.diff()
                 }
             }
             XCTAssertNotNil(exception)
@@ -261,18 +271,22 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         #endif
     }
     
-    func testReloadData_duplicateItemsUID() {
+    func testDiffData_duplicateItemsUID() {
         #if arch(x86_64) || arch(i386)
             // given
+            let cellOne = TestCellDescriptor(adapter: TestAdapter() ).uid("cell0")
+            let cellTwo = TestCellDescriptor(adapter: TestAdapter() ).uid("cell0")
             
             // when
-            let cellOne = TestCellDescriptor(adapter: TestAdapter() ).uid("cell0")
-            data.sections[0].cells.append( cellOne )
+            data.sections[0].reloadSection { cells in
+                cells.append( cellOne )
+                cells.append( cellTwo )
+            }
             
             // then
             let exception = NSException.catchException {
                 let _ = data.update { (updater) in
-                    updater.reloadData()
+                    updater.diff()
                 }
             }
             XCTAssertNotNil(exception)

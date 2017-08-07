@@ -22,7 +22,9 @@ open class CollectionDatas : CollectionDatasProtocol {
         
     public var sections = [CollectionSectionDescribable]()
     
-    open func reloadData() { }
+    open func reloadData() {
+        sections.removeAll()
+    }
     
     //MARK: Internal
     

@@ -50,8 +50,6 @@ final class DemoDatas: CollectionDatas {
     override func reloadData() {
         super.reloadData()
         
-        sections.removeAll()
-        
         /*let actionSection = MainColorSectionDescriptor().uid("actionSection")
         
         let addSectionCell = ActionDescriptor(adapter: ActionAdapter(action: .addSection) ).uid("addSectionCell")
@@ -62,42 +60,46 @@ final class DemoDatas: CollectionDatas {
         actionSection.cells.append(buttonCell)
         sections.append(actionSection)*/
         
-        let yellowSection = MainColorSectionDescriptor().uid("yellowSection")
-        let yellowTitle = TitleDescriptor(adapter: TitleAdapter(color: .yellow)).uid("yellowTitle")
-        yellowSection.cells.append(yellowTitle)
-        if expanded.contains(.yellow) {
-            
-            let cells:[CollectionCellDescribable] = Color.yellow.getColors().map {
-                ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("yellow\($0)")
+        let yellowSection = MainColorSectionDescriptor().uid("yellowSection").reloadSection { cells in
+            let yellowTitle = TitleDescriptor(adapter: TitleAdapter(color: .yellow)).uid("yellowTitle")
+            cells.append(yellowTitle)
+            if self.expanded.contains(.yellow) {
+                
+                let tempCells:[CollectionCellDescribable] = Color.yellow.getColors().map {
+                    ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("yellow\($0)")
+                }
+                cells.append(contentsOf: tempCells)
             }
-            yellowSection.cells.append(contentsOf: cells)
-            
         }
         sections.append(yellowSection)
         
         let greenSection = MainColorSectionDescriptor().uid("greenSection")
-        let greenTitle = TitleDescriptor(adapter: TitleAdapter(color: .green)).uid("greenTitle")
-        greenSection.cells.append(greenTitle)
-        if expanded.contains(.green) {
-            
-            let cells:[CollectionCellDescribable] = Color.green.getColors().map {
-                ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("green\($0)")
+        greenSection.reloadSection { cells in
+            let greenTitle = TitleDescriptor(adapter: TitleAdapter(color: .green)).uid("greenTitle")
+            cells.append(greenTitle)
+            if self.expanded.contains(.green) {
+                
+                let tempCells:[CollectionCellDescribable] = Color.green.getColors().map {
+                    ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("green\($0)")
+                }
+                cells.append(contentsOf: tempCells)
+                
             }
-            greenSection.cells.append(contentsOf: cells)
-            
         }
         sections.append(greenSection)
         
         let blueSection = MainColorSectionDescriptor().uid("blueSection")
-        let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTitle")
-        blueSection.cells.append(blueTitle)
-        if expanded.contains(.blue) {
-            
-            let cells:[CollectionCellDescribable] = Color.blue.getColors().map {
-                ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("blue\($0)")
+        blueSection.reloadSection { cells in
+            let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTitle")
+            cells.append(blueTitle)
+            if self.expanded.contains(.blue) {
+                
+                let tempCells:[CollectionCellDescribable] = Color.blue.getColors().map {
+                    ColorDescriptor(adapter: ColorAdapter(hexaColor: $0)).uid("blue\($0)")
+                }
+                cells.append(contentsOf: tempCells)
+                
             }
-            blueSection.cells.append(contentsOf: cells)
-            
         }
         sections.append(blueSection)
     }
@@ -125,8 +127,10 @@ final class DemoDatas: CollectionDatas {
         
         let sectionsCount = sections.count
         let blueSection = MainColorSectionDescriptor().uid("blueSection\(sectionsCount)")
-        let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTiTle")
-        blueSection.cells.append(blueTitle)
+        blueSection.reloadSection { cells in
+            let blueTitle = TitleDescriptor(adapter: TitleAdapter(color: .blue)).uid("blueTiTle")
+            cells.append(blueTitle)
+        }
         
         let result = update { updater in
             let last = sections.last

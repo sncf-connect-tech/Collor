@@ -49,6 +49,7 @@
 		C5EF25C74E334E6614EDF82F6092A9EB /* Collor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8C3E7180A1DFE5FEFE75AFE737DC31 /* Collor-dummy.m */; };
 		D49DC9FDDB53E33726E55E7B284988F9 /* CwlCatchException.h in Headers */ = {isa = PBXBuildFile; fileRef = AA9999BE35994E50C6B6A423DAABBD98 /* CwlCatchException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E06A5AE57199B5F395A420B6E6864CE3 /* Dwifft-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B524BC249B9628C1AB37164964A427 /* Dwifft-dummy.m */; };
+		F089D9891F34BBE700395056 /* CollectionUpdater+Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D9881F34BBE700395056 /* CollectionUpdater+Diff.swift */; };
 		F2D23252A17CDAE29112C0C41BACEC97 /* Pods-Collor_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F38BD8FDE0794CA6929F953351495DD8 /* Pods-Collor_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F756962BAB0331FBDEEF29B98035322F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99039CFF54F9B4588F91DE5760A37BDC /* Foundation.framework */; };
 		FAAE753944070296D9D40D6146DDB1AA /* CollectionDidSelectCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8ABC46386B7AB64D8FB74D1F2F2DA4 /* CollectionDidSelectCellDelegate.swift */; };
@@ -104,11 +105,11 @@
 /* Begin PBXFileReference section */
 		01F5ED05CC40E972C7CE52D122025ABD /* CwlCatchException-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CwlCatchException-dummy.m"; sourceTree = "<group>"; };
 		038AD98733AC094772FA6C322E8827E8 /* CwlPreconditionTesting.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CwlPreconditionTesting.xcconfig; sourceTree = "<group>"; };
-		03F70B476D3D61A1306DC17865D0C6AB /* Pods_Collor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Collor_Example.framework; path = "Pods-Collor_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03F70B476D3D61A1306DC17865D0C6AB /* Pods_Collor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0671CF1CE18FA6834E1F461AD179EC7F /* mach_excServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mach_excServer.h; path = Sources/CwlMachBadInstructionHandler/mach_excServer.h; sourceTree = "<group>"; };
 		095A2F26640B4DBDEE358B53937FBD62 /* Collor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Collor.xcconfig; sourceTree = "<group>"; };
 		0B5683EDD6A07DEB282A54514F4406FC /* Pods-Collor_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Collor_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		0B6368D7E8DFBAA665D2F9E9EDAE39B5 /* CwlPreconditionTesting.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CwlPreconditionTesting.modulemap; sourceTree = "<group>"; };
+		0B6368D7E8DFBAA665D2F9E9EDAE39B5 /* CwlPreconditionTesting.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CwlPreconditionTesting.modulemap; sourceTree = "<group>"; };
 		0D6580FBE1F65F5539DA463F9C5C3D3D /* Pods-Collor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Collor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		11C4B5F57DEF773F4092273452CDE572 /* CollectionDatas.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionDatas.swift; sourceTree = "<group>"; };
 		16EB0B687EEA5F1876A6AFE150B2B964 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,30 +117,30 @@
 		17E638F3F81656A7E2DF2DCF2E88522B /* CwlPreconditionTesting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlPreconditionTesting.h; path = Sources/CwlPreconditionTesting/Mach/CwlPreconditionTesting.h; sourceTree = "<group>"; };
 		1A0D7EF5CF299252D9756E255EB97A66 /* Pods-Collor_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Collor_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1A86F4863D8E69EB509FE28CA0359D17 /* CollectionSectionDescriptable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionSectionDescriptable.swift; sourceTree = "<group>"; };
-		1F0E0B769C21E8DB1325C3B613DE6409 /* Collor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Collor.framework; path = Collor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0E0B769C21E8DB1325C3B613DE6409 /* Collor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Collor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F491F9C25E38690BE63612672BB411F /* Pods-Collor_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Collor_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		224CA417DCD54145BFDEB8CC7DF443F5 /* Pods-Collor_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Collor_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		2399CC6755CC0FDBB3674A28EFC59DBD /* CwlCatchException-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CwlCatchException-umbrella.h"; sourceTree = "<group>"; };
 		2843745D4EF1CCB733044F6F89E42EAB /* Identifiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		2C9F37BC7C9D30BB08A2D8EF6F899F8D /* CwlMachBadInstructionHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CwlMachBadInstructionHandler.m; path = Sources/CwlMachBadInstructionHandler/CwlMachBadInstructionHandler.m; sourceTree = "<group>"; };
 		2E12643395E55D19E0B9776CAB46D905 /* CwlMachBadInstructionHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlMachBadInstructionHandler.h; path = Sources/CwlMachBadInstructionHandler/include/CwlMachBadInstructionHandler.h; sourceTree = "<group>"; };
-		2F09221F4C24F4093C8C35EA6B4B35AA /* Dwifft.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Dwifft.modulemap; sourceTree = "<group>"; };
+		2F09221F4C24F4093C8C35EA6B4B35AA /* Dwifft.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Dwifft.modulemap; sourceTree = "<group>"; };
 		37520C6ED420A532ACBAF7A44A32861B /* CollectionCellAdaptable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionCellAdaptable.swift; sourceTree = "<group>"; };
 		37F7E2A88B3FD9B70FABA0A50A37D6AA /* CwlPreconditionTesting-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CwlPreconditionTesting-dummy.m"; sourceTree = "<group>"; };
 		3A2B1D73BC957F4438195B963F5808C4 /* CollectionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionDelegate.swift; sourceTree = "<group>"; };
-		3CEA813CC5FCB7D33C8BF9060387B383 /* Pods-Collor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Collor_Tests.modulemap"; sourceTree = "<group>"; };
+		3CEA813CC5FCB7D33C8BF9060387B383 /* Pods-Collor_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Collor_Tests.modulemap"; sourceTree = "<group>"; };
 		48B5A0C9988BBD5ACC80A17F108D19F3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49989A1A45AD0C89AB22FA1B162A9ADB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C20F05536D11C4294D2BC7EC0D2DE6F /* CwlDarwinDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlDarwinDefinitions.swift; path = Sources/CwlPreconditionTesting/CwlDarwinDefinitions.swift; sourceTree = "<group>"; };
 		4EDBCE45C3E050569C909AFE2BC216B1 /* CwlCatchException-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CwlCatchException-prefix.pch"; sourceTree = "<group>"; };
 		51B524BC249B9628C1AB37164964A427 /* Dwifft-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Dwifft-dummy.m"; sourceTree = "<group>"; };
-		51B9AA224BFEE046CEA0C38E1D6CFA51 /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mach_excServer.c; path = Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
+		51B9AA224BFEE046CEA0C38E1D6CFA51 /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mach_excServer.c; path = Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
 		566EF5F81CCC759715220E5747447E8F /* Pods-Collor_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Collor_Example-resources.sh"; sourceTree = "<group>"; };
 		5670CE2742C020360BC71D69AAE682A8 /* CwlBadInstructionException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlBadInstructionException.swift; path = Sources/CwlPreconditionTesting/CwlBadInstructionException.swift; sourceTree = "<group>"; };
-		5A999D655B52ADDA4CEEE420CAE73C09 /* Dwifft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Dwifft.framework; path = Dwifft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A999D655B52ADDA4CEEE420CAE73C09 /* Dwifft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dwifft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7FF3B5016652648CB28B8117681A75 /* UICollectionView+CollectionDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UICollectionView+CollectionDescriptor.swift"; sourceTree = "<group>"; };
 		5DE855856BF81BFAADE4DC066E7FFB97 /* CwlPreconditionTesting-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CwlPreconditionTesting-prefix.pch"; sourceTree = "<group>"; };
-		5FC14714AD191F18C6165F774A726B9A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Collor_Tests.framework; path = "Pods-Collor_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FC14714AD191F18C6165F774A726B9A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		623BB8B9E3444207ECCAF3AB0DEFD537 /* Pods-Collor_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Collor_Tests-umbrella.h"; sourceTree = "<group>"; };
 		69D4151ECECFE2A7915F4A01D5CE8032 /* Pods-Collor_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Collor_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6AFA5B0846D5E28DC977244EC0FA13BD /* Dwifft-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Dwifft-prefix.pch"; sourceTree = "<group>"; };
@@ -150,10 +151,10 @@
 		7E27291E32B948D997D84731AD04ED3C /* Pods-Collor_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Collor_Tests-dummy.m"; sourceTree = "<group>"; };
 		8219E10217CA28733886CBFD3C75A4E3 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		847470A45E563F5494FA124714180A7C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		858549533D9A2315CA05C06EC6CB3A89 /* Pods-Collor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Collor_Example.modulemap"; sourceTree = "<group>"; };
+		858549533D9A2315CA05C06EC6CB3A89 /* Pods-Collor_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Collor_Example.modulemap"; sourceTree = "<group>"; };
 		8C34CC0A9348583092F487EF65D882BD /* CollectionUserEventDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionUserEventDelegate.swift; sourceTree = "<group>"; };
 		8D418DFD8C3B2DE20FFF77617917C1B4 /* SectionedValues.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SectionedValues.swift; path = Dwifft/SectionedValues.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		99039CFF54F9B4588F91DE5760A37BDC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9B49AF675F8B572CEBEA28266EFD3C32 /* Dwifft.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Dwifft.swift; path = Dwifft/Dwifft.swift; sourceTree = "<group>"; };
 		9C8ABC46386B7AB64D8FB74D1F2F2DA4 /* CollectionDidSelectCellDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionDidSelectCellDelegate.swift; sourceTree = "<group>"; };
@@ -169,19 +170,20 @@
 		CEB8B23B5F565132EFA2C2E39459C531 /* Pods-Collor_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Collor_Example-dummy.m"; sourceTree = "<group>"; };
 		CEEC0A3D67482487C4AC186E8F578E98 /* Pods-Collor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Collor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		DE47463ED35EF3344894F8D4918754F2 /* Pods-Collor_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Collor_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		DF6950709510F262C0AEDBEB6F546BDC /* CwlCatchException.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CwlCatchException.modulemap; sourceTree = "<group>"; };
+		DF6950709510F262C0AEDBEB6F546BDC /* CwlCatchException.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CwlCatchException.modulemap; sourceTree = "<group>"; };
 		E2DBEEA3CCA036A8DF408160407DD7E4 /* Collor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Collor-prefix.pch"; sourceTree = "<group>"; };
 		E41CCA9C11A20864BF734A7E1969A6FE /* CollectionAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionAdapter.swift; sourceTree = "<group>"; };
 		E6D035BAD40E0F514B11B7212F537702 /* Dwifft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dwifft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EFB7051346CA210C77DE67B2ECAA0B /* CollectionDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
-		EA11672CA7D35CDAF84FFC3FF1DE3B23 /* Collor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Collor.modulemap; sourceTree = "<group>"; };
+		EA11672CA7D35CDAF84FFC3FF1DE3B23 /* Collor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Collor.modulemap; sourceTree = "<group>"; };
 		ECDDE1590D4BA5B0BC8100DA6C2FB60A /* Dwifft.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Dwifft.xcconfig; sourceTree = "<group>"; };
-		ED93166594A78EF98E4A0E2A70721B87 /* CwlPreconditionTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CwlPreconditionTesting.framework; path = CwlPreconditionTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED93166594A78EF98E4A0E2A70721B87 /* CwlPreconditionTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CwlPreconditionTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F089D9881F34BBE700395056 /* CollectionUpdater+Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionUpdater+Diff.swift"; sourceTree = "<group>"; };
 		F368B5415F3D1C6A247F3B5F2826F9BB /* Pods-Collor_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Collor_Tests-resources.sh"; sourceTree = "<group>"; };
 		F380C5E11C4285F73744A8868D29A1D9 /* Pods-Collor_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Collor_Example-frameworks.sh"; sourceTree = "<group>"; };
 		F38BD8FDE0794CA6929F953351495DD8 /* Pods-Collor_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Collor_Example-umbrella.h"; sourceTree = "<group>"; };
 		F3C89EFCDFF26322DABD0E4E74AE9E51 /* CwlCatchException.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CwlCatchException.xcconfig; sourceTree = "<group>"; };
-		F847B678F9BAFB0089D07B8FF99D1A38 /* CwlCatchException.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CwlCatchException.framework; path = CwlCatchException.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F847B678F9BAFB0089D07B8FF99D1A38 /* CwlCatchException.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CwlCatchException.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90DBF4DB62A867C87FDF000BC32EA7E /* CwlCatchException.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CwlCatchException.m; path = Sources/CwlCatchExceptionSupport/CwlCatchException.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,12 +271,12 @@
 				9C8ABC46386B7AB64D8FB74D1F2F2DA4 /* CollectionDidSelectCellDelegate.swift */,
 				1A86F4863D8E69EB509FE28CA0359D17 /* CollectionSectionDescriptable.swift */,
 				171B26C556E46893FD84501732432049 /* CollectionUpdater.swift */,
+				F089D9881F34BBE700395056 /* CollectionUpdater+Diff.swift */,
 				8C34CC0A9348583092F487EF65D882BD /* CollectionUserEventDelegate.swift */,
 				8219E10217CA28733886CBFD3C75A4E3 /* Helpers.swift */,
 				2843745D4EF1CCB733044F6F89E42EAB /* Identifiable.swift */,
 				5C7FF3B5016652648CB28B8117681A75 /* UICollectionView+CollectionDescriptor.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -300,7 +302,6 @@
 				CA44B2D7332300C1F618A4A2DEBBB96F /* CwlCatchException.swift */,
 				2FBB0CF98A394510FA10EFBDDE0D0F40 /* Support Files */,
 			);
-			name = CwlCatchException;
 			path = CwlCatchException;
 			sourceTree = "<group>";
 		};
@@ -375,7 +376,6 @@
 				0671CF1CE18FA6834E1F461AD179EC7F /* mach_excServer.h */,
 				46B404A9EBDB8E211968F0F49C8AB116 /* Support Files */,
 			);
-			name = CwlPreconditionTesting;
 			path = CwlPreconditionTesting;
 			sourceTree = "<group>";
 		};
@@ -411,7 +411,6 @@
 				8D418DFD8C3B2DE20FFF77617917C1B4 /* SectionedValues.swift */,
 				B5416BC1EB7144BE1AEEA2C5A388A186 /* Support Files */,
 			);
-			name = Dwifft;
 			path = Dwifft;
 			sourceTree = "<group>";
 		};
@@ -429,7 +428,6 @@
 			children = (
 				2BD8A1AB0DDE21B2BB1627D87276A307 /* Classes */,
 			);
-			name = Collor;
 			path = Collor;
 			sourceTree = "<group>";
 		};
@@ -739,6 +737,7 @@
 				574B3B271FAE70C5BD71A414AD139479 /* CollectionCellDescribable.swift in Sources */,
 				2CB9E39EE113F88C18E2051BF6FD5714 /* CollectionDatas.swift in Sources */,
 				59C4DF324B951F07F3AE4B8208CEF00F /* CollectionDataSource.swift in Sources */,
+				F089D9891F34BBE700395056 /* CollectionUpdater+Diff.swift in Sources */,
 				1D734D96B8068FFCC89ACC7779C09242 /* CollectionDelegate.swift in Sources */,
 				FAAE753944070296D9D40D6146DDB1AA /* CollectionDidSelectCellDelegate.swift in Sources */,
 				AD1E59C7CCCF1D942C2A86D4D41F6989 /* CollectionSectionDescriptable.swift in Sources */,
