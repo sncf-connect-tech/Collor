@@ -1,5 +1,5 @@
 //
-//  WeatherDecorationView.swift
+//  SectionDecorationView.swift
 //
 //  Created by Guihal Gwenn on 04/08/2017.
 //  Copyright © 2017 CocoaPods. All rights reserved.
@@ -8,20 +8,24 @@
 import UIKit
 import CoreGraphics
 
-class WeatherDecorationViewLayoutAttributes: UICollectionViewLayoutAttributes {
+protocol SectionDecorable {
+    var hasBackground:Bool { get }
+}
+
+class SectionDecorationViewLayoutAttributes: UICollectionViewLayoutAttributes {
     
     var backgroundColor: UIColor?
     var cornerRadius: CGFloat?
     
     override func copy(with zone: NSZone?) -> Any {
-        let copy = super.copy(with: zone) as! WeatherDecorationViewLayoutAttributes
+        let copy = super.copy(with: zone) as! SectionDecorationViewLayoutAttributes
         copy.backgroundColor = backgroundColor
         copy.cornerRadius = cornerRadius
         return copy
     }
     
     override func isEqual(_ object: Any?) -> Bool {
-        guard let object = object as? WeatherDecorationViewLayoutAttributes else {
+        guard let object = object as? SectionDecorationViewLayoutAttributes else {
             return false
         }
         if object.backgroundColor != backgroundColor && object.cornerRadius != cornerRadius {
@@ -32,16 +36,17 @@ class WeatherDecorationViewLayoutAttributes: UICollectionViewLayoutAttributes {
     
 }
 
-class WeatherDecorationView: UICollectionReusableView {
+class SectionDecorationView: UICollectionReusableView {
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         
-        guard let layoutAttributes = layoutAttributes as? WeatherDecorationViewLayoutAttributes else {
-            fatalError("WeatherDecorationViewLayoutAttributes required")
+        guard let layoutAttributes = layoutAttributes as? SectionDecorationViewLayoutAttributes else {
+            fatalError("SectionDecorationViewLayoutAttributes required")
         }
         
         backgroundColor = layoutAttributes.backgroundColor
 
         layer.cornerRadius = layoutAttributes.cornerRadius ?? 0
+        layer.zPosition = -10 // fix issue in zIndex sorting in collectionView on ios10
     }
 }

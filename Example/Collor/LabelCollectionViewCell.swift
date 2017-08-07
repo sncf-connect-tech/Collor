@@ -1,5 +1,5 @@
 //
-//  WeatherLabelCollectionViewCell.swift
+//  LabelCollectionViewCell.swift
 //  Collor
 //
 //  Created by Guihal Gwenn on 26/07/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import Collor
 
-final class WeatherLabelCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
+final class LabelCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     @IBOutlet weak var label: UILabel!
     
@@ -19,29 +19,29 @@ final class WeatherLabelCollectionViewCell: UICollectionViewCell, CollectionCell
     }
     
     func update(with adapter: CollectionAdapter) {
-        guard let adapter = adapter as? WeatherLabelAdapterProtocol else {
-            fatalError("WeatherLabelAdapterProtocol required")
+        guard let adapter = adapter as? LabelAdapterProtocol else {
+            fatalError("LabelAdapterProtocol required")
         }
         label.attributedText = adapter.label
     }
 
 }
 
-final class WeatherLabelDescriptor: CollectionCellDescribable {
+final class LabelDescriptor: CollectionCellDescribable {
     
-    let identifier: String = "WeatherLabelCollectionViewCell"
-    let className: String = "WeatherLabelCollectionViewCell"
-    var selectable:Bool = false
+    let identifier: String = "LabelCollectionViewCell"
+    let className: String = "LabelCollectionViewCell"
+    var selectable:Bool = true
     
-    let adapter: WeatherLabelAdapterProtocol
+    let adapter: LabelAdapterProtocol
     
-    init(adapter:WeatherLabelAdapterProtocol) {
+    init(adapter:LabelAdapterProtocol) {
         self.adapter = adapter
     }
     
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
-        let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
+        let width:CGFloat = adapter.width ?? collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:adapter.height ?? adapter.label.height(width))
     }
     
@@ -50,9 +50,10 @@ final class WeatherLabelDescriptor: CollectionCellDescribable {
     }
 }
 
-protocol WeatherLabelAdapterProtocol : CollectionAdapter {
+protocol LabelAdapterProtocol : CollectionAdapter {
     var label:NSAttributedString { get }
     var height:CGFloat? { get }
+    var width:CGFloat? { get }
 }
 
 extension NSAttributedString {

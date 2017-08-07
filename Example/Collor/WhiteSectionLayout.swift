@@ -1,5 +1,5 @@
 //
-//  WheaterLayout.swift
+//  WhiteSectionLayout.swift
 //  Collor
 //
 //  Created by Guihal Gwenn on 04/08/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import Collor
 
-class WheaterLayout: UICollectionViewFlowLayout {
+class WhiteSectionLayout: UICollectionViewFlowLayout {
     
     unowned fileprivate let datas: CollectionDatas
     fileprivate var decorationAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]()
@@ -24,7 +24,7 @@ class WheaterLayout: UICollectionViewFlowLayout {
         super.init()
         
         decorationAttributes[sectionBackgroundKind] = [IndexPath : UICollectionViewLayoutAttributes]()
-        register(WeatherDecorationView.self, forDecorationViewOfKind: sectionBackgroundKind)
+        register(SectionDecorationView.self, forDecorationViewOfKind: sectionBackgroundKind)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,7 +42,7 @@ class WheaterLayout: UICollectionViewFlowLayout {
         
         for (sectionIndex, sectionDescriptor) in datas.sections.enumerated() {
             
-            guard (sectionDescriptor as? WeatherSectionDescriptor)?.hasBackground == true else {
+            guard (sectionDescriptor as? SectionDecorable)?.hasBackground == true else {
                 continue
             }
             
@@ -57,10 +57,10 @@ class WheaterLayout: UICollectionViewFlowLayout {
             let height = lastCellAttributes.frame.maxY - origin.y + backgroundMargin
             
             // header
-            let backgroundAttributes = WeatherDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
+            let backgroundAttributes = SectionDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
             backgroundAttributes.backgroundColor = UIColor.white
             backgroundAttributes.cornerRadius = 4
-            backgroundAttributes.zIndex = -2
+            backgroundAttributes.zIndex = -10
             backgroundAttributes.frame = CGRect(x: origin.x,
                                                 y: origin.y,
                                                 width: width,

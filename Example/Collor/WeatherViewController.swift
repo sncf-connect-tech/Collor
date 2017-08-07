@@ -14,23 +14,23 @@ final class WeatherViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     fileprivate(set) lazy var collectionViewDelegate: CollectionDelegate = CollectionDelegate(delegate: self)
-    fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: self)
+    fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: nil)
     
     private let weatherService = WeatherService()
-    let collectionDatas = WeatherCollectionData()
+    let collectionData = WeatherCollectionData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Weather"
         
-        bind(collectionView: collectionView, with: collectionDatas, and: collectionViewDelegate, and: collectionViewDatasource)
-        collectionView.collectionViewLayout = WheaterLayout(datas: collectionDatas)
+        bind(collectionView: collectionView, with: collectionData, and: collectionViewDelegate, and: collectionViewDatasource)
+        collectionView.collectionViewLayout = WhiteSectionLayout(datas: collectionData)
         
         weatherService.get16DaysWeather { [weak self] response in
             switch response {
             case .success(let data):
-                self?.collectionDatas.reload(model: data)
+                self?.collectionData.reload(model: data)
                 self?.collectionView.reloadData()
             case .error(let error):
                 print(error)
@@ -44,7 +44,7 @@ extension WeatherViewController : CollectionDidSelectCellDelegate {
         switch (sectionDescriptor) {
         case (let sectionDescriptor as WeatherSectionDescriptor):
             sectionDescriptor.isExpanded = !sectionDescriptor.isExpanded
-            let result = collectionDatas.update{ updater in
+            let result = collectionData.update{ updater in
                 updater.diff(sections: [sectionDescriptor])
             }
             collectionView.performUpdates(with: result)
@@ -52,8 +52,4 @@ extension WeatherViewController : CollectionDidSelectCellDelegate {
             break
         }
     }
-}
-
-extension WeatherViewController : UserEventDelegate {
-    func onUserEvent(_ event: UserEvent, cell: UICollectionViewCell) {}
 }

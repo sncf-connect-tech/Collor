@@ -26,7 +26,7 @@ final class WeatherCollectionData : CollectionDatas {
         }
         
         let titleSection = WeatherSectionDescriptor(hasBackground: false).reloadSection { cells in
-            let header = WeatherTitleDescriptor(adapter:  WeatherHeaderAdapter(cityName: weatherModel.cityName ))
+            let header = TitleDescriptor(adapter:  WeatherHeaderAdapter(cityName: weatherModel.cityName ))
             cells.append(header)
         }
         sections.append(titleSection)
@@ -40,10 +40,10 @@ final class WeatherCollectionData : CollectionDatas {
                 
                 if section.isExpanded {
                     
-                    let temperatureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherTemperatureAdapter(day: day) ).uid("temp")
+                    let temperatureCellDescriptor = LabelDescriptor(adapter: WeatherTemperatureAdapter(day: day) ).uid("temp")
                     cells.append( temperatureCellDescriptor )
                     
-                    let pressureCellDescriptor = WeatherLabelDescriptor(adapter: WeatherPressureAdapter(day: day) ).uid("pressure")
+                    let pressureCellDescriptor = LabelDescriptor(adapter: WeatherPressureAdapter(day: day) ).uid("pressure")
                     cells.append( pressureCellDescriptor )
                 }
             }

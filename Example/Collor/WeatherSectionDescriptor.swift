@@ -9,10 +9,9 @@
 import Foundation
 import Collor
 
-final class WeatherSectionDescriptor : CollectionSectionDescribable {
+final class WeatherSectionDescriptor : CollectionSectionDescribable, SectionDecorable {
     
     let hasBackground:Bool
-    
     var isExpanded:Bool = false
     
     convenience init() {

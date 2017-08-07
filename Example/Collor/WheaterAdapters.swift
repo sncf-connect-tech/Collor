@@ -9,7 +9,7 @@
 import Foundation
 import Collor
 
-struct WeatherHeaderAdapter: WeatherTitleAdapterProtocol {
+struct WeatherHeaderAdapter: TitleAdapterProtocol {
     
     let title: NSAttributedString
     var lineColor: UIColor = .lightGray
@@ -23,20 +23,21 @@ struct WeatherHeaderAdapter: WeatherTitleAdapterProtocol {
     }
 }
 
-struct WeatherTemperatureAdapter: WeatherLabelAdapterProtocol {
-    
+struct WeatherTemperatureAdapter: LabelAdapterProtocol {
     var label:NSAttributedString
     var height: CGFloat?
+    var width: CGFloat?
     
     init(day:WeatherDay) {
         label = WeatherStyle.WeatherProperty.property(key: "Temperature: ", value: "\(day.temperature)°C")
     }
 }
 
-struct WeatherPressureAdapter: WeatherLabelAdapterProtocol {
+struct WeatherPressureAdapter: LabelAdapterProtocol {
     
     var label:NSAttributedString
     var height: CGFloat?
+    var width: CGFloat?
     
     init(day:WeatherDay) {
         label = WeatherStyle.WeatherProperty.property(key: "Pressure: ", value: "\(day.pressure)")
