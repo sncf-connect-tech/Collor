@@ -22,6 +22,8 @@ final class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Weather"
+        
         bind(collectionView: collectionView, with: collectionDatas, and: collectionViewDelegate, and: collectionViewDatasource)
         collectionView.collectionViewLayout = WheaterLayout(datas: collectionDatas)
         

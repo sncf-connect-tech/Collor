@@ -25,7 +25,7 @@ final class WeatherCollectionData : CollectionDatas {
             return
         }
         
-        let titleSection = WeatherSectionDescriptor().reloadSection { cells in
+        let titleSection = WeatherSectionDescriptor(hasBackground: false).reloadSection { cells in
             let header = WeatherTitleDescriptor(adapter:  WeatherHeaderAdapter(cityName: weatherModel.cityName ))
             cells.append(header)
         }

@@ -11,9 +11,19 @@ import Collor
 
 final class WeatherSectionDescriptor : CollectionSectionDescribable {
     
+    let hasBackground:Bool
+    
     var isExpanded:Bool = false
     
+    convenience init() {
+        self.init(hasBackground: true)
+    }
+    
+    init(hasBackground:Bool) {
+        self.hasBackground = hasBackground
+    }
+    
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)
     }
 }

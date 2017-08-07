@@ -12,7 +12,7 @@ import Collor
 struct WeatherHeaderAdapter: WeatherTitleAdapterProtocol {
     
     let title: NSAttributedString
-    var lineColor: UIColor = .black
+    var lineColor: UIColor = .lightGray
     var cellHeight: CGFloat = 50
     
     init(cityName:String) {
@@ -29,7 +29,7 @@ struct WeatherTemperatureAdapter: WeatherLabelAdapterProtocol {
     var height: CGFloat?
     
     init(day:WeatherDay) {
-        label = WeatherStyle.WeatherProperty.property(key: "Temperature: ", value: "\(day.temperature)")
+        label = WeatherStyle.WeatherProperty.property(key: "Temperature: ", value: "\(day.temperature)°C")
     }
 }
 

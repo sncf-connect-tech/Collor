@@ -16,7 +16,7 @@ class WheaterLayout: UICollectionViewFlowLayout {
     
     fileprivate let sectionBackgroundKind = "sectionBackground"
     
-    let backgroundMarginY:CGFloat = 5
+    let backgroundMargin:CGFloat = 5
     
     
     init(datas: CollectionDatas) {
@@ -42,7 +42,7 @@ class WheaterLayout: UICollectionViewFlowLayout {
         
         for (sectionIndex, sectionDescriptor) in datas.sections.enumerated() {
             
-            guard sectionDescriptor is WeatherSectionDescriptor else {
+            guard (sectionDescriptor as? WeatherSectionDescriptor)?.hasBackground == true else {
                 continue
             }
             
@@ -52,14 +52,13 @@ class WheaterLayout: UICollectionViewFlowLayout {
             let lastCellIndexPath = IndexPath(item: sectionDescriptor.cells.count - 1, section: sectionIndex)
             let lastCellAttributes = layoutAttributesForItem(at: lastCellIndexPath)!
             
-            let origin = CGPoint(x: 0, y: firstCellAttributes.frame.origin.y - backgroundMarginY)
-            let width = collectionView.bounds.width
-            let height = lastCellAttributes.frame.maxY - origin.y + backgroundMarginY
+            let origin = CGPoint(x: 0 + backgroundMargin, y: firstCellAttributes.frame.origin.y - backgroundMargin)
+            let width = collectionView.bounds.width - backgroundMargin*2
+            let height = lastCellAttributes.frame.maxY - origin.y + backgroundMargin
             
             // header
             let backgroundAttributes = WeatherDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
-            backgroundAttributes.borderColor = UIColor.black
-            backgroundAttributes.backgroundColor = UIColor.lightGray
+            backgroundAttributes.backgroundColor = UIColor.white
             backgroundAttributes.cornerRadius = 4
             backgroundAttributes.zIndex = -2
             backgroundAttributes.frame = CGRect(x: origin.x,
