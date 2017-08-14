@@ -15,8 +15,8 @@ struct TeamTitleAdapter : TitleAdapterProtocol {
     var lineColor: UIColor = .lightGray
     var cellHeight: CGFloat = 40
     
-    init(teamTitle: String) {
-        self.title = NSAttributedString(string: teamTitle, attributes: [
+    init(team: Team) {
+        self.title = NSAttributedString(string: team.title, attributes: [
             NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14),
             NSForegroundColorAttributeName: UIColor.black
             ])

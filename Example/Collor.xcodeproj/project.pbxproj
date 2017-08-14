@@ -15,6 +15,14 @@
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
 		F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */; };
 		F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */; };
+		F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */; };
+		F0577CC01F39E6870051BD18 /* PantoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */; };
+		F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */; };
+		F0577CC31F39E6E90051BD18 /* PantoneCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CC21F39E6E90051BD18 /* PantoneCollectionData.swift */; };
+		F0577CC71F39E9FA0051BD18 /* PantoneSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CC61F39E9FA0051BD18 /* PantoneSectionDescriptor.swift */; };
+		F0577CCB1F39EA420051BD18 /* PantoneColorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CC81F39EA420051BD18 /* PantoneColorAdapter.swift */; };
+		F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CC91F39EA420051BD18 /* PantoneColorCollectionViewCell.swift */; };
+		F0577CCD1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0577CCA1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib */; };
 		F05946121EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */; };
 		F089D98B1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */; };
 		F089D9AA1F3861A500395056 /* WeatherCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D9991F3861A500395056 /* WeatherCollectionData.swift */; };
@@ -84,6 +92,14 @@
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDatasTest.swift; sourceTree = "<group>"; };
 		F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDataSourceTest.swift; sourceTree = "<group>"; };
+		F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetallicPantone.swift; sourceTree = "<group>"; };
+		F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantoneViewController.swift; sourceTree = "<group>"; };
+		F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PantoneViewController.xib; sourceTree = "<group>"; };
+		F0577CC21F39E6E90051BD18 /* PantoneCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantoneCollectionData.swift; sourceTree = "<group>"; };
+		F0577CC61F39E9FA0051BD18 /* PantoneSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantoneSectionDescriptor.swift; sourceTree = "<group>"; };
+		F0577CC81F39EA420051BD18 /* PantoneColorAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantoneColorAdapter.swift; sourceTree = "<group>"; };
+		F0577CC91F39EA420051BD18 /* PantoneColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantoneColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		F0577CCA1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PantoneColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterDiffDataTest.swift; sourceTree = "<group>"; };
 		F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterDiffSectionTest.swift; sourceTree = "<group>"; };
 		F089D9991F3861A500395056 /* WeatherCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCollectionData.swift; sourceTree = "<group>"; };
@@ -175,6 +191,7 @@
 		607FACD21AFB9204008FA782 /* Example for Collor */ = {
 			isa = PBXGroup;
 			children = (
+				F0577CBA1F39C4990051BD18 /* Pantone Sample */,
 				F089D9CC1F38711900395056 /* Common */,
 				F089D9C31F386F5000395056 /* Random Sample */,
 				F089D9981F38617900395056 /* Weather Sample */,
@@ -238,6 +255,45 @@
 				EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0577CBA1F39C4990051BD18 /* Pantone Sample */ = {
+			isa = PBXGroup;
+			children = (
+				F0577CC41F39E9D90051BD18 /* section */,
+				F0577CC51F39E9DF0051BD18 /* cell */,
+				F0577CBB1F39C67B0051BD18 /* model */,
+				F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */,
+				F0577CC21F39E6E90051BD18 /* PantoneCollectionData.swift */,
+				F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */,
+			);
+			name = "Pantone Sample";
+			sourceTree = "<group>";
+		};
+		F0577CBB1F39C67B0051BD18 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		F0577CC41F39E9D90051BD18 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F0577CC61F39E9FA0051BD18 /* PantoneSectionDescriptor.swift */,
+			);
+			name = section;
+			sourceTree = "<group>";
+		};
+		F0577CC51F39E9DF0051BD18 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F0577CC81F39EA420051BD18 /* PantoneColorAdapter.swift */,
+				F0577CC91F39EA420051BD18 /* PantoneColorCollectionViewCell.swift */,
+				F0577CCA1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 		F089D9981F38617900395056 /* Weather Sample */ = {
@@ -516,7 +572,9 @@
 				F0D318EC1EC49EA700A9CBEA /* TestViewController.xib in Resources */,
 				F089D9B51F3861A500395056 /* TitleCollectionViewCell.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				F0577CCD1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib in Resources */,
 				F089D9B71F3861A500395056 /* WeatherViewController.xib in Resources */,
+				F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */,
 				F089D9C71F386F7000395056 /* RandomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +688,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0577CC01F39E6870051BD18 /* PantoneViewController.swift in Sources */,
 				F0D318DC1EC33F3900A9CBEA /* NoAdaptableCollectionViewCell.swift in Sources */,
 				F089D9D41F38740500395056 /* RandomAdapters.swift in Sources */,
 				F089D9AC1F3861A500395056 /* WeatherDayCollectionViewCell.swift in Sources */,
@@ -638,16 +697,21 @@
 				F089D9AB1F3861A500395056 /* WeatherDayAdapter.swift in Sources */,
 				F089D9C61F386F7000395056 /* RandomViewController.swift in Sources */,
 				F089D9AE1F3861A500395056 /* WeatherDecorationView.swift in Sources */,
+				F0577CC71F39E9FA0051BD18 /* PantoneSectionDescriptor.swift in Sources */,
 				F089D9D21F38726500395056 /* Crew.swift in Sources */,
 				F089D9B21F3861A500395056 /* WeatherSectionDescriptor.swift in Sources */,
 				F089D9B91F3861A500395056 /* WhiteSectionLayout.swift in Sources */,
+				F0577CCB1F39EA420051BD18 /* PantoneColorAdapter.swift in Sources */,
 				F089D9C91F386FAA00395056 /* RandomCollectionData.swift in Sources */,
+				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
 				F089D9B81F3861A500395056 /* WheaterAdapters.swift in Sources */,
 				F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */,
 				F089D9B41F3861A500395056 /* TitleCollectionViewCell.swift in Sources */,
 				F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */,
+				F0577CC31F39E6E90051BD18 /* PantoneCollectionData.swift in Sources */,
 				F089D9B11F3861A500395056 /* WeatherModel.swift in Sources */,
 				F089D9BA1F3861A500395056 /* WheatherService.swift in Sources */,
+				F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */,
 				F089D9AA1F3861A500395056 /* WeatherCollectionData.swift in Sources */,
 				F089D9B31F3861A500395056 /* WeatherStyle.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

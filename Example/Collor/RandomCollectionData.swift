@@ -27,7 +27,7 @@ final class RandomCollectionData : CollectionDatas {
         crew.teams.forEach { team in
             
             let section = RandomSectionDescriptor().uid(team.title).reloadSection { cells in
-                let titleItem = TitleDescriptor(adapter: TeamTitleAdapter(teamTitle: team.title)).uid(team.title)
+                let titleItem = TitleDescriptor(adapter: TeamTitleAdapter(team: team)).uid(team.title)
                 cells.append(titleItem)
                 
                 team.members.forEach { member in

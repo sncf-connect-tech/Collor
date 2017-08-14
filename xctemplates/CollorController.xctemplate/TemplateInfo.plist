@@ -5,9 +5,9 @@
 	<key>Kind</key>
 	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
 	<key>Description</key>
-	<string>A CollectionViewCell for Collor with its Descripor and Adapter</string>
+	<string>A UIViewController for Collor</string>
 	<key>Summary</key>
-	<string>A CollectionViewCell for Collor with its Descripor and Adapter</string>
+	<string>A UIViewController for Collor</string>
 	<key>SortOrder</key>
 	<string>1</string>
 	<key>DefaultCompletionName</key>
@@ -20,28 +20,36 @@
 	<array>
 		<dict>
 			<key>Identifier</key>
-			<string>productName</string>
+			<string>controllerName</string>
 			<key>Required</key>
 			<true/>
 			<key>Name</key>
-			<string>Cell Name:</string>
+			<string>UIViewController Name:</string>
 			<key>Description</key>
-			<string>The name of the cell to create</string>
+			<string>The name of the controller to create</string>
 			<key>Type</key>
 			<string>text</string>
+			<key>Default</key>
+			<string>ViewController</string>
 			<key>NotPersisted</key>
 			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
-			<string>aStaticString</string>
+			<string>collectionDataName</string>
+			<key>Required</key>
+			<true/>
 			<key>Name</key>
-			<string></string>
-			<key>Default</key>
-			<string>[CellName]CollectionViewCell.swift, [CellName]Adapter</string>
+			<string>CollectionData Name:</string>
+			<key>Description</key>
+			<string>The name of the collectionData to create</string>
 			<key>Type</key>
-			<string>static</string>
-	</dict>
+			<string>text</string>
+			<key>Default</key>
+			<string>CollectionData</string>
+			<key>NotPersisted</key>
+			<true/>
+		</dict>
 	</array>
 </dict>
 </plist>

@@ -14,10 +14,9 @@ class RandomViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     fileprivate(set) lazy var collectionViewDelegate: CollectionDelegate = CollectionDelegate(delegate: self)
-    fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: nil)
+    fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: self)
 
     var crew = Crew()
-    
     let collectionData = RandomCollectionData()
     
     override func viewDidLoad() {
@@ -45,4 +44,8 @@ class RandomViewController: UIViewController {
 
 extension RandomViewController : CollectionDidSelectCellDelegate {
     func didSelect(_ cellDescriptor: CollectionCellDescribable, sectionDescriptor: CollectionSectionDescribable, indexPath: IndexPath) {}
+}
+
+extension RandomViewController : CollectionUserEventDelegate {
+    
 }

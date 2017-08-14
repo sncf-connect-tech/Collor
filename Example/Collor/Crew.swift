@@ -21,7 +21,7 @@ struct Crew {
     var teams: [Team] = [
         Team(title: "✏️ UX", members: ["Eric","Jules"]),
         Team(title: "🖼 UI", members: ["Christophe"]),
-        Team(title: "⌨️ DEV", members: ["Jad", "Gwenn", "Oussam", "Aymen", "Slim", "Lana", "Guillaume", "Alvaro"]),
+        Team(title: "⌨️ DEV", members: ["Jad", "Gwenn", "Oussam", "Aymen", "Slim", "Lana", "Guillaume", "Alvaro", "Marie-Odile"]),
         Team(title: "💊 TEST", members: ["Emilien", "Helena", "Ines"]),
         Team(title: "🕹 SCRUM", members: ["Maxime", "Jessica", "Johan"])
     ]
