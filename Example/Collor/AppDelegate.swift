@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let navigationController: UINavigationController = mainStoryboard.instantiateViewController(withIdentifier: "navigation") as! UINavigationController
 //        let viewController = WeatherViewController()
 //        let viewController = RandomViewController()
-        let viewController = PantoneViewController()
+        let viewController = MenuViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()

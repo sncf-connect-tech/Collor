@@ -60,6 +60,13 @@
 		F0D318E71EC48E4E00A9CBEA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318E51EC48E4E00A9CBEA /* TestViewController.swift */; };
 		F0D318EB1EC49E6E00A9CBEA /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318E61EC48E4E00A9CBEA /* TestViewController.xib */; };
 		F0D318EC1EC49EA700A9CBEA /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318E61EC48E4E00A9CBEA /* TestViewController.xib */; };
+		F0D3ED5A1F41E8340087CBD2 /* MenuCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3ED571F41E8340087CBD2 /* MenuCollectionData.swift */; };
+		F0D3ED5B1F41E8340087CBD2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3ED581F41E8340087CBD2 /* MenuViewController.swift */; };
+		F0D3ED5C1F41E8340087CBD2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D3ED591F41E8340087CBD2 /* MenuViewController.xib */; };
+		F0D3ED681F41F5EA0087CBD2 /* MenuItemAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3ED651F41F5EA0087CBD2 /* MenuItemAdapter.swift */; };
+		F0D3ED691F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3ED661F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift */; };
+		F0D3ED6A1F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D3ED671F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib */; };
+		F0D3ED6C1F41F6E20087CBD2 /* MenuSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3ED6B1F41F6E20087CBD2 /* MenuSectionDescriptor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +141,13 @@
 		F0D318E21EC46AA300A9CBEA /* CollectionViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTest.swift; sourceTree = "<group>"; };
 		F0D318E51EC48E4E00A9CBEA /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		F0D318E61EC48E4E00A9CBEA /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		F0D3ED571F41E8340087CBD2 /* MenuCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionData.swift; sourceTree = "<group>"; };
+		F0D3ED581F41E8340087CBD2 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F0D3ED591F41E8340087CBD2 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		F0D3ED651F41F5EA0087CBD2 /* MenuItemAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemAdapter.swift; sourceTree = "<group>"; };
+		F0D3ED661F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		F0D3ED671F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		F0D3ED6B1F41F6E20087CBD2 /* MenuSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionDescriptor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +205,7 @@
 		607FACD21AFB9204008FA782 /* Example for Collor */ = {
 			isa = PBXGroup;
 			children = (
+				F011A0B91F41CBE6007F9FEB /* Menu */,
 				F0577CBA1F39C4990051BD18 /* Pantone Sample */,
 				F089D9CC1F38711900395056 /* Common */,
 				F089D9C31F386F5000395056 /* Random Sample */,
@@ -255,6 +270,18 @@
 				EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F011A0B91F41CBE6007F9FEB /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				F0D3ED641F41F5D70087CBD2 /* cell */,
+				F0D3ED631F41F5D10087CBD2 /* section */,
+				F0D3ED571F41E8340087CBD2 /* MenuCollectionData.swift */,
+				F0D3ED581F41E8340087CBD2 /* MenuViewController.swift */,
+				F0D3ED591F41E8340087CBD2 /* MenuViewController.xib */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		F0577CBA1F39C4990051BD18 /* Pantone Sample */ = {
@@ -463,6 +490,24 @@
 			name = controller;
 			sourceTree = "<group>";
 		};
+		F0D3ED631F41F5D10087CBD2 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F0D3ED6B1F41F6E20087CBD2 /* MenuSectionDescriptor.swift */,
+			);
+			name = section;
+			sourceTree = "<group>";
+		};
+		F0D3ED641F41F5D70087CBD2 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F0D3ED651F41F5EA0087CBD2 /* MenuItemAdapter.swift */,
+				F0D3ED661F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift */,
+				F0D3ED671F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		F0F08E021F38AFC4006D63EF /* layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,11 +613,13 @@
 				F089D9AD1F3861A500395056 /* WeatherDayCollectionViewCell.xib in Resources */,
 				F0D318D61EC3386700A9CBEA /* TestCollectionViewCell.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				F0D3ED5C1F41E8340087CBD2 /* MenuViewController.xib in Resources */,
 				F089D9B01F3861A500395056 /* LabelCollectionViewCell.xib in Resources */,
 				F0D318EC1EC49EA700A9CBEA /* TestViewController.xib in Resources */,
 				F089D9B51F3861A500395056 /* TitleCollectionViewCell.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				F0577CCD1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib in Resources */,
+				F0D3ED6A1F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib in Resources */,
 				F089D9B71F3861A500395056 /* WeatherViewController.xib in Resources */,
 				F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */,
 				F089D9C71F386F7000395056 /* RandomViewController.xib in Resources */,
@@ -694,18 +741,22 @@
 				F089D9AC1F3861A500395056 /* WeatherDayCollectionViewCell.swift in Sources */,
 				F089D9B61F3861A500395056 /* WeatherViewController.swift in Sources */,
 				F089D9CF1F38717800395056 /* RandomSectionDescriptor.swift in Sources */,
+				F0D3ED5A1F41E8340087CBD2 /* MenuCollectionData.swift in Sources */,
 				F089D9AB1F3861A500395056 /* WeatherDayAdapter.swift in Sources */,
 				F089D9C61F386F7000395056 /* RandomViewController.swift in Sources */,
+				F0D3ED5B1F41E8340087CBD2 /* MenuViewController.swift in Sources */,
 				F089D9AE1F3861A500395056 /* WeatherDecorationView.swift in Sources */,
 				F0577CC71F39E9FA0051BD18 /* PantoneSectionDescriptor.swift in Sources */,
 				F089D9D21F38726500395056 /* Crew.swift in Sources */,
 				F089D9B21F3861A500395056 /* WeatherSectionDescriptor.swift in Sources */,
 				F089D9B91F3861A500395056 /* WhiteSectionLayout.swift in Sources */,
+				F0D3ED681F41F5EA0087CBD2 /* MenuItemAdapter.swift in Sources */,
 				F0577CCB1F39EA420051BD18 /* PantoneColorAdapter.swift in Sources */,
 				F089D9C91F386FAA00395056 /* RandomCollectionData.swift in Sources */,
 				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
 				F089D9B81F3861A500395056 /* WheaterAdapters.swift in Sources */,
 				F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */,
+				F0D3ED691F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift in Sources */,
 				F089D9B41F3861A500395056 /* TitleCollectionViewCell.swift in Sources */,
 				F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */,
 				F0577CC31F39E6E90051BD18 /* PantoneCollectionData.swift in Sources */,
@@ -715,6 +766,7 @@
 				F089D9AA1F3861A500395056 /* WeatherCollectionData.swift in Sources */,
 				F089D9B31F3861A500395056 /* WeatherStyle.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				F0D3ED6C1F41F6E20087CBD2 /* MenuSectionDescriptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
