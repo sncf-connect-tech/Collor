@@ -69,20 +69,20 @@ extension CollectionUpdater {
         }
         
         if !sectionDescriptors.isEmpty {
-            collectionDatas.computeIndices()
+            collectionData.computeIndices()
         }
     }
     
     public func diff() {
-        let oldSections = collectionDatas.sections // store old model
-        collectionDatas.reloadData() // compute new model
+        let oldSections = collectionData.sections // store old model
+        collectionData.reloadData() // compute new model
         
         do {
             try verifyUID(sections: oldSections)
-            try verifyUID(sections: collectionDatas.sections)
+            try verifyUID(sections: collectionData.sections)
             
             let old = mapToSectionedValues(oldSections)
-            let new = mapToSectionedValues(collectionDatas.sections)
+            let new = mapToSectionedValues(collectionData.sections)
             
             Dwifft.diff(lhs: old, rhs: new).forEach {
                 switch $0 {
@@ -91,17 +91,17 @@ extension CollectionUpdater {
                     result?.deletedCellDescriptors.append( oldSections[section].cells[item] )
                 case let .insert(section, item, _):
                     result?.insertedIndexPaths.append( IndexPath(item: item, section: section ) )
-                    result?.insertedCellDescriptors.append( collectionDatas.sections[section].cells[item] )
+                    result?.insertedCellDescriptors.append( collectionData.sections[section].cells[item] )
                 case let .sectionDelete(section, _):
                     result?.deletedSectionsIndexSet.insert(section)
                     result?.deletedSectionDescriptors.append( oldSections[section] )
                 case let .sectionInsert(section, _):
                     result?.insertedSectionsIndexSet.insert(section)
-                    result?.insertedSectionDescriptors.append( collectionDatas.sections[section] )
+                    result?.insertedSectionDescriptors.append( collectionData.sections[section] )
                 }
             }
             
-            collectionDatas.computeIndices()
+            collectionData.computeIndices()
             
         } catch UIDError.sectionsWithoutUIDError(let sections) {
             let sectionsInError = sections.reduce("") { result, section in

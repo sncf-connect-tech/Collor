@@ -9,10 +9,10 @@
 import UIKit
 import Foundation
 
-public func bind(collectionView:UICollectionView, with data:CollectionDatas, and collectionViewDelegate: CollectionDelegate, and collectionViewDatasource: CollectionDataSource) {
+public func bind(collectionView: UICollectionView, with data: CollectionData, and collectionViewDelegate: CollectionDelegate, and collectionViewDatasource: CollectionDataSource) {
     
-    collectionViewDelegate.collectionDatas = data
-    collectionViewDatasource.collectionDatas = data
+    collectionViewDelegate.collectionData = data
+    collectionViewDatasource.collectionData = data
     
     collectionView.delegate = collectionViewDelegate
     collectionView.dataSource = collectionViewDatasource

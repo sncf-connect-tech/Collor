@@ -11,7 +11,7 @@ import UIKit
 
 public class CollectionDelegate: NSObject, UICollectionViewDelegate {
     
-    public var collectionDatas: CollectionDatas?
+    public var collectionData: CollectionData?
     public weak var delegate: CollectionDidSelectCellDelegate?
     
     public init(delegate: CollectionDidSelectCellDelegate?) {
@@ -20,7 +20,7 @@ public class CollectionDelegate: NSObject, UICollectionViewDelegate {
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if let sectionDescriptor = collectionDatas?.sections[indexPath.section] {
+        if let sectionDescriptor = collectionData?.sections[indexPath.section] {
             let cellDescriptor = sectionDescriptor.cells[indexPath.item]
             return cellDescriptor.selectable
         }
@@ -29,7 +29,7 @@ public class CollectionDelegate: NSObject, UICollectionViewDelegate {
     
     // MARK: UICollectionViewDelegate
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let sectionDescriptor = collectionDatas?.sections[indexPath.section] {
+        if let sectionDescriptor = collectionData?.sections[indexPath.section] {
             let cellDescriptor = sectionDescriptor.cells[indexPath.item]
             delegate?.didSelect(cellDescriptor, sectionDescriptor: sectionDescriptor, indexPath: indexPath)
         }
@@ -40,7 +40,7 @@ public class CollectionDelegate: NSObject, UICollectionViewDelegate {
 extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if let sectionDescriptor = collectionDatas?.sections[indexPath.section] {
+        if let sectionDescriptor = collectionData?.sections[indexPath.section] {
             let cellDescriptor = sectionDescriptor.cells[indexPath.item]
             return cellDescriptor.size(collectionView, sectionDescriptor: sectionDescriptor)
         }
@@ -48,7 +48,7 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if let sectionDescriptor = collectionDatas?.sections[section] {
+        if let sectionDescriptor = collectionData?.sections[section] {
             return sectionDescriptor.sectionInset(collectionView)
         }
         return UIEdgeInsets()
@@ -59,7 +59,7 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
             return 0
         }
         
-        if let sectionDescriptor = collectionDatas?.sections[section] {
+        if let sectionDescriptor = collectionData?.sections[section] {
             return sectionDescriptor.minimumInteritemSpacing(collectionView, layout: layout)
         }
         return layout.minimumInteritemSpacing
@@ -70,7 +70,7 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
             return 0
         }
         
-        if let sectionDescriptor = collectionDatas?.sections[section] {
+        if let sectionDescriptor = collectionData?.sections[section] {
             return sectionDescriptor.minimumLineSpacing(collectionView, layout: layout)
         }
         return layout.minimumLineSpacing

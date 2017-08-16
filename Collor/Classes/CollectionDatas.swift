@@ -1,5 +1,5 @@
 //
-//  CollectionDatas.swift
+//  CollectionData.swift
 //  VSC
 //
 //  Created by Guihal Gwenn on 20/02/17.
@@ -8,15 +8,9 @@
 
 import Foundation
 
-public protocol CollectionDatasProtocol {
-    var updater:CollectionUpdater { get }
-    var sections:[CollectionSectionDescribable] { get set }
-    func reloadData()
-}
-
-open class CollectionDatas : CollectionDatasProtocol {
+open class CollectionData {
     
-    public private(set) lazy var updater:CollectionUpdater = CollectionUpdater(collectionDatas: self)
+    public private(set) lazy var updater:CollectionUpdater = CollectionUpdater(collectionData: self)
     
     public init() {}
         
@@ -30,7 +24,7 @@ open class CollectionDatas : CollectionDatasProtocol {
     
     var registeredCells = Set<String>()
     
-    func sectionsCount() -> Int {
+    public func sectionsCount() -> Int {
         return sections.count
     }
     
@@ -64,7 +58,7 @@ open class CollectionDatas : CollectionDatasProtocol {
     }
 }
 
-public extension CollectionDatas {
+public extension CollectionData {
     
     public func sectionDescribable(at indexPath: IndexPath) -> CollectionSectionDescribable? {
         return sections[safe: indexPath.section]

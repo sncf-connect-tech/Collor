@@ -9,7 +9,7 @@
 import Foundation
 import Collor
 
-final class MenuCollectionData : CollectionDatas {
+final class MenuCollectionData : CollectionData {
     
     let examples:[Example]
     

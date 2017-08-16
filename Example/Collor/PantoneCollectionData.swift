@@ -9,7 +9,7 @@
 import Foundation
 import Collor
 
-final class PantoneCollectionData : CollectionDatas {
+final class PantoneCollectionData : CollectionData {
     
     var model: MetallicPantone?
     

@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.5.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - Collor (0.1.16):
+  - Collor (0.1.17):
     - Dwifft (~> 0.6)
   - CwlCatchException (1.0.2)
   - CwlPreconditionTesting (1.1.0):
@@ -29,13 +29,13 @@ CHECKOUT OPTIONS:
     :commit: 2a86ba784624a5edd93f1a0a1a4572d48e26d1c4
     :git: https://github.com/mattgallagher/CwlCatchException.git
   CwlPreconditionTesting:
-    :commit: 32255872eef5131f7844cbe0d0e82fc337489319
+    :commit: 97a8a5558b3ec92d31f54179e73e09ff6a4834ec
     :git: https://github.com/mattgallagher/CwlPreconditionTesting.git
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  Collor: c6aaefa9e2b0e073008efb703b39836f12d99a1b
+  Collor: 75e5717f2b81f8d3e2df981cd22f09b2c41cd589
   CwlCatchException: 70a52ae44ea5d46db7bd385f801a94942420cd8c
   CwlPreconditionTesting: d9b35890c80b34668cd90da5bef077fd817a99fc
   Dwifft: 37156d94c9da45d6cd12dbb9654670593152e89e

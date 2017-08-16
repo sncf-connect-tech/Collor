@@ -1,5 +1,5 @@
 //
-//  CollectionDatasTest.swift
+//  CollectionDataTest.swift
 //  Collor
 //
 //  Created by Guihal Gwenn on 03/05/17.
@@ -9,7 +9,7 @@
 import XCTest
 import Collor
 
-class CollectionDatasTest: XCTestCase {
+class CollectionDataTest: XCTestCase {
     
     var data:TestData!
     

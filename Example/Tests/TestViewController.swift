@@ -41,7 +41,7 @@ class TestViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let data:CollectionDatas
+    let data:CollectionData
     fileprivate(set) lazy var collectionViewDelegate: CollectionDelegate = CollectionDelegate(delegate: nil)
     fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: nil)
     

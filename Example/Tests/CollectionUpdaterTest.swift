@@ -55,7 +55,7 @@ final class TestCellDescriptor:CollectionCellDescribable {
     
 }
 
-final class TestData:CollectionDatas {
+final class TestData:CollectionData {
     override func reloadData() {
         super.reloadData()
         

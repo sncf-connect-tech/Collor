@@ -9,7 +9,7 @@
 import Foundation
 import Collor
 
-final class RandomCollectionData : CollectionDatas {
+final class RandomCollectionData : CollectionData {
     
     var crew:Crew?
     

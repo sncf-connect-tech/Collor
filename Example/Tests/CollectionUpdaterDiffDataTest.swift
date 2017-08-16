@@ -11,7 +11,7 @@ import Collor
 import CwlPreconditionTesting
 import CwlCatchException
 
-final class DiffTestData:CollectionDatas {
+final class DiffTestData:CollectionData {
     
     var deleted:Bool = false
     var deletedSection:Bool = false

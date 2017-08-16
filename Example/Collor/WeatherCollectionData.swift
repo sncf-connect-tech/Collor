@@ -9,7 +9,7 @@
 import Foundation
 import Collor
 
-final class WeatherCollectionData : CollectionDatas {
+final class WeatherCollectionData : CollectionData {
     
     var weatherModel:WeatherModel?
     

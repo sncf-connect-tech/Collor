@@ -43,7 +43,7 @@ class CollectionDelegateTest: XCTestCase {
         descriptor.selectable = true
         XCTAssertTrue(collectionDelegate.collectionView(collectionView, shouldSelectItemAt: indexPath))
         
-        collectionDelegate.collectionDatas = nil
+        collectionDelegate.collectionData = nil
         XCTAssertFalse(collectionDelegate.collectionView(collectionView, shouldSelectItemAt: indexPath))
     }
     
@@ -77,7 +77,7 @@ class CollectionDelegateTest: XCTestCase {
     func testFlowLayoutSizeForItem_collectionDatasNil() {
         // given
         let indexPath = IndexPath(item: 0, section: 0)
-        collectionDelegate.collectionDatas = nil
+        collectionDelegate.collectionData = nil
         // when
         let size = collectionDelegate.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: indexPath)
         // then
@@ -96,7 +96,7 @@ class CollectionDelegateTest: XCTestCase {
     func testInsetForSection_collectionDatasNil() {
         // given
         let section = 0
-        collectionDelegate.collectionDatas = nil
+        collectionDelegate.collectionData = nil
         // when
         let inset = collectionDelegate.collectionView(collectionView, layout: collectionView.collectionViewLayout, insetForSectionAt: section)
         // then
@@ -124,7 +124,7 @@ class CollectionDelegateTest: XCTestCase {
     func testMinimumInteritemSpacingForSection_collectionDatasNil() {
         // given
         let section = 0
-        collectionDelegate.collectionDatas = nil
+        collectionDelegate.collectionData = nil
         // when
         let spacing = collectionDelegate.collectionView(collectionView, layout: collectionView.collectionViewLayout, minimumInteritemSpacingForSectionAt: section)
         // then
@@ -135,7 +135,7 @@ class CollectionDelegateTest: XCTestCase {
         // given
         let section = 0
         collectionView.collectionViewLayout = UICollectionViewLayout()
-        collectionDelegate.collectionDatas = nil
+        collectionDelegate.collectionData = nil
         // when
         let spacing = collectionDelegate.collectionView(collectionView, layout: collectionView.collectionViewLayout, minimumInteritemSpacingForSectionAt: section)
         // then
@@ -163,7 +163,7 @@ class CollectionDelegateTest: XCTestCase {
     func testMinimumLineSpacingForSection_collectionDatasNil() {
         // given
         let section = 0
-        collectionDelegate.collectionDatas = nil
+        collectionDelegate.collectionData = nil
         // when
         let spacing = collectionDelegate.collectionView(collectionView, layout: collectionView.collectionViewLayout, minimumLineSpacingForSectionAt: section)
         // then
@@ -174,7 +174,7 @@ class CollectionDelegateTest: XCTestCase {
         // given
         let section = 0
         collectionView.collectionViewLayout = UICollectionViewLayout()
-        collectionDelegate.collectionDatas = nil
+        collectionDelegate.collectionData = nil
         // when
         let spacing = collectionDelegate.collectionView(collectionView, layout: collectionView.collectionViewLayout, minimumLineSpacingForSectionAt: section)
         // then

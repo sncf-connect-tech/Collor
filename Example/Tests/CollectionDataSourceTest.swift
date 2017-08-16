@@ -36,7 +36,7 @@ class CollectionDataSourceTest: XCTestCase {
         XCTAssertEqual(collectionDataSource.numberOfSections(in: collectionView), 2)
         XCTAssertEqual(collectionView.dataSource!.numberOfSections!(in: collectionView), 2)
         
-        collectionDataSource.collectionDatas = nil
+        collectionDataSource.collectionData = nil
         XCTAssertEqual(collectionDataSource.numberOfSections(in: collectionView), 0)
         XCTAssertEqual(collectionDataSource.numberOfSections(in: collectionView), 0)
     }
@@ -45,7 +45,7 @@ class CollectionDataSourceTest: XCTestCase {
         XCTAssertEqual(collectionDataSource.collectionView(collectionView, numberOfItemsInSection: 0), 3)
         XCTAssertEqual(collectionView.dataSource!.collectionView(collectionView, numberOfItemsInSection: 0), 3)
         
-        collectionDataSource.collectionDatas = nil
+        collectionDataSource.collectionData = nil
         XCTAssertEqual(collectionDataSource.collectionView(collectionView, numberOfItemsInSection: 0), 0)
         XCTAssertEqual(collectionView.dataSource!.collectionView(collectionView, numberOfItemsInSection: 0), 0)
     }
@@ -57,7 +57,7 @@ class CollectionDataSourceTest: XCTestCase {
         
         var type = type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), cellClassName)
-        XCTAssertTrue(collectionDataSource.collectionDatas!.registeredCells.contains(cellClassName))
+        XCTAssertTrue(collectionDataSource.collectionData!.registeredCells.contains(cellClassName))
         
         // no adaptable
         let descriptor = data.cellDescribable(at: indexPath) as! TestCellDescriptor
@@ -67,7 +67,7 @@ class CollectionDataSourceTest: XCTestCase {
         XCTAssertEqual(String(describing: type), "UICollectionViewCell")
         
         // collectionDatas nil
-        collectionDataSource.collectionDatas = nil
+        collectionDataSource.collectionData = nil
         type = type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), "UICollectionViewCell")
     }

@@ -11,7 +11,7 @@ import Collor
 
 class WhiteSectionLayout: UICollectionViewFlowLayout {
     
-    unowned fileprivate let datas: CollectionDatas
+    unowned fileprivate let datas: CollectionData
     fileprivate var decorationAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]()
     
     fileprivate let sectionBackgroundKind = "sectionBackground"
@@ -19,7 +19,7 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
     let backgroundMargin:CGFloat = 5
     
     
-    init(datas: CollectionDatas) {
+    init(datas: CollectionData) {
         self.datas = datas
         super.init()
         
