@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collor  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Collor  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Collor Docs</a> (1% documented)</p>
+        <p class="header-right"><a href="https://github.com/voyages-sncf-technologies/Collor"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Fvoyages%2Dsncf%2Dtechnologies%2Fdocsets%2FCollor%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Collor Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Collor  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/CollectionData.html">CollectionData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CollectionDataSource.html">CollectionDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CollectionDelegate.html">CollectionDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CollectionUpdater.html">CollectionUpdater</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/NSExceptionName.html">NSExceptionName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UICollectionView.html">UICollectionView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Functions.html#/s:F6Collor4bindFT14collectionViewCSo16UICollectionView4withCS_14CollectionData3andCS_18CollectionDelegate3andCS_20CollectionDataSource_T_">bind(collectionView:with:and:and:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:P6Collor17CollectionAdapter">CollectionAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CollectionCellAdaptable.html">CollectionCellAdaptable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CollectionCellDescribable.html">CollectionCellDescribable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CollectionDidSelectCellDelegate.html">CollectionDidSelectCellDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CollectionSectionDescribable.html">CollectionSectionDescribable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:P6Collor27CollectionUserEventDelegate">CollectionUserEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Identifiable.html">Identifiable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/UpdateCollectionResult.html">UpdateCollectionResult</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/logo.png" alt="Collor logo"></p>
+
+<p><a href="https://travis-ci.org/voyages-sncf-technologies/Collor/"><img src="https://travis-ci.org/voyages-sncf-technologies/Collor.svg?branch=master" alt="CI Status"></a>
+<a href="https://coveralls.io/github/voyages-sncf-technologies/Collor?branch=master"><img src="https://coveralls.io/repos/github/voyages-sncf-technologies/Collor/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="http://cocoapods.org/pods/Collor"><img src="https://img.shields.io/cocoapods/v/Collor.svg?style=flat" alt="Version"></a>
+<a href="http://cocoapods.org/pods/Collor"><img src="https://img.shields.io/cocoapods/l/Collor.svg?style=flat" alt="License"></a>
+<a href="http://cocoapods.org/pods/Collor"><img src="https://img.shields.io/cocoapods/p/Collor.svg?style=flat" alt="Platform"></a></p>
+<h2 id='features' class='heading'>Features</h2>
+
+<p>Collor is a MVVM data-oriented framework for accelerating, simplifying and ensuring UICollectionView building.<br></p>
+
+<p>Here is the list of all the features:</p>
+
+<ul>
+<li>[x] Easy to use.</li>
+<li>[x] A readable collectionView model.</li>
+<li>[x] Architectured for reusing cell.</li>
+<li>[x] Protocol / Struct oriented.</li>
+<li>[x] Scalable.</li>
+<li>[x] Never use indePath.</li>
+<li>[x] Never register a cell.</li>
+<li>[x] Update the collectionView model easily.</li>
+<li>[x] Diffing data or sections (by using <a href="https://github.com/jflinter/Dwifft">Dwifft</a>)</li>
+<li>[x] Make easier building custom layout.</li>
+<li>[x] Well tested.</li>
+</ul>
+
+<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/random.gif" alt="Collor Random Sample"> <img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/weather.gif" alt="Collor Weather Sample"></p>
+<h2 id='getting-started' class='heading'>Getting started</h2>
+
+<ul>
+<li>A <a href="https://medium.com/p/b55e73d81a59/">medium article</a> which explains the purpose and how to use Collor.</li>
+</ul>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.<br>
+There are 4 examples:</p>
+
+<ul>
+<li>Menu : Simple collectionView with userEvent propagation example</li>
+<li>Random : Diffing entire data + custom layout</li>
+<li>Weather : Diffing sections + custom layout</li>
+<li>Pantone : Adding and remove items using CollectionDatas.</li>
+</ul>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>The UICollectionView is represented by a collectionData object which contains sectionDescriptors which contain themself cellDescriptors.
+Each item or cell in Collor is composed by 3 objects:</p>
+
+<ul>
+<li>The <code>UICollectionViewCell</code> (XIB + swift file) which implements <code>CollectionCellAdaptable</code></li>
+<li>A cellDescriptor which implements <code>CollectionCellDescribable</code></li>
+<li>An adapter (view model) which implements <code>CollectionAdapter</code></li>
+</ul>
+<h5 id='celldescriptor' class='heading'>CellDescriptor</h5>
+
+<p>It describes the cell and is the link between the cell and the viewModel. Logically, one type of cell needs only one cellDescriptor. It owns the cell identifier, the cell className and handles the size of the cell.
+The collectionData handles cell registering and dequeuing using these properties.</p>
+<pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">WeatherDayDescriptor</span><span class="p">:</span> <span class="kt">CollectionCellDescribable</span> <span class="p">{</span>
+
+    <span class="k">let</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"WeatherDayCollectionViewCell"</span>
+    <span class="k">let</span> <span class="nv">className</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"WeatherDayCollectionViewCell"</span>
+    <span class="k">var</span> <span class="nv">selectable</span><span class="p">:</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span>
+
+    <span class="k">let</span> <span class="nv">adapter</span><span class="p">:</span> <span class="kt">WeatherDayAdapter</span>
+
+    <span class="nf">init</span><span class="p">(</span><span class="nv">adapter</span><span class="p">:</span><span class="kt">WeatherDayAdapter</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">adapter</span> <span class="o">=</span> <span class="n">adapter</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">size</span><span class="p">(</span><span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="nv">sectionDescriptor</span><span class="p">:</span> <span class="kt">CollectionSectionDescribable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGSize</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">sectionInset</span> <span class="o">=</span> <span class="n">sectionDescriptor</span><span class="o">.</span><span class="nf">sectionInset</span><span class="p">(</span><span class="n">collectionView</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nv">width</span><span class="p">:</span><span class="kt">CGFloat</span> <span class="o">=</span> <span class="n">collectionView</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">width</span> <span class="o">-</span> <span class="n">sectionInset</span><span class="o">.</span><span class="k">left</span> <span class="o">-</span> <span class="n">sectionInset</span><span class="o">.</span><span class="k">right</span>
+        <span class="k">return</span> <span class="kt">CGSize</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span><span class="n">width</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span><span class="mi">60</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAdapter</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CollectionAdapter</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">adapter</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h5 id='adapter' class='heading'>Adapter</h5>
+
+<p>An adapter is a viewModel object. It transforms your model in a human readable data used by the cell.</p>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">WeatherDayAdapter</span><span class="p">:</span> <span class="kt">CollectionAdapter</span> <span class="p">{</span>
+
+    <span class="k">let</span> <span class="nv">date</span><span class="p">:</span><span class="kt">NSAttributedString</span>
+
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">dateFormatter</span><span class="p">:</span><span class="kt">DateFormatter</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">df</span> <span class="o">=</span> <span class="kt">DateFormatter</span><span class="p">()</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">dateFormat</span> <span class="o">=</span> <span class="s">"EEEE d MMMM"</span>
+        <span class="k">return</span> <span class="n">df</span>
+    <span class="p">}()</span>
+
+    <span class="nf">init</span><span class="p">(</span><span class="nv">day</span><span class="p">:</span><span class="kt">WeatherDay</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="k">let</span> <span class="nv">dateString</span> <span class="o">=</span> <span class="kt">WeatherDayAdapter</span><span class="o">.</span><span class="n">dateFormatter</span><span class="o">.</span><span class="nf">string</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="n">day</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="kt">NSAttributedString</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="n">dateString</span><span class="p">,</span> <span class="nv">attributes</span><span class="p">:</span> <span class="p">[</span>
+            <span class="kt">NSFontAttributeName</span><span class="p">:</span> <span class="kt">UIFont</span><span class="o">.</span><span class="nf">boldSystemFont</span><span class="p">(</span><span class="nv">ofSize</span><span class="p">:</span> <span class="mi">18</span><span class="p">),</span>
+            <span class="kt">NSForegroundColorAttributeName</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">black</span>
+        <span class="p">])</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>When a cell is dequeued, the collectionData update the cell with this object.</p>
+<pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">WeatherDayCollectionViewCell</span><span class="p">:</span> <span class="kt">UICollectionViewCell</span><span class="p">,</span> <span class="kt">CollectionCellAdaptable</span> <span class="p">{</span>
+  <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
+
+  <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">with</span> <span class="nv">adapter</span><span class="p">:</span> <span class="kt">CollectionAdapter</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="k">let</span> <span class="nv">adapter</span> <span class="o">=</span> <span class="n">adapter</span> <span class="k">as?</span> <span class="kt">WeatherDayAdapter</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nf">fatalError</span><span class="p">(</span><span class="s">"WeatherDayAdapter required"</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">date</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h5 id='viewcontroller' class='heading'>ViewController</h5>
+
+<p>Create the dataSourceDe and the delegate:</p>
+<pre class="highlight swift"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">collectionViewDelegate</span><span class="p">:</span> <span class="kt">CollectionDelegate</span> <span class="o">=</span> <span class="kt">CollectionDelegate</span><span class="p">(</span><span class="nv">delegate</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">collectionViewDatasource</span><span class="p">:</span> <span class="kt">CollectionDataSource</span> <span class="o">=</span> <span class="kt">CollectionDataSource</span><span class="p">(</span><span class="nv">delegate</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+</code></pre>
+
+<p>Create the collectionData:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">collectionData</span> <span class="o">=</span> <span class="kt">MyCollectionData</span><span class="p">()</span>
+</code></pre>
+
+<p>Bind the collectionView with the data, the datasource and the delegate:</p>
+<pre class="highlight swift"><code><span class="nf">bind</span><span class="p">(</span><span class="nv">collectionView</span><span class="p">:</span> <span class="n">collectionView</span><span class="p">,</span> <span class="nv">with</span><span class="p">:</span> <span class="n">collectionData</span><span class="p">,</span> <span class="nv">and</span><span class="p">:</span> <span class="n">collectionViewDelegate</span><span class="p">,</span> <span class="nv">and</span><span class="p">:</span> <span class="n">collectionViewDatasource</span><span class="p">)</span>
+</code></pre>
+
+<p>Create a section and one cell in the collectionData:</p>
+<pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">MyCollectionData</span> <span class="p">:</span> <span class="kt">CollectionData</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">reloadData</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">reloadData</span><span class="p">()</span>
+
+        <span class="k">let</span> <span class="nv">section</span> <span class="o">=</span> <span class="kt">MySectionDescriptor</span><span class="p">()</span><span class="o">.</span><span class="n">reloadSection</span> <span class="p">{</span> <span class="p">(</span><span class="n">cells</span><span class="p">)</span> <span class="k">in</span>
+                <span class="k">let</span> <span class="nv">cell</span> <span class="o">=</span> <span class="kt">MyColorDescriptor</span><span class="p">(</span><span class="nv">adapter</span><span class="p">:</span> <span class="kt">MyColorAdapter</span><span class="p">(</span><span class="nv">model</span><span class="p">:</span> <span class="s">"someThing"</span><span class="p">))</span>
+                <span class="n">cells</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+        <span class="n">sections</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>MySectionDescriptor:</p>
+<pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">MySectionDescriptor</span> <span class="p">:</span> <span class="kt">CollectionSectionDescribable</span> <span class="p">{</span>
+
+  <span class="kd">func</span> <span class="nf">sectionInset</span><span class="p">(</span><span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIEdgeInsets</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kt">UIEdgeInsets</span><span class="p">(</span><span class="nv">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">left</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">right</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>You get a readable data which represents your UICollectionView, without code duplication, reusing cell and with a good separation of code.</p>
+<h2 id='diffing-and-updating' class='heading'>Diffing and updating</h2>
+
+<p>Collor provides some features to easily update your collectionData.</p>
+<h5 id='updating' class='heading'>Updating</h5>
+
+<p>Just append or remove cells or sections using <code>CollectionData.update</code> method. This means an end to fiddling around with <code>IndexPath</code>:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">newCellDescriptor</span> <span class="o">=</span> <span class="kt">NewCellDescriptor</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">collectionData</span><span class="o">.</span><span class="n">update</span> <span class="p">{</span> <span class="n">updater</span> <span class="k">in</span>
+    <span class="n">updater</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="nv">cells</span><span class="p">:</span> <span class="p">[</span><span class="n">newCellDescriptor</span><span class="p">],</span> <span class="nv">after</span><span class="p">:</span> <span class="n">anotherCellDescriptor</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">collectionView</span><span class="o">.</span><span class="nf">performUpdates</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">result</span><span class="p">)</span>
+</code></pre>
+
+<p>Here is the list of all update methods available:</p>
+
+<ul>
+<li>append(cells:[CollectionCellDescribable], after cell:CollectionCellDescribable)</li>
+<li>append(cells:[CollectionCellDescribable], before cell:CollectionCellDescribable)</li>
+<li>append(cells:[CollectionCellDescribable], in section:CollectionSectionDescribable)</li>
+<li>remove(cells:[CollectionCellDescribable])</li>
+<li>reload(cells:[CollectionCellDescribable])</li>
+<li>append(sections:[CollectionSectionDescribable], after section:CollectionSectionDescribable)</li>
+<li>append(sections:[CollectionSectionDescribable], before section:CollectionSectionDescribable)</li>
+<li>append(sections:[CollectionSectionDescribable])</li>
+<li>remove(sections:[CollectionSectionDescribable])</li>
+<li>reload(sections:[CollectionSectionDescribable])</li>
+</ul>
+<h5 id='diffing' class='heading'>Diffing</h5>
+
+<p>Collor is using the great <a href="https://github.com/jflinter/Dwifft">Dwifft</a> library by Jack Flintermann for getting the <q>diff</q> between two updates of your collectionData.</p>
+
+<ul>
+<li>Diffing some sections:</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">sectionDescriptor</span><span class="o">.</span><span class="n">isExpanded</span> <span class="o">=</span> <span class="o">!</span><span class="n">sectionDescriptor</span><span class="o">.</span><span class="n">isExpanded</span>
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">collectionData</span><span class="o">.</span><span class="n">update</span><span class="p">{</span> <span class="n">updater</span> <span class="k">in</span>
+    <span class="n">updater</span><span class="o">.</span><span class="nf">diff</span><span class="p">(</span><span class="nv">sections</span><span class="p">:</span> <span class="p">[</span><span class="n">sectionDescriptor</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="n">collectionView</span><span class="o">.</span><span class="nf">performUpdates</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">result</span><span class="p">)</span>
+</code></pre>
+
+<ul>
+<li>Diffing entire data</li>
+</ul>
+<pre class="highlight swift"><code><span class="n">model</span><span class="o">.</span><span class="nf">someUpdates</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">collectionData</span><span class="o">.</span><span class="n">update</span> <span class="p">{</span> <span class="n">updater</span> <span class="k">in</span>
+    <span class="n">collectionData</span><span class="o">.</span><span class="nf">reload</span><span class="p">(</span><span class="nv">model</span><span class="p">:</span> <span class="n">model</span><span class="p">)</span>
+    <span class="n">updater</span><span class="o">.</span><span class="nf">diff</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="n">collectionView</span><span class="o">.</span><span class="nf">performUpdates</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">result</span><span class="p">)</span>
+</code></pre>
+<h2 id='xctemplates' class='heading'>XCTemplates</h2>
+
+<p>Collor is published with 3 xctemplates for helping you creating ViewController, SectionDescriptor and CellDescriptor.</p>
+
+<p>To install them, just go in xctemplates directory and run this command in a terminal:</p>
+<pre class="highlight shell"><code>sh install.sh
+</code></pre>
+
+<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources//xctemplates.png" alt="XCTemplates"></p>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 8.3+</li>
+<li>Swift 3.0+</li>
+</ul>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>Collor is available through <a href="http://cocoapods.org">CocoaPods</a>. To install
+it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s2">"Collor"</span>
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>Work in progress&hellip;</p>
+<h3 id='documentation' class='heading'>Documentation</h3>
+
+<p>Work in progress&hellip;</p>
+<h2 id='credits' class='heading'>Credits</h2>
+
+<p>Collor is owned and maintained by <a href="http://www.voyages-sncf.com/">Voyages-sncf.com</a>.</p>
+
+<p>Collor was originally created by <a href="https://github.com/gwennguihal">Gwenn Guihal</a>.</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>Collor is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://voyages-sncf.com" target="_blank" rel="external">Gwenn Guihal</a>. All rights reserved. (Last updated: 2017-08-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
