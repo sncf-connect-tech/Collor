@@ -3,7 +3,7 @@
 //  VSC
 //
 //  Created by Guihal Gwenn on 20/02/17.
-//  Copyright © 2017 VSCT. All rights reserved.
+//  Copyright (c) 2017-present, Voyages-sncf.com. All rights reserved.
 //
 
 import Foundation

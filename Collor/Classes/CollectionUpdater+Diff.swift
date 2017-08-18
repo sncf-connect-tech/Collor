@@ -1,9 +1,9 @@
 //
 //  CollectionUpdater+Diff.swift
-//  Pods
+//  Collor
 //
 //  Created by Guihal Gwenn on 04/08/2017.
-//
+//  Copyright (c) 2017-present, Voyages-sncf.com. All rights reserved.
 //
 
 import Foundation

@@ -3,7 +3,7 @@
 //  Collor
 //
 //  Created by Guihal Gwenn on 10/05/17.
-//  Copyright © 2017 CocoaPods. All rights reserved.
+//  Copyright (c) 2017-present, Voyages-sncf.com. All rights reserved.. All rights reserved.
 //
 
 import XCTest

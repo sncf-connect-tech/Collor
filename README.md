@@ -1,3 +1,4 @@
+<br/>
 <p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/logo.png" alt="Collor logo"></p>
 
 [![CI Status](https://travis-ci.org/voyages-sncf-technologies/Collor.svg?branch=master)](https://travis-ci.org/voyages-sncf-technologies/Collor/)
@@ -6,9 +7,12 @@
 [![License](https://img.shields.io/cocoapods/l/Collor.svg?style=flat)](http://cocoapods.org/pods/Collor)
 [![Platform](https://img.shields.io/cocoapods/p/Collor.svg?style=flat)](http://cocoapods.org/pods/Collor)
 
-## Features
+## About
 
 Collor is a MVVM data-oriented framework for accelerating, simplifying and ensuring UICollectionView building.<br>
+Collor was created for and improved in the Voyages-sncf.com app.
+
+## Features
 
 Here is the list of all the features:
 - [x] Easy to use.
@@ -16,7 +20,7 @@ Here is the list of all the features:
 - [x] Architectured for reusing cell.
 - [x] Protocol / Struct oriented.
 - [x] Scalable.
-- [x] Never use indePath.
+- [x] Never use ```IndexPath```.
 - [x] Never register a cell.
 - [x] Update the collectionView model easily.
 - [x] Diffing data or sections (by using [Dwifft](https://github.com/jflinter/Dwifft))
@@ -113,11 +117,11 @@ final class WeatherDayCollectionViewCell: UICollectionViewCell, CollectionCellAd
 ```
 ##### ViewController
 
-Create the dataSourceDe and the delegate:
+Create the dataSource and the delegate:
 
 ```swift
 lazy var collectionViewDelegate: CollectionDelegate = CollectionDelegate(delegate: self)
-lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: nil)
+lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: self)
 ```
 
 Create the collectionData:
@@ -163,7 +167,7 @@ You get a readable data which represents your UICollectionView, without code dup
 
 Collor provides some features to easily update your collectionData.
 ##### Updating
-Just append or remove cells or sections using ```CollectionData.update``` method. This means an end to fiddling around with ```IndexPath```:
+Just append or remove cells or sections using ```CollectionData.update(_:)``` method. This means an end to fiddling around with ```IndexPath```:
 ```swift
 let newCellDescriptor = NewCellDescriptor(...)
 let result = collectionData.update { updater in
@@ -172,16 +176,17 @@ let result = collectionData.update { updater in
 collectionView.performUpdates(with: result)
 ```
 Here is the list of all update methods available:
-- append(cells:[CollectionCellDescribable], after cell:CollectionCellDescribable)
-- append(cells:[CollectionCellDescribable], before cell:CollectionCellDescribable)
-- append(cells:[CollectionCellDescribable], in section:CollectionSectionDescribable)
-- remove(cells:[CollectionCellDescribable])
-- reload(cells:[CollectionCellDescribable])
-- append(sections:[CollectionSectionDescribable], after section:CollectionSectionDescribable)
-- append(sections:[CollectionSectionDescribable], before section:CollectionSectionDescribable)
-- append(sections:[CollectionSectionDescribable])
-- remove(sections:[CollectionSectionDescribable])
-- reload(sections:[CollectionSectionDescribable])
+- append(cells:after:)
+- append(cells:before:)
+- append(cells:in:)
+- remove(cells:)
+- reload(cells:)
+- append(sections:after:)
+- append(sections:before:)
+- append(sections:)
+- remove(sections:)
+- reload(sections:)
+
 
 ##### Diffing
 Collor is using the great [Dwifft](https://github.com/jflinter/Dwifft) library by Jack Flintermann for getting the "diff" between two updates of your collectionData.
@@ -217,8 +222,9 @@ sh install.sh
 <p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources//xctemplates.png" alt="XCTemplates"></p>
 
 ## Requirements
-- iOS 8.3+
+- iOS 8.0+
 - Swift 3.0+
+- Xcode 8.0+
 
 ## Installation
 ### CocoaPods
@@ -229,9 +235,9 @@ it, simply add the following line to your Podfile:
 pod "Collor"
 ```
 ### Carthage
-Work in progress...
+Collor doesn't yet support Carthage. Work in progress...
 
-### Documentation
+## Documentation
 
 [Documentation](https://voyages-sncf-technologies.github.io/Collor/index.html)
 
@@ -245,4 +251,4 @@ Collor was originally created by [Gwenn Guihal](https://github.com/gwennguihal).
 
 ## License
 
-Collor is available under the MIT license. See the LICENSE file for more info.
+Collor is available under the BSD license. See the LICENSE file for more info.

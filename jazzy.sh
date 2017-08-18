@@ -1,6 +1,6 @@
 jazzy \
   --clean \
-  --author "Gwenn Guihal" \
+  --author "Voyages-sncf.com" \
   --author_url https://voyages-sncf.com \
   --github_url https://github.com/voyages-sncf-technologies/Collor \
   --xcodebuild-arguments -workspace,Example/Collor.xcworkspace,-scheme,Collor \

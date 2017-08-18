@@ -3,7 +3,7 @@
 //  Collor
 //
 //  Created by myrddinus on 02/22/2017.
-//  Copyright (c) 2017 myrddinus. All rights reserved.
+//  Copyright (c) 2017-present, Voyages-sncf.com. All rights reserved.
 //
 
 import UIKit
@@ -13,9 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // disable launch app if test
         if let _ = NSClassFromString("XCTest") {
             self.window = UIWindow(frame: UIScreen.main.bounds)
             self.window?.rootViewController = UINavigationController(rootViewController: UIViewController())
@@ -24,10 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        //let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //let navigationController: UINavigationController = mainStoryboard.instantiateViewController(withIdentifier: "navigation") as! UINavigationController
-//        let viewController = WeatherViewController()
-//        let viewController = RandomViewController()
         let viewController = MenuViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         self.window?.rootViewController = navigationController

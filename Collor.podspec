@@ -1,42 +1,14 @@
-#
-# Be sure to run `pod lib lint Collor.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'Collor'
-  s.version          = '0.1.17'
+  s.version          = '1.0.0'
   s.summary          = 'A MVVM data-oriented framework for UICollectionView.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-A MVVM data-oriented framework for UICollectionView.
-                       DESC
-
   s.homepage         = 'https://github.com/voyages-sncf-technologies/Collor'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'gwennguihal' => 'gguihal@voyages-sncf.com' }
+  s.screenshots      = 'https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/screenshot.jpg'
+  s.license          = { :type => 'BSD', :file => 'LICENSE' }
+  s.author           = { 'Gwenn Guihal' => 'gguihal@voyages-sncf.com' }
   s.source           = { :git => 'https://github.com/voyages-sncf-technologies/Collor.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/_myrddin_'
-
   s.ios.deployment_target = '8.0'
-
   s.source_files = 'Collor/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Collor' => ['Collor/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Dwifft', '~> 0.6'
 end

@@ -104,7 +104,9 @@
         <section>
           <section class="section">
             
-            <p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/logo.png" alt="Collor logo"></p>
+            <p><br/></p>
+
+<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/logo.png" alt="Collor logo"></p>
 
 <p><a href="https://travis-ci.org/voyages-sncf-technologies/Collor/"><img src="https://travis-ci.org/voyages-sncf-technologies/Collor.svg?branch=master" alt="CI Status"></a>
 <a href="https://coveralls.io/github/voyages-sncf-technologies/Collor?branch=master"><img src="https://coveralls.io/repos/github/voyages-sncf-technologies/Collor/badge.svg?branch=master" alt="Coverage Status"></a>
@@ -123,7 +125,7 @@
 <li>[x] Architectured for reusing cell.</li>
 <li>[x] Protocol / Struct oriented.</li>
 <li>[x] Scalable.</li>
-<li>[x] Never use indePath.</li>
+<li>[x] Never use <code>IndexPath</code>.</li>
 <li>[x] Never register a cell.</li>
 <li>[x] Update the collectionView model easily.</li>
 <li>[x] Diffing data or sections (by using <a href="https://github.com/jflinter/Dwifft">Dwifft</a>)</li>
@@ -223,9 +225,9 @@ The collectionData handles cell registering and dequeuing using these properties
 </code></pre>
 <h5 id='viewcontroller' class='heading'>ViewController</h5>
 
-<p>Create the dataSourceDe and the delegate:</p>
+<p>Create the dataSource and the delegate:</p>
 <pre class="highlight swift"><code><span class="kd">lazy</span> <span class="k">var</span> <span class="nv">collectionViewDelegate</span><span class="p">:</span> <span class="kt">CollectionDelegate</span> <span class="o">=</span> <span class="kt">CollectionDelegate</span><span class="p">(</span><span class="nv">delegate</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
-<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">collectionViewDatasource</span><span class="p">:</span> <span class="kt">CollectionDataSource</span> <span class="o">=</span> <span class="kt">CollectionDataSource</span><span class="p">(</span><span class="nv">delegate</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="kd">lazy</span> <span class="k">var</span> <span class="nv">collectionViewDatasource</span><span class="p">:</span> <span class="kt">CollectionDataSource</span> <span class="o">=</span> <span class="kt">CollectionDataSource</span><span class="p">(</span><span class="nv">delegate</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
 </code></pre>
 
 <p>Create the collectionData:</p>
@@ -267,7 +269,7 @@ The collectionData handles cell registering and dequeuing using these properties
 <p>Collor provides some features to easily update your collectionData.</p>
 <h5 id='updating' class='heading'>Updating</h5>
 
-<p>Just append or remove cells or sections using <code>CollectionData.update</code> method. This means an end to fiddling around with <code>IndexPath</code>:</p>
+<p>Just append or remove cells or sections using <code>CollectionData.update(_:)</code> method. This means an end to fiddling around with <code>IndexPath</code>:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">newCellDescriptor</span> <span class="o">=</span> <span class="kt">NewCellDescriptor</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 <span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">collectionData</span><span class="o">.</span><span class="n">update</span> <span class="p">{</span> <span class="n">updater</span> <span class="k">in</span>
     <span class="n">updater</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="nv">cells</span><span class="p">:</span> <span class="p">[</span><span class="n">newCellDescriptor</span><span class="p">],</span> <span class="nv">after</span><span class="p">:</span> <span class="n">anotherCellDescriptor</span><span class="p">)</span>
@@ -278,16 +280,16 @@ The collectionData handles cell registering and dequeuing using these properties
 <p>Here is the list of all update methods available:</p>
 
 <ul>
-<li>append(cells:[CollectionCellDescribable], after cell:CollectionCellDescribable)</li>
-<li>append(cells:[CollectionCellDescribable], before cell:CollectionCellDescribable)</li>
-<li>append(cells:[CollectionCellDescribable], in section:CollectionSectionDescribable)</li>
-<li>remove(cells:[CollectionCellDescribable])</li>
-<li>reload(cells:[CollectionCellDescribable])</li>
-<li>append(sections:[CollectionSectionDescribable], after section:CollectionSectionDescribable)</li>
-<li>append(sections:[CollectionSectionDescribable], before section:CollectionSectionDescribable)</li>
-<li>append(sections:[CollectionSectionDescribable])</li>
-<li>remove(sections:[CollectionSectionDescribable])</li>
-<li>reload(sections:[CollectionSectionDescribable])</li>
+<li>append(cells:after:)</li>
+<li>append(cells:before:)</li>
+<li>append(cells:in:)</li>
+<li>remove(cells:)</li>
+<li>reload(cells:)</li>
+<li>append(sections:after:)</li>
+<li>append(sections:before:)</li>
+<li>append(sections:)</li>
+<li>remove(sections:)</li>
+<li>reload(sections:)</li>
 </ul>
 <h5 id='diffing' class='heading'>Diffing</h5>
 
@@ -325,8 +327,9 @@ The collectionData handles cell registering and dequeuing using these properties
 <h2 id='requirements' class='heading'>Requirements</h2>
 
 <ul>
-<li>iOS 8.3+</li>
+<li>iOS 8.0+</li>
 <li>Swift 3.0+</li>
+<li>Xcode 8.0+</li>
 </ul>
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
@@ -337,10 +340,12 @@ it, simply add the following line to your Podfile:</p>
 </code></pre>
 <h3 id='carthage' class='heading'>Carthage</h3>
 
-<p>Work in progress&hellip;</p>
-<h3 id='documentation' class='heading'>Documentation</h3>
+<p>Collor doesn&rsquo;t yet support Carthage. Work in progress&hellip;</p>
+<h2 id='documentation' class='heading'>Documentation</h2>
 
-<p>Work in progress&hellip;</p>
+<p><a href="https://voyages-sncf-technologies.github.io/Collor/index.html">Documentation</a></p>
+
+<p>Work in progress&hellip; 1% documented</p>
 <h2 id='credits' class='heading'>Credits</h2>
 
 <p>Collor is owned and maintained by <a href="http://www.voyages-sncf.com/">Voyages-sncf.com</a>.</p>
@@ -348,12 +353,12 @@ it, simply add the following line to your Podfile:</p>
 <p>Collor was originally created by <a href="https://github.com/gwennguihal">Gwenn Guihal</a>.</p>
 <h2 id='license' class='heading'>License</h2>
 
-<p>Collor is available under the MIT license. See the LICENSE file for more info.</p>
+<p>Collor is available under the BSD license. See the LICENSE file for more info.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://voyages-sncf.com" target="_blank" rel="external">Gwenn Guihal</a>. All rights reserved. (Last updated: 2017-08-17)</p>
+          <p>&copy; 2017 <a class="link" href="https://voyages-sncf.com" target="_blank" rel="external">Voyages-sncf.com</a>. All rights reserved. (Last updated: 2017-08-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

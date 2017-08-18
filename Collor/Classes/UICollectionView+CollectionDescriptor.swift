@@ -1,9 +1,9 @@
 //
 //  UICollectionView+CollectionDescriptor.swift
-//  Pods
+//  Collor
 //
 //  Created by Guihal Gwenn on 14/03/17.
-//
+//  Copyright (c) 2017-present, Voyages-sncf.com. All rights reserved.
 //
 
 import UIKit
