@@ -102,7 +102,7 @@ struct WeatherDayAdapter: CollectionAdapter {
 }
 ```
 
-When a cell is dequeued, the collectionData update the cell with this object.
+When a cell is dequeued, the collectionData updates the cell with this object.
 ```swift
 final class WeatherDayCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
   @IBOutlet weak var label: UILabel!
