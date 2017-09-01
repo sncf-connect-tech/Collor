@@ -29,7 +29,7 @@
 		F089D9AB1F3861A500395056 /* WeatherDayAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99A1F3861A500395056 /* WeatherDayAdapter.swift */; };
 		F089D9AC1F3861A500395056 /* WeatherDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99B1F3861A500395056 /* WeatherDayCollectionViewCell.swift */; };
 		F089D9AD1F3861A500395056 /* WeatherDayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F089D99C1F3861A500395056 /* WeatherDayCollectionViewCell.xib */; };
-		F089D9AE1F3861A500395056 /* WeatherDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99D1F3861A500395056 /* WeatherDecorationView.swift */; };
+		F089D9AE1F3861A500395056 /* SectionDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99D1F3861A500395056 /* SectionDecorationView.swift */; };
 		F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99E1F3861A500395056 /* LabelCollectionViewCell.swift */; };
 		F089D9B01F3861A500395056 /* LabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F089D99F1F3861A500395056 /* LabelCollectionViewCell.xib */; };
 		F089D9B11F3861A500395056 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D9A01F3861A500395056 /* WeatherModel.swift */; };
@@ -113,7 +113,7 @@
 		F089D99A1F3861A500395056 /* WeatherDayAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDayAdapter.swift; sourceTree = "<group>"; };
 		F089D99B1F3861A500395056 /* WeatherDayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		F089D99C1F3861A500395056 /* WeatherDayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherDayCollectionViewCell.xib; sourceTree = "<group>"; };
-		F089D99D1F3861A500395056 /* WeatherDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDecorationView.swift; sourceTree = "<group>"; };
+		F089D99D1F3861A500395056 /* SectionDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDecorationView.swift; sourceTree = "<group>"; };
 		F089D99E1F3861A500395056 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		F089D99F1F3861A500395056 /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		F089D9A01F3861A500395056 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -326,7 +326,6 @@
 		F089D9981F38617900395056 /* Weather Sample */ = {
 			isa = PBXGroup;
 			children = (
-				F089D9BF1F3861CE00395056 /* decoration */,
 				F089D9BE1F3861C400395056 /* service */,
 				F089D9BD1F3861BF00395056 /* model */,
 				F089D9BC1F3861BB00395056 /* section */,
@@ -370,13 +369,6 @@
 				F089D9A91F3861A500395056 /* WheatherService.swift */,
 			);
 			name = service;
-			sourceTree = "<group>";
-		};
-		F089D9BF1F3861CE00395056 /* decoration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = decoration;
 			sourceTree = "<group>";
 		};
 		F089D9C01F38621F00395056 /* day */ = {
@@ -511,7 +503,7 @@
 		F0F08E021F38AFC4006D63EF /* layout */ = {
 			isa = PBXGroup;
 			children = (
-				F089D99D1F3861A500395056 /* WeatherDecorationView.swift */,
+				F089D99D1F3861A500395056 /* SectionDecorationView.swift */,
 				F089D9A81F3861A500395056 /* WhiteSectionLayout.swift */,
 			);
 			name = layout;
@@ -743,7 +735,7 @@
 				F089D9AB1F3861A500395056 /* WeatherDayAdapter.swift in Sources */,
 				F089D9C61F386F7000395056 /* RandomViewController.swift in Sources */,
 				F0D3ED5B1F41E8340087CBD2 /* MenuViewController.swift in Sources */,
-				F089D9AE1F3861A500395056 /* WeatherDecorationView.swift in Sources */,
+				F089D9AE1F3861A500395056 /* SectionDecorationView.swift in Sources */,
 				F0577CC71F39E9FA0051BD18 /* PantoneSectionDescriptor.swift in Sources */,
 				F089D9D21F38726500395056 /* Crew.swift in Sources */,
 				F089D9B21F3861A500395056 /* WeatherSectionDescriptor.swift in Sources */,

@@ -32,7 +32,7 @@ final class WeatherCollectionData : CollectionData {
         sections.append(titleSection)
         
         let daySections = weatherModel.weatherDays.map { day -> CollectionSectionDescribable in
-            let section = WeatherSectionDescriptor()
+            let section = WeatherSectionDescriptor().uid(day.date.debugDescription)
             section.reloadSection { cells in
                 
                 let dayCellDescriptor = WeatherDayDescriptor(adapter: WeatherDayAdapter(day: day) ).uid("day")
@@ -42,10 +42,11 @@ final class WeatherCollectionData : CollectionData {
                     
                     let temperatureCellDescriptor = LabelDescriptor(adapter: WeatherTemperatureAdapter(day: day) ).uid("temp")
                     cells.append( temperatureCellDescriptor )
-                    
+                }
+                
                     let pressureCellDescriptor = LabelDescriptor(adapter: WeatherPressureAdapter(day: day) ).uid("pressure")
                     cells.append( pressureCellDescriptor )
-                }
+                //}
             }
             return section
         }

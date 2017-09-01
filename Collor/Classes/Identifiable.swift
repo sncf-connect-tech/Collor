@@ -17,9 +17,12 @@ public protocol Identifiable: class {
 }
 
 public extension Identifiable {
-    func uid(_ uid:String) -> Self {
+    @discardableResult func uid(_ uid:String) -> Self {
         _uid = uid
         return self
+    }
+    func uid() -> String? {
+        return _uid
     }
 }
 
