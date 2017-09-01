@@ -76,32 +76,39 @@ extension CollectionUpdater {
     public func diff() {
         let oldSections = collectionData.sections // store old model
         collectionData.reloadData() // compute new model
+        collectionData.computeIndices()
         
         do {
             try verifyUID(sections: oldSections)
             try verifyUID(sections: collectionData.sections)
             
-            let old = mapToSectionedValues(oldSections)
-            let new = mapToSectionedValues(collectionData.sections)
-            
-            Dwifft.diff(lhs: old, rhs: new).forEach {
-                switch $0 {
-                case let .delete(section, item, _):
-                    result?.deletedIndexPaths.append( IndexPath(item: item, section: section ) )
-                    result?.deletedCellDescriptors.append( oldSections[section].cells[item] )
-                case let .insert(section, item, _):
-                    result?.insertedIndexPaths.append( IndexPath(item: item, section: section ) )
-                    result?.insertedCellDescriptors.append( collectionData.sections[section].cells[item] )
-                case let .sectionDelete(section, _):
-                    result?.deletedSectionsIndexSet.insert(section)
-                    result?.deletedSectionDescriptors.append( oldSections[section] )
-                case let .sectionInsert(section, _):
-                    result?.insertedSectionsIndexSet.insert(section)
-                    result?.insertedSectionDescriptors.append( collectionData.sections[section] )
+            let old = oldSections.flatMap { section in
+                return section.cells.map { cell in
+                    return (cell.indexPath!, section.uid()! + "/" + cell.uid()!)
                 }
+            }//mapToSectionedValues(oldSections)
+            let new = collectionData.sections.flatMap { section in
+                return section.cells.map { cell in
+                    return (cell.indexPath!, section.uid()! + "/" + cell.uid()!)
+                }
+            }//mapToSectionedValues(collectionData.sections)
+            
+            let diff = CollorDiff(before: old, after: new)
+            
+            diff.deleted.forEach {
+                result?.deletedIndexPaths.append( $0 )
+                result?.deletedCellDescriptors.append( oldSections[$0.section].cells[$0.item] )
             }
             
-            collectionData.computeIndices()
+            diff.inserted.forEach {
+                result?.insertedIndexPaths.append( $0 )
+                result?.insertedCellDescriptors.append( collectionData.sections[$0.section].cells[$0.item] )
+            }
+            
+            diff.moved.forEach {
+                result?.movedIndexPaths.append( ($0.from, $0.to) )
+                result?.movedCellDescriptors.append( oldSections[$0.from.section].cells[$0.from.item])
+            }
             
         } catch UIDError.sectionsWithoutUIDError(let sections) {
             let sectionsInError = sections.reduce("") { result, section in

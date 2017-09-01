@@ -83,6 +83,7 @@
 		E71A3F9E7F0951919F20F0F2B9B9CA58 /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3CDD628F25A2791EB561CE4872E2FC /* CollectionDataSource.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B5C41789CD623B7F2E921C3E513CF /* Notifications.swift */; };
 		F02789AD1F5947340086127E /* UICollectionViewLayoutAttributes+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02789AC1F5947340086127E /* UICollectionViewLayoutAttributes+Identifiable.swift */; };
+		F02789B01F5962270086127E /* CollorDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02789AF1F5962270086127E /* CollorDiff.swift */; };
 		F110ABA8BCBE793F8238FB90887176EF /* CollectionCellAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3A5D7A664FBC0C20B557FB8D77CAE2 /* CollectionCellAdaptable.swift */; };
 		F2A2123335D437ABA1FFDECAF02513B3 /* Pods-Collor_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8B23B5F565132EFA2C2E39459C531 /* Pods-Collor_Example-dummy.m */; };
 		F3ECD26A56750DB6D12C91EB9E899AF6 /* CollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F65AF70EAA4EA3C2B0936BDA0C3E7C /* CollectionUpdater.swift */; };
@@ -273,6 +274,7 @@
 		EA3376188DEE783FE1D09797AAC6B085 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		EC87C0FA375AFA5C23671D3791B254BD /* CwlPreconditionTesting.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CwlPreconditionTesting.xcconfig; sourceTree = "<group>"; };
 		F02789AC1F5947340086127E /* UICollectionViewLayoutAttributes+Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayoutAttributes+Identifiable.swift"; sourceTree = "<group>"; };
+		F02789AF1F5962270086127E /* CollorDiff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollorDiff.swift; sourceTree = "<group>"; };
 		F17DE1D47CE2CCFD9F89760A22B323BD /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mach_excServer.c; path = Sources/CwlMachBadInstructionHandler/mach_excServer.c; sourceTree = "<group>"; };
 		F368B5415F3D1C6A247F3B5F2826F9BB /* Pods-Collor_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Collor_Tests-resources.sh"; sourceTree = "<group>"; };
 		F380C5E11C4285F73744A8868D29A1D9 /* Pods-Collor_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Collor_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 		59745C1C5CCABC919CCC3878A6D49E4A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F02789AE1F5962160086127E /* diff */,
 				F02789AB1F5944090086127E /* layout */,
 				3539E6DCA7F16AD137A6EED85906E0AF /* CollectionAdapter.swift */,
 				DF3A5D7A664FBC0C20B557FB8D77CAE2 /* CollectionCellAdaptable.swift */,
@@ -604,6 +607,14 @@
 				F02789AC1F5947340086127E /* UICollectionViewLayoutAttributes+Identifiable.swift */,
 			);
 			name = layout;
+			sourceTree = "<group>";
+		};
+		F02789AE1F5962160086127E /* diff */ = {
+			isa = PBXGroup;
+			children = (
+				F02789AF1F5962270086127E /* CollorDiff.swift */,
+			);
+			name = diff;
 			sourceTree = "<group>";
 		};
 		F47C17F69173C95D0B52E18751052430 /* Alamofire */ = {
@@ -1003,6 +1014,7 @@
 				7B446C49AFE230D9A55DF7F78A92436D /* CollectionSectionDescriptable.swift in Sources */,
 				6C3388EAB9F7E022BF6B0679060C9D05 /* CollectionUpdater+Diff.swift in Sources */,
 				F3ECD26A56750DB6D12C91EB9E899AF6 /* CollectionUpdater.swift in Sources */,
+				F02789B01F5962270086127E /* CollorDiff.swift in Sources */,
 				16B186C70428CC3E05CDDB77BEB07C4C /* CollectionUserEventDelegate.swift in Sources */,
 				2C07C5F65B6F0571BC1AF3C6D3379123 /* Collor-dummy.m in Sources */,
 				C28F600B57591721E3AEFCA786E787AD /* Helpers.swift in Sources */,
