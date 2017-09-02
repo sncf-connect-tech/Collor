@@ -13,6 +13,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7315FCB25EF828F0929A4641 /* Pods_Collor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F1AEC9685F40C56AAB6AE /* Pods_Collor_Example.framework */; };
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
+		F02789B61F5B4CE10086127E /* SectionDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02789B51F5B4CE10086127E /* SectionDecorationView.swift */; };
 		F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */; };
 		F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */; };
 		F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */; };
@@ -29,7 +30,6 @@
 		F089D9AB1F3861A500395056 /* WeatherDayAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99A1F3861A500395056 /* WeatherDayAdapter.swift */; };
 		F089D9AC1F3861A500395056 /* WeatherDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99B1F3861A500395056 /* WeatherDayCollectionViewCell.swift */; };
 		F089D9AD1F3861A500395056 /* WeatherDayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F089D99C1F3861A500395056 /* WeatherDayCollectionViewCell.xib */; };
-		F089D9AE1F3861A500395056 /* WeatherDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99D1F3861A500395056 /* WeatherDecorationView.swift */; };
 		F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99E1F3861A500395056 /* LabelCollectionViewCell.swift */; };
 		F089D9B01F3861A500395056 /* LabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F089D99F1F3861A500395056 /* LabelCollectionViewCell.xib */; };
 		F089D9B11F3861A500395056 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D9A01F3861A500395056 /* WeatherModel.swift */; };
@@ -97,6 +97,7 @@
 		A1B91C5B37455C72DDFFCCC9 /* Pods-Collor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collor_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C28F175CBC84A17630BED1A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02789B51F5B4CE10086127E /* SectionDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDecorationView.swift; sourceTree = "<group>"; };
 		F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDatasTest.swift; sourceTree = "<group>"; };
 		F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDataSourceTest.swift; sourceTree = "<group>"; };
 		F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetallicPantone.swift; sourceTree = "<group>"; };
@@ -113,7 +114,6 @@
 		F089D99A1F3861A500395056 /* WeatherDayAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDayAdapter.swift; sourceTree = "<group>"; };
 		F089D99B1F3861A500395056 /* WeatherDayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		F089D99C1F3861A500395056 /* WeatherDayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherDayCollectionViewCell.xib; sourceTree = "<group>"; };
-		F089D99D1F3861A500395056 /* WeatherDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDecorationView.swift; sourceTree = "<group>"; };
 		F089D99E1F3861A500395056 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		F089D99F1F3861A500395056 /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		F089D9A01F3861A500395056 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 		F0F08E021F38AFC4006D63EF /* layout */ = {
 			isa = PBXGroup;
 			children = (
-				F089D99D1F3861A500395056 /* WeatherDecorationView.swift */,
+				F02789B51F5B4CE10086127E /* SectionDecorationView.swift */,
 				F089D9A81F3861A500395056 /* WhiteSectionLayout.swift */,
 			);
 			name = layout;
@@ -743,7 +743,6 @@
 				F089D9AB1F3861A500395056 /* WeatherDayAdapter.swift in Sources */,
 				F089D9C61F386F7000395056 /* RandomViewController.swift in Sources */,
 				F0D3ED5B1F41E8340087CBD2 /* MenuViewController.swift in Sources */,
-				F089D9AE1F3861A500395056 /* WeatherDecorationView.swift in Sources */,
 				F0577CC71F39E9FA0051BD18 /* PantoneSectionDescriptor.swift in Sources */,
 				F089D9D21F38726500395056 /* Crew.swift in Sources */,
 				F089D9B21F3861A500395056 /* WeatherSectionDescriptor.swift in Sources */,
@@ -753,6 +752,7 @@
 				F089D9C91F386FAA00395056 /* RandomCollectionData.swift in Sources */,
 				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
 				F089D9B81F3861A500395056 /* WheaterAdapters.swift in Sources */,
+				F02789B61F5B4CE10086127E /* SectionDecorationView.swift in Sources */,
 				F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */,
 				F0D3ED691F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift in Sources */,
 				F089D9B41F3861A500395056 /* TitleCollectionViewCell.swift in Sources */,
