@@ -100,12 +100,8 @@ extension CollectionUpdater {
                 result?.insertedSectionsIndexSet.insert($0)
                 result?.insertedSectionDescriptors.append( collectionData.sections[$0] )
             }
-//            sectionsDiff.moved.forEach {
-//                result?.movedSectionIndices.append( ($0.from, $0.to) )
-//                result?.movedSectionDescriptors.append( oldSections[$0.from] )
-//            }
             
-            //2dc pass : items
+            //2d pass : items
             let old = oldSections.flatMap(toDiffItem)
             let new = collectionData.sections.flatMap(toDiffItem)
             
@@ -145,7 +141,7 @@ extension CollectionUpdater {
     
     private func toDiffItem(section:CollectionSectionDescribable) -> [(IndexPath,String)] {
         return section.cells.map { cell in
-            return (cell.indexPath!, section.uid()! + "/" + cell.uid()!)
+            return (cell.indexPath!, "\(section.uid()!)/\(cell.uid()!)")
         }
     }
     
