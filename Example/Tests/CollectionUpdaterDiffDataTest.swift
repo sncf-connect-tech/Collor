@@ -96,9 +96,9 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         XCTAssertTrue(result.deletedSectionsIndexSet.isEmpty)
         
         XCTAssertEqual(result.deletedCellDescriptors.count, 2)
-        XCTAssertTrue(result.deletedCellDescriptors[0] === cellTwo)
-        XCTAssertTrue(result.deletedCellDescriptors[1] === cellOne)
-        XCTAssertEqual(result.deletedIndexPaths,[ IndexPath(item: 1, section: sectionIndex), IndexPath(item: 0, section: sectionIndex) ])
+        XCTAssertTrue(result.deletedCellDescriptors[0] === cellOne)
+        XCTAssertTrue(result.deletedCellDescriptors[1] === cellTwo)
+        XCTAssertEqual(result.deletedIndexPaths,[ IndexPath(item: 0, section: sectionIndex), IndexPath(item: 1, section: sectionIndex) ])
         
         XCTAssertEqual(data.sections[sectionIndex].cells.count, 1 )
         XCTAssertEqual(data.sections[sectionIndex].cells[0].indexPath, IndexPath(item: 0, section: sectionIndex) )

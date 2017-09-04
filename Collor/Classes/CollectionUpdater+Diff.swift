@@ -87,6 +87,25 @@ extension CollectionUpdater {
             try verifyUID(sections: oldSections)
             try verifyUID(sections: collectionData.sections)
             
+            // 1th pass : sections
+            let oldDiffItemSections = oldSections.map{ return ( $0.index!, $0.uid()! ) }
+            let newDiffItemSections = collectionData.sections.map{ return ( $0.index!, $0.uid()! ) }
+            
+            let sectionsDiff = CollorDiff(before: oldDiffItemSections, after: newDiffItemSections)
+            sectionsDiff.deleted.forEach {
+                result?.deletedSectionsIndexSet.insert($0)
+                result?.deletedSectionDescriptors.append( oldSections[$0] )
+            }
+            sectionsDiff.inserted.forEach {
+                result?.insertedSectionsIndexSet.insert($0)
+                result?.insertedSectionDescriptors.append( collectionData.sections[$0] )
+            }
+//            sectionsDiff.moved.forEach {
+//                result?.movedSectionIndices.append( ($0.from, $0.to) )
+//                result?.movedSectionDescriptors.append( oldSections[$0.from] )
+//            }
+            
+            //2dc pass : items
             let old = oldSections.flatMap(toDiffItem)
             let new = collectionData.sections.flatMap(toDiffItem)
             
