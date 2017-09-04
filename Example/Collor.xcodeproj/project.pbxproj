@@ -15,6 +15,9 @@
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
 		F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */; };
 		F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */; };
+		F0530FC61F5DF06D00F2318F /* RealTimeCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */; };
+		F0530FC71F5DF06D00F2318F /* RealTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */; };
+		F0530FC81F5DF06D00F2318F /* RealTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */; };
 		F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */; };
 		F0577CC01F39E6870051BD18 /* PantoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */; };
 		F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */; };
@@ -99,6 +102,9 @@
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDatasTest.swift; sourceTree = "<group>"; };
 		F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDataSourceTest.swift; sourceTree = "<group>"; };
+		F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeCollectionData.swift; sourceTree = "<group>"; };
+		F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeViewController.swift; sourceTree = "<group>"; };
+		F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealTimeViewController.xib; sourceTree = "<group>"; };
 		F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetallicPantone.swift; sourceTree = "<group>"; };
 		F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantoneViewController.swift; sourceTree = "<group>"; };
 		F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PantoneViewController.xib; sourceTree = "<group>"; };
@@ -205,6 +211,7 @@
 		607FACD21AFB9204008FA782 /* Example for Collor */ = {
 			isa = PBXGroup;
 			children = (
+				F0530FC21F5DF05000F2318F /* RealTime */,
 				F011A0B91F41CBE6007F9FEB /* Menu */,
 				F0577CBA1F39C4990051BD18 /* Pantone Sample */,
 				F089D9CC1F38711900395056 /* Common */,
@@ -282,6 +289,16 @@
 				F0D3ED591F41E8340087CBD2 /* MenuViewController.xib */,
 			);
 			name = Menu;
+			sourceTree = "<group>";
+		};
+		F0530FC21F5DF05000F2318F /* RealTime */ = {
+			isa = PBXGroup;
+			children = (
+				F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */,
+				F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */,
+				F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */,
+			);
+			name = RealTime;
 			sourceTree = "<group>";
 		};
 		F0577CBA1F39C4990051BD18 /* Pantone Sample */ = {
@@ -611,6 +628,7 @@
 				F0577CCD1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib in Resources */,
 				F0D3ED6A1F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib in Resources */,
 				F089D9B71F3861A500395056 /* WeatherViewController.xib in Resources */,
+				F0530FC81F5DF06D00F2318F /* RealTimeViewController.xib in Resources */,
 				F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */,
 				F089D9C71F386F7000395056 /* RandomViewController.xib in Resources */,
 			);
@@ -746,6 +764,7 @@
 				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
 				F089D9B81F3861A500395056 /* WheaterAdapters.swift in Sources */,
 				F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */,
+				F0530FC61F5DF06D00F2318F /* RealTimeCollectionData.swift in Sources */,
 				F0D3ED691F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift in Sources */,
 				F089D9B41F3861A500395056 /* TitleCollectionViewCell.swift in Sources */,
 				F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */,
@@ -757,6 +776,7 @@
 				F089D9B31F3861A500395056 /* WeatherStyle.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F0D3ED6C1F41F6E20087CBD2 /* MenuSectionDescriptor.swift in Sources */,
+				F0530FC71F5DF06D00F2318F /* RealTimeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
