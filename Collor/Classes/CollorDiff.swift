@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct CollorDiff<T : Hashable> {
-    public typealias DiffItem = (indexPath:IndexPath,value:T)
-    typealias DiffList = [IndexPath]
-    typealias FromToList = [(from: IndexPath, to: IndexPath)]
+struct CollorDiff<I:Equatable, T : Hashable> {
+    public typealias DiffItem = (index:I,value:T)
+    typealias DiffList = [I]
+    typealias FromToList = [(from: I, to: I)]
     
     let inserted: DiffList
     let deleted: DiffList
@@ -19,17 +19,17 @@ struct CollorDiff<T : Hashable> {
     
     init(before: [DiffItem], after: [DiffItem]) {
         let beforeIsSmaller = before.count < after.count
-        var map = [T: IndexPath]()
+        var map = [T: I]()
         for item in (beforeIsSmaller ? before : after) {
-            map[item.value] = item.indexPath
+            map[item.value] = item.index
         }
         
         var inserted = DiffList()
         var deleted = DiffList()
         var moved = FromToList()
         
-        (beforeIsSmaller ? after : before).forEach { (indexPath,value) in
-            let index1 = indexPath
+        (beforeIsSmaller ? after : before).forEach { (index,value) in
+            let index1 = index
             if let index2 = map[value] {
                 if (index1 != index2) {
                     let (from, to) = beforeIsSmaller ? (index2, index1) : (index1, index2)

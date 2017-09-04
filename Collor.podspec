@@ -10,5 +10,4 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/_myrddin_'
   s.ios.deployment_target = '8.0'
   s.source_files = 'Collor/Classes/**/*'
-  s.dependency 'Dwifft', '~> 0.6'
 end

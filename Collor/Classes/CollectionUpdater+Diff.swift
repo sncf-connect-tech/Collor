@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Dwifft
 
 extension CollectionUpdater {
     
@@ -42,25 +41,31 @@ extension CollectionUpdater {
             let oldItems = sectionDescriptor.cells
             sectionDescriptor.cells.removeAll()
             sectionBuilder(&sectionDescriptor.cells)
+            collectionData.computeIndexPaths(in: sectionDescriptor)
             
             do {
                 try verifyUID(sectionIndex: sectionIndex, items: oldItems)
                 try verifyUID(sectionIndex: sectionIndex, items: sectionDescriptor.cells)
             
-                let old = oldItems.map{ $0._uid! }
-                let new = sectionDescriptor.cells.map{ $0._uid! }
+                let old = oldItems.map(toDiffItem)
+                let new = sectionDescriptor.cells.map(toDiffItem)
                 
-                Dwifft.diff(old, new).forEach {
-                    switch $0 {
-                    case let .delete(item, _):
-                        result?.deletedIndexPaths.append( IndexPath(item: item, section: sectionIndex ) )
-                        result?.deletedCellDescriptors.append( oldItems[item] )
-                    case let .insert(item, _):
-                        result?.insertedIndexPaths.append( IndexPath(item: item, section: sectionIndex ) )
-                        result?.insertedCellDescriptors.append( sectionDescriptor.cells[item] )
-                    }
+                let diff = CollorDiff(before: old, after: new)
+                
+                diff.deleted.forEach {
+                    result?.deletedIndexPaths.append( $0 )
+                    result?.deletedCellDescriptors.append( oldItems[$0.item] )
                 }
                 
+                diff.inserted.forEach {
+                    result?.insertedIndexPaths.append( $0 )
+                    result?.insertedCellDescriptors.append( sectionDescriptor.cells[$0.item] )
+                }
+                
+                diff.moved.forEach {
+                    result?.movedIndexPaths.append( ($0.from, $0.to) )
+                    result?.movedCellDescriptors.append( oldItems[$0.from.item])
+                }
             } catch UIDError.itemsWithoutUIDError(let items) {
                 raiseItemsWithoutUIDException(items: items)
             } catch UIDError.itemsDuplicateError(let items) {
@@ -82,16 +87,8 @@ extension CollectionUpdater {
             try verifyUID(sections: oldSections)
             try verifyUID(sections: collectionData.sections)
             
-            let old = oldSections.flatMap { section in
-                return section.cells.map { cell in
-                    return (cell.indexPath!, section.uid()! + "/" + cell.uid()!)
-                }
-            }//mapToSectionedValues(oldSections)
-            let new = collectionData.sections.flatMap { section in
-                return section.cells.map { cell in
-                    return (cell.indexPath!, section.uid()! + "/" + cell.uid()!)
-                }
-            }//mapToSectionedValues(collectionData.sections)
+            let old = oldSections.flatMap(toDiffItem)
+            let new = collectionData.sections.flatMap(toDiffItem)
             
             let diff = CollorDiff(before: old, after: new)
             
@@ -127,11 +124,14 @@ extension CollectionUpdater {
         } catch {}
     }
     
-    private func mapToSectionedValues(_ sections:[CollectionSectionDescribable]) -> SectionedValues<String, String> {
-        return SectionedValues( sections.map{ section -> (String, [String]) in
-            let cellUids = section.cells.map{ return section._uid! + "/" + $0._uid! }
-            return (section._uid!, cellUids)
-        })
+    private func toDiffItem(section:CollectionSectionDescribable) -> [(IndexPath,String)] {
+        return section.cells.map { cell in
+            return (cell.indexPath!, section.uid()! + "/" + cell.uid()!)
+        }
+    }
+    
+    private func toDiffItem(cell:CollectionCellDescribable) -> (IndexPath,String) {
+        return (cell.indexPath!, cell.uid()!)
     }
     
     private enum UIDError : Error {

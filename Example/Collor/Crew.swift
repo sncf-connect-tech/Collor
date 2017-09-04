@@ -26,7 +26,19 @@ struct Crew {
         Team(title: "🕹 SCRUM", members: ["Maxime", "Jessica", "Johan"])
     ]
     
-    mutating func randomize() {
+    mutating func randomizeMembers() {
+        teams = teams.map { team in
+            var team = team
+            team.randomize()
+            return team
+        }
+    }
+    
+    mutating func randomizeTeams() {
+        teams = teams.shuffled()
+    }
+    
+    mutating func randomizeAll() {
         teams = teams.map { team in
             var team = team
             team.randomize()

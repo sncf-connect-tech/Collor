@@ -11,13 +11,17 @@ import Foundation
 
 extension UICollectionView {
     public func performUpdates(with result: UpdateCollectionResult, completion: ((Bool) -> Void)? = nil) {
-        self.performBatchUpdates({ 
-            self.insertItems(at: result.insertedIndexPaths)
-            self.deleteItems(at: result.deletedIndexPaths)
-            self.reloadItems(at: result.reloadedIndexPaths)
+        self.performBatchUpdates({
             self.insertSections(result.insertedSectionsIndexSet)
             self.deleteSections(result.deletedSectionsIndexSet)
             self.reloadSections(result.reloadedSectionsIndexSet)
+            /*result.movedSectionIndices.forEach { (from,to) in
+                self.moveSection(from, toSection: to)
+            }*/
+            
+            self.insertItems(at: result.insertedIndexPaths)
+            self.deleteItems(at: result.deletedIndexPaths)
+            self.reloadItems(at: result.reloadedIndexPaths)
             result.movedIndexPaths.forEach { (from,to) in
                 self.moveItem(at: from, to: to)
             }
