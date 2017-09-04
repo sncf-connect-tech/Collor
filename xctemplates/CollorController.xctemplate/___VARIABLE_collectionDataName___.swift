@@ -9,7 +9,7 @@
 import Foundation
 import Collor
 
-final class ___VARIABLE_collectionDataName___ : CollectionDatas {
+final class ___VARIABLE_collectionDataName___ : CollectionData {
     
     override func reloadData() {
         super.reloadData()
