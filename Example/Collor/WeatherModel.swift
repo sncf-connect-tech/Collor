@@ -20,7 +20,7 @@ struct WeatherDay : Equatable {
     }
 }
 
-class WeatherModel: NSObject {
+final class WeatherModel {
     
     let weatherDays:[WeatherDay]
     let cityName:String

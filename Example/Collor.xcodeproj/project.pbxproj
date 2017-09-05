@@ -18,6 +18,10 @@
 		F0530FC61F5DF06D00F2318F /* RealTimeCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */; };
 		F0530FC71F5DF06D00F2318F /* RealTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */; };
 		F0530FC81F5DF06D00F2318F /* RealTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */; };
+		F0530FCB1F5DF21800F2318F /* RealTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0530FCA1F5DF21800F2318F /* RealTimeService.swift */; };
+		F0530FD01F5DF28100F2318F /* tweets_0.json in Resources */ = {isa = PBXBuildFile; fileRef = F0530FCD1F5DF28100F2318F /* tweets_0.json */; };
+		F0530FD11F5DF28100F2318F /* tweets_1.json in Resources */ = {isa = PBXBuildFile; fileRef = F0530FCE1F5DF28100F2318F /* tweets_1.json */; };
+		F0530FD21F5DF28100F2318F /* tweets_2.json in Resources */ = {isa = PBXBuildFile; fileRef = F0530FCF1F5DF28100F2318F /* tweets_2.json */; };
 		F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */; };
 		F0577CC01F39E6870051BD18 /* PantoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */; };
 		F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */; };
@@ -27,6 +31,14 @@
 		F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0577CC91F39EA420051BD18 /* PantoneColorCollectionViewCell.swift */; };
 		F0577CCD1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0577CCA1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib */; };
 		F05946121EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */; };
+		F07823491F5DF78200FE9CC0 /* RealTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07823481F5DF78200FE9CC0 /* RealTimeModel.swift */; };
+		F078234D1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F078234C1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift */; };
+		F07823511F5E7D5700FE9CC0 /* TweetAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F078234E1F5E7D5700FE9CC0 /* TweetAdapter.swift */; };
+		F07823521F5E7D5700FE9CC0 /* TweetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F078234F1F5E7D5700FE9CC0 /* TweetCollectionViewCell.swift */; };
+		F07823531F5E7D5700FE9CC0 /* TweetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F07823501F5E7D5700FE9CC0 /* TweetCollectionViewCell.xib */; };
+		F07823581F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07823551F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift */; };
+		F07823591F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F07823561F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib */; };
+		F078235B1F5E812B00FE9CC0 /* RealTimeAdapters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F078235A1F5E812B00FE9CC0 /* RealTimeAdapters.swift */; };
 		F089D98B1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */; };
 		F089D9AA1F3861A500395056 /* WeatherCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D9991F3861A500395056 /* WeatherCollectionData.swift */; };
 		F089D9AB1F3861A500395056 /* WeatherDayAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F089D99A1F3861A500395056 /* WeatherDayAdapter.swift */; };
@@ -105,6 +117,10 @@
 		F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeCollectionData.swift; sourceTree = "<group>"; };
 		F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeViewController.swift; sourceTree = "<group>"; };
 		F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealTimeViewController.xib; sourceTree = "<group>"; };
+		F0530FCA1F5DF21800F2318F /* RealTimeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeService.swift; sourceTree = "<group>"; };
+		F0530FCD1F5DF28100F2318F /* tweets_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweets_0.json; sourceTree = "<group>"; };
+		F0530FCE1F5DF28100F2318F /* tweets_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweets_1.json; sourceTree = "<group>"; };
+		F0530FCF1F5DF28100F2318F /* tweets_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweets_2.json; sourceTree = "<group>"; };
 		F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetallicPantone.swift; sourceTree = "<group>"; };
 		F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantoneViewController.swift; sourceTree = "<group>"; };
 		F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PantoneViewController.xib; sourceTree = "<group>"; };
@@ -114,6 +130,14 @@
 		F0577CC91F39EA420051BD18 /* PantoneColorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantoneColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0577CCA1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PantoneColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterDiffDataTest.swift; sourceTree = "<group>"; };
+		F07823481F5DF78200FE9CC0 /* RealTimeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeModel.swift; sourceTree = "<group>"; };
+		F078234C1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetSectionDescriptor.swift; sourceTree = "<group>"; };
+		F078234E1F5E7D5700FE9CC0 /* TweetAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetAdapter.swift; sourceTree = "<group>"; };
+		F078234F1F5E7D5700FE9CC0 /* TweetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCollectionViewCell.swift; sourceTree = "<group>"; };
+		F07823501F5E7D5700FE9CC0 /* TweetCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCollectionViewCell.xib; sourceTree = "<group>"; };
+		F07823551F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		F07823561F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		F078235A1F5E812B00FE9CC0 /* RealTimeAdapters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeAdapters.swift; sourceTree = "<group>"; };
 		F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterDiffSectionTest.swift; sourceTree = "<group>"; };
 		F089D9991F3861A500395056 /* WeatherCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCollectionData.swift; sourceTree = "<group>"; };
 		F089D99A1F3861A500395056 /* WeatherDayAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDayAdapter.swift; sourceTree = "<group>"; };
@@ -294,11 +318,35 @@
 		F0530FC21F5DF05000F2318F /* RealTime */ = {
 			isa = PBXGroup;
 			children = (
+				F078234B1F5E7CEA00FE9CC0 /* cell */,
+				F078234A1F5E7CE400FE9CC0 /* section */,
+				F07823471F5DF77500FE9CC0 /* model */,
+				F0530FCC1F5DF26C00F2318F /* json */,
+				F0530FC91F5DF1F700F2318F /* service */,
 				F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */,
 				F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */,
 				F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */,
+				F078235A1F5E812B00FE9CC0 /* RealTimeAdapters.swift */,
 			);
 			name = RealTime;
+			sourceTree = "<group>";
+		};
+		F0530FC91F5DF1F700F2318F /* service */ = {
+			isa = PBXGroup;
+			children = (
+				F0530FCA1F5DF21800F2318F /* RealTimeService.swift */,
+			);
+			name = service;
+			sourceTree = "<group>";
+		};
+		F0530FCC1F5DF26C00F2318F /* json */ = {
+			isa = PBXGroup;
+			children = (
+				F0530FCD1F5DF28100F2318F /* tweets_0.json */,
+				F0530FCE1F5DF28100F2318F /* tweets_1.json */,
+				F0530FCF1F5DF28100F2318F /* tweets_2.json */,
+			);
+			name = json;
 			sourceTree = "<group>";
 		};
 		F0577CBA1F39C4990051BD18 /* Pantone Sample */ = {
@@ -338,6 +386,50 @@
 				F0577CCA1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		F07823471F5DF77500FE9CC0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F07823481F5DF78200FE9CC0 /* RealTimeModel.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		F078234A1F5E7CE400FE9CC0 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F078234C1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift */,
+			);
+			name = section;
+			sourceTree = "<group>";
+		};
+		F078234B1F5E7CEA00FE9CC0 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F078235D1F5E821300FE9CC0 /* tweet */,
+				F078235C1F5E820C00FE9CC0 /* info */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		F078235C1F5E820C00FE9CC0 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				F07823551F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift */,
+				F07823561F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib */,
+			);
+			name = info;
+			sourceTree = "<group>";
+		};
+		F078235D1F5E821300FE9CC0 /* tweet */ = {
+			isa = PBXGroup;
+			children = (
+				F078234E1F5E7D5700FE9CC0 /* TweetAdapter.swift */,
+				F078234F1F5E7D5700FE9CC0 /* TweetCollectionViewCell.swift */,
+				F07823501F5E7D5700FE9CC0 /* TweetCollectionViewCell.xib */,
+			);
+			name = tweet;
 			sourceTree = "<group>";
 		};
 		F089D9981F38617900395056 /* Weather Sample */ = {
@@ -615,20 +707,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0530FD21F5DF28100F2318F /* tweets_2.json in Resources */,
 				F0D318DD1EC33F4600A9CBEA /* NoAdaptableCollectionViewCell.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				F089D9AD1F3861A500395056 /* WeatherDayCollectionViewCell.xib in Resources */,
+				F07823591F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib in Resources */,
 				F0D318D61EC3386700A9CBEA /* TestCollectionViewCell.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				F0D3ED5C1F41E8340087CBD2 /* MenuViewController.xib in Resources */,
 				F089D9B01F3861A500395056 /* LabelCollectionViewCell.xib in Resources */,
+				F0530FD01F5DF28100F2318F /* tweets_0.json in Resources */,
 				F0D318EC1EC49EA700A9CBEA /* TestViewController.xib in Resources */,
 				F089D9B51F3861A500395056 /* TitleCollectionViewCell.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				F07823531F5E7D5700FE9CC0 /* TweetCollectionViewCell.xib in Resources */,
 				F0577CCD1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib in Resources */,
 				F0D3ED6A1F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib in Resources */,
 				F089D9B71F3861A500395056 /* WeatherViewController.xib in Resources */,
 				F0530FC81F5DF06D00F2318F /* RealTimeViewController.xib in Resources */,
+				F0530FD11F5DF28100F2318F /* tweets_1.json in Resources */,
 				F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */,
 				F089D9C71F386F7000395056 /* RandomViewController.xib in Resources */,
 			);
@@ -743,6 +840,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07823581F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift in Sources */,
 				F0577CC01F39E6870051BD18 /* PantoneViewController.swift in Sources */,
 				F0D318DC1EC33F3900A9CBEA /* NoAdaptableCollectionViewCell.swift in Sources */,
 				F089D9D41F38740500395056 /* RandomAdapters.swift in Sources */,
@@ -760,11 +858,15 @@
 				F089D9B91F3861A500395056 /* WhiteSectionLayout.swift in Sources */,
 				F0D3ED681F41F5EA0087CBD2 /* MenuItemAdapter.swift in Sources */,
 				F0577CCB1F39EA420051BD18 /* PantoneColorAdapter.swift in Sources */,
+				F07823511F5E7D5700FE9CC0 /* TweetAdapter.swift in Sources */,
 				F089D9C91F386FAA00395056 /* RandomCollectionData.swift in Sources */,
+				F078234D1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift in Sources */,
 				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
 				F089D9B81F3861A500395056 /* WheaterAdapters.swift in Sources */,
 				F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */,
 				F0530FC61F5DF06D00F2318F /* RealTimeCollectionData.swift in Sources */,
+				F07823521F5E7D5700FE9CC0 /* TweetCollectionViewCell.swift in Sources */,
+				F07823491F5DF78200FE9CC0 /* RealTimeModel.swift in Sources */,
 				F0D3ED691F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift in Sources */,
 				F089D9B41F3861A500395056 /* TitleCollectionViewCell.swift in Sources */,
 				F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */,
@@ -773,10 +875,12 @@
 				F089D9BA1F3861A500395056 /* WheatherService.swift in Sources */,
 				F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */,
 				F089D9AA1F3861A500395056 /* WeatherCollectionData.swift in Sources */,
+				F078235B1F5E812B00FE9CC0 /* RealTimeAdapters.swift in Sources */,
 				F089D9B31F3861A500395056 /* WeatherStyle.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				F0D3ED6C1F41F6E20087CBD2 /* MenuSectionDescriptor.swift in Sources */,
 				F0530FC71F5DF06D00F2318F /* RealTimeViewController.swift in Sources */,
+				F0530FCB1F5DF21800F2318F /* RealTimeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

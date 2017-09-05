@@ -16,12 +16,39 @@ class RealTimeViewController: UIViewController {
     fileprivate(set) lazy var collectionViewDelegate: CollectionDelegate = CollectionDelegate(delegate: self)
     fileprivate(set) lazy var collectionViewDatasource: CollectionDataSource = CollectionDataSource(delegate: self)
 
+    private let realTimeService = RealTimeService()
     let collectionData = RealTimeCollectionData()
+    
+    var timer:Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "Real Time"
         bind(collectionView: collectionView, with: collectionData, and: collectionViewDelegate, and: collectionViewDatasource)
+        
+        //fetch()
+        
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(RealTimeViewController.fetch), userInfo: nil, repeats: true)
+        timer!.fire()
+    }
+    
+    func fetch() {
+        realTimeService.getRecentTweets { [weak self] response in
+            switch response {
+            case .success(let data):
+                self?.collectionData.update(model: data)
+                let result = self?.collectionData.update { updater in
+                    updater.diff()
+                }
+                if let result = result {
+                    self?.collectionView.performUpdates(with: result)
+                }
+                print("hello")
+            case .error(let error):
+                print(error)
+            }
+        }
     }
 }
 
