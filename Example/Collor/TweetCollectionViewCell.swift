@@ -47,7 +47,6 @@ final class TweetDescriptor: CollectionCellDescribable {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         let labelWidth = width - 48 - 4 // cf xib
-        print(adapter.label.height(labelWidth))
         let cellHeight = max(48, adapter.label.height(labelWidth))
         return CGSize(width:width, height:cellHeight)
     }

@@ -25,12 +25,16 @@ class RealTimeViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Real Time"
+        
         bind(collectionView: collectionView, with: collectionData, and: collectionViewDelegate, and: collectionViewDatasource)
+        collectionView.collectionViewLayout = RealTimeLayout(datas: collectionData)
         
         //fetch()
         
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(RealTimeViewController.fetch), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(RealTimeViewController.fetch), userInfo: nil, repeats: true)
         timer!.fire()
+        
+        //fetch()
     }
     
     func fetch() {
@@ -44,7 +48,6 @@ class RealTimeViewController: UIViewController {
                 if let result = result {
                     self?.collectionView.performUpdates(with: result)
                 }
-                print("hello")
             case .error(let error):
                 print(error)
             }

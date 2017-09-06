@@ -29,11 +29,11 @@ final class RealTimeCollectionData : CollectionData {
                 let tweetCell = TweetDescriptor(adapter: TweetAdapter(tweet: tweet)).uid("tweet")
                 cells.append(tweetCell)
                 if tweet.retweetCount > 0 {
-                    let retweetCell = TweetInfoDescriptor(adapter: RetweetAdapter(tweet: tweet)).uid("retweet")
+                    let retweetCell = TweetInfoDescriptor(adapter: RetweetAdapter(tweet: tweet)).uid("retweet\(tweet.retweetCount))")
                     cells.append(retweetCell)
                 }
                 if tweet.favoriteCount > 0 {
-                    let favoriteCell = TweetInfoDescriptor(adapter: FavoriteAdapter(tweet: tweet)).uid("favorite")
+                    let favoriteCell = TweetInfoDescriptor(adapter: FavoriteAdapter(tweet: tweet)).uid("favorite\(tweet.favoriteCount)")
                     cells.append(favoriteCell)
                 }
             }

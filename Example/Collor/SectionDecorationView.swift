@@ -47,6 +47,6 @@ class SectionDecorationView: UICollectionReusableView {
         backgroundColor = layoutAttributes.backgroundColor
 
         layer.cornerRadius = layoutAttributes.cornerRadius ?? 0
-        layer.zPosition = -10 // fix issue in zIndex sorting in collectionView on ios10
+        layer.zPosition = -10 + CGFloat(layoutAttributes.zIndex) // fix issue in zIndex sorting in collectionView on ios10
     }
 }
