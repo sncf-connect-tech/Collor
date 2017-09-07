@@ -84,7 +84,7 @@ class RealTimeLayout: UICollectionViewFlowLayout {
                 guard
                     let cellIndexPath = cellDescriptor.indexPath,
                     let cellAttributes = layoutAttributesForItem(at: cellIndexPath),
-                    let cellUid = sectionDescriptor.uid(for: firstCellDescriptor)
+                    let cellUid = sectionDescriptor.uid(for: cellDescriptor)
                     else {
                         return
                 }
@@ -109,7 +109,7 @@ class RealTimeLayout: UICollectionViewFlowLayout {
                 + decorationAttributes[sectionBackgroundKind]!.values
                 + decorationAttributes[cellBackgroundKind]!.values
         }
-        return attributes
+        return attributes?.filter{ $0.frame.intersects(rect) }
     }
     
     override func layoutAttributesForDecorationView(ofKind elementKind: String, at atIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {

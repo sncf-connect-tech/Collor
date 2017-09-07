@@ -31,17 +31,22 @@ public extension UICollectionViewLayout {
             let old = map(attributes: oldDecorationAttributes[elementKind])
             let new = map(attributes: newDecorationAttributes[elementKind])
             
+            print(elementKind)
+            print("old",old)
+            print("new",new)
+            
             var diff = CollorDiff(before: old, after: new)
             
-            let inserted = Set(diff.inserted)
-            let deleted = Set(diff.deleted)
-            let same = inserted.union(deleted)
+            let same = Set(diff.inserted).intersection(diff.deleted)
+            print("same",same)
             same.forEach {
                 if newDecorationAttributes[elementKind]![$0] == oldDecorationAttributes[elementKind]![$0] {
                     diff.inserted.remove(at: diff.inserted.index(of: $0)!)
                     diff.deleted.remove(at: diff.deleted.index(of: $0)!)
                 }
             }
+            
+            print("same",same)
             
             diff.inserted.forEach {
                 insertedDecorationIndexPaths[elementKind]!.append($0)

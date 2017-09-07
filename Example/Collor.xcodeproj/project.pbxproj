@@ -15,6 +15,9 @@
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
 		F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A9571F61234200CB895D /* RealTimeStyle.swift */; };
 		F043A95B1F6124FB00CB895D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A95A1F6124FB00CB895D /* Colors.swift */; };
+		F043A95F1F612A1900CB895D /* tweets_3.json in Resources */ = {isa = PBXBuildFile; fileRef = F043A95C1F612A1800CB895D /* tweets_3.json */; };
+		F043A9601F612A1900CB895D /* tweets_4.json in Resources */ = {isa = PBXBuildFile; fileRef = F043A95D1F612A1900CB895D /* tweets_4.json */; };
+		F043A9611F612A1900CB895D /* tweets_5.json in Resources */ = {isa = PBXBuildFile; fileRef = F043A95E1F612A1900CB895D /* tweets_5.json */; };
 		F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */; };
 		F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */; };
 		F0530FC61F5DF06D00F2318F /* RealTimeCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */; };
@@ -117,6 +120,9 @@
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F043A9571F61234200CB895D /* RealTimeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeStyle.swift; sourceTree = "<group>"; };
 		F043A95A1F6124FB00CB895D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F043A95C1F612A1800CB895D /* tweets_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweets_3.json; sourceTree = "<group>"; };
+		F043A95D1F612A1900CB895D /* tweets_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweets_4.json; sourceTree = "<group>"; };
+		F043A95E1F612A1900CB895D /* tweets_5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweets_5.json; sourceTree = "<group>"; };
 		F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDatasTest.swift; sourceTree = "<group>"; };
 		F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDataSourceTest.swift; sourceTree = "<group>"; };
 		F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeCollectionData.swift; sourceTree = "<group>"; };
@@ -241,10 +247,10 @@
 		607FACD21AFB9204008FA782 /* Example for Collor */ = {
 			isa = PBXGroup;
 			children = (
-				F0530FC21F5DF05000F2318F /* RealTime */,
-				F011A0B91F41CBE6007F9FEB /* Menu */,
-				F0577CBA1F39C4990051BD18 /* Pantone Sample */,
 				F089D9CC1F38711900395056 /* Common */,
+				F011A0B91F41CBE6007F9FEB /* Menu Sample */,
+				F0530FC21F5DF05000F2318F /* RealTime Sample */,
+				F0577CBA1F39C4990051BD18 /* Pantone Sample */,
 				F089D9C31F386F5000395056 /* Random Sample */,
 				F089D9981F38617900395056 /* Weather Sample */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -309,7 +315,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F011A0B91F41CBE6007F9FEB /* Menu */ = {
+		F011A0B91F41CBE6007F9FEB /* Menu Sample */ = {
 			isa = PBXGroup;
 			children = (
 				F0D3ED641F41F5D70087CBD2 /* cell */,
@@ -318,10 +324,10 @@
 				F0D3ED581F41E8340087CBD2 /* MenuViewController.swift */,
 				F0D3ED591F41E8340087CBD2 /* MenuViewController.xib */,
 			);
-			name = Menu;
+			name = "Menu Sample";
 			sourceTree = "<group>";
 		};
-		F0530FC21F5DF05000F2318F /* RealTime */ = {
+		F0530FC21F5DF05000F2318F /* RealTime Sample */ = {
 			isa = PBXGroup;
 			children = (
 				F0E9877E1F5FCC29001870F7 /* layout */,
@@ -336,7 +342,7 @@
 				F078235A1F5E812B00FE9CC0 /* RealTimeAdapters.swift */,
 				F043A9571F61234200CB895D /* RealTimeStyle.swift */,
 			);
-			name = RealTime;
+			name = "RealTime Sample";
 			sourceTree = "<group>";
 		};
 		F0530FC91F5DF1F700F2318F /* service */ = {
@@ -353,6 +359,9 @@
 				F0530FCD1F5DF28100F2318F /* tweets_0.json */,
 				F0530FCE1F5DF28100F2318F /* tweets_1.json */,
 				F0530FCF1F5DF28100F2318F /* tweets_2.json */,
+				F043A95C1F612A1800CB895D /* tweets_3.json */,
+				F043A95D1F612A1900CB895D /* tweets_4.json */,
+				F043A95E1F612A1900CB895D /* tweets_5.json */,
 			);
 			name = json;
 			sourceTree = "<group>";
@@ -725,6 +734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0530FD21F5DF28100F2318F /* tweets_2.json in Resources */,
+				F043A95F1F612A1900CB895D /* tweets_3.json in Resources */,
 				F0D318DD1EC33F4600A9CBEA /* NoAdaptableCollectionViewCell.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				F089D9AD1F3861A500395056 /* WeatherDayCollectionViewCell.xib in Resources */,
@@ -744,6 +754,8 @@
 				F0530FC81F5DF06D00F2318F /* RealTimeViewController.xib in Resources */,
 				F0530FD11F5DF28100F2318F /* tweets_1.json in Resources */,
 				F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */,
+				F043A9611F612A1900CB895D /* tweets_5.json in Resources */,
+				F043A9601F612A1900CB895D /* tweets_4.json in Resources */,
 				F089D9C71F386F7000395056 /* RandomViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

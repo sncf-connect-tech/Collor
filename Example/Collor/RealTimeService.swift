@@ -21,6 +21,7 @@ class RealTimeService {
         case error(RealTimeError)
     }
     
+    private static var max = 5
     private static var count = 0
     
     func getRecentTweets(completion: @escaping (RealTimeResponse)->Void ) {
@@ -44,7 +45,7 @@ class RealTimeService {
         }
         
         RealTimeService.count += 1
-        if RealTimeService.count > 2 {
+        if RealTimeService.count > RealTimeService.max-1 {
             RealTimeService.count = 0
         }
     }

@@ -1,12 +1,12 @@
 { "tweets": [
    {
-      "id_str": "6",
-      "text": "Bla bla bla",
+      "id_str": "7",
+      "text": "Great!",
       "user": 
       {
          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
       },
-      "retweet_count": 1,
+      "retweet_count": 0,
       "favorite_count": 0
    },
    {
@@ -16,8 +16,8 @@
       {
          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
       },
-      "retweet_count": 1,
-      "favorite_count": 2
+      "retweet_count": 8,
+      "favorite_count": 5
    },
    {
       "id_str": "4",
@@ -26,7 +26,7 @@
       {
          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
       },
-      "retweet_count": 0,
+      "retweet_count": 1,
       "favorite_count": 2
    },
    {
