@@ -138,7 +138,17 @@ class RealTimeLayout: UICollectionViewFlowLayout {
             let old = oldDecorationAttributes[elementKind]?.map{ ($0.value.indexPath,$0.value.uid()!) }.sorted(by: { $0.0.0 < $0.1.0 }) ?? [(IndexPath,String)]()
             let new = decorationAttributes[elementKind]?.map{ ($0.value.indexPath,$0.value.uid()!) }.sorted(by: { $0.0.0 < $0.1.0 })    ?? [(IndexPath,String)]()
             
-            let diff = CollorDiff(before: old, after: new)
+            var diff = CollorDiff(before: old, after: new)
+            
+            let inserted = Set(diff.inserted)
+            let deleted = Set(diff.deleted)
+            let same = inserted.union(deleted)
+            same.forEach {
+                if decorationAttributes[elementKind]![$0] == oldDecorationAttributes[elementKind]![$0] {
+                    diff.inserted.remove(at: diff.inserted.index(of: $0)!)
+                    diff.deleted.remove(at: diff.deleted.index(of: $0)!)
+                }
+            }
             
             diff.inserted.forEach {
                 insertedDecorationAttributes[elementKind]!.append($0)

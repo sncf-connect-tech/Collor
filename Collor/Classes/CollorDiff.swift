@@ -13,9 +13,9 @@ public struct CollorDiff<I:Equatable, T : Hashable> {
     public typealias DiffList = [I]
     public typealias FromToList = [(from: I, to: I)]
     
-    public let inserted: DiffList
-    public let deleted: DiffList
-    public let moved: FromToList
+    public var inserted: DiffList
+    public var deleted: DiffList
+    public var moved: FromToList
     
     public init(before: [DiffItem], after: [DiffItem]) {
         let beforeIsSmaller = before.count < after.count

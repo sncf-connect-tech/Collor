@@ -10,6 +10,7 @@ import Foundation
 
 private struct AssociatedKeys {
     static var UniqueIdentifier = "collor_UniqueIdentifier"
+    static var Value = "collor_Value"
 }
 
 public protocol Identifiable: class {
