@@ -15,7 +15,10 @@ struct TweetAdapter: CollectionAdapter {
     let imageURL:URL
     
     init(tweet:Tweet) {
-        label = NSAttributedString(string: tweet.text)
+        label = NSAttributedString(string: tweet.text, attributes: [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 18),
+            NSForegroundColorAttributeName: UIColor.black
+            ])
         imageURL = URL(string: tweet.userProfileImageURL)!
     }
 }

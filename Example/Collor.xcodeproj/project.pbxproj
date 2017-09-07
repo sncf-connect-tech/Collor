@@ -13,6 +13,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7315FCB25EF828F0929A4641 /* Pods_Collor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F1AEC9685F40C56AAB6AE /* Pods_Collor_Example.framework */; };
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
+		F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A9571F61234200CB895D /* RealTimeStyle.swift */; };
+		F043A95B1F6124FB00CB895D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A95A1F6124FB00CB895D /* Colors.swift */; };
 		F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */; };
 		F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */; };
 		F0530FC61F5DF06D00F2318F /* RealTimeCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */; };
@@ -113,6 +115,8 @@
 		A1B91C5B37455C72DDFFCCC9 /* Pods-Collor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collor_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C28F175CBC84A17630BED1A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F043A9571F61234200CB895D /* RealTimeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeStyle.swift; sourceTree = "<group>"; };
+		F043A95A1F6124FB00CB895D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F049ED5D1EBA1D92000AF6C2 /* CollectionDatasTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDatasTest.swift; sourceTree = "<group>"; };
 		F049ED5F1EBA259A000AF6C2 /* CollectionDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDataSourceTest.swift; sourceTree = "<group>"; };
 		F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeCollectionData.swift; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 				F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */,
 				F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */,
 				F078235A1F5E812B00FE9CC0 /* RealTimeAdapters.swift */,
+				F043A9571F61234200CB895D /* RealTimeStyle.swift */,
 			);
 			name = RealTime;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 			children = (
 				F0F08E021F38AFC4006D63EF /* layout */,
 				F089D9CD1F38711D00395056 /* cell */,
+				F043A95A1F6124FB00CB895D /* Colors.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -852,6 +858,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F07823581F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift in Sources */,
+				F043A95B1F6124FB00CB895D /* Colors.swift in Sources */,
 				F0577CC01F39E6870051BD18 /* PantoneViewController.swift in Sources */,
 				F0D318DC1EC33F3900A9CBEA /* NoAdaptableCollectionViewCell.swift in Sources */,
 				F089D9D41F38740500395056 /* RandomAdapters.swift in Sources */,
@@ -873,6 +880,7 @@
 				F089D9C91F386FAA00395056 /* RandomCollectionData.swift in Sources */,
 				F078234D1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift in Sources */,
 				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
+				F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */,
 				F089D9B81F3861A500395056 /* WheaterAdapters.swift in Sources */,
 				F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */,
 				F0530FC61F5DF06D00F2318F /* RealTimeCollectionData.swift in Sources */,

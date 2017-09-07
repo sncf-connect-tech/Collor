@@ -141,7 +141,7 @@ extension CollectionUpdater {
     
     private func toDiffItem(section:CollectionSectionDescribable) -> [(IndexPath,String)] {
         return section.cells.map { cell in
-            return (cell.indexPath!, "\(section.uid()!)/\(cell.uid()!)")
+            return (cell.indexPath!, section.uid(for: cell)!)
         }
     }
     

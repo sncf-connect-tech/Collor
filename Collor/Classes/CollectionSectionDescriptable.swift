@@ -42,6 +42,15 @@ public extension CollectionSectionDescribable {
     }
 }
 
+public extension CollectionSectionDescribable {
+    func uid(for cell:CollectionCellDescribable) -> String? {
+        guard let sectionUID = _uid, let cellUID = cell._uid else {
+            return nil
+        }
+        return "\(sectionUID)/\(cellUID)"
+    }
+}
+
 extension CollectionSectionDescribable {
     public internal(set) var index: Int? {
         get {

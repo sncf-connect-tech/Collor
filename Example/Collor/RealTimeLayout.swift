@@ -12,13 +12,14 @@ import Collor
 class RealTimeLayout: UICollectionViewFlowLayout {
     
     unowned fileprivate let datas: CollectionData
-    fileprivate var decorationAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]()
-    fileprivate var oldDecorationAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]()
+    fileprivate var decorationAttributes = DecorationAttributes()
+    fileprivate var oldDecorationAttributes = DecorationAttributes()
     
     fileprivate let sectionBackgroundKind = "sectionBackground"
     fileprivate let cellBackgroundKind = "cellBackground"
     
-    let backgroundMargin:CGFloat = 5
+    let sectionMargin:CGFloat = 5
+    let infoMargin:CGFloat = 5
     
     init(datas: CollectionData) {
         self.datas = datas
@@ -27,8 +28,8 @@ class RealTimeLayout: UICollectionViewFlowLayout {
         decorationAttributes[sectionBackgroundKind] = [IndexPath : UICollectionViewLayoutAttributes]()
         decorationAttributes[cellBackgroundKind] = [IndexPath : UICollectionViewLayoutAttributes]()
         
-        register(SectionDecorationView.self, forDecorationViewOfKind: sectionBackgroundKind)
-        register(SectionDecorationView.self, forDecorationViewOfKind: cellBackgroundKind)
+        register(SimpleDecorationView.self, forDecorationViewOfKind: sectionBackgroundKind)
+        register(SimpleDecorationView.self, forDecorationViewOfKind: cellBackgroundKind)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,13 +51,10 @@ class RealTimeLayout: UICollectionViewFlowLayout {
         
         datas.sections.forEach { sectionDescriptor in
             
-            guard let sectionUID = sectionDescriptor.uid() else {
-                return
-            }
-            
             guard
-                let uid = sectionDescriptor.cells.first?.uid(),
-                let firstCellIndexPath = sectionDescriptor.cells.first?.indexPath,
+                let firstCellDescriptor = sectionDescriptor.cells.first,
+                let firstCellIndexPath = firstCellDescriptor.indexPath,
+                let firstCellUid = sectionDescriptor.uid(for: firstCellDescriptor),
                 let firstCellAttributes = layoutAttributesForItem(at: firstCellIndexPath),
                 let lastCellIndexPath = sectionDescriptor.cells.last?.indexPath,
                 let lastCellAttributes = layoutAttributesForItem(at: lastCellIndexPath)
@@ -65,16 +63,15 @@ class RealTimeLayout: UICollectionViewFlowLayout {
             }
             
             // section background
-            let origin = CGPoint(x: 0 + backgroundMargin, y: firstCellAttributes.frame.origin.y - backgroundMargin)
-            let width = collectionView.bounds.width - backgroundMargin*2
-            let height = lastCellAttributes.frame.maxY - origin.y + backgroundMargin
+            let origin = CGPoint(x: 0 + sectionMargin, y: firstCellAttributes.frame.origin.y - sectionMargin)
+            let width = collectionView.bounds.width - sectionMargin*2
+            let height = lastCellAttributes.frame.maxY - origin.y + sectionMargin
             
-            // header
-            let backgroundAttributes = SectionDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
-            backgroundAttributes.uid(sectionUID + "/" + uid)
-            backgroundAttributes.backgroundColor = UIColor.red
+            let backgroundAttributes = SimpleDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
+            backgroundAttributes.uid( firstCellUid )
+            backgroundAttributes.backgroundColor = .twitterBlue
             backgroundAttributes.cornerRadius = 4
-            backgroundAttributes.zIndex = -10
+            backgroundAttributes.zIndex = -2
             backgroundAttributes.frame = CGRect(x: origin.x,
                                                 y: origin.y,
                                                 width: width,
@@ -85,20 +82,19 @@ class RealTimeLayout: UICollectionViewFlowLayout {
             // cell background
             sectionDescriptor.cells.filter { $0 is TweetInfoDescriptor }.forEach { cellDescriptor in
                 guard
-                    let uid = cellDescriptor.uid(),
                     let cellIndexPath = cellDescriptor.indexPath,
-                    let cellAttributes = layoutAttributesForItem(at: cellIndexPath)
+                    let cellAttributes = layoutAttributesForItem(at: cellIndexPath),
+                    let cellUid = sectionDescriptor.uid(for: firstCellDescriptor)
                     else {
                         return
                 }
                 
-                // header
-                let backgroundAttributes = SectionDecorationViewLayoutAttributes(forDecorationViewOfKind: cellBackgroundKind, with: cellIndexPath)
-                backgroundAttributes.uid(sectionUID + "/" + uid)
-                backgroundAttributes.backgroundColor = UIColor.white
+                let backgroundAttributes = SimpleDecorationViewLayoutAttributes(forDecorationViewOfKind: cellBackgroundKind, with: cellIndexPath)
+                backgroundAttributes.uid( cellUid )
+                backgroundAttributes.backgroundColor = UIColor.white.withAlphaComponent(0.8)
                 backgroundAttributes.cornerRadius = 4
-                backgroundAttributes.zIndex = -9
-                backgroundAttributes.frame = cellAttributes.frame
+                backgroundAttributes.zIndex = -1
+                backgroundAttributes.frame = cellAttributes.frame.insetBy(dx: -infoMargin, dy: infoMargin)
                 
                 decorationAttributes[cellBackgroundKind]![cellIndexPath] = backgroundAttributes
                 
@@ -120,51 +116,21 @@ class RealTimeLayout: UICollectionViewFlowLayout {
         return decorationAttributes[elementKind]?[atIndexPath]
     }
     
-    var insertedDecorationAttributes = [String:[IndexPath]]()
-    var deletedDecorationAttributes = [String:[IndexPath]]()
+    var decorationDiff:DecorationDiff?
     
     override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
         super.prepare(forCollectionViewUpdates: updateItems)
         
-        insertedDecorationAttributes.removeAll()
-        deletedDecorationAttributes.removeAll()
+        decorationDiff = diff(oldDecorationAttributes: oldDecorationAttributes, newDecorationAttributes: decorationAttributes)
         
-        let elementKindKinds = Set(decorationAttributes.flatMap{$0.key} + oldDecorationAttributes.flatMap{$0.key})
-        elementKindKinds.forEach { elementKind in
-            
-            insertedDecorationAttributes[elementKind] = [IndexPath]()
-            deletedDecorationAttributes[elementKind] = [IndexPath]()
-            
-            let old = oldDecorationAttributes[elementKind]?.map{ ($0.value.indexPath,$0.value.uid()!) }.sorted(by: { $0.0.0 < $0.1.0 }) ?? [(IndexPath,String)]()
-            let new = decorationAttributes[elementKind]?.map{ ($0.value.indexPath,$0.value.uid()!) }.sorted(by: { $0.0.0 < $0.1.0 })    ?? [(IndexPath,String)]()
-            
-            var diff = CollorDiff(before: old, after: new)
-            
-            let inserted = Set(diff.inserted)
-            let deleted = Set(diff.deleted)
-            let same = inserted.union(deleted)
-            same.forEach {
-                if decorationAttributes[elementKind]![$0] == oldDecorationAttributes[elementKind]![$0] {
-                    diff.inserted.remove(at: diff.inserted.index(of: $0)!)
-                    diff.deleted.remove(at: diff.deleted.index(of: $0)!)
-                }
-            }
-            
-            diff.inserted.forEach {
-                insertedDecorationAttributes[elementKind]!.append($0)
-            }
-            diff.deleted.forEach {
-                deletedDecorationAttributes[elementKind]!.append($0)
-            }
-        }
     }
     
     override func indexPathsToInsertForDecorationView(ofKind elementKind: String) -> [IndexPath] {
-        return insertedDecorationAttributes[elementKind]!
+        return decorationDiff?.inserted[elementKind]! ?? []
     }
     
     override func indexPathsToDeleteForDecorationView(ofKind elementKind: String) -> [IndexPath] {
-        return deletedDecorationAttributes[elementKind]!
+        return decorationDiff?.deleted[elementKind]! ?? []
     }
 }
 

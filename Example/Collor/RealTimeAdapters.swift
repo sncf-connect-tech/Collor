@@ -12,8 +12,8 @@ struct RetweetAdapter : TweetInfoAdapterProtocol {
     let key: NSAttributedString
     let value: NSAttributedString
     init(tweet:Tweet) {
-        key = NSAttributedString(string: "Retweets:")
-        value = NSAttributedString(string: "\(tweet.retweetCount)")
+        key = RealTimeStyle.TweetInfo.keyAttributedString(text: "Retweets:")
+        value = RealTimeStyle.TweetInfo.valueAttributedString(text: "\(tweet.retweetCount)")
     }
 }
 
@@ -21,7 +21,7 @@ struct FavoriteAdapter : TweetInfoAdapterProtocol {
     let key: NSAttributedString
     let value: NSAttributedString
     init(tweet:Tweet) {
-        key = NSAttributedString(string: "Favorites:")
-        value = NSAttributedString(string: "\(tweet.favoriteCount)")
+        key = RealTimeStyle.TweetInfo.keyAttributedString(text: "Favorites:")
+        value = RealTimeStyle.TweetInfo.valueAttributedString(text: "\(tweet.favoriteCount)")
     }
 }
