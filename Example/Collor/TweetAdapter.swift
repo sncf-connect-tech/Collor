@@ -8,11 +8,13 @@
 
 import Foundation
 import Collor
+import UIKit
 
 struct TweetAdapter: CollectionAdapter {
 
     let label:NSAttributedString
     let imageURL:URL
+    let backgroundColor:UIColor
     
     init(tweet:Tweet) {
         label = NSAttributedString(string: tweet.text, attributes: [
@@ -20,5 +22,6 @@ struct TweetAdapter: CollectionAdapter {
             NSForegroundColorAttributeName: UIColor.black
             ])
         imageURL = URL(string: tweet.userProfileImageURL)!
+        backgroundColor = UIColor(rgb: tweet.color)
     }
 }

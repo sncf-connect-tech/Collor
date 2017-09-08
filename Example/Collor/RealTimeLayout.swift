@@ -69,7 +69,7 @@ class RealTimeLayout: UICollectionViewFlowLayout {
             
             let backgroundAttributes = SimpleDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
             backgroundAttributes.uid( firstCellUid )
-            backgroundAttributes.backgroundColor = .twitterBlue
+            backgroundAttributes.backgroundColor = (firstCellDescriptor.getAdapter() as? TweetAdapter)?.backgroundColor ?? .twitterBlue
             backgroundAttributes.cornerRadius = 4
             backgroundAttributes.zIndex = -2
             backgroundAttributes.frame = CGRect(x: origin.x,

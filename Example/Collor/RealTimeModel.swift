@@ -23,11 +23,12 @@ class RealTimeModel {
                 let text = tweetData["text"] as? String,
                 let user = tweetData["user"] as? [String:Any],
                 let userProfileImageURL = user["profile_image_url"] as? String,
+                let colorStr = user["color"] as? String, let color = Int(colorStr, radix: 16),
                 let favoriteCount = tweetData["favorite_count"] as? Int,
                 let retweetCount = tweetData["retweet_count"] as? Int else {
                     return nil
             }
-            return Tweet(id: id, text: text, userProfileImageURL: userProfileImageURL, favoriteCount: favoriteCount, retweetCount: retweetCount)
+            return Tweet(id: id, text: text, userProfileImageURL: userProfileImageURL, color: color, favoriteCount: favoriteCount, retweetCount: retweetCount)
         }
     }
 }
@@ -36,6 +37,7 @@ struct Tweet {
     let id:String
     let text:String
     let userProfileImageURL:String
+    let color:Int
     let favoriteCount:Int
     let retweetCount:Int
 }

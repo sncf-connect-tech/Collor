@@ -1,80 +1,88 @@
 { "tweets": [
-   {
+{
       "id_str": "8",
       "text": "What a beautiful framework!",
       "user": 
       {
-         "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
+         "color": "00a78e",
+         "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
       },
       "retweet_count": 0,
       "favorite_count": 0
    },
    {
       "id_str": "7",
-      "text": "Great!",
+      "text": "Well animated!",
       "user": 
       {
-         "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
+         "color": "ff0000",
+         "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
       },
-      "retweet_count": 0,
+      "retweet_count": 2,
       "favorite_count": 0
    },
    {
       "id_str": "5",
-      "text": "Bla bla bla",
+      "text": "Donec eget vehicula eros. Fusce blandit et lectus quis eleifend.",
       "user": 
       {
-         "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
+         "color": "8a7967",
+         "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
       },
       "retweet_count": 8,
       "favorite_count": 5
    },
       {
       "id_str": "4",
-      "text": "Bla bla bla",
+      "text": "Praesent eu dui vitae nisi convallis porttitor.",
       "user": 
       {
-         "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
+         "color": "ffdd00",
+         "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
       },
       "retweet_count": 1,
       "favorite_count": 2
    },
    {
       "id_str": "3",
-      "text": "Bla bla bla",
+      "text": "Mauris vestibulum sed est eu semper. Sed vitae ullamcorper ligula.",
       "user": 
       {
-         "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
+         "color": "00a4e4",
+         "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
       },
       "retweet_count": 0,
       "favorite_count": 1
    },
    {
       "id_str": "2",
-      "text": "Bla bla bla",
+      "text": "In metus lorem, malesuada eget odio at, mollis ullamcorper metus.",
       "user": 
       {
-         "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
+         "color": "c1d82f",
+         "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
       },
       "retweet_count": 1,
       "favorite_count": 0
    },
    {
       "id_str": "1",
-      "text": "Bla bla bla",
+      "text": "Suspendisse a tortor quis ligula faucibus ornare vitae ac sem.",
       "user": 
       {
-         "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
+         "color": "ffdd00",
+         "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
       },
       "retweet_count": 0,
       "favorite_count": 0
    },
    {
       "id_str": "0",
-      "text": "Bla bla bla",
+      "text": "Integer nisi nunc, varius id elit et, scelerisque volutpat nisi.",
       "user": 
       {
-         "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/873771663866900480\/Y8GqRAvn_normal.jpg"
+         "color": "fbb034",
+         "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
       },
       "retweet_count": 0,
       "favorite_count": 1
