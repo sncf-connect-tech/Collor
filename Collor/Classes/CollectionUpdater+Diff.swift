@@ -88,8 +88,9 @@ extension CollectionUpdater {
             try verifyUID(sections: collectionData.sections)
             
             // 1th pass : sections
-            let oldDiffItemSections = oldSections.map{ return ( $0.index!, $0.uid()! ) }
-            let newDiffItemSections = collectionData.sections.map{ return ( $0.index!, $0.uid()! ) }
+            // TODO: same function, refacto
+            let oldDiffItemSections = oldSections.map{ section -> CollorDiff<Int,String>.DiffItem in ( section.index!, section.uid()!, nil) }
+            let newDiffItemSections = collectionData.sections.map{ section -> CollorDiff<Int,String>.DiffItem in ( section.index!, section.uid()!, nil) }
             
             let sectionsDiff = CollorDiff(before: oldDiffItemSections, after: newDiffItemSections)
             sectionsDiff.deleted.forEach {
@@ -117,10 +118,17 @@ extension CollectionUpdater {
                 result?.insertedCellDescriptors.append( collectionData.sections[$0.section].cells[$0.item] )
             }
             
+            diff.reloaded.forEach {
+                result?.reloadedIndexPaths.append( $0 )
+                result?.reloadedCellDescriptors.append( oldSections[$0.section].cells[$0.item] )
+            }
+            
             diff.moved.forEach {
                 result?.movedIndexPaths.append( ($0.from, $0.to) )
                 result?.movedCellDescriptors.append( oldSections[$0.from.section].cells[$0.from.item])
             }
+            
+            
             
         } catch UIDError.sectionsWithoutUIDError(let sections) {
             let sectionsInError = sections.reduce("") { result, section in
@@ -139,14 +147,14 @@ extension CollectionUpdater {
         } catch {}
     }
     
-    private func toDiffItem(section:CollectionSectionDescribable) -> [(IndexPath,String)] {
+    private func toDiffItem(section:CollectionSectionDescribable) -> [CollorDiff<IndexPath, String>.DiffItem] {
         return section.cells.map { cell in
-            return (cell.indexPath!, section.uid(for: cell)!)
+            return (cell.indexPath!, section.uid(for: cell)!, cell.getAdapter() as? Diffable)
         }
     }
     
-    private func toDiffItem(cell:CollectionCellDescribable) -> (IndexPath,String) {
-        return (cell.indexPath!, cell.uid()!)
+    private func toDiffItem(cell:CollectionCellDescribable) -> CollorDiff<IndexPath, String>.DiffItem {
+        return (cell.indexPath!, cell.uid()!, cell.getAdapter() as? Diffable)
     }
     
     private enum UIDError : Error {

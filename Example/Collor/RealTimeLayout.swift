@@ -113,7 +113,7 @@ class RealTimeLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForDecorationView(ofKind elementKind: String, at atIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return decorationAttributes[elementKind]?[atIndexPath]
+        return decorationAttributes[elementKind]![atIndexPath]
     }
     
     var decorationDiff:DecorationDiff?

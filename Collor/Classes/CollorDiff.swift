@@ -9,33 +9,43 @@
 import Foundation
 
 public struct CollorDiff<I:Equatable, T : Hashable> {
-    public typealias DiffItem = (index:I,value:T)
+        
+    public typealias DiffItem = (index: I, key: T, value:Diffable?)
     public typealias DiffList = [I]
     public typealias FromToList = [(from: I, to: I)]
     
-    public var inserted: DiffList
-    public var deleted: DiffList
-    public var moved: FromToList
+    public let inserted: DiffList
+    public let deleted: DiffList
+    public let reloaded: DiffList
+    public let moved: FromToList
     
     public init(before: [DiffItem], after: [DiffItem]) {
+        
+        typealias MapItem = (index:I,value:Diffable?)
+        
         let beforeIsSmaller = before.count < after.count
-        var map = [T: I]()
+        var map = [T: MapItem]()
         for item in (beforeIsSmaller ? before : after) {
-            map[item.value] = item.index
+            map[item.key] = (item.index,item.value)
         }
         
         var inserted = DiffList()
         var deleted = DiffList()
+        var reloaded = DiffList()
         var moved = FromToList()
         
-        (beforeIsSmaller ? after : before).forEach { (index,value) in
-            let index1 = index
-            if let index2 = map[value] {
+        (beforeIsSmaller ? after : before).forEach {
+            let index1 = $0.index
+            if let index2 = map[$0.key]?.index {
                 if (index1 != index2) {
                     let (from, to) = beforeIsSmaller ? (index2, index1) : (index1, index2)
                     moved.append((from: from, to: to))
+                } else {
+                    if let value1 = $0.value, let value2 = map[$0.key]?.value, !value1.isEqual(to: value2) {
+                        reloaded.append(index1)
+                    }
                 }
-                map.removeValue(forKey: value)
+                map.removeValue(forKey: $0.key)
             } else {
                 if (beforeIsSmaller) {
                     inserted.append(index1)
@@ -47,14 +57,15 @@ public struct CollorDiff<I:Equatable, T : Hashable> {
         
         map.values.forEach {
             if (beforeIsSmaller) {
-                deleted.append($0)
+                deleted.append($0.index)
             } else {
-                inserted.append($0)
+                inserted.append($0.index)
             }
         }
         
         self.inserted = inserted
         self.deleted = deleted
         self.moved = moved
+        self.reloaded = reloaded
     }
 }

@@ -37,7 +37,3 @@ extension Identifiable {
         }
     }
 }
-
-//func ==<T: Identifiable>(lhs: T, rhs: T) -> Bool {
-//    return lhs._uid == rhs._uid
-//}

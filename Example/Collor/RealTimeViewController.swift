@@ -31,7 +31,7 @@ class RealTimeViewController: UIViewController {
         
         //fetch()
         
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(RealTimeViewController.fetch), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(RealTimeViewController.fetch), userInfo: nil, repeats: true)
         timer!.fire()
         
         //fetch()

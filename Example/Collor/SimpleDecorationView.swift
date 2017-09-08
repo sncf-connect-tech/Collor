@@ -28,10 +28,10 @@ class SimpleDecorationViewLayoutAttributes: UICollectionViewLayoutAttributes {
         guard let object = object as? SimpleDecorationViewLayoutAttributes else {
             return false
         }
-        if object.backgroundColor != backgroundColor && object.cornerRadius != cornerRadius {
-            return false
+        if object.backgroundColor == backgroundColor && object.cornerRadius == cornerRadius {
+            return super.isEqual(object)
         }
-        return super.isEqual(object)
+        return false
     }
     
 }

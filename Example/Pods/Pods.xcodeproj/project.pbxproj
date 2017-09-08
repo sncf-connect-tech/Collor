@@ -79,6 +79,7 @@
 		E3DC75BEB3581FC54E256B032870F178 /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C5ED601E4F74D701FA16AE9F5C4F0E /* CollectionDataSource.swift */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66290824DB4E5B87B03038C38CAB6940 /* Notifications.swift */; };
 		F043A9561F6118F000CB895D /* UICollectionViewLayout+Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A9551F6118F000CB895D /* UICollectionViewLayout+Diff.swift */; };
+		F043A9641F6274B700CB895D /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A9621F62748100CB895D /* Diffable.swift */; };
 		F435552468A00A448D9D4B721E45D558 /* CollectionDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004C828A2F8B54D7DF51139106D86F6F /* CollectionDatas.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8785B9D4DABEB6D83BC5ADFDD97AD93A /* ResponseSerialization.swift */; };
 		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD08009B2FD5063E1DC6FBB675D20809 /* Alamofire.swift */; };
@@ -240,6 +241,7 @@
 		E9AB6509FDFDAD274CE67867174D3C0F /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
 		EA11672CA7D35CDAF84FFC3FF1DE3B23 /* Collor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Collor.modulemap; sourceTree = "<group>"; };
 		F043A9551F6118F000CB895D /* UICollectionViewLayout+Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Diff.swift"; sourceTree = "<group>"; };
+		F043A9621F62748100CB895D /* Diffable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diffable.swift; sourceTree = "<group>"; };
 		F1386BD51A0AD0504259982ECD8F9A97 /* CwlCatchException.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CwlCatchException.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20B6EE8FAD782F548C00C3B18679345 /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F368B5415F3D1C6A247F3B5F2826F9BB /* Pods-Collor_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Collor_Tests-resources.sh"; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				F7AE3BCFE288A148DF0A6CBD0402051D /* CollorDiff.swift */,
 				1A5549B8C3F7F914D01E0232F76E8ADF /* Helpers.swift */,
 				A83A4BFC8A7AF31D00037BE4D1FE8FEA /* Identifiable.swift */,
+				F043A9621F62748100CB895D /* Diffable.swift */,
 				2A47A95607E37CC3B00DC69D3EEED23C /* UICollectionView+CollectionDescriptor.swift */,
 				760B47F46B269447873390C99D0A1096 /* UICollectionViewLayoutAttributes+Identifiable.swift */,
 				F043A9551F6118F000CB895D /* UICollectionViewLayout+Diff.swift */,
@@ -901,6 +904,7 @@
 				C7FC5EB6025943ADC83259821E7487ED /* CollectionSectionDescriptable.swift in Sources */,
 				B246932EBA75DC9D07ABB29D9C486885 /* CollectionUpdater+Diff.swift in Sources */,
 				C512DE16B337820C981DC836C65CE706 /* CollectionUpdater.swift in Sources */,
+				F043A9641F6274B700CB895D /* Diffable.swift in Sources */,
 				FCF4D0C4F10A2FB6DA150E651A2930EC /* CollectionUserEventDelegate.swift in Sources */,
 				14E8CF528BB51099B3ABF64EA525C019 /* Collor-dummy.m in Sources */,
 				9E5B760F31F25E0FBF9297DA31CF9189 /* CollorDiff.swift in Sources */,

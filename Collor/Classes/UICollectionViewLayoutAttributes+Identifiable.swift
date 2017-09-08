@@ -12,3 +12,12 @@ import UIKit
 extension UICollectionViewLayoutAttributes : Identifiable {
     
 }
+
+extension UICollectionViewLayoutAttributes : Diffable {
+    public func isEqual(to other: Diffable?) -> Bool {
+        guard let other = other as? UICollectionViewLayoutAttributes else {
+            return false
+        }
+        return self == other
+    }
+}
