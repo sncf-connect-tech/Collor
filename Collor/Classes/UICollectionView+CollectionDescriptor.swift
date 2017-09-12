@@ -15,10 +15,6 @@ extension UICollectionView {
             self.insertSections(result.insertedSectionsIndexSet)
             self.deleteSections(result.deletedSectionsIndexSet)
             self.reloadSections(result.reloadedSectionsIndexSet)
-            /*result.movedSectionIndices.forEach { (from,to) in
-                self.moveSection(from, toSection: to)
-            }*/
-            
             self.insertItems(at: result.insertedIndexPaths)
             self.deleteItems(at: result.deletedIndexPaths)
             self.reloadItems(at: result.reloadedIndexPaths)

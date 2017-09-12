@@ -87,10 +87,14 @@ extension CollectionUpdater {
             try verifyUID(sections: oldSections)
             try verifyUID(sections: collectionData.sections)
             
+            let sectionToDiffItem: (CollectionSectionDescribable) -> CollorDiff<Int,String>.DiffItem = {
+                ( $0.index!, $0.uid()!, nil)
+            }
+            
             // 1th pass : sections
             // TODO: same function, refacto
-            let oldDiffItemSections = oldSections.map{ section -> CollorDiff<Int,String>.DiffItem in ( section.index!, section.uid()!, nil) }
-            let newDiffItemSections = collectionData.sections.map{ section -> CollorDiff<Int,String>.DiffItem in ( section.index!, section.uid()!, nil) }
+            let oldDiffItemSections = oldSections.map(sectionToDiffItem)
+            let newDiffItemSections = collectionData.sections.map(sectionToDiffItem)
             
             let sectionsDiff = CollorDiff(before: oldDiffItemSections, after: newDiffItemSections)
             sectionsDiff.deleted.forEach {
