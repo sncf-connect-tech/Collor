@@ -14,6 +14,10 @@ public typealias DecorationAttributes = [String : [IndexPath : UICollectionViewL
 public struct DecorationDiff {
     public let inserted: [String:[IndexPath]]
     public let deleted: [String:[IndexPath]]
+    public init(inserted: [String:[IndexPath]], deleted: [String:[IndexPath]]) {
+        self.inserted = inserted
+        self.deleted = deleted
+    }
 }
 
 public extension UICollectionViewLayout {

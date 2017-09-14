@@ -1,5 +1,5 @@
 //
-//  UICollectionViewLayoutAttributes+Identifiable.swift
+//  UICollectionViewLayoutAttributes+Collor.swift
 //  Pods
 //
 //  Created by Guihal Gwenn on 01/09/2017.

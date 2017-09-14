@@ -10,7 +10,7 @@ import Foundation
 import Collor
 import UIKit
 
-struct TweetAdapter: CollectionAdapter {
+struct TweetAdapter: CollectionAdapter, Diffable {
 
     let label:NSAttributedString
     let imageURL:URL
@@ -23,5 +23,12 @@ struct TweetAdapter: CollectionAdapter {
             ])
         imageURL = URL(string: tweet.userProfileImageURL)!
         backgroundColor = UIColor(rgb: tweet.color)
+    }
+    
+    func isEqual(to other: Diffable?) -> Bool {
+        guard let other = other as? TweetAdapter else {
+            return false
+        }
+        return label.string == other.label.string
     }
 }

@@ -118,11 +118,53 @@ class RealTimeLayout: UICollectionViewFlowLayout {
     
     var decorationDiff:DecorationDiff?
     
+    func getElementKind(for indexPath:IndexPath, in decorationAttributes:DecorationAttributes) -> [String] {
+        
+        var elementKinds = [String]()
+        
+        decorationAttributes.forEach { (elementKind, values) in
+            if values.keys.contains(indexPath) {
+                elementKinds.append(elementKind)
+            }
+        }
+        return elementKinds
+    }
+    
     override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
         super.prepare(forCollectionViewUpdates: updateItems)
         
-        decorationDiff = diff(oldDecorationAttributes: oldDecorationAttributes, newDecorationAttributes: decorationAttributes)
+        var inserted = [String : [IndexPath]]()
+        var deleted = [String : [IndexPath]]()
         
+        let elementKinds = decorationAttributes.map{ $0.key }
+        elementKinds.forEach { elementKind in
+            inserted[elementKind] = [IndexPath]()
+            deleted[elementKind] = [IndexPath]()
+        }
+        
+        updateItems.forEach { updateItem in
+            switch (updateItem.updateAction) {
+            case .delete:
+                getElementKind(for: updateItem.indexPathBeforeUpdate!, in: oldDecorationAttributes).forEach { kind in
+                    deleted[kind]!.append(updateItem.indexPathBeforeUpdate!)
+                }
+            case .insert:
+                getElementKind(for: updateItem.indexPathAfterUpdate!, in: decorationAttributes).forEach { kind in
+                    inserted[kind]!.append(updateItem.indexPathAfterUpdate!)
+                }
+            case .reload:
+                getElementKind(for: updateItem.indexPathBeforeUpdate!, in: oldDecorationAttributes).forEach { kind in
+                    deleted[kind]!.append(updateItem.indexPathBeforeUpdate!)
+                }
+                getElementKind(for: updateItem.indexPathAfterUpdate!, in: decorationAttributes).forEach { kind in
+                    inserted[kind]!.append(updateItem.indexPathAfterUpdate!)
+                }
+            default:
+                break
+            }
+        }
+        
+        decorationDiff = DecorationDiff(inserted: inserted, deleted:deleted)
     }
     
     override func indexPathsToInsertForDecorationView(ofKind elementKind: String) -> [IndexPath] {
