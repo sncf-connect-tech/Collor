@@ -34,14 +34,26 @@ public struct CollorDiff<I:Equatable, T : Hashable> {
         var reloaded = DiffList()
         var moved = FromToList()
         
+        let isValueUpdated:(DiffItem) -> Bool = {
+            if let value1 = $0.value, let value2 = map[$0.key]?.value, !value1.isEqual(to: value2) {
+                return true
+            }
+            return false
+        }
+        
         (beforeIsSmaller ? after : before).forEach {
             let index1 = $0.index
             if let index2 = map[$0.key]?.index {
                 if (index1 != index2) {
-                    let (from, to) = beforeIsSmaller ? (index2, index1) : (index1, index2)
-                    moved.append((from: from, to: to))
+                    if isValueUpdated($0) {
+                        deleted.append(beforeIsSmaller ? index2 : index1)
+                        inserted.append(beforeIsSmaller ? index1 : index2)
+                    } else {
+                        let (from, to) = beforeIsSmaller ? (index2, index1) : (index1, index2)
+                        moved.append((from: from, to: to))
+                    }
                 } else {
-                    if let value1 = $0.value, let value2 = map[$0.key]?.value, !value1.isEqual(to: value2) {
+                    if isValueUpdated($0) {
                         reloaded.append(index1)
                     }
                 }

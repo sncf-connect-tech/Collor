@@ -322,24 +322,69 @@ class CollorDiffTest: XCTestCase {
         XCTAssertEqual(diff.reloaded, [0,3])
     }
     
-    func testKeyValueDeleteInsertReload() {
+    func testKeyValueDeleteInsertReloadMove() {
         
         var anna = KeyValue(key: "Anna", value: 0)
         let baptiste = KeyValue(key: "Baptiste", value: 0)
         var clement = KeyValue(key: "Clement", value: 0)
         let damien = KeyValue(key: "Damien", value: 0)
+        let eric = KeyValue(key: "Eric", value: 0)
         
-        let oldArray = [anna,baptiste,clement]
-        clement.value = 2
+        let oldArray = [anna,baptiste,clement,eric]
+        clement.value = 2 // clement will be deleted then inserted, not moved because its value has changed
         anna.value = 1
-        let newArray = [anna,clement,damien]
+        let newArray = [anna,clement,eric,damien]
         
         let diff = CollorDiff(before: map(oldArray), after: map(newArray))
         
-        XCTAssertEqual(diff.inserted, [2])
+        XCTAssertEqual(diff.inserted, [1,3])
         XCTAssertEqual(diff.reloaded, [0])
-        XCTAssertEqual(diff.deleted, [1])
-        XCTAssertEqual(diff.moved.debugDescription, [(from:2, to:1)].debugDescription)
+        XCTAssertEqual(diff.deleted, [1,2])
+        XCTAssertEqual(diff.moved.debugDescription, [(from:3, to:2)].debugDescription)
+    }
+    
+    func testKeyValueDeleteInsertReloadMoveBeforeSmaller() {
+        
+        var anna = KeyValue(key: "Anna", value: 0)
+        let baptiste = KeyValue(key: "Baptiste", value: 0)
+        var clement = KeyValue(key: "Clement", value: 0)
+        let damien = KeyValue(key: "Damien", value: 0)
+        let eric = KeyValue(key: "Eric", value: 0)
+        let fabien = KeyValue(key: "Fabien", value: 0)
+        
+        let oldArray = [anna,baptiste,clement,eric]
+        clement.value = 2 // clement will be deleted then inserted, not moved because its value has changed
+        anna.value = 1
+        let newArray = [anna,clement,eric,damien,fabien]
+        
+        let diff = CollorDiff(before: map(oldArray), after: map(newArray))
+        
+        XCTAssertEqual(diff.inserted, [1,3,4])
+        XCTAssertEqual(diff.reloaded, [0])
+        XCTAssertEqual(diff.deleted, [2,1])
+        XCTAssertEqual(diff.moved.debugDescription, [(from:3, to:2)].debugDescription)
+    }
+    
+    func testKeyValueDeleteInsertReloadMoveAfterSmaller() {
+        
+        var anna = KeyValue(key: "Anna", value: 0)
+        let baptiste = KeyValue(key: "Baptiste", value: 0)
+        var clement = KeyValue(key: "Clement", value: 0)
+        let damien = KeyValue(key: "Damien", value: 0)
+        let eric = KeyValue(key: "Eric", value: 0)
+        let fabien = KeyValue(key: "Fabien", value: 0)
+        
+        let oldArray = [anna,baptiste,clement,eric,fabien]
+        clement.value = 2 // clement will be deleted then inserted, not moved because its value has changed
+        anna.value = 1
+        let newArray = [anna,clement,eric,damien]
+        
+        let diff = CollorDiff(before: map(oldArray), after: map(newArray))
+        
+        XCTAssertEqual(diff.inserted, [1,3])
+        XCTAssertEqual(diff.reloaded, [0])
+        XCTAssertEqual(diff.deleted, [1,2,4])
+        XCTAssertEqual(diff.moved.debugDescription, [(from:3, to:2)].debugDescription)
     }
     
 }
