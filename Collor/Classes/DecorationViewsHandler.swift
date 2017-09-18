@@ -12,15 +12,6 @@ import CoreGraphics
 
 public typealias DecorationAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]
 
-public struct DecorationDiff {
-    public let inserted: [String:[IndexPath]]
-    public let deleted: [String:[IndexPath]]
-    public init(inserted: [String:[IndexPath]], deleted: [String:[IndexPath]]) {
-        self.inserted = inserted
-        self.deleted = deleted
-    }
-}
-
 public struct DecorationViewsHandler {
     
     unowned let _collectionViewLayout: UICollectionViewLayout
@@ -54,6 +45,13 @@ public struct DecorationViewsHandler {
         _collectionViewLayout.register(nib, forDecorationViewOfKind: elementKind)
     }
     
+    public mutating func add(attributes:UICollectionViewLayoutAttributes) {
+        guard let elementKind = attributes.representedElementKind else {
+            return
+        }
+        _attributes[elementKind]![attributes.indexPath] = attributes
+    }
+    
     public mutating func prepare() {
         _oldAttributes = _attributes
         _elementKinds.forEach { elementKind in
@@ -61,40 +59,26 @@ public struct DecorationViewsHandler {
         }
     }
     
-    public mutating func add(attributes:UICollectionViewLayoutAttributes, for elementKind:String, at indexPath:IndexPath) {
-        _attributes[elementKind]![indexPath] = attributes
-    }
+    
     
     public func attributes(in rect:CGRect) -> [UICollectionViewLayoutAttributes] {
         return _attributes.flatMap { $0.value }.map { $0.value }.filter { $0.frame.intersects(rect) }
     }
     
     public func attributes(for elementKind:String) -> [IndexPath : UICollectionViewLayoutAttributes] {
-        return _attributes[elementKind] ?? [IndexPath : UICollectionViewLayoutAttributes]()
+        return attributes(for: elementKind, into: _attributes)
     }
     
     public func attributes<T:UICollectionViewLayoutAttributes>(for elementKind:String, at indexPath:IndexPath) -> T? {
-        return _attributes[elementKind]?[indexPath] as? T
+        return attributes(for: elementKind, at: indexPath, into: _attributes)
     }
     
     public func oldAttributes(for elementKind:String) -> [IndexPath : UICollectionViewLayoutAttributes] {
-        return _oldAttributes?[elementKind] ?? [IndexPath : UICollectionViewLayoutAttributes]()
+        return attributes(for: elementKind, into: _oldAttributes)
     }
     
     public func oldAttributes<T:UICollectionViewLayoutAttributes>(for elementKind:String, at indexPath:IndexPath) -> T? {
-        return _oldAttributes?[elementKind]?[indexPath] as? T
-    }
-    
-    func elementKind(for indexPath:IndexPath, in decorationAttributes:DecorationAttributes) -> [String] {
-        
-        var elementKinds = [String]()
-        
-        decorationAttributes.forEach { (elementKind, values) in
-            if values.keys.contains(indexPath) {
-                elementKinds.append(elementKind)
-            }
-        }
-        return elementKinds
+        return attributes(for: elementKind, at: indexPath, into: _oldAttributes)
     }
     
     public mutating func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
@@ -133,5 +117,27 @@ public struct DecorationViewsHandler {
     
     public func deleted(for elementKind:String) -> [IndexPath] {
         return _deleted[elementKind] ?? []
+    }
+}
+
+extension DecorationViewsHandler {
+    func elementKind(for indexPath:IndexPath, in decorationAttributes:DecorationAttributes) -> [String] {
+        
+        var elementKinds = [String]()
+        
+        decorationAttributes.forEach { (elementKind, values) in
+            if values.keys.contains(indexPath) {
+                elementKinds.append(elementKind)
+            }
+        }
+        return elementKinds
+    }
+    
+    func attributes(for elementKind:String, into decorationAttributes:DecorationAttributes?) -> [IndexPath : UICollectionViewLayoutAttributes] {
+        return decorationAttributes?[elementKind] ?? [IndexPath : UICollectionViewLayoutAttributes]()
+    }
+    
+    func attributes<T:UICollectionViewLayoutAttributes>(for elementKind:String, at indexPath:IndexPath, into decorationAttributes:DecorationAttributes?) -> T? {
+        return decorationAttributes?[elementKind]?[indexPath] as? T
     }
 }

@@ -69,7 +69,7 @@ class RealTimeLayout: UICollectionViewFlowLayout {
                                                 width: width,
                                                 height: height)
             
-            decorationViewHandler.add(attributes: backgroundAttributes, for: sectionBackgroundKind, at: firstCellIndexPath)
+            decorationViewHandler.add(attributes: backgroundAttributes)
             
             // cell background
             sectionDescriptor.cells.filter { $0 is TweetInfoDescriptor }.forEach { cellDescriptor in
@@ -86,7 +86,7 @@ class RealTimeLayout: UICollectionViewFlowLayout {
                 backgroundAttributes.zIndex = -1
                 backgroundAttributes.frame = cellAttributes.frame.insetBy(dx: -infoMargin, dy: infoMargin)
                 
-                decorationViewHandler.add(attributes: backgroundAttributes, for: cellBackgroundKind, at: cellIndexPath)
+                decorationViewHandler.add(attributes: backgroundAttributes)
                 
             }
         }

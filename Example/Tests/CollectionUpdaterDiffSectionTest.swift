@@ -148,6 +148,49 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
         XCTAssertEqual(data.sections[1].cells[0].indexPath, IndexPath(item: 0, section: 1))
     }
     
+    func testDiffSection_missingSectionIndex() {
+        #if arch(x86_64) || arch(i386)
+            // given
+            data = DiffSectionTestData()
+            data.reloadData()
+            // don't call computeIndices
+            let cellOne = TestCellDescriptor(adapter: TestAdapter() )
+            let sectionDescriptor = data.sections[0]
+            
+            // when
+            sectionDescriptor.reloadSection { cells in
+                cells.append( cellOne )
+            }
+            
+            // then
+            let exception = NSException.catchException {
+                let _ = data.update { (updater) in
+                    updater.diff(sections: [sectionDescriptor])
+                }
+            }
+            XCTAssertNotNil(exception)
+            XCTAssertEqual(exception?.name, NSExceptionName.collorSectionIndexNil)
+        #endif
+    }
+    
+    func testDiffSection_missingSectionBuilder() {
+        #if arch(x86_64) || arch(i386)
+            // given
+            let sectionDescriptor = TestSectionDescriptor().uid("section")
+            data.sections.append(sectionDescriptor)
+            data.computeIndices()
+            
+            // then
+            let exception = NSException.catchException {
+                let _ = data.update { (updater) in
+                    updater.diff(sections: [sectionDescriptor])
+                }
+            }
+            XCTAssertNotNil(exception)
+            XCTAssertEqual(exception?.name, NSExceptionName.collorSectionBuilderNil)
+        #endif
+    }
+    
     func testDiffSection_missingItemUID() {
         #if arch(x86_64) || arch(i386)
             // given
