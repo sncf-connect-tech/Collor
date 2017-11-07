@@ -23,7 +23,9 @@ Here is the list of all the features:
 - [x] Never use ```IndexPath```.
 - [x] Never register a cell.
 - [x] Update the collectionView model easily.
-- [x] Diffing data or sections (by using [Dwifft](https://github.com/jflinter/Dwifft))
+- [x] Diffing data or section(s)
+- [x] 🆕 **Diffing handles *deletes*, *inserts*, *moves* and *updates***
+- [x] 🆕 **Manage decoration views in our custom layout easily.**
 - [x] Make easier building custom layout.
 - [x] Well tested.
 
@@ -189,7 +191,7 @@ Here is the list of all update methods available:
 
 
 ##### Diffing
-Collor is using the great [Dwifft](https://github.com/jflinter/Dwifft) library by Jack Flintermann for getting the "diff" between two updates of your collectionData.
+Collor is using a home made algorithm for getting the "diff" between two updates of your collectionData.
 - Diffing some sections:
 
 ```swift
@@ -209,6 +211,8 @@ let result = collectionData.update { updater in
 }
 collectionView.performUpdates(with: result)
 ```
+
+For more information, look at this [medium article](https://medium.com/p/8f37064de388/).
 
 ## XCTemplates
 
