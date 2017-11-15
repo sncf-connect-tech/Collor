@@ -71,9 +71,9 @@ public extension CollectionData {
     }
 }
 
-extension Collection where Indices.Iterator.Element == Index {
+extension Collection {
     
-    subscript (safe index: Index?) -> Generator.Element? {
+    subscript (safe index: Index?) -> Iterator.Element? {
         guard let index = index else {
             return nil
         }

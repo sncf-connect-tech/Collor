@@ -28,16 +28,12 @@ class RealTimeViewController: UIViewController {
         
         bind(collectionView: collectionView, with: collectionData, and: collectionViewDelegate, and: collectionViewDatasource)
         collectionView.collectionViewLayout = RealTimeLayout(datas: collectionData)
-        
-        //fetch()
-        
+
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(RealTimeViewController.fetch), userInfo: nil, repeats: true)
         timer!.fire()
-        
-        //fetch()
     }
     
-    func fetch() {
+    @objc func fetch() {
         realTimeService.getRecentTweets { [weak self] response in
             switch response {
             case .success(let data):

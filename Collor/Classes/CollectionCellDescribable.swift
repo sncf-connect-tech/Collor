@@ -14,7 +14,7 @@ private struct AssociatedKeys {
     static var IndexPath = "collor_IndexPath"
 }
 
-public protocol CollectionCellDescribable : class, Identifiable {
+public protocol CollectionCellDescribable : Identifiable {
     var identifier: String { get }
     var className: String { get }
     var selectable: Bool { get }
@@ -31,5 +31,4 @@ extension CollectionCellDescribable {
             objc_setAssociatedObject( self, &AssociatedKeys.IndexPath, newValue as IndexPath?, .OBJC_ASSOCIATION_COPY)
         }
     }
-    
 }

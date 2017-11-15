@@ -34,7 +34,6 @@ class RealTimeLayout: UICollectionViewFlowLayout {
     }
     
     override func prepare() {
-        
         super.prepare()
         
         guard let collectionView = collectionView else {

@@ -55,7 +55,7 @@ class CollectionDataSourceTest: XCTestCase {
         let indexPath = IndexPath(item: 0, section: 0)
         let cellClassName = "TestCollectionViewCell"
         
-        var type = type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
+        var type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), cellClassName)
         XCTAssertTrue(collectionDataSource.collectionData!.registeredCells.contains(cellClassName))
         
@@ -63,12 +63,12 @@ class CollectionDataSourceTest: XCTestCase {
         let descriptor = data.cellDescribable(at: indexPath) as! TestCellDescriptor
         descriptor.className = "NoAdaptableCollectionViewCell"
         descriptor.identifier = "NoAdaptableCollectionViewCell"
-        type = type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
+        type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), "UICollectionViewCell")
         
         // collectionDatas nil
         collectionDataSource.collectionData = nil
-        type = type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
+        type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), "UICollectionViewCell")
     }
     

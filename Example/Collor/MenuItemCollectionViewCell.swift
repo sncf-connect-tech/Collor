@@ -25,7 +25,7 @@ final class MenuItemCollectionViewCell: UICollectionViewCell, CollectionCellAdap
         addGestureRecognizer(tapRecognizer)
     }
     
-    func onTap(gr:UIGestureRecognizer) {
+    @objc func onTap(gr:UIGestureRecognizer) {
         guard let adapter = adapter, let delegate = userEventDelegate else {
             return
         }

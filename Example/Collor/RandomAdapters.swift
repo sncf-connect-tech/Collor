@@ -17,8 +17,8 @@ struct TeamTitleAdapter : TitleAdapterProtocol {
     
     init(team: Team) {
         self.title = NSAttributedString(string: team.title, attributes: [
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14),
-            NSForegroundColorAttributeName: UIColor.black
+            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14),
+            NSAttributedStringKey.foregroundColor: UIColor.black
             ])
     }
 }
@@ -34,9 +34,9 @@ struct TeamMemberAdapter: LabelAdapterProtocol {
         style.alignment = .center
         
         self.label = NSAttributedString(string: member, attributes: [
-            NSParagraphStyleAttributeName:  style,
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 12),
-            NSForegroundColorAttributeName: UIColor.black
+            NSAttributedStringKey.paragraphStyle:  style,
+            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12),
+            NSAttributedStringKey.foregroundColor: UIColor.black
             ])
     }
 }

@@ -33,7 +33,7 @@ class RandomViewController: UIViewController {
     
     static var randomizesCount = 0
     
-    func randomize() {
+    @objc func randomize() {
         
         switch RandomViewController.randomizesCount {
         case let count where count % 2 == 0:

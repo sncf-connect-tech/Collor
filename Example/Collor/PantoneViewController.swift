@@ -37,7 +37,7 @@ final class PantoneViewController: UIViewController {
         navigationItem.rightBarButtonItem?.isEnabled = !metallicPantone.notUsed.isEmpty
     }
     
-    func add() {
+    @objc func add() {
         // get a random visible indexPath
         let visibleIndexPaths = collectionView.indexPathsForVisibleItems
         let randomIndexPath = visibleIndexPaths[ Int(arc4random_uniform(UInt32(visibleIndexPaths.count))) ]
