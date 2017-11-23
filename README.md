@@ -27,6 +27,7 @@ Here is the list of all the features:
 - [x] 🆕 **Diffing handles *deletes*, *inserts*, *moves* and *updates***
 - [x] 🆕 **Manage decoration views in our custom layout easily.**
 - [x] Make easier building custom layout.
+- [x] Swift 4 (use 1.0.x for swift 3 compatibility).
 - [x] Well tested.
 
 <p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/random.gif" alt="Collor Random Sample"> <img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/weather.gif" alt="Collor Weather Sample"></p>
@@ -34,6 +35,7 @@ Here is the list of all the features:
 
 ## Getting started
 - A [medium article](https://medium.com/p/b55e73d81a59/) which explains the purpose and how to use Collor.
+- Another [medium article](https://medium.com/p/8f37064de388/) to understand the diffing feature.
 
 ## Example
 
@@ -43,6 +45,7 @@ There are 4 examples:
 - Random : Diffing entire data + custom layout
 - Weather : Diffing sections + custom layout
 - Pantone : Adding and remove items using CollectionDatas.
+- RealTime : Complex diffing (insert, delete, reload) + custom layout handling.
 
 ## Usage
 
@@ -212,7 +215,29 @@ let result = collectionData.update { updater in
 collectionView.performUpdates(with: result)
 ```
 
-For more information, look at this [medium article](https://medium.com/p/8f37064de388/).
+- Effortless management of decoration views
+
+With `DecorationViewHandler`, you no longer need to implement code to manage your decoration views:
+
+```swift
+// register decoration view or class:
+decorationViewHandler.register(viewClass: SimpleDecorationView.self, for: sectionBackgroundKind)
+// caching
+decorationViewHandler.add(attributes: backgroundAttributes)
+// compute elements in rect
+decorationViewHandler.attributes(in:rect)
+// retrieving
+decorationViewHandler.attributes(for: elementKind, at: atIndexPath)
+// update handling
+decorationViewHandler.prepare(forCollectionViewUpdates: updateItems)
+return decorationViewHandler.inserted(for: elementKind)
+return decorationViewHandler.deleted(for: elementKind)
+```
+
+<p align="center"><img src="https://cdn-images-1.medium.com/max/1600/1*gzH_TuLbM1hdrv9vDd6CEQ.gif" alt="Collor Realtime Sample"></p>
+
+
+For more information, have a look at this [medium article](https://medium.com/p/8f37064de388/).
 
 ## XCTemplates
 
