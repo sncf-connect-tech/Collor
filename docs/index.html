@@ -13,7 +13,7 @@
     <a title="Collor  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">Collor Docs</a> (1% documented)</p>
+        <p><a href="index.html">Collor Docs</a> (0% documented)</p>
         <p class="header-right"><a href="https://github.com/voyages-sncf-technologies/Collor"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Fvoyages%2Dsncf%2Dtechnologies%2Fdocsets%2FCollor%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -60,7 +60,7 @@
             <a href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Functions.html#/s:F6Collor4bindFT14collectionViewCSo16UICollectionView4withCS_14CollectionData3andCS_18CollectionDelegate3andCS_20CollectionDataSource_T_">bind(collectionView:with:and:and:)</a>
+                <a href="Functions.html#/s:6Collor4bindySo16UICollectionViewC010collectionD0_AA14CollectionDataC4withAA0F8DelegateC3andAA0fG6SourceCAKtF">bind(collectionView:with:and:and:)</a>
               </li>
             </ul>
           </li>
@@ -68,7 +68,7 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols.html#/s:P6Collor17CollectionAdapter">CollectionAdapter</a>
+                <a href="Protocols.html#/s:6Collor17CollectionAdapterP">CollectionAdapter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/CollectionCellAdaptable.html">CollectionCellAdaptable</a>
@@ -83,7 +83,10 @@
                 <a href="Protocols/CollectionSectionDescribable.html">CollectionSectionDescribable</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols.html#/s:P6Collor27CollectionUserEventDelegate">CollectionUserEventDelegate</a>
+                <a href="Protocols.html#/s:6Collor27CollectionUserEventDelegateP">CollectionUserEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Diffable.html">Diffable</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/Identifiable.html">Identifiable</a>
@@ -93,6 +96,12 @@
           <li class="nav-group-name">
             <a href="Structs.html">Structs</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/CollorDiff.html">CollorDiff</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DecorationViewsHandler.html">DecorationViewsHandler</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Structs/UpdateCollectionResult.html">UpdateCollectionResult</a>
               </li>
@@ -113,9 +122,11 @@
 <a href="http://cocoapods.org/pods/Collor"><img src="https://img.shields.io/cocoapods/v/Collor.svg?style=flat" alt="Version"></a>
 <a href="http://cocoapods.org/pods/Collor"><img src="https://img.shields.io/cocoapods/l/Collor.svg?style=flat" alt="License"></a>
 <a href="http://cocoapods.org/pods/Collor"><img src="https://img.shields.io/cocoapods/p/Collor.svg?style=flat" alt="Platform"></a></p>
-<h2 id='features' class='heading'>Features</h2>
+<h2 id='about' class='heading'>About</h2>
 
-<p>Collor is a MVVM data-oriented framework for accelerating, simplifying and ensuring UICollectionView building.<br></p>
+<p>Collor is a MVVM data-oriented framework for accelerating, simplifying and ensuring UICollectionView building.<br>
+Collor was created for and improved in the Voyages-sncf.com app.</p>
+<h2 id='features' class='heading'>Features</h2>
 
 <p>Here is the list of all the features:</p>
 
@@ -128,8 +139,11 @@
 <li>[x] Never use <code>IndexPath</code>.</li>
 <li>[x] Never register a cell.</li>
 <li>[x] Update the collectionView model easily.</li>
-<li>[x] Diffing data or sections (by using <a href="https://github.com/jflinter/Dwifft">Dwifft</a>)</li>
+<li>[x] Diffing data or section(s)</li>
+<li>[x] 🆕 <strong>Diffing handles <em>deletes</em>, <em>inserts</em>, <em>moves</em> and *updates</strong>*</li>
+<li>[x] 🆕 <strong>Manage decoration views in our custom layout easily.</strong></li>
 <li>[x] Make easier building custom layout.</li>
+<li>[x] Swift 4 (use 1.0.x for swift 3 compatibility).</li>
 <li>[x] Well tested.</li>
 </ul>
 
@@ -138,6 +152,7 @@
 
 <ul>
 <li>A <a href="https://medium.com/p/b55e73d81a59/">medium article</a> which explains the purpose and how to use Collor.</li>
+<li>Another <a href="https://medium.com/p/8f37064de388/">medium article</a> to understand the diffing feature.</li>
 </ul>
 <h2 id='example' class='heading'>Example</h2>
 
@@ -149,6 +164,7 @@ There are 4 examples:</p>
 <li>Random : Diffing entire data + custom layout</li>
 <li>Weather : Diffing sections + custom layout</li>
 <li>Pantone : Adding and remove items using CollectionDatas.</li>
+<li>RealTime : Complex diffing (insert, delete, reload) + custom layout handling with <code>DecorationViewHandler</code>.</li>
 </ul>
 <h2 id='usage' class='heading'>Usage</h2>
 
@@ -211,7 +227,7 @@ The collectionData handles cell registering and dequeuing using these properties
 <span class="p">}</span>
 </code></pre>
 
-<p>When a cell is dequeued, the collectionData update the cell with this object.</p>
+<p>When a cell is dequeued, the collectionData updates the cell with this object.</p>
 <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">WeatherDayCollectionViewCell</span><span class="p">:</span> <span class="kt">UICollectionViewCell</span><span class="p">,</span> <span class="kt">CollectionCellAdaptable</span> <span class="p">{</span>
   <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
 
@@ -293,7 +309,7 @@ The collectionData handles cell registering and dequeuing using these properties
 </ul>
 <h5 id='diffing' class='heading'>Diffing</h5>
 
-<p>Collor is using the great <a href="https://github.com/jflinter/Dwifft">Dwifft</a> library by Jack Flintermann for getting the <q>diff</q> between two updates of your collectionData.</p>
+<p>Collor is using a home made algorithm for getting the <q>diff</q> between two updates of your collectionData.</p>
 
 <ul>
 <li>Diffing some sections:</li>
@@ -315,6 +331,29 @@ The collectionData handles cell registering and dequeuing using these properties
 <span class="p">}</span>
 <span class="n">collectionView</span><span class="o">.</span><span class="nf">performUpdates</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">result</span><span class="p">)</span>
 </code></pre>
+
+<ul>
+<li>Effortless management of decoration views</li>
+</ul>
+
+<p>With <code>DecorationViewHandler</code>, you no longer need to implement code to manage your decoration views:</p>
+<pre class="highlight swift"><code><span class="c1">// register decoration view or class:</span>
+<span class="n">decorationViewHandler</span><span class="o">.</span><span class="nf">register</span><span class="p">(</span><span class="nv">viewClass</span><span class="p">:</span> <span class="kt">SimpleDecorationView</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="n">sectionBackgroundKind</span><span class="p">)</span>
+<span class="c1">// caching</span>
+<span class="n">decorationViewHandler</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="nv">attributes</span><span class="p">:</span> <span class="n">backgroundAttributes</span><span class="p">)</span>
+<span class="c1">// compute elements in rect</span>
+<span class="n">decorationViewHandler</span><span class="o">.</span><span class="nf">attributes</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span><span class="n">rect</span><span class="p">)</span>
+<span class="c1">// retrieving</span>
+<span class="n">decorationViewHandler</span><span class="o">.</span><span class="nf">attributes</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">elementKind</span><span class="p">,</span> <span class="nv">at</span><span class="p">:</span> <span class="n">atIndexPath</span><span class="p">)</span>
+<span class="c1">// update handling</span>
+<span class="n">decorationViewHandler</span><span class="o">.</span><span class="nf">prepare</span><span class="p">(</span><span class="nv">forCollectionViewUpdates</span><span class="p">:</span> <span class="n">updateItems</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">decorationViewHandler</span><span class="o">.</span><span class="nf">inserted</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">elementKind</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">decorationViewHandler</span><span class="o">.</span><span class="nf">deleted</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="n">elementKind</span><span class="p">)</span>
+</code></pre>
+
+<p align="center"><img src="https://cdn-images-1.medium.com/max/1600/1*gzH_TuLbM1hdrv9vDd6CEQ.gif" alt="Collor Realtime Sample"></p>
+
+<p>For more information, have a look at this <a href="https://medium.com/p/8f37064de388/">medium article</a>.</p>
 <h2 id='xctemplates' class='heading'>XCTemplates</h2>
 
 <p>Collor is published with 3 xctemplates for helping you creating ViewController, SectionDescriptor and CellDescriptor.</p>
@@ -328,8 +367,8 @@ The collectionData handles cell registering and dequeuing using these properties
 
 <ul>
 <li>iOS 8.0+</li>
-<li>Swift 3.0+</li>
-<li>Xcode 8.0+</li>
+<li>Swift 4.0+ (get the 1.0.3 release for swift3)</li>
+<li>Xcode 9.0+</li>
 </ul>
 <h2 id='installation' class='heading'>Installation</h2>
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
@@ -358,7 +397,7 @@ it, simply add the following line to your Podfile:</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://voyages-sncf.com" target="_blank" rel="external">Voyages-sncf.com</a>. All rights reserved. (Last updated: 2017-08-18)</p>
+          <p>&copy; 2017 <a class="link" href="https://voyages-sncf.com" target="_blank" rel="external">Voyages-sncf.com</a>. All rights reserved. (Last updated: 2017-11-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

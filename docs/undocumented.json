@@ -198,8 +198,8 @@
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionDatas.swift",
-      "line": 44,
-      "symbol": "CollectionData.computeIndices(sections:)",
+      "line": 47,
+      "symbol": "CollectionData.computeIndexPaths(in:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -338,77 +338,91 @@
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
-      "line": 19,
+      "line": null,
+      "symbol": "CollectionSectionDescribable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
+      "line": 20,
       "symbol": "CollectionSectionDescribable",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
-      "line": 20,
+      "line": 21,
       "symbol": "CollectionSectionDescribable.sectionInset(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
-      "line": 21,
-      "symbol": "CollectionSectionDescribable.minimumInteritemSpacing(_:layout:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
       "line": 22,
-      "symbol": "CollectionSectionDescribable.minimumLineSpacing(_:layout:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
-      "line": 29,
       "symbol": "CollectionSectionDescribable.minimumInteritemSpacing(_:layout:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
-      "line": 32,
+      "line": 23,
       "symbol": "CollectionSectionDescribable.minimumLineSpacing(_:layout:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
-      "line": 36,
+      "line": 30,
+      "symbol": "CollectionSectionDescribable.minimumInteritemSpacing(_:layout:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
+      "line": 33,
+      "symbol": "CollectionSectionDescribable.minimumLineSpacing(_:layout:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
+      "line": 37,
       "symbol": "CollectionSectionDescribable.reloadSection(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
-      "line": 45,
+      "line": 46,
+      "symbol": "CollectionSectionDescribable.uid(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
+      "line": 55,
       "symbol": "CollectionSectionDescribable.index",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionSectionDescriptable.swift",
-      "line": 62,
+      "line": 72,
       "symbol": "CollectionSectionDescribable.cells",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionUpdater+Diff.swift",
-      "line": 28,
+      "line": 27,
       "symbol": "CollectionUpdater.diff(sections:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionUpdater+Diff.swift",
-      "line": 76,
+      "line": 81,
       "symbol": "CollectionUpdater.diff()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -631,10 +645,178 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionUpdater.swift",
+      "line": 169,
+      "symbol": "UpdateCollectionResult.movedIndexPaths",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionUpdater.swift",
+      "line": 170,
+      "symbol": "UpdateCollectionResult.movedCellDescriptors",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollectionUserEventDelegate.swift",
       "line": 11,
       "symbol": "CollectionUserEventDelegate",
       "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollorDiff.swift",
+      "line": 11,
+      "symbol": "CollorDiff",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollorDiff.swift",
+      "line": 17,
+      "symbol": "CollorDiff.inserted",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollorDiff.swift",
+      "line": 18,
+      "symbol": "CollorDiff.deleted",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollorDiff.swift",
+      "line": 19,
+      "symbol": "CollorDiff.reloaded",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollorDiff.swift",
+      "line": 20,
+      "symbol": "CollorDiff.moved",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/CollorDiff.swift",
+      "line": 22,
+      "symbol": "CollorDiff.init(before:after:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 15,
+      "symbol": "DecorationViewsHandler",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 26,
+      "symbol": "DecorationViewsHandler.init(collectionViewLayout:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 30,
+      "symbol": "DecorationViewsHandler.register(viewClass:for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 39,
+      "symbol": "DecorationViewsHandler.register(nib:for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 48,
+      "symbol": "DecorationViewsHandler.add(attributes:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 55,
+      "symbol": "DecorationViewsHandler.prepare()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 64,
+      "symbol": "DecorationViewsHandler.attributes(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 68,
+      "symbol": "DecorationViewsHandler.attributes(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 72,
+      "symbol": "DecorationViewsHandler.attributes(for:at:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 76,
+      "symbol": "DecorationViewsHandler.oldAttributes(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 80,
+      "symbol": "DecorationViewsHandler.oldAttributes(for:at:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 84,
+      "symbol": "DecorationViewsHandler.prepare(forCollectionViewUpdates:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 114,
+      "symbol": "DecorationViewsHandler.inserted(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/DecorationViewsHandler.swift",
+      "line": 118,
+      "symbol": "DecorationViewsHandler.deleted(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/Diffable.swift",
+      "line": 11,
+      "symbol": "Diffable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/Diffable.swift",
+      "line": 12,
+      "symbol": "Diffable.isEqual(to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
@@ -653,15 +835,22 @@
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/Identifiable.swift",
-      "line": 15,
+      "line": 16,
       "symbol": "Identifiable",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
       "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/Identifiable.swift",
-      "line": 20,
+      "line": 21,
       "symbol": "Identifiable.uid(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/gwenn_guihal/workspace/Collor/Collor/Classes/Identifiable.swift",
+      "line": 25,
+      "symbol": "Identifiable.uid()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },

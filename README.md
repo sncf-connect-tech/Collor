@@ -45,7 +45,7 @@ There are 4 examples:
 - Random : Diffing entire data + custom layout
 - Weather : Diffing sections + custom layout
 - Pantone : Adding and remove items using CollectionDatas.
-- RealTime : Complex diffing (insert, delete, reload) + custom layout handling.
+- RealTime : Complex diffing (insert, delete, reload) + custom layout handling with `DecorationViewHandler`.
 
 ## Usage
 
@@ -252,8 +252,8 @@ sh install.sh
 
 ## Requirements
 - iOS 8.0+
-- Swift 3.0+
-- Xcode 8.0+
+- Swift 4.0+ (get the 1.0.3 release for swift3)
+- Xcode 9.0+
 
 ## Installation
 ### CocoaPods
