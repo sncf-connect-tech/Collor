@@ -234,7 +234,7 @@ return decorationViewHandler.inserted(for: elementKind)
 return decorationViewHandler.deleted(for: elementKind)
 ```
 
-<p align="center"><img src="https://cdn-images-1.medium.com/max/1600/1*gzH_TuLbM1hdrv9vDd6CEQ.gif" alt="Collor Realtime Sample"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/realtime.gif" alt="Collor Realtime Sample"></p>
 
 
 For more information, have a look at this [medium article](https://medium.com/p/8f37064de388/).
