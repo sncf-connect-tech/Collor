@@ -31,14 +31,25 @@ class RandomViewController: UIViewController {
         bind(collectionView: collectionView, with: collectionData, and: collectionViewDelegate, and: collectionViewDatasource)
     }
     
-    func randomize() {
-        crew.randomize()
+    static var randomizesCount = 0
+    
+    @objc func randomize() {
+        
+        switch RandomViewController.randomizesCount {
+        case let count where count % 2 == 0:
+            crew.randomizeMembers()
+        case let count where count % 3 == 0:
+            crew.randomizeTeams()
+        default:
+            crew.randomizeAll()
+        }
+        RandomViewController.randomizesCount += 1
+        
+        collectionData.reload(crew: crew)
         let result = collectionData.update { updater in
-            collectionData.reload(crew: crew)
             updater.diff()
         }
         collectionView.performUpdates(with: result)
-
     }
 }
 

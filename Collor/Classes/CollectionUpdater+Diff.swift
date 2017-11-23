@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Dwifft
 
 extension CollectionUpdater {
     
@@ -42,25 +41,31 @@ extension CollectionUpdater {
             let oldItems = sectionDescriptor.cells
             sectionDescriptor.cells.removeAll()
             sectionBuilder(&sectionDescriptor.cells)
+            collectionData.computeIndexPaths(in: sectionDescriptor)
             
             do {
                 try verifyUID(sectionIndex: sectionIndex, items: oldItems)
                 try verifyUID(sectionIndex: sectionIndex, items: sectionDescriptor.cells)
             
-                let old = oldItems.map{ $0._uid! }
-                let new = sectionDescriptor.cells.map{ $0._uid! }
+                let old = oldItems.map(toDiffItem)
+                let new = sectionDescriptor.cells.map(toDiffItem)
                 
-                Dwifft.diff(old, new).forEach {
-                    switch $0 {
-                    case let .delete(item, _):
-                        result?.deletedIndexPaths.append( IndexPath(item: item, section: sectionIndex ) )
-                        result?.deletedCellDescriptors.append( oldItems[item] )
-                    case let .insert(item, _):
-                        result?.insertedIndexPaths.append( IndexPath(item: item, section: sectionIndex ) )
-                        result?.insertedCellDescriptors.append( sectionDescriptor.cells[item] )
-                    }
+                let diff = CollorDiff(before: old, after: new)
+                
+                diff.deleted.forEach {
+                    result?.deletedIndexPaths.append( $0 )
+                    result?.deletedCellDescriptors.append( oldItems[$0.item] )
                 }
                 
+                diff.inserted.forEach {
+                    result?.insertedIndexPaths.append( $0 )
+                    result?.insertedCellDescriptors.append( sectionDescriptor.cells[$0.item] )
+                }
+                
+                diff.moved.forEach {
+                    result?.movedIndexPaths.append( ($0.from, $0.to) )
+                    result?.movedCellDescriptors.append( oldItems[$0.from.item])
+                }
             } catch UIDError.itemsWithoutUIDError(let items) {
                 raiseItemsWithoutUIDException(items: items)
             } catch UIDError.itemsDuplicateError(let items) {
@@ -76,32 +81,58 @@ extension CollectionUpdater {
     public func diff() {
         let oldSections = collectionData.sections // store old model
         collectionData.reloadData() // compute new model
+        collectionData.computeIndices()
         
         do {
             try verifyUID(sections: oldSections)
             try verifyUID(sections: collectionData.sections)
             
-            let old = mapToSectionedValues(oldSections)
-            let new = mapToSectionedValues(collectionData.sections)
-            
-            Dwifft.diff(lhs: old, rhs: new).forEach {
-                switch $0 {
-                case let .delete(section, item, _):
-                    result?.deletedIndexPaths.append( IndexPath(item: item, section: section ) )
-                    result?.deletedCellDescriptors.append( oldSections[section].cells[item] )
-                case let .insert(section, item, _):
-                    result?.insertedIndexPaths.append( IndexPath(item: item, section: section ) )
-                    result?.insertedCellDescriptors.append( collectionData.sections[section].cells[item] )
-                case let .sectionDelete(section, _):
-                    result?.deletedSectionsIndexSet.insert(section)
-                    result?.deletedSectionDescriptors.append( oldSections[section] )
-                case let .sectionInsert(section, _):
-                    result?.insertedSectionsIndexSet.insert(section)
-                    result?.insertedSectionDescriptors.append( collectionData.sections[section] )
-                }
+            let sectionToDiffItem: (CollectionSectionDescribable) -> CollorDiff<Int,String>.DiffItem = {
+                ( $0.index!, $0.uid()!, nil)
             }
             
-            collectionData.computeIndices()
+            // 1th pass : sections
+            // TODO: same function, refacto
+            let oldDiffItemSections = oldSections.map(sectionToDiffItem)
+            let newDiffItemSections = collectionData.sections.map(sectionToDiffItem)
+            
+            let sectionsDiff = CollorDiff(before: oldDiffItemSections, after: newDiffItemSections)
+            sectionsDiff.deleted.forEach {
+                result?.deletedSectionsIndexSet.insert($0)
+                result?.deletedSectionDescriptors.append( oldSections[$0] )
+            }
+            sectionsDiff.inserted.forEach {
+                result?.insertedSectionsIndexSet.insert($0)
+                result?.insertedSectionDescriptors.append( collectionData.sections[$0] )
+            }
+            
+            //2d pass : items
+            let old = oldSections.flatMap(toDiffItem)
+            let new = collectionData.sections.flatMap(toDiffItem)
+            
+            let diff = CollorDiff(before: old, after: new)
+            
+            diff.deleted.forEach {
+                result?.deletedIndexPaths.append( $0 )
+                result?.deletedCellDescriptors.append( oldSections[$0.section].cells[$0.item] )
+            }
+            
+            diff.inserted.forEach {
+                result?.insertedIndexPaths.append( $0 )
+                result?.insertedCellDescriptors.append( collectionData.sections[$0.section].cells[$0.item] )
+            }
+            
+            diff.reloaded.forEach {
+                result?.reloadedIndexPaths.append( $0 )
+                result?.reloadedCellDescriptors.append( oldSections[$0.section].cells[$0.item] )
+            }
+            
+            diff.moved.forEach {
+                result?.movedIndexPaths.append( ($0.from, $0.to) )
+                result?.movedCellDescriptors.append( oldSections[$0.from.section].cells[$0.from.item])
+            }
+            
+            
             
         } catch UIDError.sectionsWithoutUIDError(let sections) {
             let sectionsInError = sections.reduce("") { result, section in
@@ -120,11 +151,14 @@ extension CollectionUpdater {
         } catch {}
     }
     
-    private func mapToSectionedValues(_ sections:[CollectionSectionDescribable]) -> SectionedValues<String, String> {
-        return SectionedValues( sections.map{ section -> (String, [String]) in
-            let cellUids = section.cells.map{ return section._uid! + "/" + $0._uid! }
-            return (section._uid!, cellUids)
-        })
+    private func toDiffItem(section:CollectionSectionDescribable) -> [CollorDiff<IndexPath, String>.DiffItem] {
+        return section.cells.map { cell in
+            return (cell.indexPath!, section.uid(for: cell)!, cell.getAdapter() as? Diffable)
+        }
+    }
+    
+    private func toDiffItem(cell:CollectionCellDescribable) -> CollorDiff<IndexPath, String>.DiffItem {
+        return (cell.indexPath!, cell.uid()!, cell.getAdapter() as? Diffable)
     }
     
     private enum UIDError : Error {

@@ -2,12 +2,10 @@ PODS:
   - Alamofire (4.5.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - Collor (0.1.17):
-    - Dwifft (~> 0.6)
+  - Collor (1.0.2)
   - CwlCatchException (1.0.2)
   - CwlPreconditionTesting (1.1.0):
     - CwlCatchException
-  - Dwifft (0.6.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -35,10 +33,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  Collor: 75e5717f2b81f8d3e2df981cd22f09b2c41cd589
+  Collor: b0509b70b1654e85863983b7188d937b4855ad25
   CwlCatchException: 70a52ae44ea5d46db7bd385f801a94942420cd8c
   CwlPreconditionTesting: d9b35890c80b34668cd90da5bef077fd817a99fc
-  Dwifft: 37156d94c9da45d6cd12dbb9654670593152e89e
 
 PODFILE CHECKSUM: a58c3cca4d5ab538ab9868a0d561ef47151b1d70
 

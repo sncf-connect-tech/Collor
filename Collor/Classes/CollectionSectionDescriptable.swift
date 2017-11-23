@@ -17,7 +17,7 @@ private struct AssociatedKeys {
     static var SectionCells = "collor_SectionCells"
 }
 
-public protocol CollectionSectionDescribable : class, Identifiable {
+public protocol CollectionSectionDescribable : Identifiable {
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets
     func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat
     func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat    
@@ -39,6 +39,15 @@ public extension CollectionSectionDescribable {
         cells.removeAll()
         builder(&cells)
         return self
+    }
+}
+
+public extension CollectionSectionDescribable {
+    func uid(for cell:CollectionCellDescribable) -> String? {
+        guard let sectionUID = _uid, let cellUID = cell._uid else {
+            return nil
+        }
+        return "\(sectionUID)/\(cellUID)"
     }
 }
 

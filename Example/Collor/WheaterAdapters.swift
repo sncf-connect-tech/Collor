@@ -17,8 +17,8 @@ struct WeatherHeaderAdapter: TitleAdapterProtocol {
     
     init(cityName:String) {
         self.title = NSAttributedString(string: cityName, attributes: [
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14),
-            NSForegroundColorAttributeName: UIColor.black
+            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14),
+            NSAttributedStringKey.foregroundColor: UIColor.black
         ])
     }
 }

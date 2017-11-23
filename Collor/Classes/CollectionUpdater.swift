@@ -165,4 +165,7 @@ public struct UpdateCollectionResult {
     
     public var reloadedSectionsIndexSet = IndexSet()
     public var reloadedSectionDescriptors = [CollectionSectionDescribable]()
+    
+    public var movedIndexPaths = [(from:IndexPath,to:IndexPath)]()
+    public var movedCellDescriptors = [CollectionCellDescribable]()
 }

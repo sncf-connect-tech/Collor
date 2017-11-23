@@ -9,7 +9,7 @@
 import Alamofire
 import UIKit
 
-class WeatherService: NSObject {
+final class WeatherService {
     
     enum WheatherError : Error {
         case unknowError

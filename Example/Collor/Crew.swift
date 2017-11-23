@@ -26,7 +26,19 @@ struct Crew {
         Team(title: "🕹 SCRUM", members: ["Maxime", "Jessica", "Johan"])
     ]
     
-    mutating func randomize() {
+    mutating func randomizeMembers() {
+        teams = teams.map { team in
+            var team = team
+            team.randomize()
+            return team
+        }
+    }
+    
+    mutating func randomizeTeams() {
+        teams = teams.shuffled()
+    }
+    
+    mutating func randomizeAll() {
         teams = teams.map { team in
             var team = team
             team.randomize()
@@ -38,7 +50,7 @@ struct Crew {
 
 // from https://stackoverflow.com/questions/24026510/how-do-i-shuffle-an-array-in-swift
 
-extension MutableCollection where Indices.Iterator.Element == Index {
+extension MutableCollection {
     /// Shuffles the contents of this collection.
     mutating func shuffle() {
         let c = count
@@ -48,7 +60,7 @@ extension MutableCollection where Indices.Iterator.Element == Index {
             let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
             guard d != 0 else { continue }
             let i = index(firstUnshuffled, offsetBy: d)
-            swap(&self[firstUnshuffled], &self[i])
+            self.swapAt(firstUnshuffled, i)
         }
     }
 }

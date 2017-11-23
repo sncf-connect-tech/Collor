@@ -80,9 +80,9 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
         XCTAssertTrue(result.deletedSectionsIndexSet.isEmpty)
         
         XCTAssertEqual(result.deletedCellDescriptors.count, 2)
-        XCTAssertTrue(result.deletedCellDescriptors[0] === cellTwo)
-        XCTAssertTrue(result.deletedCellDescriptors[1] === cellOne)
-        XCTAssertEqual(result.deletedIndexPaths,[ IndexPath(item: 1, section: sectionIndex), IndexPath(item: 0, section: sectionIndex) ])
+        XCTAssertTrue(result.deletedCellDescriptors[0] === cellOne)
+        XCTAssertTrue(result.deletedCellDescriptors[1] === cellTwo)
+        XCTAssertEqual(result.deletedIndexPaths,[ IndexPath(item: 0, section: sectionIndex), IndexPath(item: 1, section: sectionIndex) ])
         
         XCTAssertEqual(data.sections[sectionIndex].cells.count, 1 )
         XCTAssertEqual(data.sections[sectionIndex].cells[0].indexPath, IndexPath(item: 0, section: sectionIndex) )
@@ -146,6 +146,49 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
         XCTAssertEqual(data.sections[0].cells[0].indexPath, IndexPath(item: 0, section: 0))
         XCTAssertEqual(data.sections[1].cells.count, 1)
         XCTAssertEqual(data.sections[1].cells[0].indexPath, IndexPath(item: 0, section: 1))
+    }
+    
+    func testDiffSection_missingSectionIndex() {
+        #if arch(x86_64) || arch(i386)
+            // given
+            data = DiffSectionTestData()
+            data.reloadData()
+            // don't call computeIndices
+            let cellOne = TestCellDescriptor(adapter: TestAdapter() )
+            let sectionDescriptor = data.sections[0]
+            
+            // when
+            sectionDescriptor.reloadSection { cells in
+                cells.append( cellOne )
+            }
+            
+            // then
+            let exception = NSException.catchException {
+                let _ = data.update { (updater) in
+                    updater.diff(sections: [sectionDescriptor])
+                }
+            }
+            XCTAssertNotNil(exception)
+            XCTAssertEqual(exception?.name, NSExceptionName.collorSectionIndexNil)
+        #endif
+    }
+    
+    func testDiffSection_missingSectionBuilder() {
+        #if arch(x86_64) || arch(i386)
+            // given
+            let sectionDescriptor = TestSectionDescriptor().uid("section")
+            data.sections.append(sectionDescriptor)
+            data.computeIndices()
+            
+            // then
+            let exception = NSException.catchException {
+                let _ = data.update { (updater) in
+                    updater.diff(sections: [sectionDescriptor])
+                }
+            }
+            XCTAssertNotNil(exception)
+            XCTAssertEqual(exception?.name, NSExceptionName.collorSectionBuilderNil)
+        #endif
     }
     
     func testDiffSection_missingItemUID() {

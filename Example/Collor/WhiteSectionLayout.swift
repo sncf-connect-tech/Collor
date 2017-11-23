@@ -24,7 +24,7 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
         super.init()
         
         decorationAttributes[sectionBackgroundKind] = [IndexPath : UICollectionViewLayoutAttributes]()
-        register(SectionDecorationView.self, forDecorationViewOfKind: sectionBackgroundKind)
+        register(SimpleDecorationView.self, forDecorationViewOfKind: sectionBackgroundKind)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -57,7 +57,7 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
             let height = lastCellAttributes.frame.maxY - origin.y + backgroundMargin
             
             // header
-            let backgroundAttributes = SectionDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
+            let backgroundAttributes = SimpleDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
             backgroundAttributes.backgroundColor = UIColor.white
             backgroundAttributes.cornerRadius = 4
             backgroundAttributes.zIndex = -10

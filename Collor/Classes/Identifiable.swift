@@ -10,6 +10,7 @@ import Foundation
 
 private struct AssociatedKeys {
     static var UniqueIdentifier = "collor_UniqueIdentifier"
+    static var Value = "collor_Value"
 }
 
 public protocol Identifiable: class {
@@ -17,9 +18,12 @@ public protocol Identifiable: class {
 }
 
 public extension Identifiable {
-    func uid(_ uid:String) -> Self {
+    @discardableResult func uid(_ uid:String) -> Self {
         _uid = uid
         return self
+    }
+    func uid() -> String? {
+        return _uid
     }
 }
 
@@ -33,7 +37,3 @@ extension Identifiable {
         }
     }
 }
-
-//func ==<T: Identifiable>(lhs: T, rhs: T) -> Bool {
-//    return lhs._uid == rhs._uid
-//}

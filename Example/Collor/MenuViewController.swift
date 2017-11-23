@@ -34,7 +34,8 @@ class MenuViewController: UIViewController {
 
     let examples:[Example] = [Example(title: "Panton", controllerClass: PantoneViewController.self),
                               Example(title: "Random", controllerClass: RandomViewController.self),
-                              Example(title: "Weather", controllerClass: WeatherViewController.self)]
+                              Example(title: "Weather", controllerClass: WeatherViewController.self),
+                              Example(title: "Real Time", controllerClass: RealTimeViewController.self)]
     
     
     lazy var collectionData:MenuCollectionData = MenuCollectionData(examples: self.examples)
