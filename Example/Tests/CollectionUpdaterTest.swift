@@ -27,7 +27,7 @@ final class TestSectionDescriptor:CollectionSectionDescribable {
 }
 
 final class SimpleTestSectionDescriptor:CollectionSectionDescribable {
-    func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
+    func sectionInset(_ bounds: CGRect) -> UIEdgeInsets {
         return UIEdgeInsets.zero
     }
 
@@ -35,11 +35,12 @@ final class SimpleTestSectionDescriptor:CollectionSectionDescribable {
 
 
 final class TestCellDescriptor:CollectionCellDescribable {
+    
+    
     var identifier: String = "TestCollectionViewCell"
     var className: String = "TestCollectionViewCell"
-    var selectable: Bool = false
-    
-    let adapter:TestAdapter
+    var selectable: Bool = false    
+    var adapter: CollectionAdapter
     
     func getAdapter() -> CollectionAdapter {
         return adapter
