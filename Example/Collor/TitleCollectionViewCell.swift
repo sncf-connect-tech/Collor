@@ -43,8 +43,8 @@ final class TitleDescriptor: CollectionCellDescribable {
         guard let adapter = adapter as? TitleAdapterProtocol else {
             fatalError("TitleAdapterProtocol required")
         }
-        let sectionInset = sectionDescriptor.sectionInset(bounds)
-        let width:CGFloat = bounds.width - sectionInset.left - sectionInset.right
+        let sectionInset = sectionDescriptor.sectionInset(collectionViewBounds)
+        let width:CGFloat = collectionViewBounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:adapter.cellHeight)
     }
 }

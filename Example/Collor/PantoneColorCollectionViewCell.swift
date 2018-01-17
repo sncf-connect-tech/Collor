@@ -34,7 +34,7 @@ final class PantoneColorDescriptor: CollectionCellDescribable {
     
     func size(_ collectionViewBounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let margin = PantoneSectionDescriptor.margin * 4
-        let side:CGFloat = (bounds.width - margin) / 3
+        let side:CGFloat = (collectionViewBounds.width - margin) / 3
         return CGSize(width: side, height: side)
     }
 }

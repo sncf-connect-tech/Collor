@@ -43,8 +43,8 @@ final class LabelDescriptor: CollectionCellDescribable {
         guard let adapter = adapter as? LabelAdapterProtocol else {
             fatalError("LabelAdapterProtocol required")
         }
-        let sectionInset = sectionDescriptor.sectionInset(bounds)
-        let width:CGFloat = adapter.width ?? bounds.width - sectionInset.left - sectionInset.right
+        let sectionInset = sectionDescriptor.sectionInset(collectionViewBounds)
+        let width:CGFloat = adapter.width ?? collectionViewBounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:adapter.height ?? adapter.label.height(width))
     }
 }
