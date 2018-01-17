@@ -15,13 +15,13 @@ struct TestAdapter:CollectionAdapter {
 }
 
 final class TestSectionDescriptor:CollectionSectionDescribable {
-    func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
+    func sectionInset(_ bounds:CGRect) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
-    func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+    func minimumInteritemSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
         return 5
     }
-    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+    func minimumLineSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
         return 5
     }
 }

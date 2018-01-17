@@ -11,7 +11,7 @@ import Collor
 
 final class MenuSectionDescriptor: CollectionSectionDescribable {
     
-    func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
+    func sectionInset(_ bounds:CGRect) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
 }

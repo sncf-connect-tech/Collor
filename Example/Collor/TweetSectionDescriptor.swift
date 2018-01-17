@@ -11,7 +11,7 @@ import Collor
 
 final class TweetSectionDescriptor: CollectionSectionDescribable {
     
-    func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
+    func sectionInset(_ bounds:CGRect) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
     }
 }

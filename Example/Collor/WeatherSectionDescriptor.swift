@@ -22,7 +22,7 @@ final class WeatherSectionDescriptor : CollectionSectionDescribable, SectionDeco
         self.hasBackground = hasBackground
     }
     
-    func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
+    func sectionInset(_ bounds:CGRect) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 15, bottom: 15, right: 15)
     }
 }

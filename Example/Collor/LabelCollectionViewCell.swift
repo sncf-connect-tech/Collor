@@ -32,21 +32,19 @@ final class LabelDescriptor: CollectionCellDescribable {
     let identifier: String = "LabelCollectionViewCell"
     let className: String = "LabelCollectionViewCell"
     var selectable:Bool = true
-    
-    let adapter: LabelAdapterProtocol
+    var adapter: CollectionAdapter
     
     init(adapter:LabelAdapterProtocol) {
         self.adapter = adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        let sectionInset = sectionDescriptor.sectionInset(collectionView)
-        let width:CGFloat = adapter.width ?? collectionView.bounds.width - sectionInset.left - sectionInset.right
+    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        guard let adapter = adapter as? LabelAdapterProtocol else {
+            fatalError("LabelAdapterProtocol required")
+        }
+        let sectionInset = sectionDescriptor.sectionInset(bounds)
+        let width:CGFloat = adapter.width ?? bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:adapter.height ?? adapter.label.height(width))
-    }
-    
-    public func getAdapter() -> CollectionAdapter {
-        return adapter
     }
 }
 

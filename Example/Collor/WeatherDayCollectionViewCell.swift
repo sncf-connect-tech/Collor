@@ -35,21 +35,16 @@ final class WeatherDayDescriptor: CollectionCellDescribable {
     
     let identifier: String = "WeatherDayCollectionViewCell"
     let className: String = "WeatherDayCollectionViewCell"
-    var selectable:Bool = true
-    
-    let adapter: WeatherDayAdapter
+    var selectable:Bool = true    
+    var adapter: CollectionAdapter
     
     init(adapter:WeatherDayAdapter) {
         self.adapter = adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        let sectionInset = sectionDescriptor.sectionInset(collectionView)
-        let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
+    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        let sectionInset = sectionDescriptor.sectionInset(bounds)
+        let width:CGFloat = bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:60)
-    }
-    
-    public func getAdapter() -> CollectionAdapter {
-        return adapter
     }
 }

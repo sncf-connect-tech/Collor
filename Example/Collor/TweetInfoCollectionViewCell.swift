@@ -30,25 +30,19 @@ final class TweetInfoCollectionViewCell: UICollectionViewCell, CollectionCellAda
 }
 
 final class TweetInfoDescriptor: CollectionCellDescribable {
-    
     let identifier: String = "TweetInfoCollectionViewCell"
     let className: String = "TweetInfoCollectionViewCell"
-    var selectable:Bool = false
-    
-    let adapter: TweetInfoAdapterProtocol
+    var selectable:Bool = false    
+    var adapter: CollectionAdapter
     
     init(adapter:TweetInfoAdapterProtocol) {
         self.adapter = adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        let sectionInset = sectionDescriptor.sectionInset(collectionView)
-        let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
+    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        let sectionInset = sectionDescriptor.sectionInset(bounds)
+        let width:CGFloat = bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:44)
-    }
-    
-    public func getAdapter() -> CollectionAdapter {
-        return adapter
     }
 }
 

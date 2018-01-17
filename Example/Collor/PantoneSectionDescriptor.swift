@@ -14,13 +14,13 @@ final class PantoneSectionDescriptor : CollectionSectionDescribable {
     
     static let margin:CGFloat = 2
     
-    func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
+    func sectionInset(_ bounds:CGRect) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: PantoneSectionDescriptor.margin, bottom: 0, right: PantoneSectionDescriptor.margin)
     }
-    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+    func minimumLineSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
         return PantoneSectionDescriptor.margin
     }
-    func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+    func minimumInteritemSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
         return PantoneSectionDescriptor.margin
     }
 }

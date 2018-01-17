@@ -52,20 +52,15 @@ final class MenuItemDescriptor: CollectionCellDescribable {
     let identifier: String = "MenuItemCollectionViewCell"
     let className: String = "MenuItemCollectionViewCell"
     var selectable:Bool = false
-    
-    let adapter: MenuItemAdapter
+    var adapter: CollectionAdapter
     
     init(adapter:MenuItemAdapter) {
         self.adapter = adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        let sectionInset = sectionDescriptor.sectionInset(collectionView)
-        let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
+    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        let sectionInset = sectionDescriptor.sectionInset(bounds)
+        let width:CGFloat = bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:55)
-    }
-    
-    public func getAdapter() -> CollectionAdapter {
-        return adapter
     }
 }

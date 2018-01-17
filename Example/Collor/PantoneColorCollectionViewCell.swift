@@ -31,20 +31,15 @@ final class PantoneColorDescriptor: CollectionCellDescribable {
     let identifier: String = "PantoneColorCollectionViewCell"
     let className: String = "PantoneColorCollectionViewCell"
     var selectable:Bool = true
-    
-    let adapter: PantoneColorAdapter
+    var adapter: CollectionAdapter    
     
     init(adapter:PantoneColorAdapter) {
         self.adapter = adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let margin = PantoneSectionDescriptor.margin * 4
-        let side:CGFloat = (collectionView.bounds.width - margin) / 3
+        let side:CGFloat = (bounds.width - margin) / 3
         return CGSize(width: side, height: side)
-    }
-    
-    public func getAdapter() -> CollectionAdapter {
-        return adapter
     }
 }

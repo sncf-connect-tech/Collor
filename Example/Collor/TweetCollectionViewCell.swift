@@ -37,21 +37,20 @@ final class TweetDescriptor: CollectionCellDescribable {
     let className: String = "TweetCollectionViewCell"
     var selectable:Bool = false
     
-    let adapter: TweetAdapter
+    var adapter: CollectionAdapter
     
     init(adapter:TweetAdapter) {
         self.adapter = adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        let sectionInset = sectionDescriptor.sectionInset(collectionView)
-        let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
+    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        guard let adapter = adapter as? TweetAdapter else {
+            fatalError("TweetAdapter required")
+        }
+        let sectionInset = sectionDescriptor.sectionInset(bounds)
+        let width:CGFloat = bounds.width - sectionInset.left - sectionInset.right
         let labelWidth = width - 48 - 4 // cf xib
         let cellHeight = max(48, adapter.label.height(labelWidth))
         return CGSize(width:width, height:cellHeight)
-    }
-    
-    public func getAdapter() -> CollectionAdapter {
-        return adapter
     }
 }

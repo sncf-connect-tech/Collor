@@ -42,14 +42,14 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if let sectionDescriptor = collectionData?.sections[indexPath.section] {
             let cellDescriptor = sectionDescriptor.cells[indexPath.item]
-            return cellDescriptor.size(collectionView, sectionDescriptor: sectionDescriptor)
+            return cellDescriptor.size(collectionView.bounds, sectionDescriptor: sectionDescriptor)
         }
         return CGSize.zero
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if let sectionDescriptor = collectionData?.sections[section] {
-            return sectionDescriptor.sectionInset(collectionView)
+            return sectionDescriptor.sectionInset(collectionView.bounds)
         }
         return UIEdgeInsets()
     }
@@ -60,7 +60,7 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
         }
         
         if let sectionDescriptor = collectionData?.sections[section] {
-            return sectionDescriptor.minimumInteritemSpacing(collectionView, layout: layout)
+            return sectionDescriptor.minimumInteritemSpacing(collectionView.bounds, layout: layout)
         }
         return layout.minimumInteritemSpacing
     }
@@ -71,8 +71,9 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
         }
         
         if let sectionDescriptor = collectionData?.sections[section] {
-            return sectionDescriptor.minimumLineSpacing(collectionView, layout: layout)
+            return sectionDescriptor.minimumLineSpacing(collectionView.bounds, layout: layout)
         }
         return layout.minimumLineSpacing
     }
 }
+

@@ -18,19 +18,26 @@ private struct AssociatedKeys {
 }
 
 public protocol CollectionSectionDescribable : Identifiable {
-    func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets
-    func minimumInteritemSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat
-    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat    
+    func sectionInset(_ bounds:CGRect) -> UIEdgeInsets
+    func minimumInteritemSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat
+    func minimumLineSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat
+}
+
+public extension CollectionSectionDescribable {
+    func ipadInsetX(_ bounds:CGRect) -> CGFloat {
+        let maxiPhoneWidth: CGFloat = 414 // iPhone Plus width
+        return UIDevice.current.userInterfaceIdiom == .pad ? (bounds.width - maxiPhoneWidth) * 0.5 : 0;
+    }
 }
 
 public typealias SectionBuilderClosure = (inout [CollectionCellDescribable]) -> Void
 
 // default implementation CollectionSectionDescribable
 public extension CollectionSectionDescribable {
-    func minimumInteritemSpacing(_ collectionView:UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+    func minimumInteritemSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
         return layout.minimumInteritemSpacing
     }
-    func minimumLineSpacing(_ collectionView: UICollectionView, layout: UICollectionViewFlowLayout) -> CGFloat {
+    func minimumLineSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
         return layout.minimumLineSpacing
     }
     

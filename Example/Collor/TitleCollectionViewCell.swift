@@ -35,22 +35,20 @@ final class TitleDescriptor: CollectionCellDescribable {
     
     let identifier: String = "TitleCollectionViewCell"
     let className: String = "TitleCollectionViewCell"
-    var selectable:Bool = false
-    
-    let adapter: TitleAdapterProtocol
+    var selectable:Bool = false    
+    var adapter: CollectionAdapter
     
     init(adapter:TitleAdapterProtocol) {
         self.adapter = adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        let sectionInset = sectionDescriptor.sectionInset(collectionView)
-        let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
+    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        guard let adapter = adapter as? TitleAdapterProtocol else {
+            fatalError("TitleAdapterProtocol required")
+        }
+        let sectionInset = sectionDescriptor.sectionInset(bounds)
+        let width:CGFloat = bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:adapter.cellHeight)
-    }
-    
-    public func getAdapter() -> CollectionAdapter {
-        return adapter
     }
 }
 

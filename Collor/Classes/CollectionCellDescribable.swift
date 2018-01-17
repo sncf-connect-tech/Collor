@@ -18,10 +18,21 @@ public protocol CollectionCellDescribable : Identifiable {
     var identifier: String { get }
     var className: String { get }
     var selectable: Bool { get }
-    func getAdapter() -> CollectionAdapter
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize
+    var adapter: CollectionAdapter { get }
+    func size(_ bounds: CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize
 }
 
+public extension CollectionCellDescribable {
+    func size(_ bounds: CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        let sectionInset = sectionDescriptor.sectionInset(bounds)
+        let width = bounds.width - sectionInset.left - sectionInset.right
+        // Estimated height ItemSize so 1 for height
+        return CGSize(width: width, height: 1)
+    }
+    func getAdapter() -> CollectionAdapter {
+        return adapter
+    }
+}
 extension CollectionCellDescribable {
     public internal(set) var indexPath: IndexPath? {
         get {
@@ -32,3 +43,4 @@ extension CollectionCellDescribable {
         }
     }
 }
+
