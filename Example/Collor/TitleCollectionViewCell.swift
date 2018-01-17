@@ -39,7 +39,7 @@ final class TitleDescriptor: CollectionCellDescribable {
         self.adapter = adapter
     }
     
-    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+    func size(_ collectionViewBounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         guard let adapter = adapter as? TitleAdapterProtocol else {
             fatalError("TitleAdapterProtocol required")
         }

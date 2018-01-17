@@ -59,9 +59,9 @@ final class MenuItemDescriptor: CollectionCellDescribable {
         self.adapter = adapter
     }
     
-    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        let sectionInset = sectionDescriptor.sectionInset(bounds)
-        let width:CGFloat = bounds.width - sectionInset.left - sectionInset.right
+    func size(_ collectionViewBounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        let sectionInset = sectionDescriptor.sectionInset(collectionViewBounds)
+        let width:CGFloat = collectionViewBounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:55)
     }
 }

@@ -44,7 +44,7 @@ final class WeatherDayDescriptor: CollectionCellDescribable {
         self.adapter = adapter
     }
     
-    func size(_ bounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+    func size(_ collectionViewBounds:CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(bounds)
         let width:CGFloat = bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width:width, height:60)
