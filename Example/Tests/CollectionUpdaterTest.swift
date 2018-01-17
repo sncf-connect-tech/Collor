@@ -42,10 +42,6 @@ final class TestCellDescriptor:CollectionCellDescribable {
     var selectable: Bool = false    
     var adapter: CollectionAdapter
     
-    func getAdapter() -> CollectionAdapter {
-        return adapter
-    }
-    
     init(adapter:TestAdapter) {
         self.adapter = adapter
     }
