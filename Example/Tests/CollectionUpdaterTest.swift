@@ -15,19 +15,19 @@ struct TestAdapter:CollectionAdapter {
 }
 
 final class TestSectionDescriptor:CollectionSectionDescribable {
-    func sectionInset(_ bounds:CGRect) -> UIEdgeInsets {
+    func sectionInset(_ collectionViewBounds:CGRect) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
-    func minimumInteritemSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
+    func minimumInteritemSpacing(_ collectionViewBounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
         return 5
     }
-    func minimumLineSpacing(_ bounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
+    func minimumLineSpacing(_ collectionViewBounds:CGRect, layout: UICollectionViewFlowLayout) -> CGFloat {
         return 5
     }
 }
 
 final class SimpleTestSectionDescriptor:CollectionSectionDescribable {
-    func sectionInset(_ bounds: CGRect) -> UIEdgeInsets {
+    func sectionInset(_ collectionViewBounds: CGRect) -> UIEdgeInsets {
         return UIEdgeInsets.zero
     }
 
@@ -39,7 +39,7 @@ final class TestCellDescriptor:CollectionCellDescribable {
     
     var identifier: String = "TestCollectionViewCell"
     var className: String = "TestCollectionViewCell"
-    var selectable: Bool = false    
+    var selectable: Bool = false
     var adapter: CollectionAdapter
     
     init(adapter:TestAdapter) {

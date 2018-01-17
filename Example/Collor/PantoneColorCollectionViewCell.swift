@@ -10,12 +10,7 @@ import UIKit
 import Collor
 
 final class PantoneColorCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+    var descriptor: CollectionCellDescribable?    
     func update(with adapter: CollectionAdapter) {
         guard let adapter = adapter as? PantoneColorAdapter else {
             fatalError("PantoneColorAdapter required")

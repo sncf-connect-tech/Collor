@@ -24,3 +24,31 @@ extension UICollectionView {
         }, completion: completion)
     }
 }
+
+
+struct FittingPriority {
+    var horizontal: UILayoutPriority
+    var vertical: UILayoutPriority
+}
+
+extension UICollectionViewCell  {
+    
+    override open func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        let attribute = super.preferredLayoutAttributesFitting(layoutAttributes)
+        guard let cell = self as? CollectionCellAdaptable, let descriptor = cell.descriptor as? CollectionCellLayoutFitting else { return attribute }
+        var priority:FittingPriority
+        switch descriptor.layoutPriority {
+        case .both:
+            priority = FittingPriority(horizontal: .fittingSizeLevel, vertical: .fittingSizeLevel)
+        case .height:
+            priority = FittingPriority(horizontal: .required, vertical: .fittingSizeLevel)
+        case .width:
+            priority = FittingPriority(horizontal: .fittingSizeLevel, vertical: .required)
+        }
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size,
+                                                       withHorizontalFittingPriority: priority.horizontal,
+                                                       verticalFittingPriority: priority.vertical)
+        attribute.frame.size = size
+        return attribute
+    }
+}

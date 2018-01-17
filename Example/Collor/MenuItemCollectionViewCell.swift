@@ -10,10 +10,11 @@ import UIKit
 import Collor
 
 final class MenuItemCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
-
+    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
     
+    var descriptor: CollectionCellDescribable?
     var adapter:MenuItemAdapter?
     var userEventDelegate:MenuUserEventDelegate?
     

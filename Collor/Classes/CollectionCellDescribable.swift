@@ -10,6 +10,17 @@ import Foundation
 import UIKit
 import ObjectiveC
 
+
+public enum LayoutFittingPriority {
+    case width
+    case height
+    case both
+}
+
+public protocol CollectionCellLayoutFitting {
+    var layoutPriority:LayoutFittingPriority { get }
+}
+
 private struct AssociatedKeys {
     static var IndexPath = "collor_IndexPath"
 }
@@ -19,15 +30,16 @@ public protocol CollectionCellDescribable : Identifiable {
     var className: String { get }
     var selectable: Bool { get }
     var adapter: CollectionAdapter { get }
-    func size(_ bounds: CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize
+    func size(_ collectionViewBounds: CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize
 }
 
 public extension CollectionCellDescribable {
-    func size(_ bounds: CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        let sectionInset = sectionDescriptor.sectionInset(bounds)
-        let width = bounds.width - sectionInset.left - sectionInset.right
+    func size(_ collectionViewBounds: CGRect, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+        let sectionInset = sectionDescriptor.sectionInset(collectionViewBounds)
+        let width = collectionViewBounds.width - sectionInset.left - sectionInset.right
+        let height = collectionViewBounds.height - sectionInset.top - sectionInset.bottom
         // Estimated height ItemSize so 1 for height
-        return CGSize(width: width, height: 1)
+        return CGSize(width: width, height: height)
     }
     func getAdapter() -> CollectionAdapter {
         return adapter

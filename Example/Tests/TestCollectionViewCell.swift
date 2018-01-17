@@ -10,12 +10,8 @@ import UIKit
 import Collor
 
 class TestCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+    var descriptor: CollectionCellDescribable?
+        
     func update(with adapter: CollectionAdapter) {
         
     }

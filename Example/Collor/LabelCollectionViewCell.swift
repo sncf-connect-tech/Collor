@@ -10,8 +10,9 @@ import UIKit
 import Collor
 
 final class LabelCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
-
+    
     @IBOutlet weak var label: UILabel!
+    var descriptor: CollectionCellDescribable?
     
     override func awakeFromNib() {
         super.awakeFromNib()

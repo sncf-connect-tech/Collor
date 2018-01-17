@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol CollectionCellAdaptable : NSObjectProtocol {
+    var  descriptor: CollectionCellDescribable? { get set }
     func update(with adapter: CollectionAdapter) -> Void
     func set(delegate:CollectionUserEventDelegate?) -> Void
 }

@@ -46,9 +46,10 @@ public class CollectionDataSource: NSObject, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        
+        cell.descriptor = cellDescriptor
         cell.update(with: cellDescriptor.getAdapter() )
         cell.set(delegate: delegate)
+        
         return cell as! UICollectionViewCell
     }
     

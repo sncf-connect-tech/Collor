@@ -10,13 +10,11 @@ import UIKit
 import Collor
 
 final class TweetInfoCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
-
+   
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    
+    var descriptor: CollectionCellDescribable?
     
     func update(with adapter: CollectionAdapter) {
         guard let adapter = adapter as? TweetInfoAdapterProtocol else {

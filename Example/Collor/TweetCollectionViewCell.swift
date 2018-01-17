@@ -14,6 +14,8 @@ final class TweetCollectionViewCell: UICollectionViewCell, CollectionCellAdaptab
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
+
+    var descriptor: CollectionCellDescribable?
     
     override func awakeFromNib() {
         super.awakeFromNib()

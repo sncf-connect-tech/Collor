@@ -11,10 +11,12 @@ import Collor
 import AlamofireImage
 
 final class WeatherDayCollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     
+    var descriptor: CollectionCellDescribable?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
