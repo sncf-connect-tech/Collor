@@ -140,6 +140,10 @@ final public class CollectionUpdater {
             guard let index = collectionData.sections.index(where: {$0 === sectionToReload} ) else {
                 return
             }
+            
+            sectionToReload.cells.removeAll()
+            sectionToReload.builder?(&sectionToReload.cells)
+            collectionData.computeIndexPaths(in:sectionToReload)
             result?.reloadedSectionsIndexSet.insert(index)
             result?.reloadedSectionDescriptors.append(sectionToReload)
         }
