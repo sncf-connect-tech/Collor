@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.5.1)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
-  - Collor (1.1.2)
+  - Collor (1.1.3)
   - CwlCatchException (1.0.2)
   - CwlPreconditionTesting (1.1.0):
     - CwlCatchException
@@ -33,7 +33,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
-  Collor: bb3c317d9afd12db609969a9b970794af0cd268d
+  Collor: 0037189e2615ebab3473db1d18673efe503da951
   CwlCatchException: 70a52ae44ea5d46db7bd385f801a94942420cd8c
   CwlPreconditionTesting: d9b35890c80b34668cd90da5bef077fd817a99fc
 
