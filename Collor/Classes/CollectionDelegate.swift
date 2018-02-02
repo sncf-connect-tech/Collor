@@ -9,10 +9,17 @@
 import Foundation
 import UIKit
 
-public class CollectionDelegate: NSObject, UICollectionViewDelegate {
+open class CollectionDelegate: NSObject, UICollectionViewDelegate {
     
     public var collectionData: CollectionData?
     public weak var delegate: CollectionDidSelectCellDelegate?
+    
+    /**
+     Define a delegate to implements UICollectionViewDelegate methods not used by Collor.
+     Actually, only these methodes are implemented, please contribute if needed:
+     - scrollViewDidScroll(:)
+     */
+    public weak var forwardingDelegate: UICollectionViewDelegate?
     
     public init(delegate: CollectionDidSelectCellDelegate?) {
         self.delegate = delegate
@@ -74,5 +81,13 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
             return sectionDescriptor.minimumLineSpacing(collectionView, layout: layout)
         }
         return layout.minimumLineSpacing
+    }
+}
+
+// forward
+extension CollectionDelegate {
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        forwardingDelegate?.scrollViewDidScroll?(scrollView)
     }
 }
