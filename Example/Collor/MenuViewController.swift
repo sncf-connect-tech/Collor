@@ -46,6 +46,7 @@ class MenuViewController: UIViewController {
         title = "Menu"
         
         bind(collectionView: collectionView, with: collectionData, and: collectionViewDelegate, and: collectionViewDatasource)
+        collectionViewDelegate.forwardingDelegate = self
     }
 }
 
@@ -59,3 +60,10 @@ extension MenuViewController : MenuUserEventDelegate {
         }
     }
 }
+
+extension MenuViewController : UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("scroll")
+    }
+}
+
