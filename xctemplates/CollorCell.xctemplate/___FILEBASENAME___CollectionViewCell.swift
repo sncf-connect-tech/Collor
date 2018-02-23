@@ -3,13 +3,13 @@
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
-//___COPYRIGHT___
+//  ___COPYRIGHT___
 //
 
 import UIKit
 import Collor
 
-final class ___FILEBASENAMEASIDENTIFIER___CollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
+final class ___VARIABLE_productName:identifier___CollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,22 +17,33 @@ final class ___FILEBASENAMEASIDENTIFIER___CollectionViewCell: UICollectionViewCe
     }
     
     func update(with adapter: CollectionAdapter) {
-        guard let adapter = adapter as? ___FILEBASENAMEASIDENTIFIER___Adapter else {
-            fatalError("___FILEBASENAMEASIDENTIFIER___Adapter required")
+        guard let adapter = adapter as? ___VARIABLE_productName:identifier___AdapterProtocol else {
+            fatalError("___VARIABLE_productName:identifier___AdapterProtocol required")
         }        
     }
 
 }
 
-final class ___FILEBASENAMEASIDENTIFIER___Descriptor: CollectionCellDescribable {
+protocol ___VARIABLE_productName:identifier___AdapterProtocol: CollectionAdapter {
+}
+
+struct ___VARIABLE_productName:identifier___Adapter: ___VARIABLE_productName:identifier___AdapterProtocol {
+
+    init() {
+        
+    }
+
+}
+
+final class ___VARIABLE_productName:identifier___Descriptor: CollectionCellDescribable {
     
-    let identifier: String = "___FILEBASENAME___CollectionViewCell"
-    let className: String = "___FILEBASENAME___CollectionViewCell"
+    let identifier: String = "___VARIABLE_productName:identifier___CollectionViewCell"
+    let className: String = "___VARIABLE_productName:identifier___CollectionViewCell"
     var selectable:Bool = false
     
-    let adapter: ___FILEBASENAME___Adapter
+    let adapter: ___VARIABLE_productName:identifier___Adapter
     
-    init(adapter:___FILEBASENAME___Adapter) {
+    init(adapter:___VARIABLE_productName:identifier___Adapter) {
         self.adapter = adapter
     }
     

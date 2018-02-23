@@ -38,7 +38,7 @@
 			<key>Name</key>
 			<string></string>
 			<key>Default</key>
-			<string>[CellName]CollectionViewCell.swift, [CellName]Adapter</string>
+			<string>[CellName]CollectionViewCell.swift</string>
 			<key>Type</key>
 			<string>static</string>
 	</dict>
