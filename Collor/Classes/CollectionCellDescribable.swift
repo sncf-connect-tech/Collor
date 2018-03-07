@@ -20,6 +20,7 @@ public protocol CollectionCellDescribable : Identifiable {
     var selectable: Bool { get }
     func getAdapter() -> CollectionAdapter
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize
+    var bundle: Bundle { get }
 }
 
 extension CollectionCellDescribable {
@@ -30,5 +31,12 @@ extension CollectionCellDescribable {
         set {
             objc_setAssociatedObject( self, &AssociatedKeys.IndexPath, newValue as IndexPath?, .OBJC_ASSOCIATION_COPY)
         }
+    }
+}
+
+public extension CollectionCellDescribable {
+    var bundle: Bundle {
+        let typeClass = type(of: self)
+        return Bundle(for: typeClass)
     }
 }

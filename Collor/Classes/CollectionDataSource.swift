@@ -37,7 +37,7 @@ public class CollectionDataSource: NSObject, UICollectionViewDataSource {
         let cellDescriptor = collectionData.sections[indexPath.section].cells[indexPath.item]
         
         if collectionData.registeredCells.contains(cellDescriptor.identifier) == false {
-            let nib = UINib(nibName: cellDescriptor.className, bundle: nil)
+            let nib = UINib(nibName: cellDescriptor.className, bundle: cellDescriptor.bundle)
             collectionView.register(nib, forCellWithReuseIdentifier: cellDescriptor.identifier)
             collectionData.registeredCells.insert(cellDescriptor.identifier)
         }
