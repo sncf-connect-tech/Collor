@@ -13,6 +13,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7315FCB25EF828F0929A4641 /* Pods_Collor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F1AEC9685F40C56AAB6AE /* Pods_Collor_Example.framework */; };
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
+		F01A440B205FE483001BB25E /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */; };
+		F01A440C205FE4AD001BB25E /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */; };
 		F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A9571F61234200CB895D /* RealTimeStyle.swift */; };
 		F043A95B1F6124FB00CB895D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A95A1F6124FB00CB895D /* Colors.swift */; };
 		F043A95F1F612A1900CB895D /* tweets_3.json in Resources */ = {isa = PBXBuildFile; fileRef = F043A95C1F612A1800CB895D /* tweets_3.json */; };
@@ -794,6 +796,7 @@
 			files = (
 				F0C7DE781F6FB53100CB1B9B /* TestDecorationView.xib in Resources */,
 				F0C7DE791F6FB53300CB1B9B /* TestViewController.xib in Resources */,
+				F01A440C205FE4AD001BB25E /* TestCollectionViewCell.xib in Resources */,
 				F0D318DB1EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -967,6 +970,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01A440B205FE483001BB25E /* TestCollectionViewCell.swift in Sources */,
 				F0D318E71EC48E4E00A9CBEA /* TestViewController.swift in Sources */,
 				F085272C1F6C239600A3EBC9 /* CollectionExtensionTest.swift in Sources */,
 				F0D318DA1EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.swift in Sources */,
