@@ -39,18 +39,18 @@ final class ___VARIABLE_productName:identifier___Descriptor: CollectionCellDescr
     
     let identifier: String = "___VARIABLE_productName:identifier___CollectionViewCell"
     let className: String = "___VARIABLE_productName:identifier___CollectionViewCell"
-    var selectable:Bool = false
+    var selectable: Bool = false
     
-    let adapter: ___VARIABLE_productName:identifier___Adapter
+    let adapter: ___VARIABLE_productName:identifier___AdapterProtocol
     
-    init(adapter:___VARIABLE_productName:identifier___Adapter) {
+    init(adapter: ___VARIABLE_productName:identifier___AdapterProtocol) {
         self.adapter = adapter
     }
     
     func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
-        let width:CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
-        return CGSize(width:width, height:100)
+        let width: CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
+        return CGSize(width: width, height: 100)
     }
     
     public func getAdapter() -> CollectionAdapter {
