@@ -13,7 +13,7 @@ public protocol CollectionCellAdaptable : NSObjectProtocol {
     func set(delegate:CollectionUserEventDelegate?) -> Void
 }
 
-// default implementation of CollectionCellAdaptable
-public extension CollectionCellAdaptable {
-    func set(delegate:CollectionUserEventDelegate?) {}
+public protocol CollectionUserEventDelegatable {
+    associatedtype Delegate: CollectionUserEventDelegate
+    var delegate: Delegate { get }
 }

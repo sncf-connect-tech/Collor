@@ -9,14 +9,14 @@
 import UIKit
 import Collor
 
-final class ___VARIABLE_productName:identifier___CollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
+public final class ___VARIABLE_productName:identifier___CollectionViewCell: UICollectionViewCell, CollectionCellAdaptable {
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    func update(with adapter: CollectionAdapter) {
+    public func update(with adapter: CollectionAdapter) {
         guard let adapter = adapter as? ___VARIABLE_productName:identifier___AdapterProtocol else {
             fatalError("___VARIABLE_productName:identifier___AdapterProtocol required")
         }        
@@ -24,30 +24,30 @@ final class ___VARIABLE_productName:identifier___CollectionViewCell: UICollectio
 
 }
 
-protocol ___VARIABLE_productName:identifier___AdapterProtocol: CollectionAdapter {
+public protocol ___VARIABLE_productName:identifier___AdapterProtocol: CollectionAdapter {
 }
 
-struct ___VARIABLE_productName:identifier___Adapter: ___VARIABLE_productName:identifier___AdapterProtocol {
+public struct ___VARIABLE_productName:identifier___Adapter: ___VARIABLE_productName:identifier___AdapterProtocol {
 
-    init() {
+    public init() {
         
     }
 
 }
 
-final class ___VARIABLE_productName:identifier___Descriptor: CollectionCellDescribable {
+public final class ___VARIABLE_productName:identifier___Descriptor: CollectionCellDescribable {
     
-    let identifier: String = "___VARIABLE_productName:identifier___CollectionViewCell"
-    let className: String = "___VARIABLE_productName:identifier___CollectionViewCell"
-    var selectable: Bool = false
+    public let identifier: String = "___VARIABLE_productName:identifier___CollectionViewCell"
+    public let className: String = "___VARIABLE_productName:identifier___CollectionViewCell"
+    public var selectable: Bool = false
     
     let adapter: ___VARIABLE_productName:identifier___AdapterProtocol
     
-    init(adapter: ___VARIABLE_productName:identifier___AdapterProtocol) {
+    public init(adapter: ___VARIABLE_productName:identifier___AdapterProtocol) {
         self.adapter = adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
+    public func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
         let sectionInset = sectionDescriptor.sectionInset(collectionView)
         let width: CGFloat = collectionView.bounds.width - sectionInset.left - sectionInset.right
         return CGSize(width: width, height: 100)
