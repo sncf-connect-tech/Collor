@@ -98,7 +98,7 @@ public struct DecorationViewsHandler {
                 elementKind(for: updateItem.indexPathAfterUpdate!, in: _attributes).forEach { kind in
                     _inserted[kind]!.append(updateItem.indexPathAfterUpdate!)
                 }
-            case .reload:
+            case .reload, .move: //TODO: if move, try to check if same kind of decorationView doesn't impact the move
                 elementKind(for: updateItem.indexPathBeforeUpdate!, in: _oldAttributes!).forEach { kind in
                     _deleted[kind]!.append(updateItem.indexPathBeforeUpdate!)
                 }
