@@ -91,19 +91,29 @@ public struct DecorationViewsHandler {
         updateItems.forEach { updateItem in
             switch (updateItem.updateAction) {
             case .delete:
-                elementKind(for: updateItem.indexPathBeforeUpdate!, in: _oldAttributes!).forEach { kind in
-                    _deleted[kind]!.append(updateItem.indexPathBeforeUpdate!)
+                guard let indexPathBeforeUpdate = updateItem.indexPathBeforeUpdate else {
+                    break
+                }
+                elementKind(for: indexPathBeforeUpdate, in: _oldAttributes!).forEach { kind in
+                    _deleted[kind]!.append(indexPathBeforeUpdate)
                 }
             case .insert:
-                elementKind(for: updateItem.indexPathAfterUpdate!, in: _attributes).forEach { kind in
-                    _inserted[kind]!.append(updateItem.indexPathAfterUpdate!)
+                guard let indexPathAfterUpdate = updateItem.indexPathAfterUpdate else {
+                    break
+                }
+                elementKind(for: indexPathAfterUpdate, in: _attributes).forEach { kind in
+                    _inserted[kind]!.append(indexPathAfterUpdate)
                 }
             case .reload, .move: //TODO: if move, try to check if same kind of decorationView doesn't impact the move
-                elementKind(for: updateItem.indexPathBeforeUpdate!, in: _oldAttributes!).forEach { kind in
-                    _deleted[kind]!.append(updateItem.indexPathBeforeUpdate!)
+                guard let indexPathBeforeUpdate = updateItem.indexPathBeforeUpdate,
+                    let indexPathAfterUpdate = updateItem.indexPathAfterUpdate else {
+                    break
                 }
-                elementKind(for: updateItem.indexPathAfterUpdate!, in: _attributes).forEach { kind in
-                    _inserted[kind]!.append(updateItem.indexPathAfterUpdate!)
+                elementKind(for: indexPathBeforeUpdate, in: _oldAttributes!).forEach { kind in
+                    _deleted[kind]!.append(indexPathBeforeUpdate)
+                }
+                elementKind(for: indexPathAfterUpdate, in: _attributes).forEach { kind in
+                    _inserted[kind]!.append(indexPathAfterUpdate)
                 }
             default:
                 break
