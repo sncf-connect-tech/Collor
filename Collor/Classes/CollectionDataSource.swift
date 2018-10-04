@@ -37,8 +37,18 @@ public class CollectionDataSource: NSObject, UICollectionViewDataSource {
         let cellDescriptor = collectionData.sections[indexPath.section].cells[indexPath.item]
         
         if collectionData.registeredCells.contains(cellDescriptor.identifier) == false {
-            let nib = UINib(nibName: cellDescriptor.className, bundle: cellDescriptor.bundle)
-            collectionView.register(nib, forCellWithReuseIdentifier: cellDescriptor.identifier)
+            if cellDescriptor.bundle.path(forResource: cellDescriptor.className, ofType: "nib") != nil {
+                let nib = UINib(nibName: cellDescriptor.className, bundle: cellDescriptor.bundle)
+                collectionView.register(nib, forCellWithReuseIdentifier: cellDescriptor.identifier)
+            }
+            else if let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String,
+                let cellClass = Bundle.main.classNamed("\(bundleName).\(cellDescriptor.className)") as? UICollectionViewCell.Type {
+                collectionView.register(cellClass, forCellWithReuseIdentifier: cellDescriptor.identifier)
+            }
+            else {
+                return UICollectionViewCell()
+            }
+            
             collectionData.registeredCells.insert(cellDescriptor.identifier)
         }
  

@@ -13,6 +13,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		7315FCB25EF828F0929A4641 /* Pods_Collor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F1AEC9685F40C56AAB6AE /* Pods_Collor_Example.framework */; };
 		C2218105C85BA310F12BE504 /* Pods_Collor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */; };
+		C251BD9E2165AC3E002DBA69 /* NiblessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */; };
 		F01A440B205FE483001BB25E /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */; };
 		F01A440C205FE4AD001BB25E /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */; };
 		F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A9571F61234200CB895D /* RealTimeStyle.swift */; };
@@ -125,6 +126,7 @@
 		80291F331F216AFB3E9F44D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		868E220BA7623E5F0E3E373A /* Pods-Collor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collor_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1B91C5B37455C72DDFFCCC9 /* Pods-Collor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Collor_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessCollectionViewCell.swift; sourceTree = "<group>"; };
 		C28F175CBC84A17630BED1A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F043A9571F61234200CB895D /* RealTimeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeStyle.swift; sourceTree = "<group>"; };
@@ -616,6 +618,7 @@
 				F0D318D71EC33F0800A9CBEA /* noAdaptable */,
 				F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */,
 				F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */,
+				C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -952,6 +955,7 @@
 				F089D9B41F3861A500395056 /* TitleCollectionViewCell.swift in Sources */,
 				F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */,
 				F0577CC31F39E6E90051BD18 /* PantoneCollectionData.swift in Sources */,
+				C251BD9E2165AC3E002DBA69 /* NiblessCollectionViewCell.swift in Sources */,
 				F089D9B11F3861A500395056 /* WeatherModel.swift in Sources */,
 				F089D9BA1F3861A500395056 /* WheatherService.swift in Sources */,
 				F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */,

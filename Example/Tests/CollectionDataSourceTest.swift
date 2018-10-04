@@ -66,6 +66,13 @@ class CollectionDataSourceTest: XCTestCase {
         type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), "UICollectionViewCell")
         
+        // nibless
+        let niblessDescriptor = data.cellDescribable(at: indexPath) as! TestCellDescriptor
+        niblessDescriptor.className = "NiblessCollectionViewCell"
+        niblessDescriptor.identifier = "NiblessCollectionViewCell"
+        type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
+        XCTAssertEqual(String(describing: type), "NiblessCollectionViewCell")
+        
         // collectionDatas nil
         collectionDataSource.collectionData = nil
         type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
