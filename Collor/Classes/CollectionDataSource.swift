@@ -41,6 +41,9 @@ public class CollectionDataSource: NSObject, UICollectionViewDataSource {
                 let nib = UINib(nibName: cellDescriptor.className, bundle: cellDescriptor.bundle)
                 collectionView.register(nib, forCellWithReuseIdentifier: cellDescriptor.identifier)
             }
+            else if let cellClass = Bundle.main.classNamed(cellDescriptor.className) as? UICollectionViewCell.Type {
+                collectionView.register(cellClass, forCellWithReuseIdentifier: cellDescriptor.identifier)
+            }
             else if let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String,
                 let cellClass = Bundle.main.classNamed("\(bundleName).\(cellDescriptor.className)") as? UICollectionViewCell.Type {
                 collectionView.register(cellClass, forCellWithReuseIdentifier: cellDescriptor.identifier)
