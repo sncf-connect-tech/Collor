@@ -40,7 +40,7 @@ final class WeatherModel {
             return nil
         }
         
-        weatherDays = daysList.flatMap { (dayData) in
+        weatherDays = daysList.compactMap { (dayData) in
             guard let timeStamp = dayData["dt"] as? Double,
                 let tempData = dayData["temp"] as? [String:Any],
                 let temp = tempData["day"] as? Float,

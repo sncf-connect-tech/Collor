@@ -14,7 +14,9 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright © 2017 Matt Gallagher ( http://cocoawithlove.com ). All rights reserved.
+			<string>ISC License
+
+Copyright © 2017 Matt Gallagher ( http://cocoawithlove.com ). All rights reserved.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -37,7 +39,9 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright © 2017 Matt Gallagher ( http://cocoawithlove.com ). All rights reserved.
+			<string>ISC License
+
+Copyright © 2017 Matt Gallagher ( http://cocoawithlove.com ). All rights reserved.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above

@@ -85,7 +85,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         
         // when
         data.deleted = true
-        let result = data.update { (updater) in
+        let result = self.data.update { (updater) in
             updater.diff()
         }
         
@@ -110,7 +110,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         
         // when
         data.deletedSection = true
-        let result = data.update { (updater) in
+        let result = self.data.update { (updater) in
             updater.diff()
         }
         
@@ -134,7 +134,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         
         // when
         data.insert = true
-        let result = data.update { (updater) in
+        let result = self.data.update { (updater) in
             updater.diff()
         }
         
@@ -159,7 +159,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         
         // when
         data.insertSection = true
-        let result = data.update { (updater) in
+        let result = self.data.update { (updater) in
             updater.diff()
         }
         
@@ -183,7 +183,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
         data.insertSection = true
         data.deleted = true
         data.insert = true
-        let result = data.update { (updater) in
+        let result = self.data.update { (updater) in
             updater.diff()
         }
         
@@ -222,7 +222,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
             
         // then
             let exception = NSException.catchException {
-            let _ = data.update { (updater) in
+            let _ = self.data.update { (updater) in
                 updater.diff()
             }
         }
@@ -241,7 +241,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
             
             // then
             let exception = NSException.catchException {
-                let _ = data.update { (updater) in
+                let _ = self.data.update { (updater) in
                     updater.diff()
                 }
             }
@@ -262,7 +262,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
             
             // then
             let exception = NSException.catchException {
-                let _ = data.update { (updater) in
+                let _ = self.data.update { (updater) in
                     updater.diff()
                 }
             }
@@ -285,7 +285,7 @@ class CollectionUpdaterReloadDataTest: XCTestCase {
             
             // then
             let exception = NSException.catchException {
-                let _ = data.update { (updater) in
+                let _ = self.data.update { (updater) in
                     updater.diff()
                 }
             }

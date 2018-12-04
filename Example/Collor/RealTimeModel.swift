@@ -18,7 +18,7 @@ class RealTimeModel {
             return nil
         }
         
-        tweets = tweetsList.flatMap { tweetData -> Tweet? in
+        tweets = tweetsList.compactMap { tweetData -> Tweet? in
             guard let id = tweetData["id_str"] as? String,
                 let text = tweetData["text"] as? String,
                 let user = tweetData["user"] as? [String:Any],

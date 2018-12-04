@@ -69,7 +69,7 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
         
         // when
         data.deleted = true
-        let result = data.update { (updater) in
+        let result = self.data.update { (updater) in
             updater.diff(sections: [sectionDescriptor])
         }
         
@@ -95,7 +95,7 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
         
         // when
         data.insert = true
-        let result = data.update { (updater) in
+        let result = self.data.update { (updater) in
             updater.diff(sections: [sectionDescriptor])
         }
         
@@ -122,7 +122,7 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
         // when
         data.deleted = true
         data.insert = true
-        let result = data.update { (updater) in
+        let result = self.data.update { (updater) in
             updater.diff(sections: sectionDescriptors)
         }
         
@@ -164,7 +164,7 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
             
             // then
             let exception = NSException.catchException {
-                let _ = data.update { (updater) in
+                let _ = self.data.update { (updater) in
                     updater.diff(sections: [sectionDescriptor])
                 }
             }
@@ -182,7 +182,7 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
             
             // then
             let exception = NSException.catchException {
-                let _ = data.update { (updater) in
+                let _ = self.data.update { (updater) in
                     updater.diff(sections: [sectionDescriptor])
                 }
             }
@@ -204,7 +204,7 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
             
             // then
             let exception = NSException.catchException {
-                let _ = data.update { (updater) in
+                let _ = self.data.update { (updater) in
                     updater.diff(sections: [sectionDescriptor])
                 }
             }
@@ -228,7 +228,7 @@ class CollectionUpdaterDiffSectionTest: XCTestCase {
             
             // then
             let exception = NSException.catchException {
-                let _ = data.update { (updater) in
+                let _ = self.data.update { (updater) in
                     updater.diff(sections: [sectionDescriptor])
                 }
             }

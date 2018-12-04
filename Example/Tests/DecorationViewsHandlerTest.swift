@@ -103,7 +103,7 @@ class DecorationViewHandlerTest: XCTestCase {
         var handler = DecorationViewsHandler(collectionViewLayout: controller.collectionView.collectionViewLayout)
         handler.register(viewClass: TestDecorationView.self, for: "testKind")
         handler.register(viewClass: TestDecorationView.self, for: "test2Kind")
-        XCTAssertEqual(handler._attributes.debugDescription, "[\"testKind\": [:], \"test2Kind\": [:]]")
+        XCTAssertEqual(handler._attributes.keys.sorted().debugDescription, "[\"test2Kind\", \"testKind\"]")
         XCTAssertEqual(handler._elementKinds.debugDescription, "[\"testKind\", \"test2Kind\"]")
         let attributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: "testKind", with: IndexPath(item: 0, section: 0))
         handler.add(attributes: attributes)
@@ -314,13 +314,15 @@ class DecorationViewHandlerTest: XCTestCase {
     
     func testPrepareUpdate_Move() {
         // given
+        let indexPath = IndexPath(item: 0, section: 0)
+        let newindexPath = IndexPath(item: 1, section: 0)
         let kind = "testKind"
         var handler = DecorationViewsHandler(collectionViewLayout: controller.collectionView.collectionViewLayout)
         handler.register(viewClass: TestDecorationView.self, for: kind)
         handler.prepare()
         
         // when
-        let updateItem = TestUICollectionViewUpdateItem(updateAction: .move, indexPathBeforeUpdate: nil, indexPathAfterUpdate: nil)
+        let updateItem = TestUICollectionViewUpdateItem(updateAction: .move, indexPathBeforeUpdate: indexPath, indexPathAfterUpdate: newindexPath)
         let updateItems = [ updateItem ]
         handler.prepare(forCollectionViewUpdates: updateItems)
         

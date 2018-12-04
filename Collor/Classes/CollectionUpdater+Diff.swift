@@ -216,7 +216,7 @@ extension CollectionUpdater {
         
         // duplicate items
         var setCells = Set<String>()
-        items.flatMap{ $0._uid }.forEach {
+        items.compactMap{ $0._uid }.forEach {
             let insertResult = setCells.insert($0)
             if insertResult.inserted == false {
                 itemsDuplicateUID.append( (sectionIndex, insertResult.memberAfterInsert) )

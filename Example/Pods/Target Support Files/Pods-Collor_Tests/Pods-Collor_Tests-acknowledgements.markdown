@@ -3,6 +3,8 @@ This application makes use of the following third party libraries:
 
 ## CwlCatchException
 
+ISC License
+
 Copyright © 2017 Matt Gallagher ( http://cocoawithlove.com ). All rights reserved.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -19,6 +21,8 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
 ## CwlPreconditionTesting
+
+ISC License
 
 Copyright © 2017 Matt Gallagher ( http://cocoawithlove.com ). All rights reserved.
 
