@@ -54,6 +54,7 @@ class CollectionDataSourceTest: XCTestCase {
         // given
         let indexPath = IndexPath(item: 0, section: 0)
         let cellClassName = "TestCollectionViewCell"
+        let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""
         
         var type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), cellClassName)
@@ -66,10 +67,17 @@ class CollectionDataSourceTest: XCTestCase {
         type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), "UICollectionViewCell")
         
-        // nibless
-        let niblessDescriptor = data.cellDescribable(at: indexPath) as! TestCellDescriptor
-        niblessDescriptor.className = "NiblessCollectionViewCell"
-        niblessDescriptor.identifier = "NiblessCollectionViewCell"
+        // nibless using automatic CFBundleName
+        let niblessAutomaticDescriptor = data.cellDescribable(at: indexPath) as! TestCellDescriptor
+        niblessAutomaticDescriptor.className = "NiblessCollectionViewCell"
+        niblessAutomaticDescriptor.identifier = "NiblessAutomaticCollectionViewCell"
+        type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
+        XCTAssertEqual(String(describing: type), "NiblessCollectionViewCell")
+        
+        // nibless using fully qualified class name
+        let niblessQualifiedDescriptor = data.cellDescribable(at: indexPath) as! TestCellDescriptor
+        niblessQualifiedDescriptor.className = "\(bundleName).NiblessCollectionViewCell"
+        niblessQualifiedDescriptor.identifier = "NiblessQualifiedCollectionViewCell"
         type = Swift.type(of: collectionDataSource.collectionView(collectionView, cellForItemAt: indexPath))
         XCTAssertEqual(String(describing: type), "NiblessCollectionViewCell")
         
