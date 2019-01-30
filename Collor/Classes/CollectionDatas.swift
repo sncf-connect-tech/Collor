@@ -23,6 +23,7 @@ open class CollectionData {
     //MARK: Internal
     
     var registeredCells = Set<String>()
+    var registeredSupplementaryViews = Set<String>()
     
     public func sectionsCount() -> Int {
         return sections.count

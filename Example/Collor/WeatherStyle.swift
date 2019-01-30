@@ -15,12 +15,12 @@ struct WeatherStyle {
         
         static func property(key:String, value:String) -> NSAttributedString {
             let keyAttString = NSAttributedString(string: key, attributes: [
-                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14),
-                NSAttributedStringKey.foregroundColor: UIColor.black
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+                NSAttributedString.Key.foregroundColor: UIColor.black
                 ])
             let valueAttString = NSAttributedString(string: value, attributes: [
-                NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14),
-                NSAttributedStringKey.foregroundColor: UIColor.black
+                NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14),
+                NSAttributedString.Key.foregroundColor: UIColor.black
                 ])
             let result = NSMutableAttributedString(attributedString: keyAttString)
             result.append(valueAttString)
