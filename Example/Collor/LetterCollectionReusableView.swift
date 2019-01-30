@@ -23,8 +23,8 @@ class LetterCollectionReusableViewDescriptor : CollectionSupplementaryViewDescri
         return adapter
     }
     
-    func size(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGSize {
-        return .zero
+    func frame(_ collectionView: UICollectionView, sectionDescriptor: CollectionSectionDescribable) -> CGRect {
+        return CGRect(x: 0, y: 0, width: 80, height: 80)
     }
 }
 

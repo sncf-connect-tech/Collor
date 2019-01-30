@@ -26,7 +26,7 @@ final class RandomCollectionData : CollectionData {
         
         crew.teams.forEach { team in
             
-            let section = RandomSectionDescriptor().uid(team.title).reloadSection { (cells, supplementaryViews) in
+            let section = RandomSectionDescriptor().uid(team.title).reloadSection { cells in
                 let titleItem = TitleDescriptor(adapter: TeamTitleAdapter(team: team)).uid(team.title)
                 cells.append(titleItem)
                 
@@ -34,8 +34,6 @@ final class RandomCollectionData : CollectionData {
                     let memberItem = LabelDescriptor(adapter: TeamMemberAdapter(member: member)).uid(member)
                     cells.append(memberItem)
                 }
-                
-                supplementaryViews["hello"] = [BackgroundColorSuppViewDescriptor(adapter: BackgroundColorSuppViewAdapter(color: UIColor.blue))]
             }
             sections.append( section )
         }

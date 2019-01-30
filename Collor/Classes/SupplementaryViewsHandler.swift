@@ -1,5 +1,5 @@
 //
-//  DecorationViewsHandler.swift
+//  SupplementaryViewsHandler.swift
 //  Pods
 //
 //  Created by Guihal Gwenn on 07/09/2017.
@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 import CoreGraphics
 
-public typealias DecorationAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]
+public typealias SupplementaryAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]
 
-public struct DecorationViewsHandler {
+public struct SupplementaryViewsHandler {
     
     unowned let _collectionViewLayout: UICollectionViewLayout
     var _elementKinds = [String]()
-    var _attributes = DecorationAttributes()
-    var _oldAttributes: DecorationAttributes?
+    var _attributes = SupplementaryAttributes()
+    var _oldAttributes: SupplementaryAttributes?
     
     // update
     var _inserted = [String : [IndexPath]]()
@@ -27,29 +27,16 @@ public struct DecorationViewsHandler {
         _collectionViewLayout = collectionViewLayout
     }
     
-    public mutating func register(viewClass:AnyClass, for elementKind:String) {
-        if let _ = _attributes[elementKind] {
-            return
-        }
-        _elementKinds.append(elementKind)
-        _attributes[elementKind] = [IndexPath : UICollectionViewLayoutAttributes]()
-        _collectionViewLayout.register(viewClass, forDecorationViewOfKind: elementKind)
-    }
-    
-    public mutating func register(nib:UINib, for elementKind:String) {
-        if let _ = _attributes[elementKind] {
-            return
-        }
-        _elementKinds.append(elementKind)
-        _attributes[elementKind] = [IndexPath : UICollectionViewLayoutAttributes]()
-        _collectionViewLayout.register(nib, forDecorationViewOfKind: elementKind)
-    }
-    
     public mutating func add(attributes:UICollectionViewLayoutAttributes) {
         guard let elementKind = attributes.representedElementKind else {
             return
         }
-        _attributes[elementKind]![attributes.indexPath] = attributes
+        if var kindAttributes = _attributes[elementKind] {
+            kindAttributes[attributes.indexPath] = attributes
+            _attributes[elementKind] = kindAttributes
+        } else {
+            _attributes[elementKind] = [attributes.indexPath: attributes]
+        }
     }
     
     public mutating func prepare() {
@@ -58,9 +45,7 @@ public struct DecorationViewsHandler {
             _attributes[elementKind]?.removeAll()
         }
     }
-    
-    
-    
+
     public func attributes(in rect:CGRect) -> [UICollectionViewLayoutAttributes] {
         return _attributes.flatMap { $0.value }.map { $0.value }.filter { $0.frame.intersects(rect) }
     }
@@ -130,7 +115,7 @@ public struct DecorationViewsHandler {
     }
 }
 
-extension DecorationViewsHandler {
+extension SupplementaryViewsHandler {
     func elementKind(for indexPath:IndexPath, in decorationAttributes:DecorationAttributes) -> [String] {
         
         var elementKinds = [String]()

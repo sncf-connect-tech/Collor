@@ -108,8 +108,6 @@
 		F0D3ED6C1F41F6E20087CBD2 /* MenuSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3ED6B1F41F6E20087CBD2 /* MenuSectionDescriptor.swift */; };
 		F0E987801F5FCC50001870F7 /* RealTimeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E9877F1F5FCC50001870F7 /* RealTimeLayout.swift */; };
 		F0ECCA221F6C2A42008B168B /* CollectionSectionDescribableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ECCA211F6C2A42008B168B /* CollectionSectionDescribableTest.swift */; };
-		F0FA1A4322007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FA1A4122007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.swift */; };
-		F0FA1A4422007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0FA1A4222007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,8 +227,6 @@
 		F0D3ED6B1F41F6E20087CBD2 /* MenuSectionDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionDescriptor.swift; sourceTree = "<group>"; };
 		F0E9877F1F5FCC50001870F7 /* RealTimeLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeLayout.swift; sourceTree = "<group>"; };
 		F0ECCA211F6C2A42008B168B /* CollectionSectionDescribableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionSectionDescribableTest.swift; sourceTree = "<group>"; };
-		F0FA1A4122007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorSuppViewCollectionReusableView.swift; sourceTree = "<group>"; };
-		F0FA1A4222007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundColorSuppViewCollectionReusableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,7 +573,6 @@
 			children = (
 				F089D9D01F38725500395056 /* model */,
 				F089D9CA1F38700900395056 /* section */,
-				F0FA1A4022007F270084DCCA /* view */,
 				F089D9C41F386F7000395056 /* RandomViewController.swift */,
 				F089D9C51F386F7000395056 /* RandomViewController.xib */,
 				F089D9C81F386FAA00395056 /* RandomCollectionData.swift */,
@@ -751,15 +746,6 @@
 			name = layout;
 			sourceTree = "<group>";
 		};
-		F0FA1A4022007F270084DCCA /* view */ = {
-			isa = PBXGroup;
-			children = (
-				F0FA1A4122007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.swift */,
-				F0FA1A4222007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.xib */,
-			);
-			name = view;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -852,7 +838,6 @@
 				F043A95F1F612A1900CB895D /* tweets_3.json in Resources */,
 				F0D318DD1EC33F4600A9CBEA /* NoAdaptableCollectionViewCell.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				F0FA1A4422007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.xib in Resources */,
 				F089D9AD1F3861A500395056 /* WeatherDayCollectionViewCell.xib in Resources */,
 				F0C7DE761F6FB51300CB1B9B /* TestDecorationView.xib in Resources */,
 				F07823591F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib in Resources */,
@@ -1007,7 +992,6 @@
 				F0CEDE182200B0CC00817466 /* AlphabetModel.swift in Sources */,
 				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
 				F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */,
-				F0FA1A4322007F5C0084DCCA /* BackgroundColorSuppViewCollectionReusableView.swift in Sources */,
 				F089D9B81F3861A500395056 /* WheaterAdapters.swift in Sources */,
 				F089D9AF1F3861A500395056 /* LabelCollectionViewCell.swift in Sources */,
 				F0530FC61F5DF06D00F2318F /* RealTimeCollectionData.swift in Sources */,

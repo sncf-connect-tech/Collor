@@ -13,8 +13,7 @@ import Collor
 class AlphabetLayout : UICollectionViewFlowLayout {
     
     unowned fileprivate let datas: CollectionData
-    
-    fileprivate var supplementaryAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]()
+    fileprivate lazy var supplementaryViewsHandler = SupplementaryViewsHandler(collectionViewLayout: self)
 
     init(datas: CollectionData) {
         self.datas = datas
@@ -28,6 +27,12 @@ class AlphabetLayout : UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         
+        guard let collectionView = collectionView else {
+            return
+        }
+        
+        supplementaryViewsHandler.prepare()
+        
         for (sectionIndex, sectionDescriptor) in datas.sections.enumerated() {
             
             let firstCellIndexPath = IndexPath(item: 0, section: sectionIndex)
@@ -38,55 +43,27 @@ class AlphabetLayout : UICollectionViewFlowLayout {
                 views.enumerated().forEach { (index, viewDescriptor) in
                     let indexPath = IndexPath(item: index, section: sectionIndex)
                     let a = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: kind, with: indexPath)
-                    a.frame = CGRect(x: 0,
-                                     y: firstCellAttributes.frame.origin.y,
-                                     width: 80,
-                                     height: 80)
+                    a.frame = viewDescriptor.frame(collectionView, sectionDescriptor: sectionDescriptor)
+                    a.frame.origin.y += firstCellAttributes.frame.origin.y
                     dict[indexPath] = a
-                }
-                if let d = supplementaryAttributes[kind] {
-                    let new = d.merging(dict) { (current, _) in current }
-                    supplementaryAttributes[kind] = new
-                } else {
-                    supplementaryAttributes[kind] = dict
+                    
+                    supplementaryViewsHandler.add(attributes: a)
                 }
             }
-            
-//            let firstCellIndexPath = IndexPath(item: 0, section: sectionIndex)
-//            let firstCellAttributes = layoutAttributesForItem(at: firstCellIndexPath)!
-//
-//            let lastCellIndexPath = IndexPath(item: sectionDescriptor.cells.count - 1, section: sectionIndex)
-//            let lastCellAttributes = layoutAttributesForItem(at: lastCellIndexPath)!
-//
-//            let origin = CGPoint(x: 0 + backgroundMargin, y: firstCellAttributes.frame.origin.y - backgroundMargin)
-//            let width = collectionView.bounds.width - backgroundMargin*2
-//            let height = lastCellAttributes.frame.maxY - origin.y + backgroundMargin
-//
-//            // header
-//            let backgroundAttributes = SimpleDecorationViewLayoutAttributes(forDecorationViewOfKind: sectionBackgroundKind, with: firstCellIndexPath)
-//            backgroundAttributes.backgroundColor = UIColor.white
-//            backgroundAttributes.cornerRadius = 4
-//            backgroundAttributes.zIndex = -10
-//            backgroundAttributes.frame = CGRect(x: origin.x,
-//                                                y: origin.y,
-//                                                width: width,
-//                                                height: height)
-//
-//            decorationAttributes[sectionBackgroundKind]![firstCellIndexPath] = backgroundAttributes
         }
         
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         let attributes = super.layoutAttributesForElements(in: rect)
+        let supplementaryAttributes = supplementaryViewsHandler.attributes(in: rect)
         if let attributes = attributes {
-            return attributes
-                + supplementaryAttributes.flatMap { $0.value }.map { $0.value }
+            return attributes + supplementaryAttributes
         }
         return attributes
     }
     
     override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return supplementaryAttributes[elementKind]?[indexPath]
+        return supplementaryViewsHandler.attributes(for: elementKind, at: indexPath)
     }
 }

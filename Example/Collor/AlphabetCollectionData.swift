@@ -17,16 +17,16 @@ final class AlphabetCollectionData : CollectionData {
         super.reloadData()
         
         model.values.forEach { (letter, countries) in
-            let section = AlphabetSectionDescriptorSectionDescriptor().reloadSection { (cells, supplementaryViews) in
+            let section = AlphabetSectionDescriptorSectionDescriptor().reload { builder in
                 countries.forEach { country in
                     let cell = AlphabetDescriptor(adapter: AlphabetAdapter(country: country))
-                    cells.append(cell)
+                    builder.cells.append(cell)
                 }
                 
                 // supplementaryView
                 let letterAdapter = LetterAdapter(letter: letter)
                 let letterDescriptor = LetterCollectionReusableViewDescriptor(adapter: letterAdapter)
-                supplementaryViews["letter"] = [letterDescriptor]
+                builder.add(supplementaryView: letterDescriptor, kind: "letter")
             }
             sections.append(section)
         }

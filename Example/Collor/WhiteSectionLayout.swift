@@ -13,7 +13,6 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
     
     unowned fileprivate let datas: CollectionData
     fileprivate var decorationAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]()
-    fileprivate var supplementaryAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]()
     
     fileprivate let sectionBackgroundKind = "sectionBackground"
     fileprivate let helloKind = "helloKind"
@@ -28,9 +27,7 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
         decorationAttributes[sectionBackgroundKind] = [IndexPath : UICollectionViewLayoutAttributes]()
         
         register(SimpleDecorationView.self, forDecorationViewOfKind: sectionBackgroundKind)
-        
-        let nib = UINib(nibName: "BackgroundColorSuppViewCollectionReusableView", bundle: nil)
-//        register(nib, forDecorationViewOfKind: "hello")
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,22 +44,6 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
         }
         
         for (sectionIndex, sectionDescriptor) in datas.sections.enumerated() {
-            
-            sectionDescriptor.supplementaryViews.forEach { (kind, views) in
-                var dict = [IndexPath : UICollectionViewLayoutAttributes]()
-                views.enumerated().forEach { (index, viewDescriptor) in
-                    let indexPath = IndexPath(item: index, section: sectionIndex)
-                    let a = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: kind, with: indexPath)
-                    a.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-                    dict[indexPath] = a
-                }
-                if let d = supplementaryAttributes[kind] {
-                    let new = d.merging(dict) { (current, _) in current }
-                    supplementaryAttributes[kind] = new
-                } else {
-                    supplementaryAttributes[kind] = dict
-                }
-            }
             
             guard (sectionDescriptor as? SectionDecorable)?.hasBackground == true else {
                 continue
@@ -98,17 +79,12 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
         if let attributes = attributes {
             return attributes
                 + decorationAttributes[sectionBackgroundKind]!.values
-                + supplementaryAttributes.flatMap { $0.value }.map { $0.value }
         }
         return attributes
     }
     
     override func layoutAttributesForDecorationView(ofKind elementKind: String, at atIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return decorationAttributes[elementKind]?[atIndexPath]
-    }
-    
-    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return supplementaryAttributes[elementKind]?[indexPath]
     }
 }
 

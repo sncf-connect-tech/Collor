@@ -26,8 +26,21 @@ public protocol CollectionSectionDescribable : Identifiable {
 }
 
 public typealias SectionBuilderClosure = (inout [CollectionCellDescribable]) -> Void
-public typealias SectionBuilderWithSupplementaryViewsClosure = (inout [CollectionCellDescribable], inout [String: [CollectionSupplementaryViewDescribable]]) -> Void
+public typealias SectionBuilderObjectClosure = (SectionBuilder) -> Void
 
+public class SectionBuilder {
+    public var cells: [CollectionCellDescribable] = []
+    public internal(set) var supplementaryViews: [String:[CollectionSupplementaryViewDescribable]] = [:]
+    
+    public func add(supplementaryView: CollectionSupplementaryViewDescribable, kind: String) {
+        if var viewsForKind = supplementaryViews[kind] {
+            viewsForKind.append(supplementaryView)
+            supplementaryViews[kind] = viewsForKind
+        } else {
+            supplementaryViews[kind] = [supplementaryView]
+        }
+    }
+}
 
 // default implementation CollectionSectionDescribable
 public extension CollectionSectionDescribable {
@@ -38,19 +51,22 @@ public extension CollectionSectionDescribable {
         return layout.minimumLineSpacing
     }
     
-    @discardableResult func reloadSection(_ builder:@escaping SectionBuilderClosure) -> Self {
-        self.builder = builder
+    @discardableResult func reloadSection(_ builderClosure:@escaping (inout [CollectionCellDescribable]) -> Void) -> Self {
+        self.builder = builderClosure
         cells.removeAll()
         supplementaryViews.removeAll()
-        builder(&cells)
+        builderClosure(&cells)
         return self
     }
     
-    @discardableResult func reloadSection(_ builder:@escaping SectionBuilderWithSupplementaryViewsClosure) -> Self {
-        self.builderSupp = builder
+    @discardableResult func reload(_ builder:@escaping (SectionBuilder) -> Void) -> Self {
+        self.builderObject = builder
         cells.removeAll()
         supplementaryViews.removeAll()
-        builder(&cells, &supplementaryViews)
+        let builderObject = SectionBuilder()
+        builder(builderObject)
+        cells = builderObject.cells
+        supplementaryViews = builderObject.supplementaryViews
         return self
     }
 }
@@ -65,14 +81,14 @@ public extension CollectionSectionDescribable {
 }
 
 
-public extension CollectionSectionDescribable {
-    public func add(supplementaryView: CollectionSupplementaryViewDescribable, for kind: String) {
-        supplementaryView.index = cells.indices.last ?? 0
-        var kindSupplementaryViews = supplementaryViews[kind] ?? []
-        kindSupplementaryViews.append(supplementaryView)
-        supplementaryViews[kind] = kindSupplementaryViews
-    }
-}
+//public extension CollectionSectionDescribable {
+//    public func add(supplementaryView: CollectionSupplementaryViewDescribable, for kind: String) {
+//        supplementaryView.index = cells.indices.last ?? 0
+//        var kindSupplementaryViews = supplementaryViews[kind] ?? []
+//        kindSupplementaryViews.append(supplementaryView)
+//        supplementaryViews[kind] = kindSupplementaryViews
+//    }
+//}
 
 extension CollectionSectionDescribable {
     public internal(set) var index: Int? {
@@ -93,12 +109,12 @@ extension CollectionSectionDescribable {
         }
     }
     
-    var builderSupp: SectionBuilderWithSupplementaryViewsClosure? {
+    var builderObject: SectionBuilderObjectClosure? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.SectionBuilderSupp) as? SectionBuilderWithSupplementaryViewsClosure
+            return objc_getAssociatedObject(self, &AssociatedKeys.SectionBuilderSupp) as? SectionBuilderObjectClosure
         }
         set {
-            objc_setAssociatedObject( self, &AssociatedKeys.SectionBuilderSupp, newValue as SectionBuilderWithSupplementaryViewsClosure?, .OBJC_ASSOCIATION_COPY)
+            objc_setAssociatedObject( self, &AssociatedKeys.SectionBuilderSupp, newValue as SectionBuilderObjectClosure?, .OBJC_ASSOCIATION_COPY)
         }
     }
     
