@@ -80,16 +80,6 @@ public extension CollectionSectionDescribable {
     }
 }
 
-
-//public extension CollectionSectionDescribable {
-//    public func add(supplementaryView: CollectionSupplementaryViewDescribable, for kind: String) {
-//        supplementaryView.index = cells.indices.last ?? 0
-//        var kindSupplementaryViews = supplementaryViews[kind] ?? []
-//        kindSupplementaryViews.append(supplementaryView)
-//        supplementaryViews[kind] = kindSupplementaryViews
-//    }
-//}
-
 extension CollectionSectionDescribable {
     public internal(set) var index: Int? {
         get {

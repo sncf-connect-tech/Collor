@@ -24,11 +24,9 @@ final class AlphabetCollectionData : CollectionData {
                 }
                 
                 // supplementaryView
-//                [0,1].forEach { _ in
-                    let letterAdapter = LetterAdapter(letter: letter.key)
-                    let letterDescriptor = LetterCollectionReusableViewDescriptor(adapter: letterAdapter)
-                    builder.add(supplementaryView: letterDescriptor, kind: "letter")
-//                }
+                let letterAdapter = LetterAdapter(letter: letter.key)
+                let letterDescriptor = LetterCollectionReusableViewDescriptor(adapter: letterAdapter)
+                builder.add(supplementaryView: letterDescriptor, kind: "letter")
             }
             sections.append(section)
         }

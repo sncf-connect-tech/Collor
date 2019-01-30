@@ -38,13 +38,16 @@ class AlphabetLayout : UICollectionViewFlowLayout {
             let firstCellIndexPath = IndexPath(item: 0, section: sectionIndex)
             let firstCellAttributes = layoutAttributesForItem(at: firstCellIndexPath)!
             
+            var offset: CGFloat = 0
+            
             sectionDescriptor.supplementaryViews.forEach { (kind, views) in
                 var dict = [IndexPath : UICollectionViewLayoutAttributes]()
                 views.enumerated().forEach { (index, viewDescriptor) in
                     let indexPath = IndexPath(item: index, section: sectionIndex)
                     let a = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: kind, with: indexPath)
                     a.frame = viewDescriptor.frame(collectionView, sectionDescriptor: sectionDescriptor)
-                    a.frame.origin.y += firstCellAttributes.frame.origin.y
+                    a.frame.origin.y += firstCellAttributes.frame.origin.y + offset
+                    offset += 80
                     dict[indexPath] = a
                     
                     supplementaryViewsHandler.add(attributes: a)
