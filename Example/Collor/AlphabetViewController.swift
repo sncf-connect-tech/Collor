@@ -26,7 +26,8 @@ class AlphabetViewController: UIViewController {
         
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AlphabetViewController.add)),
-            UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(AlphabetViewController.reset))
+            UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(AlphabetViewController.reset)),
+            UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(AlphabetViewController.shake))
         ]
     }
     
@@ -37,6 +38,11 @@ class AlphabetViewController: UIViewController {
     
     @objc func add() {
         let updateResult = collectionData.add()
+        collectionView.performUpdates(with: updateResult)
+    }
+    
+    @objc func shake() {
+        let updateResult = collectionData.shake()
         collectionView.performUpdates(with: updateResult)
     }
 }

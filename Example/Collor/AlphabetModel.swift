@@ -57,4 +57,8 @@ class AlphabetModel {
     func reset() {
         values = [AlphabetModel.originalvalues[0]]
     }
+    
+    func shake() {
+        values = values.shuffled()
+    }
 }

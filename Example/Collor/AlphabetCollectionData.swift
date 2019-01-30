@@ -37,6 +37,11 @@ final class AlphabetCollectionData : CollectionData {
         return diff()
     }
     
+    func shake() -> UpdateCollectionResult {
+        model.shake()
+        return diff()
+    }
+    
     func reset() -> UpdateCollectionResult {
         model.reset()
         return diff()

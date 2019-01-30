@@ -100,7 +100,7 @@ public struct SupplementaryViewsHandler {
                     break
                 }
                 elementKind(for: indexPathAfterUpdate, in: _attributes).forEach { kind in
-                    if indexPathAfterUpdate.item == Int.max {
+                    if indexPathAfterUpdate.isSectionOnly {
                         let indexPaths = self.attributes(for: kind, into: self._attributes)
                             .values
                             .filter{ $0.indexPath.section ==  indexPathAfterUpdate.section}
@@ -110,13 +110,13 @@ public struct SupplementaryViewsHandler {
                         _inserted[kind]!.append(indexPathAfterUpdate)
                     }
                 }
-            case .reload, .move: //TODO: if move, try to check if same kind of decorationView doesn't impact the move
+            case .reload, .move: //TODO: if move, try to check if same kind of supplementaryViewsView doesn't impact the move
                 guard let indexPathBeforeUpdate = updateItem.indexPathBeforeUpdate,
                     let indexPathAfterUpdate = updateItem.indexPathAfterUpdate else {
                     break
                 }
                 elementKind(for: indexPathBeforeUpdate, in: _oldAttributes!).forEach { kind in
-                    if indexPathBeforeUpdate.item == Int.max {
+                    if indexPathBeforeUpdate.isSectionOnly {
                         
                         let indexPaths = self.attributes(for: kind, into: self._oldAttributes)
                             .values
@@ -129,7 +129,7 @@ public struct SupplementaryViewsHandler {
                     }
                 }
                 elementKind(for: indexPathAfterUpdate, in: _attributes).forEach { kind in
-                    if indexPathAfterUpdate.item == Int.max {
+                    if indexPathAfterUpdate.isSectionOnly {
                         let indexPaths = self.attributes(for: kind, into: self._attributes)
                             .values
                             .filter{ $0.indexPath.section ==  indexPathAfterUpdate.section}
@@ -155,31 +155,32 @@ public struct SupplementaryViewsHandler {
 }
 
 extension SupplementaryViewsHandler {
-    func elementKind(for indexPath:IndexPath, in decorationAttributes:DecorationAttributes) -> [String] {
+    func elementKind(for indexPath: IndexPath, in supplementaryViewsAttributes: SupplementaryAttributes) -> [String] {
         
-        var elementKinds = [String]()
-        
-        if indexPath.item == Int.max {
-            decorationAttributes.forEach { (elementKind, values) in
-                if values.keys.contains(where: { $0.section == indexPath.section }) {
-                    elementKinds.append(elementKind)
-                }
-            }
+        // section
+        if indexPath.isSectionOnly {
+            return supplementaryViewsAttributes
+                .filter { $0.value.keys.contains(where: { $0.section == indexPath.section }) }
+                .map { $0.key }
+        // item
+        } else {
+            return supplementaryViewsAttributes
+                .filter { $0.value.keys.contains(indexPath) }
+                .map { $0.key }
         }
-        
-        decorationAttributes.forEach { (elementKind, values) in
-            if values.keys.contains(indexPath) {
-                elementKinds.append(elementKind)
-            }
-        }
-        return elementKinds
     }
     
-    func attributes(for elementKind:String, into decorationAttributes:DecorationAttributes?) -> [IndexPath : UICollectionViewLayoutAttributes] {
-        return decorationAttributes?[elementKind] ?? [IndexPath : UICollectionViewLayoutAttributes]()
+    func attributes(for elementKind:String, into supplementaryViewsAttributes: SupplementaryAttributes?) -> [IndexPath : UICollectionViewLayoutAttributes] {
+        return supplementaryViewsAttributes?[elementKind] ?? [IndexPath : UICollectionViewLayoutAttributes]()
     }
     
-    func attributes<T:UICollectionViewLayoutAttributes>(for elementKind:String, at indexPath:IndexPath, into decorationAttributes:DecorationAttributes?) -> T? {
-        return decorationAttributes?[elementKind]?[indexPath] as? T
+    func attributes<T:UICollectionViewLayoutAttributes>(for elementKind:String, at indexPath:IndexPath, into supplementaryViewsAttributes: SupplementaryAttributes?) -> T? {
+        return supplementaryViewsAttributes?[elementKind]?[indexPath] as? T
+    }
+}
+
+extension IndexPath {
+    var isSectionOnly: Bool {
+        return self.item == Int.max
     }
 }
