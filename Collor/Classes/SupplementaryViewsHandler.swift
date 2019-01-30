@@ -31,6 +31,9 @@ public struct SupplementaryViewsHandler {
         guard let elementKind = attributes.representedElementKind else {
             return
         }
+        if !_elementKinds.contains(elementKind) {
+            _elementKinds.append(elementKind)
+        }
         if var kindAttributes = _attributes[elementKind] {
             kindAttributes[attributes.indexPath] = attributes
             _attributes[elementKind] = kindAttributes
@@ -80,14 +83,32 @@ public struct SupplementaryViewsHandler {
                     break
                 }
                 elementKind(for: indexPathBeforeUpdate, in: _oldAttributes!).forEach { kind in
-                    _deleted[kind]!.append(indexPathBeforeUpdate)
+                    if indexPathBeforeUpdate.item == Int.max {
+                        
+                        let indexPaths = self.attributes(for: kind, into: self._oldAttributes)
+                            .values
+                            .filter{ $0.indexPath.section ==  indexPathBeforeUpdate.section}
+                            .map { $0.indexPath }
+                        
+                        _deleted[kind]!.append(contentsOf: indexPaths)
+                    } else {
+                        _deleted[kind]!.append(indexPathBeforeUpdate)
+                    }
                 }
             case .insert:
                 guard let indexPathAfterUpdate = updateItem.indexPathAfterUpdate else {
                     break
                 }
                 elementKind(for: indexPathAfterUpdate, in: _attributes).forEach { kind in
-                    _inserted[kind]!.append(indexPathAfterUpdate)
+                    if indexPathAfterUpdate.item == Int.max {
+                        let indexPaths = self.attributes(for: kind, into: self._attributes)
+                            .values
+                            .filter{ $0.indexPath.section ==  indexPathAfterUpdate.section}
+                            .map { $0.indexPath }
+                        _inserted[kind]!.append(contentsOf: indexPaths)
+                    } else {
+                        _inserted[kind]!.append(indexPathAfterUpdate)
+                    }
                 }
             case .reload, .move: //TODO: if move, try to check if same kind of decorationView doesn't impact the move
                 guard let indexPathBeforeUpdate = updateItem.indexPathBeforeUpdate,
@@ -95,10 +116,28 @@ public struct SupplementaryViewsHandler {
                     break
                 }
                 elementKind(for: indexPathBeforeUpdate, in: _oldAttributes!).forEach { kind in
-                    _deleted[kind]!.append(indexPathBeforeUpdate)
+                    if indexPathBeforeUpdate.item == Int.max {
+                        
+                        let indexPaths = self.attributes(for: kind, into: self._oldAttributes)
+                            .values
+                            .filter{ $0.indexPath.section ==  indexPathBeforeUpdate.section}
+                            .map { $0.indexPath }
+                        
+                        _deleted[kind]!.append(contentsOf: indexPaths)
+                    } else {
+                        _deleted[kind]!.append(indexPathBeforeUpdate)
+                    }
                 }
                 elementKind(for: indexPathAfterUpdate, in: _attributes).forEach { kind in
-                    _inserted[kind]!.append(indexPathAfterUpdate)
+                    if indexPathAfterUpdate.item == Int.max {
+                        let indexPaths = self.attributes(for: kind, into: self._attributes)
+                            .values
+                            .filter{ $0.indexPath.section ==  indexPathAfterUpdate.section}
+                            .map { $0.indexPath }
+                        _inserted[kind]!.append(contentsOf: indexPaths)
+                    } else {
+                        _inserted[kind]!.append(indexPathAfterUpdate)
+                    }
                 }
             default:
                 break
@@ -119,6 +158,14 @@ extension SupplementaryViewsHandler {
     func elementKind(for indexPath:IndexPath, in decorationAttributes:DecorationAttributes) -> [String] {
         
         var elementKinds = [String]()
+        
+        if indexPath.item == Int.max {
+            decorationAttributes.forEach { (elementKind, values) in
+                if values.keys.contains(where: { $0.section == indexPath.section }) {
+                    elementKinds.append(elementKind)
+                }
+            }
+        }
         
         decorationAttributes.forEach { (elementKind, values) in
             if values.keys.contains(indexPath) {

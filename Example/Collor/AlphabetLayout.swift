@@ -66,4 +66,17 @@ class AlphabetLayout : UICollectionViewFlowLayout {
     override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return supplementaryViewsHandler.attributes(for: elementKind, at: indexPath)
     }
+    
+    override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+        super.prepare(forCollectionViewUpdates: updateItems)
+        supplementaryViewsHandler.prepare(forCollectionViewUpdates: updateItems)
+    }
+    
+    override func indexPathsToInsertForSupplementaryView(ofKind elementKind: String) -> [IndexPath] {
+        return supplementaryViewsHandler.inserted(for: elementKind)
+    }
+    
+    override func indexPathsToDeleteForSupplementaryView(ofKind elementKind: String) -> [IndexPath] {
+        return supplementaryViewsHandler.deleted(for: elementKind)
+    }
 }

@@ -23,6 +23,21 @@ class AlphabetViewController: UIViewController {
 
         bind(collectionView: collectionView, with: collectionData, and: collectionViewDelegate, and: collectionViewDatasource)
         collectionView.collectionViewLayout = AlphabetLayout(datas: collectionData)
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AlphabetViewController.add)),
+            UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(AlphabetViewController.reset))
+        ]
+    }
+    
+    @objc func reset() {
+        let updateResult = collectionData.reset()
+        collectionView.performUpdates(with: updateResult)
+    }
+    
+    @objc func add() {
+        let updateResult = collectionData.add()
+        collectionView.performUpdates(with: updateResult)
     }
 }
 

@@ -16,19 +16,37 @@ final class AlphabetCollectionData : CollectionData {
     override func reloadData() {
         super.reloadData()
         
-        model.values.forEach { (letter, countries) in
-            let section = AlphabetSectionDescriptorSectionDescriptor().reload { builder in
-                countries.forEach { country in
-                    let cell = AlphabetDescriptor(adapter: AlphabetAdapter(country: country))
+        model.values.forEach { letter in
+            let section = AlphabetSectionDescriptorSectionDescriptor().uid(letter.key).reload { builder in
+                letter.countries.forEach { country in
+                    let cell = AlphabetDescriptor(adapter: AlphabetAdapter(country: country)).uid(country)
                     builder.cells.append(cell)
                 }
                 
                 // supplementaryView
-                let letterAdapter = LetterAdapter(letter: letter)
-                let letterDescriptor = LetterCollectionReusableViewDescriptor(adapter: letterAdapter)
-                builder.add(supplementaryView: letterDescriptor, kind: "letter")
+//                [0,1].forEach { _ in
+                    let letterAdapter = LetterAdapter(letter: letter.key)
+                    let letterDescriptor = LetterCollectionReusableViewDescriptor(adapter: letterAdapter)
+                    builder.add(supplementaryView: letterDescriptor, kind: "letter")
+//                }
             }
             sections.append(section)
+        }
+    }
+    
+    func add() -> UpdateCollectionResult {
+        model.add()
+        return diff()
+    }
+    
+    func reset() -> UpdateCollectionResult {
+        model.reset()
+        return diff()
+    }
+    
+    func diff() -> UpdateCollectionResult {
+        return update { (updater) in
+            updater.diff()
         }
     }
 }
