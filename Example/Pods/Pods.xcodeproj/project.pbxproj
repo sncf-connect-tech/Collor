@@ -78,9 +78,9 @@
 		EB0DD8CEA1A69867A30267439C970440 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81742667472003DA88E10E59947C4ED7 /* Result.swift */; };
 		ED8BD5DFE445FA42E96F1419B9A429CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E912D2EC299CC88560ADF58E4734A8AD /* Foundation.framework */; };
 		F043D9AC4BA20943367923DEEACAB6C2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C27551CCCFF571EBF767E6E8BB1826A /* Image.swift */; };
-		F0445DDE220064DA007A7D8F /* CollectionSupplementaryViewDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0445DDD220064DA007A7D8F /* CollectionSupplementaryViewDescribable.swift */; };
 		F098E5612199E74AC5E15612A67984A2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68431432DB2E39864DE56842289DC06E /* Alamofire.framework */; };
 		F0CEDE2A22019E0A00817466 /* SupplementaryViewsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE2922019E0A00817466 /* SupplementaryViewsHandler.swift */; };
+		F0CEDE4622049D4E00817466 /* CollectionSupplementaryViewDescribable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE4522049D4E00817466 /* CollectionSupplementaryViewDescribable.swift */; };
 		F488DC4B880473A8FC271815DD686E56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E912D2EC299CC88560ADF58E4734A8AD /* Foundation.framework */; };
 		F853F6FCDDFB099744F56099ACA123DC /* UIButton+AlamofireImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A7AAB6F709972D2F7A9056291E2D40 /* UIButton+AlamofireImage.swift */; };
 		FC34C0AB56C4FF8AA99FC0D639144CBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E912D2EC299CC88560ADF58E4734A8AD /* Foundation.framework */; };
@@ -317,10 +317,10 @@
 		ED74D3BA0B8CA824FA37781754CD6A43 /* CollectionCellAdaptable.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CollectionCellAdaptable.html; path = docs/Protocols/CollectionCellAdaptable.html; sourceTree = "<group>"; };
 		EE0A8E183F509806C90B4B664546FC8F /* Collor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Collor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE56E92515D1F6843A7862E280E04D93 /* Pods-Collor_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Collor_Example-dummy.m"; sourceTree = "<group>"; };
-		F0445DDD220064DA007A7D8F /* CollectionSupplementaryViewDescribable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSupplementaryViewDescribable.swift; sourceTree = "<group>"; };
 		F072E11DC282FE0E4FB4BACD62682BFC /* Pods-Collor_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Collor_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F0B1A4D31259B25E4B4D85B484BA19C3 /* CollectionCellAdaptable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionCellAdaptable.swift; path = Collor/Classes/CollectionCellAdaptable.swift; sourceTree = "<group>"; };
 		F0CEDE2922019E0A00817466 /* SupplementaryViewsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SupplementaryViewsHandler.swift; path = Collor/Classes/SupplementaryViewsHandler.swift; sourceTree = "<group>"; };
+		F0CEDE4522049D4E00817466 /* CollectionSupplementaryViewDescribable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionSupplementaryViewDescribable.swift; path = Collor/Classes/CollectionSupplementaryViewDescribable.swift; sourceTree = "<group>"; };
 		F3F8D13F7BBEF9F7BC35DC9999E66506 /* CollectionUpdater.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = CollectionUpdater.html; path = docs/Classes/CollectionUpdater.html; sourceTree = "<group>"; };
 		F66CB5524630E840183C7BED19E75A48 /* Identifiable.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = Identifiable.html; path = docs/Protocols/Identifiable.html; sourceTree = "<group>"; };
 		F67602B2F345F9821DC06A5833268096 /* CwlDarwinDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlDarwinDefinitions.swift; path = Sources/CwlPreconditionTesting/CwlDarwinDefinitions.swift; sourceTree = "<group>"; };
@@ -661,7 +661,7 @@
 				DFFE57DD3256975E6BFD396275047F84 /* CollectionAdapter.swift */,
 				F0B1A4D31259B25E4B4D85B484BA19C3 /* CollectionCellAdaptable.swift */,
 				9A171700F0E7BE98D101CB9B28066EFA /* CollectionCellDescribable.swift */,
-				F0445DDD220064DA007A7D8F /* CollectionSupplementaryViewDescribable.swift */,
+				F0CEDE4522049D4E00817466 /* CollectionSupplementaryViewDescribable.swift */,
 				CC4DACD8526BD3A837EA6526C68E8234 /* CollectionDatas.swift */,
 				A30EC3B71A6BA4D68B445C7E3ACB2A86 /* CollectionDataSource.swift */,
 				962D7FCAF095FC132294ABA81DEB0876 /* CollectionDelegate.swift */,
@@ -1124,12 +1124,12 @@
 				8BB563DFAD43A7247AA02FAFC316A1AC /* CollectionDataSource.swift in Sources */,
 				36C16D8BA610AD19F47B6F199B0F6740 /* CollectionDelegate.swift in Sources */,
 				9C9250E720F0698211F278D14F426EB1 /* CollectionDidSelectCellDelegate.swift in Sources */,
+				F0CEDE4622049D4E00817466 /* CollectionSupplementaryViewDescribable.swift in Sources */,
 				CBB2074E6633B40F44178E4F0CDB4972 /* CollectionSectionDescriptable.swift in Sources */,
 				C464D2669E42B71C1C37495C6CFC7E29 /* CollectionUpdater+Diff.swift in Sources */,
 				3AB78FC96D889DD9C675999A8EF12DFE /* CollectionUpdater.swift in Sources */,
 				99C91C581E5D87A3241E47B33A6D49C1 /* CollectionUserEventDelegate.swift in Sources */,
 				14DDEB520362FE6578242A6FA73CB00D /* Collor-dummy.m in Sources */,
-				F0445DDE220064DA007A7D8F /* CollectionSupplementaryViewDescribable.swift in Sources */,
 				DA6F2E58DB13CAF26983334EB95BD9EF /* CollorDiff.swift in Sources */,
 				A56656896F5F8DE3A490DCF3A6E698D8 /* DecorationViewsHandler.swift in Sources */,
 				F0CEDE2A22019E0A00817466 /* SupplementaryViewsHandler.swift in Sources */,
