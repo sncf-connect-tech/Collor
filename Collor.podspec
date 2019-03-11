@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Collor'
-  s.version          = '1.1.23'
+  s.version          = '1.1.25'
   s.summary          = 'A MVVM data-oriented framework for UICollectionView.'
   s.homepage         = 'https://github.com/voyages-sncf-technologies/Collor'
   s.screenshots      = 'https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/screenshot.jpg'
@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/_myrddin_'
   s.ios.deployment_target = '8.0'
   s.source_files = 'Collor/Classes/**/*'
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
 end
