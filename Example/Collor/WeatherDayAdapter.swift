@@ -28,8 +28,8 @@ struct WeatherDayAdapter: CollectionAdapter {
         iconURL = URL(string: "https://openweathermap.org/img/w/" + day.weatherIcon + ".png")!
         let dateString = WeatherDayAdapter.dateFormatter.string(from: day.date)
         date = NSAttributedString(string: dateString, attributes: [
-            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18),
-            NSAttributedStringKey.foregroundColor: UIColor.black
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18),
+            NSAttributedString.Key.foregroundColor: UIColor.black
         ])
     }
 

@@ -363,10 +363,10 @@ class DecorationViewHandlerTest: XCTestCase {
 }
 
 class  TestUICollectionViewUpdateItem : UICollectionViewUpdateItem {
-    let _updateAction:UICollectionUpdateAction
+    let _updateAction:UICollectionViewUpdateItem.Action
     let _indexPathAfterUpdate: IndexPath?
     let _indexPathBeforeUpdate: IndexPath?
-    public init(updateAction:UICollectionUpdateAction, indexPathBeforeUpdate:IndexPath?, indexPathAfterUpdate:IndexPath?) {
+    public init(updateAction:UICollectionViewUpdateItem.Action, indexPathBeforeUpdate:IndexPath?, indexPathAfterUpdate:IndexPath?) {
         _updateAction = updateAction
         _indexPathAfterUpdate = indexPathAfterUpdate
         _indexPathBeforeUpdate = indexPathBeforeUpdate
@@ -374,7 +374,7 @@ class  TestUICollectionViewUpdateItem : UICollectionViewUpdateItem {
         super.init()
     }
     
-    override var updateAction: UICollectionUpdateAction {
+    override var updateAction: UICollectionViewUpdateItem.Action {
         return _updateAction
     }
     

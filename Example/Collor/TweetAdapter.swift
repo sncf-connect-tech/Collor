@@ -18,8 +18,8 @@ struct TweetAdapter: CollectionAdapter, Diffable {
     
     init(tweet:Tweet) {
         label = NSAttributedString(string: tweet.text, attributes: [
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18),
-            NSAttributedStringKey.foregroundColor: UIColor.black
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
+            NSAttributedString.Key.foregroundColor: UIColor.black
             ])
         imageURL = URL(string: tweet.userProfileImageURL)!
         backgroundColor = UIColor(rgb: tweet.color)
