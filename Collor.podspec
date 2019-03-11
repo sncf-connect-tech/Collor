@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/_myrddin_'
   s.ios.deployment_target = '8.0'
   s.source_files = 'Collor/Classes/**/*'
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
 end
