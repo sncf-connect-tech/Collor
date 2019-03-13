@@ -265,6 +265,26 @@ class DecorationViewHandlerTest: XCTestCase {
         XCTAssertEqual(handler.deleted(for: kind).first!, indexPath)
     }
     
+    func testPrepareUpdate_Delete_invalid() {
+        // given
+        let kind = "testKind"
+        let indexPath = IndexPath(item: 0, section: 0)
+        var handler = DecorationViewsHandler(collectionViewLayout: controller.collectionView.collectionViewLayout)
+        handler.register(viewClass: TestDecorationView.self, for: kind)
+        let attributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: kind, with: indexPath)
+        handler.add(attributes: attributes)
+        handler.prepare()
+        
+        // when
+        let updateItem = TestUICollectionViewUpdateItem(updateAction: .delete, indexPathBeforeUpdate: nil, indexPathAfterUpdate: nil)
+        let updateItems = [ updateItem ]
+        handler.prepare(forCollectionViewUpdates: updateItems)
+        
+        // then
+        XCTAssertTrue(handler.inserted(for: kind).isEmpty)
+        XCTAssertTrue(handler.deleted(for: kind).isEmpty)
+    }
+    
     func testPrepareUpdate_Insert() {
         // given
         let kind = "testKind"
@@ -284,6 +304,26 @@ class DecorationViewHandlerTest: XCTestCase {
         XCTAssertTrue(handler.deleted(for: kind).isEmpty)
         XCTAssertEqual(handler.inserted(for: kind).count, 1)
         XCTAssertEqual(handler.inserted(for: kind).first!, indexPath)
+    }
+    
+    func testPrepareUpdate_Insert_invalid() {
+        // given
+        let kind = "testKind"
+        let indexPath = IndexPath(item: 1, section: 0)
+        var handler = DecorationViewsHandler(collectionViewLayout: controller.collectionView.collectionViewLayout)
+        handler.register(viewClass: TestDecorationView.self, for: kind)
+        handler.prepare()
+        let attributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: kind, with: indexPath)
+        handler.add(attributes: attributes)
+        
+        // when
+        let updateItem = TestUICollectionViewUpdateItem(updateAction: .insert, indexPathBeforeUpdate: nil, indexPathAfterUpdate: nil)
+        let updateItems = [ updateItem ]
+        handler.prepare(forCollectionViewUpdates: updateItems)
+        
+        // then
+        XCTAssertTrue(handler.deleted(for: kind).isEmpty)
+        XCTAssertTrue(handler.inserted(for: kind).isEmpty)
     }
     
     func testPrepareUpdate_Reload() {
@@ -331,6 +371,29 @@ class DecorationViewHandlerTest: XCTestCase {
         XCTAssertTrue(handler.inserted(for: kind).isEmpty)
     }
     
+    func testPrepareUpdate_Move_invalid() {
+        // given
+        let indexPath = IndexPath(item: 0, section: 0)
+        let newindexPath = IndexPath(item: 1, section: 0)
+        let kind = "testKind"
+        var handler = DecorationViewsHandler(collectionViewLayout: controller.collectionView.collectionViewLayout)
+        handler.register(viewClass: TestDecorationView.self, for: kind)
+        let attributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: kind, with: indexPath)
+        handler.add(attributes: attributes)
+        handler.prepare()
+        let newAttributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: kind, with: newindexPath)
+        handler.add(attributes: newAttributes)
+        
+        // when
+        let updateItem = TestUICollectionViewUpdateItem(updateAction: .move, indexPathBeforeUpdate: nil, indexPathAfterUpdate: newindexPath)
+        let updateItems = [ updateItem ]
+        handler.prepare(forCollectionViewUpdates: updateItems)
+        
+        // then
+        XCTAssertTrue(handler.deleted(for: kind).isEmpty)
+        XCTAssertTrue(handler.inserted(for: kind).isEmpty)
+    }
+    
     func testPrepareUpdate_None() {
         // given
         let kind = "testKind"
@@ -339,7 +402,8 @@ class DecorationViewHandlerTest: XCTestCase {
         handler.prepare()
         
         // when
-        let updateItems = [TestUICollectionViewUpdateItem]()
+        let updateItem = TestUICollectionViewUpdateItem(updateAction: .none, indexPathBeforeUpdate: nil, indexPathAfterUpdate: nil)
+        let updateItems = [ updateItem ]
         handler.prepare(forCollectionViewUpdates: updateItems)
         
         // then

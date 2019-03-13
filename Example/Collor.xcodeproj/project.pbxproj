@@ -16,6 +16,11 @@
 		C251BD9E2165AC3E002DBA69 /* NiblessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */; };
 		F01A440B205FE483001BB25E /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */; };
 		F01A440C205FE4AD001BB25E /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */; };
+		F02F6BAF22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BAE22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift */; };
+		F02F6BB32238ED1700C0D9D6 /* IndexPathTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BB22238ED1700C0D9D6 /* IndexPathTest.swift */; };
+		F02F6BB722391BB000C0D9D6 /* TestReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */; };
+		F02F6BB822391BB000C0D9D6 /* TestReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02F6BB622391BB000C0D9D6 /* TestReusableView.xib */; };
+		F02F6BBB22393F2200C0D9D6 /* TestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BBA22393F2200C0D9D6 /* TestLayout.swift */; };
 		F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A9571F61234200CB895D /* RealTimeStyle.swift */; };
 		F043A95B1F6124FB00CB895D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A95A1F6124FB00CB895D /* Colors.swift */; };
 		F043A95F1F612A1900CB895D /* tweets_3.json in Resources */ = {isa = PBXBuildFile; fileRef = F043A95C1F612A1800CB895D /* tweets_3.json */; };
@@ -139,6 +144,11 @@
 		C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessCollectionViewCell.swift; sourceTree = "<group>"; };
 		C28F175CBC84A17630BED1A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02F6BAE22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplementaryViewsHandlerTest.swift; sourceTree = "<group>"; };
+		F02F6BB22238ED1700C0D9D6 /* IndexPathTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPathTest.swift; sourceTree = "<group>"; };
+		F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReusableView.swift; sourceTree = "<group>"; };
+		F02F6BB622391BB000C0D9D6 /* TestReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestReusableView.xib; sourceTree = "<group>"; };
+		F02F6BBA22393F2200C0D9D6 /* TestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLayout.swift; sourceTree = "<group>"; };
 		F043A9571F61234200CB895D /* RealTimeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeStyle.swift; sourceTree = "<group>"; };
 		F043A95A1F6124FB00CB895D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F043A95C1F612A1800CB895D /* tweets_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweets_3.json; sourceTree = "<group>"; };
@@ -312,6 +322,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				F02F6BB922393F1900C0D9D6 /* layout */,
+				F02F6BB422391B7900C0D9D6 /* view */,
 				F0C7DE711F6FB4C900CB1B9B /* decoration */,
 				F0D318E41EC48D0B00A9CBEA /* controller */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -327,6 +339,8 @@
 				F085272B1F6C239600A3EBC9 /* CollectionExtensionTest.swift */,
 				F0ECCA211F6C2A42008B168B /* CollectionSectionDescribableTest.swift */,
 				F0C7DE6D1F6FB19300CB1B9B /* DecorationViewsHandlerTest.swift */,
+				F02F6BAE22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift */,
+				F02F6BB22238ED1700C0D9D6 /* IndexPathTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -368,6 +382,23 @@
 				F0D3ED591F41E8340087CBD2 /* MenuViewController.xib */,
 			);
 			name = "Menu Sample";
+			sourceTree = "<group>";
+		};
+		F02F6BB422391B7900C0D9D6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */,
+				F02F6BB622391BB000C0D9D6 /* TestReusableView.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		F02F6BB922393F1900C0D9D6 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				F02F6BBA22393F2200C0D9D6 /* TestLayout.swift */,
+			);
+			name = layout;
 			sourceTree = "<group>";
 		};
 		F0530FC21F5DF05000F2318F /* RealTime Sample */ = {
@@ -871,6 +902,7 @@
 				F0C7DE781F6FB53100CB1B9B /* TestDecorationView.xib in Resources */,
 				F0C7DE791F6FB53300CB1B9B /* TestViewController.xib in Resources */,
 				F01A440C205FE4AD001BB25E /* TestCollectionViewCell.xib in Resources */,
+				F02F6BB822391BB000C0D9D6 /* TestReusableView.xib in Resources */,
 				F0D318DB1EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1029,14 +1061,18 @@
 				F05946121EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift in Sources */,
 				F0C7DE751F6FB51300CB1B9B /* TestDecorationView.swift in Sources */,
 				F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */,
+				F02F6BB722391BB000C0D9D6 /* TestReusableView.swift in Sources */,
 				F089D98B1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift in Sources */,
 				F0C7DE6E1F6FB19300CB1B9B /* DecorationViewsHandlerTest.swift in Sources */,
 				F06AA57D1F66E1F70022B371 /* CollorDiffTest.swift in Sources */,
 				F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */,
+				F02F6BB32238ED1700C0D9D6 /* IndexPathTest.swift in Sources */,
+				F02F6BAF22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift in Sources */,
 				F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */,
 				F0D318E31EC46AA300A9CBEA /* CollectionViewTest.swift in Sources */,
 				F0ECCA221F6C2A42008B168B /* CollectionSectionDescribableTest.swift in Sources */,
 				F0D318DF1EC3422000A9CBEA /* CollectionDelegateTest.swift in Sources */,
+				F02F6BBB22393F2200C0D9D6 /* TestLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,7 +1153,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1166,7 +1202,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

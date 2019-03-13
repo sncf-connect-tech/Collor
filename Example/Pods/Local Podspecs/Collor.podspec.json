@@ -17,7 +17,7 @@
   },
   "social_media_url": "https://twitter.com/_myrddin_",
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
   "source_files": "Collor/Classes/**/*",
   "swift_version": "4.2"

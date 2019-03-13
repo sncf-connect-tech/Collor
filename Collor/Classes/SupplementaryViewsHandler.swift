@@ -28,7 +28,8 @@ public struct SupplementaryViewsHandler {
     }
     
     public mutating func add(attributes:UICollectionViewLayoutAttributes) {
-        guard let elementKind = attributes.representedElementKind else {
+        guard let elementKind = attributes.representedElementKind, attributes.representedElementCategory == .supplementaryView else {
+            print("Attribute.representedElementCategory is not  .supplementaryView")
             return
         }
         if !_elementKinds.contains(elementKind) {
@@ -139,7 +140,7 @@ public struct SupplementaryViewsHandler {
                         _inserted[kind]!.append(indexPathAfterUpdate)
                     }
                 }
-            default:
+            case .none:
                 break
             }
         }
