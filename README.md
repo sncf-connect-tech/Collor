@@ -37,6 +37,7 @@ Here is the list of all the features:
 ## Getting started
 - A [medium article](https://medium.com/p/b55e73d81a59/) which explains the purpose and how to use Collor.
 - Another [medium article](https://medium.com/p/8f37064de388/) to understand the diffing feature.
+- [How to create your own API above UICollectionView with Collor](https://medium.com/@_myrddin_/create-your-own-uicollectionview-api-d13aea5ae642)
 
 ## Example
 
@@ -47,7 +48,7 @@ There are 4 examples:
 - Weather : Diffing sections + custom layout
 - Pantone : Adding and remove items using CollectionDatas.
 - RealTime : Complex diffing (insert, delete, reload) + custom layout handling with `DecorationViewHandler`.
-- Alphabet : An example with a `supplementaryView + custom layout handling with `SupplementaryViewsHandler`.
+- Alphabet : An example with a `supplementaryView` + custom layout handling with `SupplementaryViewsHandler`.
 
 ## Usage
 
