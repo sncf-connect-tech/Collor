@@ -23,6 +23,7 @@ open class CollectionData {
     //MARK: Internal
     
     var registeredCells = Set<String>()
+    var registeredSupplementaryViews = Set<String>()
     
     public func sectionsCount() -> Int {
         return sections.count
@@ -48,6 +49,11 @@ open class CollectionData {
         for (itemIndex, cell) in section.cells.enumerated() {
             cell.indexPath = IndexPath(item: itemIndex, section: section.index!)
         }
+        section.supplementaryViews.forEach { (kind, views) in
+            views.enumerated().forEach { (index, view) in
+                view.indexPath = IndexPath(item: index, section: section.index!)
+            }
+        }
     }
 
     
@@ -68,6 +74,9 @@ public extension CollectionData {
     }
     public func cellDescribable(at indexPath: IndexPath) -> CollectionCellDescribable? {
         return sections[safe: indexPath.section]?.cells[indexPath.item]
+    }
+    public func supplementaryViewDescribable(at indexPath: IndexPath, for kind: String) -> CollectionSupplementaryViewDescribable? {
+        return sections[safe: indexPath.section]?.supplementaryViews[kind]?[indexPath.item]
     }
 }
 

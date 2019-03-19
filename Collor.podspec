@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Gwenn Guihal' => 'gguihal@oui.sncf' }
   s.source           = { :git => 'https://github.com/voyages-sncf-technologies/Collor.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/_myrddin_'
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
   s.source_files = 'Collor/Classes/**/*'
   s.swift_version = '4.2'
 end

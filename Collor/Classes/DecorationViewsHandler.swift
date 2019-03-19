@@ -17,7 +17,7 @@ public struct DecorationViewsHandler {
     unowned let _collectionViewLayout: UICollectionViewLayout
     var _elementKinds = [String]()
     var _attributes = DecorationAttributes()
-    var _oldAttributes:DecorationAttributes?
+    var _oldAttributes: DecorationAttributes?
     
     // update
     var _inserted = [String : [IndexPath]]()
@@ -46,7 +46,7 @@ public struct DecorationViewsHandler {
     }
     
     public mutating func add(attributes:UICollectionViewLayoutAttributes) {
-        guard let elementKind = attributes.representedElementKind else {
+        guard let elementKind = attributes.representedElementKind, attributes.representedElementCategory == .decorationView else {
             return
         }
         _attributes[elementKind]![attributes.indexPath] = attributes
@@ -115,7 +115,7 @@ public struct DecorationViewsHandler {
                 elementKind(for: indexPathAfterUpdate, in: _attributes).forEach { kind in
                     _inserted[kind]!.append(indexPathAfterUpdate)
                 }
-            default:
+            case .none:
                 break
             }
         }

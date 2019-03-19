@@ -27,7 +27,7 @@ class PerformUpdatesTest: XCTestCase {
         
         controller.expectation = expectation(description: "testPerformUpdates")
         
-        XCTAssertEqual(self.controller.collectionView.dataSource?.numberOfSections!(in: self.controller.collectionView), 2)
+        XCTAssertEqual(self.controller.collectionView.dataSource?.numberOfSections!(in: self.controller.collectionView), 3)
         XCTAssertEqual(self.controller.collectionView.dataSource?.collectionView(self.controller.collectionView, numberOfItemsInSection: 0), 3)
         XCTAssertEqual(self.controller.collectionView.dataSource?.collectionView(self.controller.collectionView, numberOfItemsInSection: 1), 3)
 
@@ -35,7 +35,7 @@ class PerformUpdatesTest: XCTestCase {
         waitForExpectations(timeout: 3.0) { (error) in
             XCTAssertNil(error)
             // append section
-            XCTAssertEqual(self.controller.collectionView.dataSource?.numberOfSections!(in: self.controller.collectionView), 3)
+            XCTAssertEqual(self.controller.collectionView.dataSource?.numberOfSections!(in: self.controller.collectionView), 4)
             // append 2 cells in section 0
             XCTAssertEqual(self.controller.collectionView.dataSource?.collectionView(self.controller.collectionView, numberOfItemsInSection: 0), 5)
             // remove 1 cells in section 1
