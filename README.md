@@ -176,6 +176,8 @@ You get a readable data which represents your UICollectionView, without code dup
 To add a supplementaryView, instead of using `CollectionSectionDescribable.reloadSection(:)`, call `CollectionSectionDescribable.reload(:)`.
 The `builder` passed as parameter exposes new method to add a `supplementaryView` easily.
 
+<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/alphabet.gif" alt="Collor Alphabet Sample"></p>
+
 ```swift
 let section = MySectionDescriptor().reload { builder in
     let letterAdapter = LetterAdapter(letter: "A")
