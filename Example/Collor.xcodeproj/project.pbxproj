@@ -916,7 +916,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Collor_Example/Pods-Collor_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Collor_Example/Pods-Collor_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Collor/Collor.framework",
@@ -929,7 +929,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Collor_Example/Pods-Collor_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Collor_Example/Pods-Collor_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		41B1503A355719D86F7CDCE4 /* [CP] Check Pods Manifest.lock */ = {
@@ -956,7 +956,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CwlCatchException/CwlCatchException.framework",
 				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting/CwlPreconditionTesting.framework",
 			);
@@ -967,7 +967,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FFF01212103F51BCCB943BD6 /* [CP] Check Pods Manifest.lock */ = {
