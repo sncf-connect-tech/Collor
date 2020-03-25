@@ -374,4 +374,29 @@ class CollectionUpdaterTest: XCTestCase {
         
         XCTAssertEqual(data.sections[1].cells[0].indexPath, IndexPath(item: 0, section: 1))
     }
+    
+    func testReloadSections_withSupplementaryView() {
+        // given
+        let section = data.sections[2]
+        
+        // when
+        let result = data.update { updater in
+            updater.reload(sections: [section])
+        }
+        
+        // then
+        XCTAssertTrue(result.insertedSectionDescriptors.isEmpty)
+        XCTAssertTrue(result.insertedSectionsIndexSet.isEmpty)
+        XCTAssertTrue(result.deletedSectionDescriptors.isEmpty)
+        XCTAssertTrue(result.deletedSectionsIndexSet.isEmpty)
+        
+        XCTAssertEqual(result.reloadedSectionDescriptors.count, 1)
+        XCTAssertTrue(result.reloadedSectionDescriptors[0] === section)
+        XCTAssertEqual(result.reloadedSectionsIndexSet, IndexSet(integer: 2))
+//        
+        XCTAssertEqual(data.sections[2].cells[0].indexPath, IndexPath(item: 0, section: 2))
+//        
+        XCTAssertEqual(data.sections[2].cells.count, 1)
+        XCTAssertEqual(data.sections[2].supplementaryViews.count, 1)
+    }
 }
