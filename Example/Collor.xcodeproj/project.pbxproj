@@ -272,7 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for Collor */,
+				DF0014BC2464A68600012172 /* Collor */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				7CC93763F3C039BE532DED2B /* Pods */,
@@ -287,34 +287,6 @@
 				607FACE51AFB9204008FA782 /* Collor_Tests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		607FACD21AFB9204008FA782 /* Example for Collor */ = {
-			isa = PBXGroup;
-			children = (
-				F0CEDE0F2200B06A00817466 /* Alphabet */,
-				F089D9CC1F38711900395056 /* Common */,
-				F011A0B91F41CBE6007F9FEB /* Menu Sample */,
-				F0530FC21F5DF05000F2318F /* RealTime Sample */,
-				F0577CBA1F39C4990051BD18 /* Pantone Sample */,
-				F089D9C31F386F5000395056 /* Random Sample */,
-				F089D9981F38617900395056 /* Weather Sample */,
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
-				607FACD31AFB9204008FA782 /* Supporting Files */,
-			);
-			name = "Example for Collor";
-			path = Collor;
-			sourceTree = "<group>";
-		};
-		607FACD31AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACD41AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		607FACE81AFB9204008FA782 /* Tests */ = {
@@ -372,16 +344,365 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F011A0B91F41CBE6007F9FEB /* Menu Sample */ = {
+		DF0014BC2464A68600012172 /* Collor */ = {
 			isa = PBXGroup;
 			children = (
-				F0D3ED641F41F5D70087CBD2 /* cell */,
-				F0D3ED631F41F5D10087CBD2 /* section */,
+				607FACD41AFB9204008FA782 /* Info.plist */,
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				DF0014BD2464A6A200012172 /* Alphabet */,
+				DF0014C32464A74400012172 /* Common */,
+				DF0014C82464A7BF00012172 /* MenuSample */,
+				DF0014CB2464A81000012172 /* RealTimeSample */,
+				DF0014D62464A8C300012172 /* PantoneSample */,
+				DF0014D72464A8D000012172 /* RandomSample */,
+				DF0014D82464A8DB00012172 /* WeatherSample */,
+			);
+			path = Collor;
+			sourceTree = "<group>";
+		};
+		DF0014BD2464A6A200012172 /* Alphabet */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014BE2464A6AF00012172 /* layout */,
+				DF0014BF2464A6B500012172 /* view */,
+				DF0014C02464A6C300012172 /* cell */,
+				DF0014C12464A6D100012172 /* section */,
+				DF0014C22464A6D700012172 /* model */,
+				F0CEDE102200B09B00817466 /* AlphabetCollectionData.swift */,
+				F0CEDE112200B09B00817466 /* AlphabetViewController.xib */,
+				F0CEDE122200B09B00817466 /* AlphabetViewController.swift */,
+			);
+			path = Alphabet;
+			sourceTree = "<group>";
+		};
+		DF0014BE2464A6AF00012172 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE272200B67700817466 /* AlphabetLayout.swift */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		DF0014BF2464A6B500012172 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE222200B4C900817466 /* LetterCollectionReusableView.swift */,
+				F0CEDE232200B4C900817466 /* LetterCollectionReusableView.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		DF0014C02464A6C300012172 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE1D2200B2DC00817466 /* AlphabetCollectionViewCell.swift */,
+				F0CEDE1E2200B2DC00817466 /* AlphabetCollectionViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DF0014C12464A6D100012172 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE1A2200B27700817466 /* AlphabetSectionDescriptor.swift */,
+			);
+			path = section;
+			sourceTree = "<group>";
+		};
+		DF0014C22464A6D700012172 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE172200B0CC00817466 /* AlphabetModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DF0014C32464A74400012172 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014C42464A75200012172 /* layout */,
+				DF0014C52464A76000012172 /* cell */,
+				F043A95A1F6124FB00CB895D /* Colors.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		DF0014C42464A75200012172 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				F089D99D1F3861A500395056 /* SimpleDecorationView.swift */,
+				F089D9A81F3861A500395056 /* WhiteSectionLayout.swift */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		DF0014C52464A76000012172 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014C62464A77800012172 /* title */,
+				DF0014C72464A77E00012172 /* label */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DF0014C62464A77800012172 /* title */ = {
+			isa = PBXGroup;
+			children = (
+				F089D9A31F3861A500395056 /* TitleCollectionViewCell.swift */,
+				F089D9A41F3861A500395056 /* TitleCollectionViewCell.xib */,
+			);
+			path = title;
+			sourceTree = "<group>";
+		};
+		DF0014C72464A77E00012172 /* label */ = {
+			isa = PBXGroup;
+			children = (
+				F089D99E1F3861A500395056 /* LabelCollectionViewCell.swift */,
+				F089D99F1F3861A500395056 /* LabelCollectionViewCell.xib */,
+			);
+			path = label;
+			sourceTree = "<group>";
+		};
+		DF0014C82464A7BF00012172 /* MenuSample */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014C92464A7CF00012172 /* cell */,
+				DF0014CA2464A7D800012172 /* section */,
 				F0D3ED571F41E8340087CBD2 /* MenuCollectionData.swift */,
 				F0D3ED581F41E8340087CBD2 /* MenuViewController.swift */,
 				F0D3ED591F41E8340087CBD2 /* MenuViewController.xib */,
 			);
-			name = "Menu Sample";
+			path = MenuSample;
+			sourceTree = "<group>";
+		};
+		DF0014C92464A7CF00012172 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F0D3ED651F41F5EA0087CBD2 /* MenuItemAdapter.swift */,
+				F0D3ED661F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift */,
+				F0D3ED671F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DF0014CA2464A7D800012172 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F0D3ED6B1F41F6E20087CBD2 /* MenuSectionDescriptor.swift */,
+			);
+			path = section;
+			sourceTree = "<group>";
+		};
+		DF0014CB2464A81000012172 /* RealTimeSample */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014D32464A85800012172 /* layout */,
+				DF0014D22464A85400012172 /* cell */,
+				DF0014D12464A84C00012172 /* section */,
+				DF0014D02464A84500012172 /* model */,
+				DF0014CF2464A84100012172 /* json */,
+				DF0014CE2464A83B00012172 /* service */,
+				F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */,
+				F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */,
+				F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */,
+				F078235A1F5E812B00FE9CC0 /* RealTimeAdapters.swift */,
+				F043A9571F61234200CB895D /* RealTimeStyle.swift */,
+			);
+			path = RealTimeSample;
+			sourceTree = "<group>";
+		};
+		DF0014CE2464A83B00012172 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				F0530FCA1F5DF21800F2318F /* RealTimeService.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		DF0014CF2464A84100012172 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				F0530FCD1F5DF28100F2318F /* tweets_0.json */,
+				F0530FCE1F5DF28100F2318F /* tweets_1.json */,
+				F0530FCF1F5DF28100F2318F /* tweets_2.json */,
+				F043A95C1F612A1800CB895D /* tweets_3.json */,
+				F043A95D1F612A1900CB895D /* tweets_4.json */,
+				F043A95E1F612A1900CB895D /* tweets_5.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		DF0014D02464A84500012172 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F07823481F5DF78200FE9CC0 /* RealTimeModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DF0014D12464A84C00012172 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F078234C1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift */,
+			);
+			path = section;
+			sourceTree = "<group>";
+		};
+		DF0014D22464A85400012172 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014D52464A87700012172 /* tweet */,
+				DF0014D42464A87200012172 /* info */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DF0014D32464A85800012172 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				F0E9877F1F5FCC50001870F7 /* RealTimeLayout.swift */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		DF0014D42464A87200012172 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				F07823551F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift */,
+				F07823561F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib */,
+			);
+			path = info;
+			sourceTree = "<group>";
+		};
+		DF0014D52464A87700012172 /* tweet */ = {
+			isa = PBXGroup;
+			children = (
+				F078234E1F5E7D5700FE9CC0 /* TweetAdapter.swift */,
+				F078234F1F5E7D5700FE9CC0 /* TweetCollectionViewCell.swift */,
+				F07823501F5E7D5700FE9CC0 /* TweetCollectionViewCell.xib */,
+			);
+			path = tweet;
+			sourceTree = "<group>";
+		};
+		DF0014D62464A8C300012172 /* PantoneSample */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014DB2464A8F700012172 /* section */,
+				DF0014DA2464A8F100012172 /* cell */,
+				DF0014D92464A8EC00012172 /* model */,
+				F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */,
+				F0577CC21F39E6E90051BD18 /* PantoneCollectionData.swift */,
+				F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */,
+			);
+			path = PantoneSample;
+			sourceTree = "<group>";
+		};
+		DF0014D72464A8D000012172 /* RandomSample */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014DD2464A92F00012172 /* model */,
+				DF0014DC2464A92600012172 /* section */,
+				F089D9C41F386F7000395056 /* RandomViewController.swift */,
+				F089D9C51F386F7000395056 /* RandomViewController.xib */,
+				F089D9C81F386FAA00395056 /* RandomCollectionData.swift */,
+				F089D9D31F38740500395056 /* RandomAdapters.swift */,
+			);
+			path = RandomSample;
+			sourceTree = "<group>";
+		};
+		DF0014D82464A8DB00012172 /* WeatherSample */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014E12464A95F00012172 /* service */,
+				DF0014E02464A95A00012172 /* model */,
+				DF0014DF2464A95300012172 /* section */,
+				DF0014DE2464A94C00012172 /* cell */,
+				F089D9A51F3861A500395056 /* WeatherViewController.swift */,
+				F089D9A61F3861A500395056 /* WeatherViewController.xib */,
+				F089D9991F3861A500395056 /* WeatherCollectionData.swift */,
+				F089D9A71F3861A500395056 /* WheaterAdapters.swift */,
+				F089D9A21F3861A500395056 /* WeatherStyle.swift */,
+			);
+			path = WeatherSample;
+			sourceTree = "<group>";
+		};
+		DF0014D92464A8EC00012172 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DF0014DA2464A8F100012172 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F0577CC81F39EA420051BD18 /* PantoneColorAdapter.swift */,
+				F0577CC91F39EA420051BD18 /* PantoneColorCollectionViewCell.swift */,
+				F0577CCA1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DF0014DB2464A8F700012172 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F0577CC61F39E9FA0051BD18 /* PantoneSectionDescriptor.swift */,
+			);
+			path = section;
+			sourceTree = "<group>";
+		};
+		DF0014DC2464A92600012172 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F089D9CE1F38717800395056 /* RandomSectionDescriptor.swift */,
+			);
+			path = section;
+			sourceTree = "<group>";
+		};
+		DF0014DD2464A92F00012172 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F089D9D11F38726500395056 /* Crew.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DF0014DE2464A94C00012172 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F089D99B1F3861A500395056 /* WeatherDayCollectionViewCell.swift */,
+				F089D99C1F3861A500395056 /* WeatherDayCollectionViewCell.xib */,
+				F089D99A1F3861A500395056 /* WeatherDayAdapter.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DF0014DF2464A95300012172 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F089D9A11F3861A500395056 /* WeatherSectionDescriptor.swift */,
+			);
+			path = section;
+			sourceTree = "<group>";
+		};
+		DF0014E02464A95A00012172 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F089D9A01F3861A500395056 /* WeatherModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DF0014E12464A95F00012172 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				F089D9A91F3861A500395056 /* WheatherService.swift */,
+			);
+			path = service;
 			sourceTree = "<group>";
 		};
 		F02F6BB422391B7900C0D9D6 /* view */ = {
@@ -401,252 +722,6 @@
 			name = layout;
 			sourceTree = "<group>";
 		};
-		F0530FC21F5DF05000F2318F /* RealTime Sample */ = {
-			isa = PBXGroup;
-			children = (
-				F0E9877E1F5FCC29001870F7 /* layout */,
-				F078234B1F5E7CEA00FE9CC0 /* cell */,
-				F078234A1F5E7CE400FE9CC0 /* section */,
-				F07823471F5DF77500FE9CC0 /* model */,
-				F0530FCC1F5DF26C00F2318F /* json */,
-				F0530FC91F5DF1F700F2318F /* service */,
-				F0530FC31F5DF06D00F2318F /* RealTimeCollectionData.swift */,
-				F0530FC41F5DF06D00F2318F /* RealTimeViewController.swift */,
-				F0530FC51F5DF06D00F2318F /* RealTimeViewController.xib */,
-				F078235A1F5E812B00FE9CC0 /* RealTimeAdapters.swift */,
-				F043A9571F61234200CB895D /* RealTimeStyle.swift */,
-			);
-			name = "RealTime Sample";
-			sourceTree = "<group>";
-		};
-		F0530FC91F5DF1F700F2318F /* service */ = {
-			isa = PBXGroup;
-			children = (
-				F0530FCA1F5DF21800F2318F /* RealTimeService.swift */,
-			);
-			name = service;
-			sourceTree = "<group>";
-		};
-		F0530FCC1F5DF26C00F2318F /* json */ = {
-			isa = PBXGroup;
-			children = (
-				F0530FCD1F5DF28100F2318F /* tweets_0.json */,
-				F0530FCE1F5DF28100F2318F /* tweets_1.json */,
-				F0530FCF1F5DF28100F2318F /* tweets_2.json */,
-				F043A95C1F612A1800CB895D /* tweets_3.json */,
-				F043A95D1F612A1900CB895D /* tweets_4.json */,
-				F043A95E1F612A1900CB895D /* tweets_5.json */,
-			);
-			name = json;
-			sourceTree = "<group>";
-		};
-		F0577CBA1F39C4990051BD18 /* Pantone Sample */ = {
-			isa = PBXGroup;
-			children = (
-				F0577CC41F39E9D90051BD18 /* section */,
-				F0577CC51F39E9DF0051BD18 /* cell */,
-				F0577CBB1F39C67B0051BD18 /* model */,
-				F0577CBE1F39E6870051BD18 /* PantoneViewController.swift */,
-				F0577CC21F39E6E90051BD18 /* PantoneCollectionData.swift */,
-				F0577CBF1F39E6870051BD18 /* PantoneViewController.xib */,
-			);
-			name = "Pantone Sample";
-			sourceTree = "<group>";
-		};
-		F0577CBB1F39C67B0051BD18 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				F0577CBC1F39C6910051BD18 /* MetallicPantone.swift */,
-			);
-			name = model;
-			sourceTree = "<group>";
-		};
-		F0577CC41F39E9D90051BD18 /* section */ = {
-			isa = PBXGroup;
-			children = (
-				F0577CC61F39E9FA0051BD18 /* PantoneSectionDescriptor.swift */,
-			);
-			name = section;
-			sourceTree = "<group>";
-		};
-		F0577CC51F39E9DF0051BD18 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F0577CC81F39EA420051BD18 /* PantoneColorAdapter.swift */,
-				F0577CC91F39EA420051BD18 /* PantoneColorCollectionViewCell.swift */,
-				F0577CCA1F39EA420051BD18 /* PantoneColorCollectionViewCell.xib */,
-			);
-			name = cell;
-			sourceTree = "<group>";
-		};
-		F07823471F5DF77500FE9CC0 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				F07823481F5DF78200FE9CC0 /* RealTimeModel.swift */,
-			);
-			name = model;
-			sourceTree = "<group>";
-		};
-		F078234A1F5E7CE400FE9CC0 /* section */ = {
-			isa = PBXGroup;
-			children = (
-				F078234C1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift */,
-			);
-			name = section;
-			sourceTree = "<group>";
-		};
-		F078234B1F5E7CEA00FE9CC0 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F078235D1F5E821300FE9CC0 /* tweet */,
-				F078235C1F5E820C00FE9CC0 /* info */,
-			);
-			name = cell;
-			sourceTree = "<group>";
-		};
-		F078235C1F5E820C00FE9CC0 /* info */ = {
-			isa = PBXGroup;
-			children = (
-				F07823551F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift */,
-				F07823561F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib */,
-			);
-			name = info;
-			sourceTree = "<group>";
-		};
-		F078235D1F5E821300FE9CC0 /* tweet */ = {
-			isa = PBXGroup;
-			children = (
-				F078234E1F5E7D5700FE9CC0 /* TweetAdapter.swift */,
-				F078234F1F5E7D5700FE9CC0 /* TweetCollectionViewCell.swift */,
-				F07823501F5E7D5700FE9CC0 /* TweetCollectionViewCell.xib */,
-			);
-			name = tweet;
-			sourceTree = "<group>";
-		};
-		F089D9981F38617900395056 /* Weather Sample */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9BE1F3861C400395056 /* service */,
-				F089D9BD1F3861BF00395056 /* model */,
-				F089D9BC1F3861BB00395056 /* section */,
-				F089D9BB1F3861B700395056 /* cell */,
-				F089D9A51F3861A500395056 /* WeatherViewController.swift */,
-				F089D9A61F3861A500395056 /* WeatherViewController.xib */,
-				F089D9991F3861A500395056 /* WeatherCollectionData.swift */,
-				F089D9A71F3861A500395056 /* WheaterAdapters.swift */,
-				F089D9A21F3861A500395056 /* WeatherStyle.swift */,
-			);
-			name = "Weather Sample";
-			sourceTree = "<group>";
-		};
-		F089D9BB1F3861B700395056 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9C01F38621F00395056 /* day */,
-			);
-			name = cell;
-			sourceTree = "<group>";
-		};
-		F089D9BC1F3861BB00395056 /* section */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9A11F3861A500395056 /* WeatherSectionDescriptor.swift */,
-			);
-			name = section;
-			sourceTree = "<group>";
-		};
-		F089D9BD1F3861BF00395056 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9A01F3861A500395056 /* WeatherModel.swift */,
-			);
-			name = model;
-			sourceTree = "<group>";
-		};
-		F089D9BE1F3861C400395056 /* service */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9A91F3861A500395056 /* WheatherService.swift */,
-			);
-			name = service;
-			sourceTree = "<group>";
-		};
-		F089D9C01F38621F00395056 /* day */ = {
-			isa = PBXGroup;
-			children = (
-				F089D99B1F3861A500395056 /* WeatherDayCollectionViewCell.swift */,
-				F089D99C1F3861A500395056 /* WeatherDayCollectionViewCell.xib */,
-				F089D99A1F3861A500395056 /* WeatherDayAdapter.swift */,
-			);
-			name = day;
-			sourceTree = "<group>";
-		};
-		F089D9C11F38622300395056 /* label */ = {
-			isa = PBXGroup;
-			children = (
-				F089D99E1F3861A500395056 /* LabelCollectionViewCell.swift */,
-				F089D99F1F3861A500395056 /* LabelCollectionViewCell.xib */,
-			);
-			name = label;
-			sourceTree = "<group>";
-		};
-		F089D9C21F38622700395056 /* title */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9A31F3861A500395056 /* TitleCollectionViewCell.swift */,
-				F089D9A41F3861A500395056 /* TitleCollectionViewCell.xib */,
-			);
-			name = title;
-			sourceTree = "<group>";
-		};
-		F089D9C31F386F5000395056 /* Random Sample */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9D01F38725500395056 /* model */,
-				F089D9CA1F38700900395056 /* section */,
-				F089D9C41F386F7000395056 /* RandomViewController.swift */,
-				F089D9C51F386F7000395056 /* RandomViewController.xib */,
-				F089D9C81F386FAA00395056 /* RandomCollectionData.swift */,
-				F089D9D31F38740500395056 /* RandomAdapters.swift */,
-			);
-			name = "Random Sample";
-			sourceTree = "<group>";
-		};
-		F089D9CA1F38700900395056 /* section */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9CE1F38717800395056 /* RandomSectionDescriptor.swift */,
-			);
-			name = section;
-			sourceTree = "<group>";
-		};
-		F089D9CC1F38711900395056 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				F0F08E021F38AFC4006D63EF /* layout */,
-				F089D9CD1F38711D00395056 /* cell */,
-				F043A95A1F6124FB00CB895D /* Colors.swift */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		F089D9CD1F38711D00395056 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9C21F38622700395056 /* title */,
-				F089D9C11F38622300395056 /* label */,
-			);
-			name = cell;
-			sourceTree = "<group>";
-		};
-		F089D9D01F38725500395056 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				F089D9D11F38726500395056 /* Crew.swift */,
-			);
-			name = model;
-			sourceTree = "<group>";
-		};
 		F0C7DE711F6FB4C900CB1B9B /* decoration */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,63 +729,6 @@
 				F0C7DE731F6FB51300CB1B9B /* TestDecorationView.xib */,
 			);
 			name = decoration;
-			sourceTree = "<group>";
-		};
-		F0CEDE0F2200B06A00817466 /* Alphabet */ = {
-			isa = PBXGroup;
-			children = (
-				F0CEDE262200B66900817466 /* layout */,
-				F0CEDE212200B4A400817466 /* view */,
-				F0CEDE1C2200B2C200817466 /* cell */,
-				F0CEDE192200B25300817466 /* section */,
-				F0CEDE162200B0BE00817466 /* model */,
-				F0CEDE102200B09B00817466 /* AlphabetCollectionData.swift */,
-				F0CEDE112200B09B00817466 /* AlphabetViewController.xib */,
-				F0CEDE122200B09B00817466 /* AlphabetViewController.swift */,
-			);
-			name = Alphabet;
-			sourceTree = "<group>";
-		};
-		F0CEDE162200B0BE00817466 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				F0CEDE172200B0CC00817466 /* AlphabetModel.swift */,
-			);
-			name = model;
-			sourceTree = "<group>";
-		};
-		F0CEDE192200B25300817466 /* section */ = {
-			isa = PBXGroup;
-			children = (
-				F0CEDE1A2200B27700817466 /* AlphabetSectionDescriptor.swift */,
-			);
-			name = section;
-			sourceTree = "<group>";
-		};
-		F0CEDE1C2200B2C200817466 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F0CEDE1D2200B2DC00817466 /* AlphabetCollectionViewCell.swift */,
-				F0CEDE1E2200B2DC00817466 /* AlphabetCollectionViewCell.xib */,
-			);
-			name = cell;
-			sourceTree = "<group>";
-		};
-		F0CEDE212200B4A400817466 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				F0CEDE222200B4C900817466 /* LetterCollectionReusableView.swift */,
-				F0CEDE232200B4C900817466 /* LetterCollectionReusableView.xib */,
-			);
-			name = view;
-			sourceTree = "<group>";
-		};
-		F0CEDE262200B66900817466 /* layout */ = {
-			isa = PBXGroup;
-			children = (
-				F0CEDE272200B67700817466 /* AlphabetLayout.swift */,
-			);
-			name = layout;
 			sourceTree = "<group>";
 		};
 		F0D318D01EC3360700A9CBEA /* cell */ = {
@@ -740,41 +758,6 @@
 				F0D318E61EC48E4E00A9CBEA /* TestViewController.xib */,
 			);
 			name = controller;
-			sourceTree = "<group>";
-		};
-		F0D3ED631F41F5D10087CBD2 /* section */ = {
-			isa = PBXGroup;
-			children = (
-				F0D3ED6B1F41F6E20087CBD2 /* MenuSectionDescriptor.swift */,
-			);
-			name = section;
-			sourceTree = "<group>";
-		};
-		F0D3ED641F41F5D70087CBD2 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F0D3ED651F41F5EA0087CBD2 /* MenuItemAdapter.swift */,
-				F0D3ED661F41F5EA0087CBD2 /* MenuItemCollectionViewCell.swift */,
-				F0D3ED671F41F5EA0087CBD2 /* MenuItemCollectionViewCell.xib */,
-			);
-			name = cell;
-			sourceTree = "<group>";
-		};
-		F0E9877E1F5FCC29001870F7 /* layout */ = {
-			isa = PBXGroup;
-			children = (
-				F0E9877F1F5FCC50001870F7 /* RealTimeLayout.swift */,
-			);
-			name = layout;
-			sourceTree = "<group>";
-		};
-		F0F08E021F38AFC4006D63EF /* layout */ = {
-			isa = PBXGroup;
-			children = (
-				F089D99D1F3861A500395056 /* SimpleDecorationView.swift */,
-				F089D9A81F3861A500395056 /* WhiteSectionLayout.swift */,
-			);
-			name = layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
