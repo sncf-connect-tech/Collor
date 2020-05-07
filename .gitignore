@@ -1,3 +1,4 @@
+
 # OS X
 .DS_Store
 
@@ -18,8 +19,10 @@ profile
 DerivedData
 *.hmap
 *.ipa
+
 Example/.idea/
 Example/Pods/
+Example/local/
 
 # Bundler
 .bundle
