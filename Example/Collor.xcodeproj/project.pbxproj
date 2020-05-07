@@ -292,12 +292,12 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				F02F6BB922393F1900C0D9D6 /* layout */,
-				F02F6BB422391B7900C0D9D6 /* view */,
-				F0C7DE711F6FB4C900CB1B9B /* decoration */,
-				F0D318E41EC48D0B00A9CBEA /* controller */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-				F0D318D01EC3360700A9CBEA /* cell */,
+				607FACEA1AFB9204008FA782 /* Info.plist */,
+				DF0014E22464AADD00012172 /* layout */,
+				DF0014E72464AADE00012172 /* view */,
+				DF0014E32464AADD00012172 /* decoration */,
+				DF0014E42464AADE00012172 /* controller */,
+				DF0014E52464AADE00012172 /* cell */,
 				F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */,
 				F05946111EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift */,
 				F089D98A1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift */,
@@ -313,14 +313,6 @@
 				F02F6BB22238ED1700C0D9D6 /* IndexPathTest.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
@@ -705,59 +697,59 @@
 			path = service;
 			sourceTree = "<group>";
 		};
-		F02F6BB422391B7900C0D9D6 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */,
-				F02F6BB622391BB000C0D9D6 /* TestReusableView.xib */,
-			);
-			name = view;
-			sourceTree = "<group>";
-		};
-		F02F6BB922393F1900C0D9D6 /* layout */ = {
+		DF0014E22464AADD00012172 /* layout */ = {
 			isa = PBXGroup;
 			children = (
 				F02F6BBA22393F2200C0D9D6 /* TestLayout.swift */,
 			);
-			name = layout;
+			path = layout;
 			sourceTree = "<group>";
 		};
-		F0C7DE711F6FB4C900CB1B9B /* decoration */ = {
+		DF0014E32464AADD00012172 /* decoration */ = {
 			isa = PBXGroup;
 			children = (
 				F0C7DE721F6FB51300CB1B9B /* TestDecorationView.swift */,
 				F0C7DE731F6FB51300CB1B9B /* TestDecorationView.xib */,
 			);
-			name = decoration;
+			path = decoration;
 			sourceTree = "<group>";
 		};
-		F0D318D01EC3360700A9CBEA /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F0D318D71EC33F0800A9CBEA /* noAdaptable */,
-				F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */,
-				F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */,
-				C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */,
-			);
-			name = cell;
-			sourceTree = "<group>";
-		};
-		F0D318D71EC33F0800A9CBEA /* noAdaptable */ = {
-			isa = PBXGroup;
-			children = (
-				F0D318D81EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.swift */,
-				F0D318D91EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.xib */,
-			);
-			name = noAdaptable;
-			sourceTree = "<group>";
-		};
-		F0D318E41EC48D0B00A9CBEA /* controller */ = {
+		DF0014E42464AADE00012172 /* controller */ = {
 			isa = PBXGroup;
 			children = (
 				F0D318E51EC48E4E00A9CBEA /* TestViewController.swift */,
 				F0D318E61EC48E4E00A9CBEA /* TestViewController.xib */,
 			);
-			name = controller;
+			path = controller;
+			sourceTree = "<group>";
+		};
+		DF0014E52464AADE00012172 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014E62464AADE00012172 /* noAdaptable */,
+				F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */,
+				F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */,
+				C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DF0014E62464AADE00012172 /* noAdaptable */ = {
+			isa = PBXGroup;
+			children = (
+				F0D318D81EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.swift */,
+				F0D318D91EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.xib */,
+			);
+			path = noAdaptable;
+			sourceTree = "<group>";
+		};
+		DF0014E72464AADE00012172 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */,
+				F02F6BB622391BB000C0D9D6 /* TestReusableView.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
