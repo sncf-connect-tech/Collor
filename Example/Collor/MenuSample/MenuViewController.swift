@@ -11,8 +11,8 @@ import Collor
 
 // model
 struct Example {
-    let title:String
-    let controllerClass:UIViewController.Type
+    let title: String
+    let controllerClass: UIViewController.Type
 }
 
 // user event
@@ -20,8 +20,8 @@ enum MenuUserEvent {
     case itemTap(Example)
 }
 
-protocol MenuUserEventDelegate : CollectionUserEventDelegate {
-    func onUserEvent(userEvent:MenuUserEvent)
+protocol MenuUserEventDelegate: CollectionUserEventDelegate {
+    func onUserEvent(userEvent: MenuUserEvent)
 }
 
 // controller
@@ -36,10 +36,11 @@ class MenuViewController: UIViewController {
                               Example(title: "Random", controllerClass: RandomViewController.self),
                               Example(title: "Weather", controllerClass: WeatherViewController.self),
                               Example(title: "Real Time", controllerClass: RealTimeViewController.self),
-                              Example(title: "Alphabet", controllerClass: AlphabetViewController.self)]
+                              Example(title: "Alphabet", controllerClass: AlphabetViewController.self),
+                              Example(title: "TextField", controllerClass: TextFieldViewController.self)]
     
     
-    lazy var collectionData:MenuCollectionData = MenuCollectionData(examples: self.examples)
+    lazy var collectionData: MenuCollectionData = MenuCollectionData(examples: self.examples)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class MenuViewController: UIViewController {
     }
 }
 
-extension MenuViewController : MenuUserEventDelegate {
+extension MenuViewController: MenuUserEventDelegate {
     func onUserEvent(userEvent: MenuUserEvent) {
         switch userEvent {
         case .itemTap(let example):
@@ -62,7 +63,7 @@ extension MenuViewController : MenuUserEventDelegate {
     }
 }
 
-extension MenuViewController : UICollectionViewDelegate {
+extension MenuViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print("scroll")
     }

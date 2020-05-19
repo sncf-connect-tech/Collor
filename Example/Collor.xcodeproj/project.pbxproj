@@ -14,6 +14,12 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		C251BD9E2165AC3E002DBA69 /* NiblessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */; };
 		D087F571AC64EBF37DB329D2 /* Pods_Collor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5457BEEDD2F7D6696609DC /* Pods_Collor_Example.framework */; };
+		DF0014EB2464ACCA00012172 /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0014E92464ACCA00012172 /* TextFieldViewController.swift */; };
+		DF0014EE2464AEA700012172 /* TextFieldCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0014ED2464AEA700012172 /* TextFieldCollectionData.swift */; };
+		DF0014F42464AFD500012172 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF0014F22464AFD500012172 /* TextFieldCell.xib */; };
+		DF0014F52464AFD500012172 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0014F32464AFD500012172 /* TextFieldCell.swift */; };
+		DF0014F82464B15D00012172 /* TextFieldSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0014F72464B15D00012172 /* TextFieldSectionDescriptor.swift */; };
+		DF480064246929CB00A06D4B /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF480063246929CB00A06D4B /* UIView+Autolayout.swift */; };
 		F01A440B205FE483001BB25E /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */; };
 		F01A440C205FE4AD001BB25E /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */; };
 		F02F6BAF22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BAE22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift */; };
@@ -143,6 +149,12 @@
 		C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessCollectionViewCell.swift; sourceTree = "<group>"; };
 		C28F175CBC84A17630BED1A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		DB5457BEEDD2F7D6696609DC /* Pods_Collor_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF0014E92464ACCA00012172 /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
+		DF0014ED2464AEA700012172 /* TextFieldCollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionData.swift; sourceTree = "<group>"; };
+		DF0014F22464AFD500012172 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		DF0014F32464AFD500012172 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		DF0014F72464B15D00012172 /* TextFieldSectionDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSectionDescriptor.swift; sourceTree = "<group>"; };
+		DF480063246929CB00A06D4B /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 		F02F6BAE22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplementaryViewsHandlerTest.swift; sourceTree = "<group>"; };
 		F02F6BB22238ED1700C0D9D6 /* IndexPathTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPathTest.swift; sourceTree = "<group>"; };
 		F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReusableView.swift; sourceTree = "<group>"; };
@@ -351,6 +363,7 @@
 				DF0014D62464A8C300012172 /* PantoneSample */,
 				DF0014D72464A8D000012172 /* RandomSample */,
 				DF0014D82464A8DB00012172 /* WeatherSample */,
+				DF0014E82464AC2A00012172 /* TextFieldSample */,
 			);
 			path = Collor;
 			sourceTree = "<group>";
@@ -752,6 +765,35 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		DF0014E82464AC2A00012172 /* TextFieldSample */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014EF2464AF6B00012172 /* cell */,
+				DF0014F62464B14500012172 /* section */,
+				DF0014E92464ACCA00012172 /* TextFieldViewController.swift */,
+				DF0014ED2464AEA700012172 /* TextFieldCollectionData.swift */,
+				DF480063246929CB00A06D4B /* UIView+Autolayout.swift */,
+			);
+			path = TextFieldSample;
+			sourceTree = "<group>";
+		};
+		DF0014EF2464AF6B00012172 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014F32464AFD500012172 /* TextFieldCell.swift */,
+				DF0014F22464AFD500012172 /* TextFieldCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		DF0014F62464B14500012172 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				DF0014F72464B15D00012172 /* TextFieldSectionDescriptor.swift */,
+			);
+			path = section;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -849,6 +891,7 @@
 				F07823591F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib in Resources */,
 				F0CEDE252200B4C900817466 /* LetterCollectionReusableView.xib in Resources */,
 				F0D318D61EC3386700A9CBEA /* TestCollectionViewCell.xib in Resources */,
+				DF0014F42464AFD500012172 /* TextFieldCell.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				F0D3ED5C1F41E8340087CBD2 /* MenuViewController.xib in Resources */,
 				F089D9B01F3861A500395056 /* LabelCollectionViewCell.xib in Resources */,
@@ -1001,8 +1044,12 @@
 				F0D3ED681F41F5EA0087CBD2 /* MenuItemAdapter.swift in Sources */,
 				F0CEDE132200B09B00817466 /* AlphabetCollectionData.swift in Sources */,
 				F0577CCB1F39EA420051BD18 /* PantoneColorAdapter.swift in Sources */,
+				DF0014EE2464AEA700012172 /* TextFieldCollectionData.swift in Sources */,
+				DF0014F82464B15D00012172 /* TextFieldSectionDescriptor.swift in Sources */,
+				DF0014F52464AFD500012172 /* TextFieldCell.swift in Sources */,
 				F07823511F5E7D5700FE9CC0 /* TweetAdapter.swift in Sources */,
 				F089D9C91F386FAA00395056 /* RandomCollectionData.swift in Sources */,
+				DF0014EB2464ACCA00012172 /* TextFieldViewController.swift in Sources */,
 				F078234D1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift in Sources */,
 				F0CEDE182200B0CC00817466 /* AlphabetModel.swift in Sources */,
 				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
@@ -1023,6 +1070,7 @@
 				F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */,
 				F0CEDE152200B09B00817466 /* AlphabetViewController.swift in Sources */,
 				F0E987801F5FCC50001870F7 /* RealTimeLayout.swift in Sources */,
+				DF480064246929CB00A06D4B /* UIView+Autolayout.swift in Sources */,
 				F089D9AA1F3861A500395056 /* WeatherCollectionData.swift in Sources */,
 				F078235B1F5E812B00FE9CC0 /* RealTimeAdapters.swift in Sources */,
 				F089D9B31F3861A500395056 /* WeatherStyle.swift in Sources */,
