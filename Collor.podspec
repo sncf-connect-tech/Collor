@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Collor'
-  s.version          = '1.1.33'
+  s.version          = '1.1.34'
   s.summary          = 'A declarative data-oriented framework for UICollectionView.'
   s.homepage         = 'https://github.com/voyages-sncf-technologies/Collor'
   s.screenshots      = 'https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/screenshot.jpg'
