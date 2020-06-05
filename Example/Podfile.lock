@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (4.8.0)
+  - Alamofire (4.8.1)
   - AlamofireImage (3.5.0):
     - Alamofire (~> 4.8)
-  - Collor (1.1.23)
+  - Collor (1.1.31)
   - CwlCatchException (1.0.2)
   - CwlPreconditionTesting (1.1.1):
     - CwlCatchException
@@ -29,19 +29,19 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CwlCatchException:
-    :commit: ef02010443517637ed1f0db15b24aa22c96400d1
+    :commit: 52edb6d4329318ff466db1689e85525c3e18689f
     :git: https://github.com/mattgallagher/CwlCatchException.git
   CwlPreconditionTesting:
     :commit: 243dc31e8f3728f9bdd15b353dbcead4fb3d9fdf
     :git: https://github.com/mattgallagher/CwlPreconditionTesting.git
 
 SPEC CHECKSUMS:
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
-  Collor: 0525a6e8776d7f9e9d4d3aebcce41be1a2176717
+  Collor: ab6037596c6f0cc4b7c206344091da8c774ec159
   CwlCatchException: 70a52ae44ea5d46db7bd385f801a94942420cd8c
   CwlPreconditionTesting: d33a4e4f285c0b885fddcae5dfedfbb34d4f3961
 
 PODFILE CHECKSUM: 095a3770995250583a2320934d432cbf007000b8
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

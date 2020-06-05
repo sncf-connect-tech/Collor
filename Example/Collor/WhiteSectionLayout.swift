@@ -15,6 +15,7 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
     fileprivate var decorationAttributes = [String : [IndexPath : UICollectionViewLayoutAttributes]]()
     
     fileprivate let sectionBackgroundKind = "sectionBackground"
+    fileprivate let helloKind = "helloKind"
     
     let backgroundMargin:CGFloat = 5
     
@@ -24,7 +25,9 @@ class WhiteSectionLayout: UICollectionViewFlowLayout {
         super.init()
         
         decorationAttributes[sectionBackgroundKind] = [IndexPath : UICollectionViewLayoutAttributes]()
+        
         register(SimpleDecorationView.self, forDecorationViewOfKind: sectionBackgroundKind)
+
     }
     
     required init?(coder aDecoder: NSCoder) {

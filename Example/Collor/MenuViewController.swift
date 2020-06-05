@@ -35,10 +35,11 @@ class MenuViewController: UIViewController {
     let examples:[Example] = [Example(title: "Panton", controllerClass: PantoneViewController.self),
                               Example(title: "Random", controllerClass: RandomViewController.self),
                               Example(title: "Weather", controllerClass: WeatherViewController.self),
-                              Example(title: "Real Time", controllerClass: RealTimeViewController.self)]
+                              Example(title: "Real Time", controllerClass: RealTimeViewController.self),
+                              Example(title: "Alphabet", controllerClass: AlphabetViewController.self)]
     
     
-    lazy var collectionData:MenuCollectionData = MenuCollectionData(examples: self.examples)
+    lazy var collectionData: MenuCollectionData = MenuCollectionData(examples: self.examples)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +62,15 @@ extension MenuViewController : MenuUserEventDelegate {
     }
 }
 
-extension MenuViewController : UICollectionViewDelegate {
+extension MenuViewController : ForwardingUICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print("scroll")
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("willAppear")
+    }
 }
+
+
 

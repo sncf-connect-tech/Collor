@@ -31,6 +31,7 @@ final class WeatherDayCollectionViewCell: UICollectionViewCell, CollectionCellAd
     }
 }
 
+
 final class WeatherDayDescriptor: CollectionCellDescribable {
     
     let identifier: String = "WeatherDayCollectionViewCell"

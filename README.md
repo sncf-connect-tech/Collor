@@ -24,11 +24,12 @@ Here is the list of all the features:
 - [x] Never register a cell.
 - [x] Update the collectionView model easily.
 - [x] Diffing data or section(s)
-- [x] 🆕 **Diffing handles *deletes*, *inserts*, *moves* and *updates***
-- [x] 🆕 **Manage decoration views in our custom layout easily.**
+- [x] Diffing handles *deletes*, *inserts*, *moves* and *updates*
+- [x] Manage decoration views in our custom layout easily.
 - [x] Make easier building custom layout.
 - [x] Swift 4 (use 1.0.x for swift 3 compatibility).
 - [x] Well tested.
+- [x] 🆕 **Handle supplementary views** (may be improved in next versions)
 
 <p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/random.gif" alt="Collor Random Sample"> <img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/weather.gif" alt="Collor Weather Sample"></p>
 
@@ -36,6 +37,7 @@ Here is the list of all the features:
 ## Getting started
 - A [medium article](https://medium.com/p/b55e73d81a59/) which explains the purpose and how to use Collor.
 - Another [medium article](https://medium.com/p/8f37064de388/) to understand the diffing feature.
+- [How to create your own API above UICollectionView with Collor](https://medium.com/@_myrddin_/create-your-own-uicollectionview-api-d13aea5ae642)
 
 ## Example
 
@@ -46,12 +48,13 @@ There are 4 examples:
 - Weather : Diffing sections + custom layout
 - Pantone : Adding and remove items using CollectionDatas.
 - RealTime : Complex diffing (insert, delete, reload) + custom layout handling with `DecorationViewHandler`.
+- Alphabet : An example with a `supplementaryView` + custom layout handling with `SupplementaryViewsHandler`.
 
 ## Usage
 
 The UICollectionView is represented by a collectionData object which contains sectionDescriptors which contain themself cellDescriptors.
 Each item or cell in Collor is composed by 3 objects:
-- The ```UICollectionViewCell``` (XIB + swift file) which implements ```CollectionCellAdaptable```
+- The ```UICollectionViewCell``` (XIB or not + swift file) which implements ```CollectionCellAdaptable```
 - A cellDescriptor which implements ```CollectionCellDescribable```
 - An adapter (view model) which implements ```CollectionAdapter```
 
@@ -67,7 +70,7 @@ final class WeatherDayDescriptor: CollectionCellDescribable {
 
     let adapter: WeatherDayAdapter
 
-    init(adapter:WeatherDayAdapter) {
+    init(adapter: WeatherDayAdapter) {
         self.adapter = adapter
     }
 
@@ -88,9 +91,9 @@ An adapter is a viewModel object. It transforms your model in a human readable d
 ```swift
 struct WeatherDayAdapter: CollectionAdapter {
 
-    let date:NSAttributedString
+    let date: NSAttributedString
 
-    static let dateFormatter:DateFormatter = {
+    static let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "EEEE d MMMM"
         return df
@@ -167,6 +170,81 @@ final class MySectionDescriptor : CollectionSectionDescribable {
 ```
 
 You get a readable data which represents your UICollectionView, without code duplication, reusing cell and with a good separation of code.
+
+##### SupplementatyView
+
+To add a supplementaryView, instead of using `CollectionSectionDescribable.reloadSection(:)`, call `CollectionSectionDescribable.reload(:)`.
+The `builder` passed as parameter exposes new method to add a `supplementaryView` easily.
+
+<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/alphabet.gif" alt="Collor Alphabet Sample"></p>
+
+```swift
+let section = MySectionDescriptor().reload { builder in
+    let letterAdapter = LetterAdapter(letter: "A")
+    let letterDescriptor = LetterCollectionReusableViewDescriptor(adapter: letterAdapter)
+    builder.add(supplementaryView: letterDescriptor, kind: "letter")
+}
+sections.append(section)
+```
+
+`CollectionSupplementaryViewDescribable` behaves like a `CollectionCellDescribable`. It needs an adapter to fill the view with data.
+But, for displaying a supplementaryView correctly, a custom layout is required in order to set attributes for the supplementaryViews created in the `CollectionData. As with decorationViews, Collor provides a `SupplementaryViewsHandler` object to manage supplementaryViews. It handles addition, caching and updatating.
+
+```swift
+class Layout : UICollectionViewFlowLayout {
+    //...
+    override func prepare() {
+        super.prepare()
+        
+        supplementaryViewsHandler.prepare()
+        
+        for (sectionIndex, sectionDescriptor) in datas.sections.enumerated() {
+            
+            let firstCellIndexPath = IndexPath(item: 0, section: sectionIndex)
+            let firstCellAttributes = layoutAttributesForItem(at: firstCellIndexPath)!
+            
+            sectionDescriptor.supplementaryViews.forEach { (kind, views) in
+                
+                views.enumerated().forEach { (index, viewDescriptor) in
+                    let indexPath = IndexPath(item: index, section: sectionIndex)
+                    let a = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: kind, with: indexPath)
+                    a.frame = viewDescriptor.frame(collectionView, sectionDescriptor: sectionDescriptor)
+                    a.frame.origin.y += firstCellAttributes.frame.origin.y
+                    
+                    supplementaryViewsHandler.add(attributes: a)
+                }
+            }
+        }
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        let attributes = super.layoutAttributesForElements(in: rect)
+        let supplementaryAttributes = supplementaryViewsHandler.attributes(in: rect)
+        if let attributes = attributes {
+            return attributes + supplementaryAttributes
+        }
+        return attributes
+    }
+    
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return supplementaryViewsHandler.attributes(for: elementKind, at: indexPath)
+    }
+    
+    override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+        super.prepare(forCollectionViewUpdates: updateItems)
+        supplementaryViewsHandler.prepare(forCollectionViewUpdates: updateItems)
+    }
+    
+    override func indexPathsToInsertForSupplementaryView(ofKind elementKind: String) -> [IndexPath] {
+        return supplementaryViewsHandler.inserted(for: elementKind)
+    }
+    
+    override func indexPathsToDeleteForSupplementaryView(ofKind elementKind: String) -> [IndexPath] {
+        return supplementaryViewsHandler.deleted(for: elementKind)
+    }
+}
+```
+
 
 ## Diffing and updating
 
@@ -251,9 +329,9 @@ sh install.sh
 <p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources//xctemplates.png" alt="XCTemplates"></p>
 
 ## Requirements
-- iOS 8.0+
-- Swift 4.0+ (get the 1.0.3 release for swift3)
-- Xcode 9.0+
+- iOS 10.0+
+- Swift 4.2+ (get the 1.0.3 release for swift3.x, 1.1.23 for swift4.0)
+- Xcode 10.1+
 
 ## Installation
 ### CocoaPods
@@ -274,7 +352,7 @@ Work in progress... 1% documented
 
 ## Credits
 
-Collor is owned and maintained by [Voyages-sncf.com](http://www.voyages-sncf.com/).
+Collor is owned and maintained by [oui.sncf](http://www.oui.sncf/).
 
 Collor was originally created by [Gwenn Guihal](https://github.com/gwennguihal).
 

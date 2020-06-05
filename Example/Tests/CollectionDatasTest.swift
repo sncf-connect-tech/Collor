@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Collor
+@testable import Collor
 
 class CollectionDataTest: XCTestCase {
     
@@ -63,11 +63,40 @@ class CollectionDataTest: XCTestCase {
     
     func testGetCellDescribableNil() {
         // given
-        let indexPath = IndexPath(item: 20, section: 2)
+        let indexPath = IndexPath(item: 20, section: 3)
         // when
         let cellDescriptor = data.cellDescribable(at: indexPath)
         // then
         XCTAssertNil(cellDescriptor)
     }
+    
+    func testGetSupplementaryViewDescribableNil() {
+        // given
+        let indexPath = IndexPath(item: 1, section: 8)
+        // when
+        let descriptor = data.supplementaryViewDescribable(at: indexPath, for: "test")
+        // then
+        XCTAssertNil(descriptor)
+    }
+    
+    func testGetSupplementaryViewDescribable() {
+        // given
+        let indexPath = IndexPath(item: 1, section: 2)
+        // when
+        let descriptor = data.supplementaryViewDescribable(at: indexPath, for: "test")
+        // then
+        XCTAssertTrue(descriptor === data.sections[2].supplementaryViews["test"]?[1])
+    }
+    
+    
+    func testGetSupplementaryViewDescribableIndexPath() {
+        // given
+        let indexPath = IndexPath(item: 1, section: 2)
+        // when
+        let descriptor = data.supplementaryViewDescribable(at: indexPath, for: "test")
+        // then
+        XCTAssertEqual(descriptor?.indexPath, indexPath)
+    }
+    
     
 }

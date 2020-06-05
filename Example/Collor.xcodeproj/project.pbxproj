@@ -16,6 +16,11 @@
 		C251BD9E2165AC3E002DBA69 /* NiblessCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */; };
 		F01A440B205FE483001BB25E /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */; };
 		F01A440C205FE4AD001BB25E /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */; };
+		F02F6BAF22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BAE22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift */; };
+		F02F6BB32238ED1700C0D9D6 /* IndexPathTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BB22238ED1700C0D9D6 /* IndexPathTest.swift */; };
+		F02F6BB722391BB000C0D9D6 /* TestReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */; };
+		F02F6BB822391BB000C0D9D6 /* TestReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F02F6BB622391BB000C0D9D6 /* TestReusableView.xib */; };
+		F02F6BBB22393F2200C0D9D6 /* TestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F6BBA22393F2200C0D9D6 /* TestLayout.swift */; };
 		F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A9571F61234200CB895D /* RealTimeStyle.swift */; };
 		F043A95B1F6124FB00CB895D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043A95A1F6124FB00CB895D /* Colors.swift */; };
 		F043A95F1F612A1900CB895D /* tweets_3.json in Resources */ = {isa = PBXBuildFile; fileRef = F043A95C1F612A1800CB895D /* tweets_3.json */; };
@@ -79,6 +84,16 @@
 		F0C7DE781F6FB53100CB1B9B /* TestDecorationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C7DE731F6FB51300CB1B9B /* TestDecorationView.xib */; };
 		F0C7DE791F6FB53300CB1B9B /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318E61EC48E4E00A9CBEA /* TestViewController.xib */; };
 		F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */; };
+		F0CEDE132200B09B00817466 /* AlphabetCollectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE102200B09B00817466 /* AlphabetCollectionData.swift */; };
+		F0CEDE142200B09B00817466 /* AlphabetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0CEDE112200B09B00817466 /* AlphabetViewController.xib */; };
+		F0CEDE152200B09B00817466 /* AlphabetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE122200B09B00817466 /* AlphabetViewController.swift */; };
+		F0CEDE182200B0CC00817466 /* AlphabetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE172200B0CC00817466 /* AlphabetModel.swift */; };
+		F0CEDE1B2200B27700817466 /* AlphabetSectionDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE1A2200B27700817466 /* AlphabetSectionDescriptor.swift */; };
+		F0CEDE1F2200B2DC00817466 /* AlphabetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE1D2200B2DC00817466 /* AlphabetCollectionViewCell.swift */; };
+		F0CEDE202200B2DC00817466 /* AlphabetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0CEDE1E2200B2DC00817466 /* AlphabetCollectionViewCell.xib */; };
+		F0CEDE242200B4C900817466 /* LetterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE222200B4C900817466 /* LetterCollectionReusableView.swift */; };
+		F0CEDE252200B4C900817466 /* LetterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0CEDE232200B4C900817466 /* LetterCollectionReusableView.xib */; };
+		F0CEDE282200B67700817466 /* AlphabetLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CEDE272200B67700817466 /* AlphabetLayout.swift */; };
 		F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */; };
 		F0D318D61EC3386700A9CBEA /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */; };
 		F0D318DA1EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D318D81EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.swift */; };
@@ -129,6 +144,11 @@
 		C251BD9D2165AC3E002DBA69 /* NiblessCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessCollectionViewCell.swift; sourceTree = "<group>"; };
 		C28F175CBC84A17630BED1A3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EF440CE01DADAED1ED11196A /* Pods_Collor_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Collor_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02F6BAE22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplementaryViewsHandlerTest.swift; sourceTree = "<group>"; };
+		F02F6BB22238ED1700C0D9D6 /* IndexPathTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPathTest.swift; sourceTree = "<group>"; };
+		F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestReusableView.swift; sourceTree = "<group>"; };
+		F02F6BB622391BB000C0D9D6 /* TestReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestReusableView.xib; sourceTree = "<group>"; };
+		F02F6BBA22393F2200C0D9D6 /* TestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLayout.swift; sourceTree = "<group>"; };
 		F043A9571F61234200CB895D /* RealTimeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeStyle.swift; sourceTree = "<group>"; };
 		F043A95A1F6124FB00CB895D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F043A95C1F612A1800CB895D /* tweets_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweets_3.json; sourceTree = "<group>"; };
@@ -190,6 +210,16 @@
 		F0C7DE721F6FB51300CB1B9B /* TestDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDecorationView.swift; sourceTree = "<group>"; };
 		F0C7DE731F6FB51300CB1B9B /* TestDecorationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestDecorationView.xib; sourceTree = "<group>"; };
 		F0CC34E21EB9D1850046337B /* CollectionUpdaterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdaterTest.swift; sourceTree = "<group>"; };
+		F0CEDE102200B09B00817466 /* AlphabetCollectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetCollectionData.swift; sourceTree = "<group>"; };
+		F0CEDE112200B09B00817466 /* AlphabetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlphabetViewController.xib; sourceTree = "<group>"; };
+		F0CEDE122200B09B00817466 /* AlphabetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetViewController.swift; sourceTree = "<group>"; };
+		F0CEDE172200B0CC00817466 /* AlphabetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetModel.swift; sourceTree = "<group>"; };
+		F0CEDE1A2200B27700817466 /* AlphabetSectionDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetSectionDescriptor.swift; sourceTree = "<group>"; };
+		F0CEDE1D2200B2DC00817466 /* AlphabetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetCollectionViewCell.swift; sourceTree = "<group>"; };
+		F0CEDE1E2200B2DC00817466 /* AlphabetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlphabetCollectionViewCell.xib; sourceTree = "<group>"; };
+		F0CEDE222200B4C900817466 /* LetterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionReusableView.swift; sourceTree = "<group>"; };
+		F0CEDE232200B4C900817466 /* LetterCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetterCollectionReusableView.xib; sourceTree = "<group>"; };
+		F0CEDE272200B67700817466 /* AlphabetLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetLayout.swift; sourceTree = "<group>"; };
 		F0D318D11EC3362200A9CBEA /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0D318D21EC3362200A9CBEA /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0D318D81EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoAdaptableCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -264,6 +294,7 @@
 		607FACD21AFB9204008FA782 /* Example for Collor */ = {
 			isa = PBXGroup;
 			children = (
+				F0CEDE0F2200B06A00817466 /* Alphabet */,
 				F089D9CC1F38711900395056 /* Common */,
 				F011A0B91F41CBE6007F9FEB /* Menu Sample */,
 				F0530FC21F5DF05000F2318F /* RealTime Sample */,
@@ -291,6 +322,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				F02F6BB922393F1900C0D9D6 /* layout */,
+				F02F6BB422391B7900C0D9D6 /* view */,
 				F0C7DE711F6FB4C900CB1B9B /* decoration */,
 				F0D318E41EC48D0B00A9CBEA /* controller */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
@@ -306,6 +339,8 @@
 				F085272B1F6C239600A3EBC9 /* CollectionExtensionTest.swift */,
 				F0ECCA211F6C2A42008B168B /* CollectionSectionDescribableTest.swift */,
 				F0C7DE6D1F6FB19300CB1B9B /* DecorationViewsHandlerTest.swift */,
+				F02F6BAE22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift */,
+				F02F6BB22238ED1700C0D9D6 /* IndexPathTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -347,6 +382,23 @@
 				F0D3ED591F41E8340087CBD2 /* MenuViewController.xib */,
 			);
 			name = "Menu Sample";
+			sourceTree = "<group>";
+		};
+		F02F6BB422391B7900C0D9D6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F02F6BB522391BB000C0D9D6 /* TestReusableView.swift */,
+				F02F6BB622391BB000C0D9D6 /* TestReusableView.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		F02F6BB922393F1900C0D9D6 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				F02F6BBA22393F2200C0D9D6 /* TestLayout.swift */,
+			);
+			name = layout;
 			sourceTree = "<group>";
 		};
 		F0530FC21F5DF05000F2318F /* RealTime Sample */ = {
@@ -552,7 +604,6 @@
 			children = (
 				F089D9D01F38725500395056 /* model */,
 				F089D9CA1F38700900395056 /* section */,
-				F089D9CB1F38700F00395056 /* cell */,
 				F089D9C41F386F7000395056 /* RandomViewController.swift */,
 				F089D9C51F386F7000395056 /* RandomViewController.xib */,
 				F089D9C81F386FAA00395056 /* RandomCollectionData.swift */,
@@ -567,13 +618,6 @@
 				F089D9CE1F38717800395056 /* RandomSectionDescriptor.swift */,
 			);
 			name = section;
-			sourceTree = "<group>";
-		};
-		F089D9CB1F38700F00395056 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = cell;
 			sourceTree = "<group>";
 		};
 		F089D9CC1F38711900395056 /* Common */ = {
@@ -610,6 +654,63 @@
 				F0C7DE731F6FB51300CB1B9B /* TestDecorationView.xib */,
 			);
 			name = decoration;
+			sourceTree = "<group>";
+		};
+		F0CEDE0F2200B06A00817466 /* Alphabet */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE262200B66900817466 /* layout */,
+				F0CEDE212200B4A400817466 /* view */,
+				F0CEDE1C2200B2C200817466 /* cell */,
+				F0CEDE192200B25300817466 /* section */,
+				F0CEDE162200B0BE00817466 /* model */,
+				F0CEDE102200B09B00817466 /* AlphabetCollectionData.swift */,
+				F0CEDE112200B09B00817466 /* AlphabetViewController.xib */,
+				F0CEDE122200B09B00817466 /* AlphabetViewController.swift */,
+			);
+			name = Alphabet;
+			sourceTree = "<group>";
+		};
+		F0CEDE162200B0BE00817466 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE172200B0CC00817466 /* AlphabetModel.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		F0CEDE192200B25300817466 /* section */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE1A2200B27700817466 /* AlphabetSectionDescriptor.swift */,
+			);
+			name = section;
+			sourceTree = "<group>";
+		};
+		F0CEDE1C2200B2C200817466 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE1D2200B2DC00817466 /* AlphabetCollectionViewCell.swift */,
+				F0CEDE1E2200B2DC00817466 /* AlphabetCollectionViewCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		F0CEDE212200B4A400817466 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE222200B4C900817466 /* LetterCollectionReusableView.swift */,
+				F0CEDE232200B4C900817466 /* LetterCollectionReusableView.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		F0CEDE262200B66900817466 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				F0CEDE272200B67700817466 /* AlphabetLayout.swift */,
+			);
+			name = layout;
 			sourceTree = "<group>";
 		};
 		F0D318D01EC3360700A9CBEA /* cell */ = {
@@ -725,16 +826,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1010;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1010;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -764,12 +865,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0530FD21F5DF28100F2318F /* tweets_2.json in Resources */,
+				F0CEDE142200B09B00817466 /* AlphabetViewController.xib in Resources */,
 				F043A95F1F612A1900CB895D /* tweets_3.json in Resources */,
 				F0D318DD1EC33F4600A9CBEA /* NoAdaptableCollectionViewCell.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				F089D9AD1F3861A500395056 /* WeatherDayCollectionViewCell.xib in Resources */,
 				F0C7DE761F6FB51300CB1B9B /* TestDecorationView.xib in Resources */,
 				F07823591F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.xib in Resources */,
+				F0CEDE252200B4C900817466 /* LetterCollectionReusableView.xib in Resources */,
 				F0D318D61EC3386700A9CBEA /* TestCollectionViewCell.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				F0D3ED5C1F41E8340087CBD2 /* MenuViewController.xib in Resources */,
@@ -784,6 +887,7 @@
 				F089D9B71F3861A500395056 /* WeatherViewController.xib in Resources */,
 				F0530FC81F5DF06D00F2318F /* RealTimeViewController.xib in Resources */,
 				F0530FD11F5DF28100F2318F /* tweets_1.json in Resources */,
+				F0CEDE202200B2DC00817466 /* AlphabetCollectionViewCell.xib in Resources */,
 				F0577CC11F39E6870051BD18 /* PantoneViewController.xib in Resources */,
 				F043A9611F612A1900CB895D /* tweets_5.json in Resources */,
 				F043A9601F612A1900CB895D /* tweets_4.json in Resources */,
@@ -798,6 +902,7 @@
 				F0C7DE781F6FB53100CB1B9B /* TestDecorationView.xib in Resources */,
 				F0C7DE791F6FB53300CB1B9B /* TestViewController.xib in Resources */,
 				F01A440C205FE4AD001BB25E /* TestCollectionViewCell.xib in Resources */,
+				F02F6BB822391BB000C0D9D6 /* TestReusableView.xib in Resources */,
 				F0D318DB1EC33F2500A9CBEA /* NoAdaptableCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -811,7 +916,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Collor_Example/Pods-Collor_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Collor_Example/Pods-Collor_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Collor/Collor.framework",
@@ -824,7 +929,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Collor_Example/Pods-Collor_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Collor_Example/Pods-Collor_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		41B1503A355719D86F7CDCE4 /* [CP] Check Pods Manifest.lock */ = {
@@ -851,7 +956,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CwlCatchException/CwlCatchException.framework",
 				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting/CwlPreconditionTesting.framework",
 			);
@@ -862,7 +967,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Collor_Tests/Pods-Collor_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FFF01212103F51BCCB943BD6 /* [CP] Check Pods Manifest.lock */ = {
@@ -893,8 +998,10 @@
 				F07823581F5E7D8E00FE9CC0 /* TweetInfoCollectionViewCell.swift in Sources */,
 				F043A95B1F6124FB00CB895D /* Colors.swift in Sources */,
 				F0577CC01F39E6870051BD18 /* PantoneViewController.swift in Sources */,
+				F0CEDE282200B67700817466 /* AlphabetLayout.swift in Sources */,
 				F0D318DC1EC33F3900A9CBEA /* NoAdaptableCollectionViewCell.swift in Sources */,
 				F089D9D41F38740500395056 /* RandomAdapters.swift in Sources */,
+				F0CEDE1B2200B27700817466 /* AlphabetSectionDescriptor.swift in Sources */,
 				F089D9AC1F3861A500395056 /* WeatherDayCollectionViewCell.swift in Sources */,
 				F089D9B61F3861A500395056 /* WeatherViewController.swift in Sources */,
 				F089D9CF1F38717800395056 /* RandomSectionDescriptor.swift in Sources */,
@@ -907,11 +1014,14 @@
 				F089D9D21F38726500395056 /* Crew.swift in Sources */,
 				F089D9B21F3861A500395056 /* WeatherSectionDescriptor.swift in Sources */,
 				F089D9B91F3861A500395056 /* WhiteSectionLayout.swift in Sources */,
+				F0CEDE1F2200B2DC00817466 /* AlphabetCollectionViewCell.swift in Sources */,
 				F0D3ED681F41F5EA0087CBD2 /* MenuItemAdapter.swift in Sources */,
+				F0CEDE132200B09B00817466 /* AlphabetCollectionData.swift in Sources */,
 				F0577CCB1F39EA420051BD18 /* PantoneColorAdapter.swift in Sources */,
 				F07823511F5E7D5700FE9CC0 /* TweetAdapter.swift in Sources */,
 				F089D9C91F386FAA00395056 /* RandomCollectionData.swift in Sources */,
 				F078234D1F5E7CFB00FE9CC0 /* TweetSectionDescriptor.swift in Sources */,
+				F0CEDE182200B0CC00817466 /* AlphabetModel.swift in Sources */,
 				F0577CCC1F39EA420051BD18 /* PantoneColorCollectionViewCell.swift in Sources */,
 				F043A9581F61234200CB895D /* RealTimeStyle.swift in Sources */,
 				F089D9B81F3861A500395056 /* WheaterAdapters.swift in Sources */,
@@ -924,9 +1034,11 @@
 				F0D318D51EC3386000A9CBEA /* TestCollectionViewCell.swift in Sources */,
 				F0577CC31F39E6E90051BD18 /* PantoneCollectionData.swift in Sources */,
 				C251BD9E2165AC3E002DBA69 /* NiblessCollectionViewCell.swift in Sources */,
+				F0CEDE242200B4C900817466 /* LetterCollectionReusableView.swift in Sources */,
 				F089D9B11F3861A500395056 /* WeatherModel.swift in Sources */,
 				F089D9BA1F3861A500395056 /* WheatherService.swift in Sources */,
 				F0577CBD1F39C6910051BD18 /* MetallicPantone.swift in Sources */,
+				F0CEDE152200B09B00817466 /* AlphabetViewController.swift in Sources */,
 				F0E987801F5FCC50001870F7 /* RealTimeLayout.swift in Sources */,
 				F089D9AA1F3861A500395056 /* WeatherCollectionData.swift in Sources */,
 				F078235B1F5E812B00FE9CC0 /* RealTimeAdapters.swift in Sources */,
@@ -949,14 +1061,18 @@
 				F05946121EFAB4540004E930 /* CollectionUpdaterDiffDataTest.swift in Sources */,
 				F0C7DE751F6FB51300CB1B9B /* TestDecorationView.swift in Sources */,
 				F049ED5E1EBA1D92000AF6C2 /* CollectionDatasTest.swift in Sources */,
+				F02F6BB722391BB000C0D9D6 /* TestReusableView.swift in Sources */,
 				F089D98B1F34BE8700395056 /* CollectionUpdaterDiffSectionTest.swift in Sources */,
 				F0C7DE6E1F6FB19300CB1B9B /* DecorationViewsHandlerTest.swift in Sources */,
 				F06AA57D1F66E1F70022B371 /* CollorDiffTest.swift in Sources */,
 				F0CC34E31EB9D1850046337B /* CollectionUpdaterTest.swift in Sources */,
+				F02F6BB32238ED1700C0D9D6 /* IndexPathTest.swift in Sources */,
+				F02F6BAF22379C4400C0D9D6 /* SupplementaryViewsHandlerTest.swift in Sources */,
 				F049ED601EBA259A000AF6C2 /* CollectionDataSourceTest.swift in Sources */,
 				F0D318E31EC46AA300A9CBEA /* CollectionViewTest.swift in Sources */,
 				F0ECCA221F6C2A42008B168B /* CollectionSectionDescribableTest.swift in Sources */,
 				F0D318DF1EC3422000A9CBEA /* CollectionDelegateTest.swift in Sources */,
+				F02F6BBB22393F2200C0D9D6 /* TestLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,12 +1118,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1035,12 +1153,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1056,12 +1174,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1082,11 +1202,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1098,12 +1218,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Collor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1114,12 +1234,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Collor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1140,8 +1260,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Collor_Example.app/Collor_Example";
 			};
 			name = Debug;
@@ -1159,8 +1278,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Collor_Example.app/Collor_Example";
 			};
 			name = Release;

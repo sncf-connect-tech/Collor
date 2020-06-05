@@ -10,11 +10,11 @@ import XCTest
 import Collor
 import UIKit
 
-struct TestAdapter:CollectionAdapter {
+struct TestAdapter: CollectionAdapter {
     
 }
 
-final class TestSectionDescriptor:CollectionSectionDescribable {
+final class TestSectionDescriptor: CollectionSectionDescribable {
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
@@ -26,15 +26,14 @@ final class TestSectionDescriptor:CollectionSectionDescribable {
     }
 }
 
-final class SimpleTestSectionDescriptor:CollectionSectionDescribable {
+final class SimpleTestSectionDescriptor: CollectionSectionDescribable {
     func sectionInset(_ collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsets.zero
     }
 
 }
 
-
-final class TestCellDescriptor:CollectionCellDescribable {
+final class TestCellDescriptor: CollectionCellDescribable {
     var identifier: String = "TestCollectionViewCell"
     var className: String = "TestCollectionViewCell"
     var selectable: Bool = false
@@ -55,7 +54,7 @@ final class TestCellDescriptor:CollectionCellDescribable {
     
 }
 
-final class TestData:CollectionData {
+final class TestData: CollectionData {
     override func reloadData() {
         super.reloadData()
         
@@ -74,8 +73,16 @@ final class TestData:CollectionData {
             cells.append( TestCellDescriptor(adapter: TestAdapter() ))
             cells.append( TestCellDescriptor(adapter: TestAdapter() ))
         }
-        
         sections.append(sectionTwo)
+        
+        let sectionWithSupplementaryView = SimpleTestSectionDescriptor()
+        sectionWithSupplementaryView.reload { builder in
+            builder.cells.append( TestCellDescriptor(adapter: TestAdapter() ))
+            builder.add(supplementaryView: TestReusableViewDescriptor(adapter: TestSuppViewAdapter()), kind: "test")
+            builder.add(supplementaryView: TestReusableViewDescriptor(adapter: TestSuppViewAdapter()), kind: "test")
+        }
+        
+        sections.append(sectionWithSupplementaryView)
     }
 }
 
@@ -253,7 +260,7 @@ class CollectionUpdaterTest: XCTestCase {
 
         XCTAssertEqual(result.insertedSectionDescriptors.count, 1)
         XCTAssertTrue(result.insertedSectionDescriptors[0] === section)
-        XCTAssertEqual(result.insertedSectionsIndexSet, IndexSet(integer: 2))
+        XCTAssertEqual(result.insertedSectionsIndexSet, IndexSet(integer: 3))
         XCTAssertEqual(data.sections[2].cells[0].indexPath, IndexPath(item: 0, section: 2))
     }
 
@@ -342,7 +349,7 @@ class CollectionUpdaterTest: XCTestCase {
         XCTAssertTrue(result.deletedSectionDescriptors[0] === section)
         XCTAssertEqual(result.deletedSectionsIndexSet, IndexSet(integer: 1))
         
-        XCTAssertEqual(data.sections.count, 1)
+        XCTAssertEqual(data.sections.count, 2)
         XCTAssertEqual(data.sections[0].cells[0].indexPath, IndexPath(item: 0, section: 0))
     }
     
@@ -366,5 +373,30 @@ class CollectionUpdaterTest: XCTestCase {
         XCTAssertEqual(result.reloadedSectionsIndexSet, IndexSet(integer: 1))
         
         XCTAssertEqual(data.sections[1].cells[0].indexPath, IndexPath(item: 0, section: 1))
+    }
+    
+    func testReloadSections_withSupplementaryView() {
+        // given
+        let section = data.sections[2]
+        
+        // when
+        let result = data.update { updater in
+            updater.reload(sections: [section])
+        }
+        
+        // then
+        XCTAssertTrue(result.insertedSectionDescriptors.isEmpty)
+        XCTAssertTrue(result.insertedSectionsIndexSet.isEmpty)
+        XCTAssertTrue(result.deletedSectionDescriptors.isEmpty)
+        XCTAssertTrue(result.deletedSectionsIndexSet.isEmpty)
+        
+        XCTAssertEqual(result.reloadedSectionDescriptors.count, 1)
+        XCTAssertTrue(result.reloadedSectionDescriptors[0] === section)
+        XCTAssertEqual(result.reloadedSectionsIndexSet, IndexSet(integer: 2))
+//        
+        XCTAssertEqual(data.sections[2].cells[0].indexPath, IndexPath(item: 0, section: 2))
+//        
+        XCTAssertEqual(data.sections[2].cells.count, 1)
+        XCTAssertEqual(data.sections[2].supplementaryViews.count, 1)
     }
 }

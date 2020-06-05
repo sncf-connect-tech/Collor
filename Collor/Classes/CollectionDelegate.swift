@@ -16,10 +16,11 @@ open class CollectionDelegate: NSObject, UICollectionViewDelegate {
     
     /**
      Define a delegate to implements UICollectionViewDelegate methods not used by Collor.
-     Actually, only these methodes are implemented, please contribute if needed:
+     Actually, only these methods are implemented, please contribute if needed:
      - scrollViewDidScroll(:)
+     - collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
      */
-    public weak var forwardingDelegate: UICollectionViewDelegate?
+    public weak var forwardingDelegate: ForwardingUICollectionViewDelegate?
     
     public init(delegate: CollectionDidSelectCellDelegate?) {
         self.delegate = delegate
@@ -88,6 +89,15 @@ extension CollectionDelegate : UICollectionViewDelegateFlowLayout {
 extension CollectionDelegate {
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        forwardingDelegate?.scrollViewDidScroll?(scrollView)
+        forwardingDelegate?.scrollViewDidScroll(scrollView)
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        forwardingDelegate?.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
+    }
+}
+
+public protocol ForwardingUICollectionViewDelegate: class {
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
 }

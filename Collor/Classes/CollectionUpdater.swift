@@ -142,7 +142,16 @@ final public class CollectionUpdater {
             }
             
             sectionToReload.cells.removeAll()
-            sectionToReload.builder?(&sectionToReload.cells)
+            sectionToReload.supplementaryViews.removeAll()
+            
+            if let builderObject = sectionToReload.builderObject {
+                let sectionBuilder = SectionBuilder()
+                builderObject(sectionBuilder)
+                sectionToReload.cells = sectionBuilder.cells
+                sectionToReload.supplementaryViews = sectionBuilder.supplementaryViews
+            } else if let builder = sectionToReload.builder {
+                builder(&sectionToReload.cells)
+            }
             collectionData.computeIndexPaths(in:sectionToReload)
             result?.reloadedSectionsIndexSet.insert(index)
             result?.reloadedSectionDescriptors.append(sectionToReload)
