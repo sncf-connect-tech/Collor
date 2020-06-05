@@ -39,7 +39,7 @@ class MenuViewController: UIViewController {
                               Example(title: "Alphabet", controllerClass: AlphabetViewController.self)]
     
     
-    lazy var collectionData:MenuCollectionData = MenuCollectionData(examples: self.examples)
+    lazy var collectionData: MenuCollectionData = MenuCollectionData(examples: self.examples)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +62,15 @@ extension MenuViewController : MenuUserEventDelegate {
     }
 }
 
-extension MenuViewController : UICollectionViewDelegate {
+extension MenuViewController : ForwardingUICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print("scroll")
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("willAppear")
+    }
 }
+
+
 
