@@ -20,5 +20,6 @@
     "ios": "10.0"
   },
   "source_files": "Collor/Classes/**/*",
+  "swift_versions": "4.2",
   "swift_version": "4.2"
 }
