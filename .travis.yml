@@ -2,18 +2,17 @@
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
 
-osx_image: xcode10.1
+osx_image: xcode11.5
 language: swift
+rvm:
+ - 2.7.1
 cache: cocoapods
 podfile: Example/Podfile
 before_install:
-- gem install cocoapods # Since Travis is not always on latest version
-- gem uninstall --force CFPropertyList -v 3.0
-- gem install CFPropertyList -v 2.3.6
-- gem i slather --no-ri --no-rdoc
-- pod install --project-directory=Example --repo-update
+- bundle install
+- bundle exec pod install --project-directory=Example --repo-update
 script:
-- set -o pipefail && xcodebuild test -workspace Example/Collor.xcworkspace -scheme Collor-Example -destination "platform=iOS Simulator,name=iPhone 6" | xcpretty
+- set -o pipefail && xcodebuild test -workspace Example/Collor.xcworkspace -scheme Collor-Example -destination "platform=iOS Simulator,name=iPhone 8" | xcpretty
 - pod lib lint --allow-warnings
 after_success: 
-- slather
+- bundle exec slather

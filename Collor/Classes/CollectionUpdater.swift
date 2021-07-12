@@ -72,7 +72,7 @@ final public class CollectionUpdater {
             guard let indexPath = cellToDelete.indexPath else {
                 return
             }
-            guard let index = section.cells.index(where: {$0 === cellToDelete}) else {
+            guard let index = section.cells.firstIndex(where: {$0 === cellToDelete}) else {
                 return
             }
             section.cells.remove(at: index)
@@ -122,7 +122,7 @@ final public class CollectionUpdater {
     public func remove(sections:[CollectionSectionDescribable]) {
         var needTocomputeIndices = false
         sections.forEach { (sectionToDelete) in
-            guard let index = collectionData.sections.index(where: {$0 === sectionToDelete} ) else  {
+            guard let index = collectionData.sections.firstIndex(where: {$0 === sectionToDelete} ) else  {
                 return
             }
             collectionData.sections.remove(at: index)
@@ -137,7 +137,7 @@ final public class CollectionUpdater {
     
     public func reload(sections:[CollectionSectionDescribable]) {
         sections.forEach { (sectionToReload) in
-            guard let index = collectionData.sections.index(where: {$0 === sectionToReload} ) else {
+            guard let index = collectionData.sections.firstIndex(where: {$0 === sectionToReload} ) else {
                 return
             }
             

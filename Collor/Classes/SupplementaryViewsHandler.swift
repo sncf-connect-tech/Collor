@@ -142,6 +142,8 @@ public struct SupplementaryViewsHandler {
                 }
             case .none:
                 break
+            @unknown default:
+                break
             }
         }
     }

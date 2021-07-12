@@ -20,7 +20,7 @@ class MetallicPantone {
     }
     
     func remove(hexaColor:Int) {
-        guard let index = used.index(of: hexaColor) else {
+        guard let index = used.firstIndex(of: hexaColor) else {
             return
         }
         used.remove(at: index)

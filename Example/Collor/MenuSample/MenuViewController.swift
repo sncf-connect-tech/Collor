@@ -63,9 +63,15 @@ extension MenuViewController: MenuUserEventDelegate {
     }
 }
 
-extension MenuViewController: UICollectionViewDelegate {
+extension MenuViewController : ForwardingUICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print("scroll")
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("willAppear")
+    }
 }
+
+
 

@@ -44,6 +44,19 @@ class CollorDiffTest: XCTestCase {
         }
     }
     
+    func testNoChange() {
+        
+        let oldArray = ["Anna","Baptiste","Clement"]
+        let newArray = ["Anna","Baptiste","Clement"]
+        
+        let diff = CollorDiff(before: map(oldArray), after: map(newArray))
+        
+        XCTAssertTrue(diff.inserted.isEmpty)
+        XCTAssertTrue(diff.reloaded.isEmpty)
+        XCTAssertTrue(diff.deleted.isEmpty)
+        XCTAssertTrue(diff.deleted.isEmpty)
+    }
+    
     func testKeyDelete_first() {
         
         let oldArray = ["Anna","Baptiste","Clement"]

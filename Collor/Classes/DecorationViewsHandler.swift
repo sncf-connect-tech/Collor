@@ -117,6 +117,8 @@ public struct DecorationViewsHandler {
                 }
             case .none:
                 break
+            @unknown default:
+                break
             }
         }
     }
