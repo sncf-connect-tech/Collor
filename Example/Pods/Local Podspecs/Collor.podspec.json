@@ -2,8 +2,8 @@
   "name": "Collor",
   "version": "1.1.33",
   "summary": "A MVVM data-oriented framework for UICollectionView.",
-  "homepage": "https://github.com/voyages-sncf-technologies/Collor",
-  "screenshots": "https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/screenshot.jpg",
+  "homepage": "https://github.com/sncf-connect-tech/Collor",
+  "screenshots": "https://raw.githubusercontent.com/sncf-connect-tech/Collor/master/resources/screenshot.jpg",
   "license": {
     "type": "BSD",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "Gwenn Guihal": "gguihal@oui.sncf"
   },
   "source": {
-    "git": "https://github.com/voyages-sncf-technologies/Collor.git",
+  "git": "https://github.com/sncf-connect-tech/Collor.git",
     "tag": "1.1.33"
   },
   "social_media_url": "https://twitter.com/_myrddin_",

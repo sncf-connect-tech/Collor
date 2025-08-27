@@ -1,8 +1,8 @@
 <br/>
-<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/logo.png" alt="Collor logo"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sncf-connect-tech/Collor/master/resources/logo.png" alt="Collor logo"></p>
 
-[![CI Status](https://travis-ci.org/voyages-sncf-technologies/Collor.svg?branch=master)](https://travis-ci.org/voyages-sncf-technologies/Collor/)
-[![Coverage Status](https://coveralls.io/repos/github/voyages-sncf-technologies/Collor/badge.svg?branch=master)](https://coveralls.io/github/voyages-sncf-technologies/Collor?branch=master)
+[![CI Status](https://travis-ci.org/sncf-connect-tech/Collor.svg?branch=master)](https://travis-ci.org/sncf-connect-tech/Collor/)
+[![Coverage Status](https://coveralls.io/repos/github/sncf-connect-tech/Collor/badge.svg?branch=master)](https://coveralls.io/github/sncf-connect-tech/Collor?branch=master)
 [![Version](https://img.shields.io/cocoapods/v/Collor.svg?style=flat)](http://cocoapods.org/pods/Collor)
 [![License](https://img.shields.io/cocoapods/l/Collor.svg?style=flat)](http://cocoapods.org/pods/Collor)
 [![Platform](https://img.shields.io/cocoapods/p/Collor.svg?style=flat)](http://cocoapods.org/pods/Collor)
@@ -31,7 +31,7 @@ Here is the list of all the features:
 - [x] Well tested.
 - [x] 🆕 **Handle supplementary views** (may be improved in next versions)
 
-<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/random.gif" alt="Collor Random Sample"> <img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/weather.gif" alt="Collor Weather Sample"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sncf-connect-tech/Collor/master/resources/random.gif" alt="Collor Random Sample"> <img src="https://raw.githubusercontent.com/sncf-connect-tech/Collor/master/resources/weather.gif" alt="Collor Weather Sample"></p>
 
 
 ## Getting started
@@ -176,7 +176,7 @@ You get a readable data which represents your UICollectionView, without code dup
 To add a supplementaryView, instead of using `CollectionSectionDescribable.reloadSection(:)`, call `CollectionSectionDescribable.reload(:)`.
 The `builder` passed as parameter exposes new method to add a `supplementaryView` easily.
 
-<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/alphabet.gif" alt="Collor Alphabet Sample"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sncf-connect-tech/Collor/master/resources/alphabet.gif" alt="Collor Alphabet Sample"></p>
 
 ```swift
 let section = MySectionDescriptor().reload { builder in
@@ -312,7 +312,7 @@ return decorationViewHandler.inserted(for: elementKind)
 return decorationViewHandler.deleted(for: elementKind)
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources/realtime.gif" alt="Collor Realtime Sample"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sncf-connect-tech/Collor/master/resources/realtime.gif" alt="Collor Realtime Sample"></p>
 
 
 For more information, have a look at this [medium article](https://medium.com/p/8f37064de388/).
@@ -326,7 +326,7 @@ To install them, just go in xctemplates directory and run this command in a term
 sh install.sh
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/voyages-sncf-technologies/Collor/master/resources//xctemplates.png" alt="XCTemplates"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/sncf-connect-tech/Collor/master/resources//xctemplates.png" alt="XCTemplates"></p>
 
 ## Requirements
 - iOS 10.0+
@@ -346,7 +346,7 @@ Collor doesn't yet support Carthage. Work in progress...
 
 ## Documentation
 
-[Documentation](https://voyages-sncf-technologies.github.io/Collor/index.html)
+[Documentation](https://sncf-connect-tech.github.io/Collor/index.html)
 
 Work in progress... 1% documented
 
